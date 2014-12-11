@@ -36,10 +36,14 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_email" translatesAutoresizingMaskIntoConstraints="NO" id="8r4-BM-bbE">
                                                     <rect key="frame" x="13" y="6" width="32" height="32"/>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8tG-hY-f5y">
+                                                <textField opaque="NO" clipsSubviews="YES" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8tG-hY-f5y">
                                                     <rect key="frame" x="53" y="11" width="251" height="21"/>
                                                     <attributedString key="attributedText"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                                    <connections>
+                                                        <action selector="didValueChanged:" destination="YyP-No-6np" eventType="editingChanged" id="V6S-OH-aoy"/>
+                                                        <outlet property="delegate" destination="FcQ-CV-vBC" id="XM8-hO-orL"/>
+                                                    </connections>
                                                 </textField>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWp-mD-We3" userLabel="seperator">
                                                     <rect key="frame" x="13" y="42" width="291" height="1"/>
@@ -75,10 +79,14 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_lock" translatesAutoresizingMaskIntoConstraints="NO" id="kf5-jF-MvS">
                                                     <rect key="frame" x="13" y="6" width="32" height="32"/>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="IjQ-RR-xRA">
+                                                <textField opaque="NO" clipsSubviews="YES" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="IjQ-RR-xRA">
                                                     <rect key="frame" x="53" y="11" width="251" height="21"/>
                                                     <attributedString key="attributedText"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done" secureTextEntry="YES"/>
+                                                    <connections>
+                                                        <action selector="didValueChanged:" destination="YyP-No-6np" eventType="editingChanged" id="6u7-wh-uo2"/>
+                                                        <outlet property="delegate" destination="Xev-5c-Zc0" id="FKr-9x-YhU"/>
+                                                    </connections>
                                                 </textField>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmT-sw-GzG" userLabel="seperator">
                                                     <rect key="frame" x="13" y="42" width="291" height="1"/>

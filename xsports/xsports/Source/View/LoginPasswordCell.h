@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginPasswordCell : UITableViewCell
-
+@interface LoginPasswordCell : UITableViewCell < UITextFieldDelegate >
 @property (weak, nonatomic) IBOutlet UITextField *textField;
-
 @end
