@@ -14,12 +14,16 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+
+#import "GPUImage.h"
+#import <pop/POP.h>
+#import "SIAlertView.h"
+
 #import "XSConstants.h"
 #import "UIColor+XS.h"
 #import "UIFont+XS.h"
 #import "UIScreen+XS.h"
 #import "NSPredicate+XS.h"
-
-#import "GPUImage.h"
+#import "UIViewController+XS.h"
 
 #endif

@@ -12,6 +12,7 @@ pod 'GPUImage'
 pod 'MagicalRecord'
 pod 'CocoaLumberjack'
 pod 'FastImageCache'
+pod 'SIAlertView'
 
 end
 

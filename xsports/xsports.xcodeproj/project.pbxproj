@@ -25,6 +25,7 @@
 		9C7DEBC01A396E6B00A0436E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C7DEBBE1A396E6B00A0436E /* LaunchScreen.xib */; };
 		9C7DEBCC1A396E6B00A0436E /* xsportsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DEBCB1A396E6B00A0436E /* xsportsTests.m */; };
 		9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9862F91A39753F003D5F86 /* UIColor+XS.m */; };
+		9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		9C7DEBCB1A396E6B00A0436E /* xsportsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xsportsTests.m; sourceTree = "<group>"; };
 		9C9862F81A39753F003D5F86 /* UIColor+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XS.h"; sourceTree = "<group>"; };
 		9C9862F91A39753F003D5F86 /* UIColor+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XS.m"; sourceTree = "<group>"; };
+		9CCF45DA1A3A5A2300FB1A94 /* UIViewController+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XS.h"; sourceTree = "<group>"; };
+		9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XS.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +208,8 @@
 				9C54EF521A3A3B6000D16EEE /* UIScreen+XS.m */,
 				9C54EF541A3A457000D16EEE /* NSPredicate+XS.h */,
 				9C54EF551A3A457000D16EEE /* NSPredicate+XS.m */,
+				9CCF45DA1A3A5A2300FB1A94 /* UIViewController+XS.h */,
+				9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 			files = (
 				9C7DEBB51A396E6B00A0436E /* AppDelegate.m in Sources */,
 				9C54EF561A3A457000D16EEE /* NSPredicate+XS.m in Sources */,
+				9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */,
 				9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */,
 				9C54EF501A3A260900D16EEE /* LoginPasswordCell.m in Sources */,
 				9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */,

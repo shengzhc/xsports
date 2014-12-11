@@ -60,18 +60,32 @@
     self.signUpButton.titleLabel.font = [UIFont fontWithName:@"Futura-Medium" size:18.0];
 }
 
-#pragma mark Button Action
-- (IBAction)didSignInButtonClicked:(id)sender
+#pragma mark Logic
+- (void)signIn
 {
     if ([NSPredicate validateEmail:self.m_email] && self.m_password.length >= 4) {
         
     } else {
-    
+        SIAlertView *alertView = [self cancelAlertViewWithTitle:nil message:@"Email or Password is incorrect..."];
+        [alertView show];
     }
+}
+
+- (void)signUp
+{
+    SIAlertView *alertView = [self cancelAlertViewWithTitle:nil message:@"Please waiting for the new Feature..."];
+    [alertView show];
+}
+
+#pragma mark Button Action
+- (IBAction)didSignInButtonClicked:(id)sender
+{
+    [self signIn];
 }
 
 - (IBAction)didSignUpButtonClicked:(id)sender
 {
+    [self signUp];
 }
 
 #pragma mark Keyboard
