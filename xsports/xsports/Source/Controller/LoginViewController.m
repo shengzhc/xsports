@@ -11,6 +11,7 @@
 #import "LoginPasswordCell.h"
 
 @interface LoginViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonContainerTopConstraint;
 @end
 
 @implementation LoginViewController
@@ -19,6 +20,7 @@
 {
     [super viewDidLoad];
     [self setupTableView];
+    [self setupButtons];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -29,7 +31,26 @@
 - (void)setupTableView
 {
     self.tableView.rowHeight = 44.0;
-    self.tableView.contentInset = UIEdgeInsetsMake(200, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake([UIScreen height]/2.0 - self.tableView.rowHeight, 0, 0, 0);
+}
+
+- (void)setupButtons
+{
+    self.buttonContainerTopConstraint.constant = self.tableView.rowHeight * 2.0 + self.tableView.contentInset.top + 24.0;
+    self.signInButton.backgroundColor = [UIColor lightWaveColor];
+    self.signInButton.titleLabel.font = [UIFont fontWithName:@"Futura-Medium" size:18.0];
+
+    self.signUpButton.backgroundColor = [UIColor lightJadeColor];
+    self.signUpButton.titleLabel.font = [UIFont fontWithName:@"Futura-Medium" size:18.0];
+}
+
+#pragma mark Button Action
+- (IBAction)didSignInButtonClicked:(id)sender
+{
+}
+
+- (IBAction)didSignUpButtonClicked:(id)sender
+{
 }
 
 #pragma mark UITableViewDelegate & UITableViewDataSource
@@ -49,6 +70,11 @@
     }
     
     return nil;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown;
 }
 
 @end

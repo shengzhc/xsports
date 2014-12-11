@@ -37,12 +37,12 @@
                                                     <rect key="frame" x="13" y="6" width="32" height="32"/>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8tG-hY-f5y">
-                                                    <rect key="frame" x="53" y="11.5" width="251" height="21"/>
+                                                    <rect key="frame" x="53" y="11" width="251" height="21"/>
                                                     <attributedString key="attributedText"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
                                                 </textField>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWp-mD-We3" userLabel="seperator">
-                                                    <rect key="frame" x="13" y="42" width="291" height="0.5"/>
+                                                    <rect key="frame" x="13" y="42" width="291" height="1"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="ObE-1d-xK6"/>
@@ -76,12 +76,12 @@
                                                     <rect key="frame" x="13" y="6" width="32" height="32"/>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="IjQ-RR-xRA">
-                                                    <rect key="frame" x="53" y="11.5" width="251" height="21"/>
+                                                    <rect key="frame" x="53" y="11" width="251" height="21"/>
                                                     <attributedString key="attributedText"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done" secureTextEntry="YES"/>
                                                 </textField>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmT-sw-GzG" userLabel="seperator">
-                                                    <rect key="frame" x="13" y="42" width="291" height="0.5"/>
+                                                    <rect key="frame" x="13" y="42" width="291" height="1"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="WFh-gQ-Lu8"/>
@@ -112,12 +112,66 @@
                                     <outlet property="delegate" destination="YyP-No-6np" id="7Yf-7V-ybd"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hzd-fR-Jqc" userLabel="button container">
+                                <rect key="frame" x="0.0" y="400" width="320" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VR3-aQ-jwI" userLabel="btn_signin">
+                                        <rect key="frame" x="16" y="8" width="288" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="XjE-N4-1Lp"/>
+                                        </constraints>
+                                        <state key="normal" title="Sign In">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didSignInButtonClicked:" destination="YyP-No-6np" eventType="touchUpInside" id="dkv-Bt-4Hi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMM-AH-AOz" userLabel="btn_signup">
+                                        <rect key="frame" x="16" y="68" width="288" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="s9Z-sm-WnB"/>
+                                        </constraints>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didSignUpButtonClicked:" destination="YyP-No-6np" eventType="touchUpInside" id="b6l-rJ-dzD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="pMM-AH-AOz" secondAttribute="bottom" constant="8" id="8Pf-Cu-Dwc"/>
+                                    <constraint firstItem="VR3-aQ-jwI" firstAttribute="leading" secondItem="pMM-AH-AOz" secondAttribute="leading" id="Vkq-pD-kw2"/>
+                                    <constraint firstAttribute="trailing" secondItem="VR3-aQ-jwI" secondAttribute="trailing" constant="16" id="aGV-19-SJG"/>
+                                    <constraint firstItem="pMM-AH-AOz" firstAttribute="top" secondItem="VR3-aQ-jwI" secondAttribute="bottom" constant="16" id="cB6-WS-QdY"/>
+                                    <constraint firstItem="VR3-aQ-jwI" firstAttribute="leading" secondItem="Hzd-fR-Jqc" secondAttribute="leading" constant="16" id="oMP-vG-etj"/>
+                                    <constraint firstItem="VR3-aQ-jwI" firstAttribute="trailing" secondItem="pMM-AH-AOz" secondAttribute="trailing" id="qZ7-1d-bcE"/>
+                                    <constraint firstItem="VR3-aQ-jwI" firstAttribute="top" secondItem="Hzd-fR-Jqc" secondAttribute="top" constant="8" id="r3r-TS-f4c"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="uNq-QU-kTj" secondAttribute="bottom" id="5FQ-4d-9st"/>
                             <constraint firstItem="4ss-Ls-65A" firstAttribute="leading" secondItem="x92-OI-9EG" secondAttribute="leading" id="6ar-3Y-BLd"/>
                             <constraint firstItem="uNq-QU-kTj" firstAttribute="top" secondItem="x92-OI-9EG" secondAttribute="top" id="Cn8-Po-Diq"/>
+                            <constraint firstAttribute="trailing" secondItem="Hzd-fR-Jqc" secondAttribute="trailing" id="Duh-cX-Es6"/>
+                            <constraint firstItem="Hzd-fR-Jqc" firstAttribute="top" secondItem="x92-OI-9EG" secondAttribute="top" constant="400" id="E1D-A9-Yi7"/>
+                            <constraint firstItem="Hzd-fR-Jqc" firstAttribute="leading" secondItem="x92-OI-9EG" secondAttribute="leading" id="G9R-yV-1JX"/>
                             <constraint firstAttribute="centerX" secondItem="Dbr-Da-sh5" secondAttribute="centerX" id="Nnk-dX-osq"/>
                             <constraint firstAttribute="trailing" secondItem="uNq-QU-kTj" secondAttribute="trailing" id="bbr-ID-g2G"/>
                             <constraint firstItem="Dbr-Da-sh5" firstAttribute="top" secondItem="x92-OI-9EG" secondAttribute="top" constant="56" id="ewM-4L-Hi0"/>
@@ -128,7 +182,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonContainerTopConstraint" destination="E1D-A9-Yi7" id="3Od-Gf-Xzt"/>
                         <outlet property="logoImageView" destination="Dbr-Da-sh5" id="Syb-GL-yCy"/>
+                        <outlet property="signInButton" destination="VR3-aQ-jwI" id="NkC-PL-bnO"/>
+                        <outlet property="signUpButton" destination="pMM-AH-AOz" id="64r-Je-vqn"/>
                         <outlet property="tableView" destination="4ss-Ls-65A" id="Ug0-o1-YkL"/>
                     </connections>
                 </viewController>
