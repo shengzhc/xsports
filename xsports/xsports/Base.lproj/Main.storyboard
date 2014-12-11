@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Dbr-Da-sh5" userLabel="logo">
-                                <rect key="frame" x="100" y="56" width="120" height="120"/>
+                                <rect key="frame" x="40" y="28" width="240" height="240"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4ss-Ls-65A">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -174,7 +174,7 @@
                             <constraint firstItem="Hzd-fR-Jqc" firstAttribute="leading" secondItem="x92-OI-9EG" secondAttribute="leading" id="G9R-yV-1JX"/>
                             <constraint firstAttribute="centerX" secondItem="Dbr-Da-sh5" secondAttribute="centerX" id="Nnk-dX-osq"/>
                             <constraint firstAttribute="trailing" secondItem="uNq-QU-kTj" secondAttribute="trailing" id="bbr-ID-g2G"/>
-                            <constraint firstItem="Dbr-Da-sh5" firstAttribute="top" secondItem="x92-OI-9EG" secondAttribute="top" constant="56" id="ewM-4L-Hi0"/>
+                            <constraint firstItem="Dbr-Da-sh5" firstAttribute="top" secondItem="x92-OI-9EG" secondAttribute="top" constant="28" id="ewM-4L-Hi0"/>
                             <constraint firstItem="uNq-QU-kTj" firstAttribute="leading" secondItem="x92-OI-9EG" secondAttribute="leading" id="p4n-ym-KJ4"/>
                             <constraint firstAttribute="trailing" secondItem="4ss-Ls-65A" secondAttribute="trailing" id="rfY-JA-foE"/>
                             <constraint firstItem="4ss-Ls-65A" firstAttribute="top" secondItem="x92-OI-9EG" secondAttribute="topMargin" id="w1T-bA-Eq0"/>
@@ -198,7 +198,7 @@
         <image name="bg_login" width="311" height="552"/>
         <image name="ico_email" width="32" height="32"/>
         <image name="ico_lock" width="32" height="32"/>
-        <image name="ico_logo" width="120" height="120"/>
+        <image name="ico_logo" width="240" height="240"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
