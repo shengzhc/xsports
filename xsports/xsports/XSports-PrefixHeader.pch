@@ -1,0 +1,23 @@
+//
+//  XSports-PrefixHeader.pch
+//  xsports
+//
+//  Created by Shengzhe Chen on 12/11/14.
+//  Copyright (c) 2014 Shengzhe Chen. All rights reserved.
+//
+
+#ifndef xsports_XSports_PrefixHeader_pch
+#define xsports_XSports_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <UIKit/UIKit.h>i
+#import <Foundation/Foundation.h>
+#import "XSConstants.h"
+#import "UIColor+XS.h"
+#import "UIFont+XS.h"
+
+#import "GPUImage.h"
+
+#endif

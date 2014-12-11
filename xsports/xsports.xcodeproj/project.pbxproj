@@ -12,6 +12,9 @@
 		9C54EF411A39EF0B00D16EEE /* NotoSansCJKsc-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C54EF3E1A39EF0B00D16EEE /* NotoSansCJKsc-Bold.otf */; };
 		9C54EF421A39EF0B00D16EEE /* NotoSansCJKsc-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C54EF3F1A39EF0B00D16EEE /* NotoSansCJKsc-Regular.otf */; };
 		9C54EF431A39EF0B00D16EEE /* NotoSansCJKsc-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C54EF401A39EF0B00D16EEE /* NotoSansCJKsc-Thin.otf */; };
+		9C54EF491A39F11A00D16EEE /* XSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF481A39F11A00D16EEE /* XSConstants.m */; };
+		9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF4C1A3A255C00D16EEE /* LoginEmailCell.m */; };
+		9C54EF501A3A260900D16EEE /* LoginPasswordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF4F1A3A260900D16EEE /* LoginPasswordCell.m */; };
 		9C6B21E91A397BB100FE8B43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C6B21E81A397BB100FE8B43 /* Images.xcassets */; };
 		9C6B21EC1A39812D00FE8B43 /* UIFont+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6B21EB1A39812D00FE8B43 /* UIFont+XS.m */; };
 		9C7DEBB21A396E6B00A0436E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DEBB11A396E6B00A0436E /* main.m */; };
@@ -19,7 +22,6 @@
 		9C7DEBBB1A396E6B00A0436E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C7DEBB91A396E6B00A0436E /* Main.storyboard */; };
 		9C7DEBC01A396E6B00A0436E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C7DEBBE1A396E6B00A0436E /* LaunchScreen.xib */; };
 		9C7DEBCC1A396E6B00A0436E /* xsportsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DEBCB1A396E6B00A0436E /* xsportsTests.m */; };
-		9C9862F61A3974F2003D5F86 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9862F51A3974F2003D5F86 /* ViewController.m */; };
 		9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9862F91A39753F003D5F86 /* UIColor+XS.m */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,13 @@
 		9C54EF3E1A39EF0B00D16EEE /* NotoSansCJKsc-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKsc-Bold.otf"; sourceTree = "<group>"; };
 		9C54EF3F1A39EF0B00D16EEE /* NotoSansCJKsc-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKsc-Regular.otf"; sourceTree = "<group>"; };
 		9C54EF401A39EF0B00D16EEE /* NotoSansCJKsc-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKsc-Thin.otf"; sourceTree = "<group>"; };
+		9C54EF471A39F11A00D16EEE /* XSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSConstants.h; sourceTree = "<group>"; };
+		9C54EF481A39F11A00D16EEE /* XSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSConstants.m; sourceTree = "<group>"; };
+		9C54EF4A1A39F8BC00D16EEE /* XSports-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XSports-PrefixHeader.pch"; sourceTree = "<group>"; };
+		9C54EF4B1A3A255C00D16EEE /* LoginEmailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginEmailCell.h; sourceTree = "<group>"; };
+		9C54EF4C1A3A255C00D16EEE /* LoginEmailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginEmailCell.m; sourceTree = "<group>"; };
+		9C54EF4E1A3A260900D16EEE /* LoginPasswordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginPasswordCell.h; sourceTree = "<group>"; };
+		9C54EF4F1A3A260900D16EEE /* LoginPasswordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPasswordCell.m; sourceTree = "<group>"; };
 		9C6B21E81A397BB100FE8B43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9C6B21EA1A39812D00FE8B43 /* UIFont+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+XS.h"; sourceTree = "<group>"; };
 		9C6B21EB1A39812D00FE8B43 /* UIFont+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+XS.m"; sourceTree = "<group>"; };
@@ -55,8 +64,6 @@
 		9C7DEBC51A396E6B00A0436E /* xsportsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xsportsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7DEBCA1A396E6B00A0436E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C7DEBCB1A396E6B00A0436E /* xsportsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xsportsTests.m; sourceTree = "<group>"; };
-		9C9862F41A3974F2003D5F86 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9C9862F51A3974F2003D5F86 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9C9862F81A39753F003D5F86 /* UIColor+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XS.h"; sourceTree = "<group>"; };
 		9C9862F91A39753F003D5F86 /* UIColor+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XS.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,10 +141,12 @@
 				9C9862EF1A3974A8003D5F86 /* Source */,
 				9C7DEBB31A396E6B00A0436E /* AppDelegate.h */,
 				9C7DEBB41A396E6B00A0436E /* AppDelegate.m */,
-				9C7DEBB91A396E6B00A0436E /* Main.storyboard */,
+				9C54EF471A39F11A00D16EEE /* XSConstants.h */,
+				9C54EF481A39F11A00D16EEE /* XSConstants.m */,
 				9C7DEBBE1A396E6B00A0436E /* LaunchScreen.xib */,
 				9C6B21E81A397BB100FE8B43 /* Images.xcassets */,
 				9C7DEBAF1A396E6B00A0436E /* Supporting Files */,
+				9C54EF4A1A39F8BC00D16EEE /* XSports-PrefixHeader.pch */,
 			);
 			path = xsports;
 			sourceTree = "<group>";
@@ -193,8 +202,7 @@
 		9C9862F11A3974D6003D5F86 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9C9862F41A3974F2003D5F86 /* ViewController.h */,
-				9C9862F51A3974F2003D5F86 /* ViewController.m */,
+				9C7DEBB91A396E6B00A0436E /* Main.storyboard */,
 				9C54EF3A1A39EECA00D16EEE /* LoginViewController.h */,
 				9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */,
 			);
@@ -211,6 +219,10 @@
 		9C9862F31A3974D6003D5F86 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9C54EF4B1A3A255C00D16EEE /* LoginEmailCell.h */,
+				9C54EF4C1A3A255C00D16EEE /* LoginEmailCell.m */,
+				9C54EF4E1A3A260900D16EEE /* LoginPasswordCell.h */,
+				9C54EF4F1A3A260900D16EEE /* LoginPasswordCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,9 +373,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C9862F61A3974F2003D5F86 /* ViewController.m in Sources */,
 				9C7DEBB51A396E6B00A0436E /* AppDelegate.m in Sources */,
 				9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */,
+				9C54EF501A3A260900D16EEE /* LoginPasswordCell.m in Sources */,
+				9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */,
+				9C54EF491A39F11A00D16EEE /* XSConstants.m in Sources */,
 				9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */,
 				9C7DEBB21A396E6B00A0436E /* main.m in Sources */,
 				9C6B21EC1A39812D00FE8B43 /* UIFont+XS.m in Sources */,
@@ -395,6 +409,7 @@
 				9C7DEBBA1A396E6B00A0436E /* Base */,
 			);
 			name = Main.storyboard;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		9C7DEBBE1A396E6B00A0436E /* LaunchScreen.xib */ = {
@@ -492,6 +507,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "xsports/XSports-PrefixHeader.pch";
 				INFOPLIST_FILE = xsports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -505,6 +522,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "xsports/XSports-PrefixHeader.pch";
 				INFOPLIST_FILE = xsports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
