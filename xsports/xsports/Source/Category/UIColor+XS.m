@@ -129,4 +129,14 @@
     return [UIColor colorWithRed:60.0/255.0f green:49.0/255.0f blue:83.0/255.0f alpha:1];
 }
 
++ (UIColor *)textFieldCursorColor
+{
+    return [self waveColor];
+}
+
++ (UIColor *)textFieldPlaceHolderColor
+{
+    return [self lightPebbleColor];
+}
+
 @end

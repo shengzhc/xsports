@@ -11,7 +11,6 @@
 #import "LoginPasswordCell.h"
 
 @interface LoginViewController ()
-@property (strong, nonatomic) id stillImageFilter;
 @end
 
 @implementation LoginViewController
@@ -19,7 +18,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupBackground];
     [self setupTableView];
 }
 
@@ -28,28 +26,10 @@
     [super viewWillAppear:animated];
 }
 
-- (void)setupBackground
-{
-    UIImage *inputImage = [UIImage imageNamed:@"login_bg.png"];
-    GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:inputImage];
-    [stillImageSource addTarget:self.stillImageFilter];
-    [self.stillImageFilter useNextFrameForImageCapture];
-    [stillImageSource processImage];
-    UIImage *currentFilteredVideoFrame = [self.stillImageFilter imageFromCurrentFramebuffer];
-    self.backgroundImageView.image = currentFilteredVideoFrame;
-}
-
 - (void)setupTableView
 {
     self.tableView.rowHeight = 44.0;
-}
-
-- (id)stillImageFilter
-{
-    if (_stillImageFilter == nil) {
-        _stillImageFilter = [[GPUImageiOSBlurFilter alloc] init];
-    }
-    return _stillImageFilter;
+    self.tableView.contentInset = UIEdgeInsetsMake(200, 0, 0, 0);
 }
 
 #pragma mark UITableViewDelegate & UITableViewDataSource

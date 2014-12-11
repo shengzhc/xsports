@@ -45,4 +45,7 @@
 + (UIColor *)semiFujiColor;
 + (UIColor *)darkFujiColor;
 
++ (UIColor *)textFieldCursorColor;
++ (UIColor *)textFieldPlaceHolderColor;
+
 @end

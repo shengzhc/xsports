@@ -18,10 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="YWJ-gw-wzk" userLabel="background" customClass="UIImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_login" translatesAutoresizingMaskIntoConstraints="NO" id="uNq-QU-kTj">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Dbr-Da-sh5" userLabel="logo">
                                 <rect key="frame" x="100" y="56" width="120" height="120"/>
                             </imageView>
@@ -103,7 +102,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outlet property="textField" destination="IjQ-RR-xRA" id="n9a-5C-IXi"/>
+                                            <outlet property="textField" destination="IjQ-RR-xRA" id="8Ii-VI-rat"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -116,20 +115,19 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YWJ-gw-wzk" firstAttribute="leading" secondItem="x92-OI-9EG" secondAttribute="leading" id="3Gc-KP-yKf"/>
+                            <constraint firstAttribute="bottom" secondItem="uNq-QU-kTj" secondAttribute="bottom" id="5FQ-4d-9st"/>
                             <constraint firstItem="4ss-Ls-65A" firstAttribute="leading" secondItem="x92-OI-9EG" secondAttribute="leading" id="6ar-3Y-BLd"/>
-                            <constraint firstAttribute="trailing" secondItem="YWJ-gw-wzk" secondAttribute="trailing" id="9bt-Hf-fyK"/>
-                            <constraint firstItem="YWJ-gw-wzk" firstAttribute="top" secondItem="x92-OI-9EG" secondAttribute="topMargin" id="Beb-Ca-ZS3"/>
+                            <constraint firstItem="uNq-QU-kTj" firstAttribute="top" secondItem="x92-OI-9EG" secondAttribute="top" id="Cn8-Po-Diq"/>
                             <constraint firstAttribute="centerX" secondItem="Dbr-Da-sh5" secondAttribute="centerX" id="Nnk-dX-osq"/>
+                            <constraint firstAttribute="trailing" secondItem="uNq-QU-kTj" secondAttribute="trailing" id="bbr-ID-g2G"/>
                             <constraint firstItem="Dbr-Da-sh5" firstAttribute="top" secondItem="x92-OI-9EG" secondAttribute="top" constant="56" id="ewM-4L-Hi0"/>
+                            <constraint firstItem="uNq-QU-kTj" firstAttribute="leading" secondItem="x92-OI-9EG" secondAttribute="leading" id="p4n-ym-KJ4"/>
                             <constraint firstAttribute="trailing" secondItem="4ss-Ls-65A" secondAttribute="trailing" id="rfY-JA-foE"/>
                             <constraint firstItem="4ss-Ls-65A" firstAttribute="top" secondItem="x92-OI-9EG" secondAttribute="topMargin" id="w1T-bA-Eq0"/>
                             <constraint firstItem="sUW-Ti-WF7" firstAttribute="top" secondItem="4ss-Ls-65A" secondAttribute="bottom" id="yMx-Nk-n6S"/>
-                            <constraint firstItem="sUW-Ti-WF7" firstAttribute="top" secondItem="YWJ-gw-wzk" secondAttribute="bottom" id="zjX-QI-OZU"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backgroundImageView" destination="YWJ-gw-wzk" id="a1N-zg-Oyl"/>
                         <outlet property="logoImageView" destination="Dbr-Da-sh5" id="Syb-GL-yCy"/>
                         <outlet property="tableView" destination="4ss-Ls-65A" id="Ug0-o1-YkL"/>
                     </connections>
@@ -140,6 +138,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bg_login" width="311" height="552"/>
         <image name="ico_email" width="32" height="32"/>
         <image name="ico_lock" width="32" height="32"/>
         <image name="ico_logo" width="120" height="120"/>

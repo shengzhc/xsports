@@ -18,7 +18,19 @@
 
 - (void)setup
 {
-    self.textField.tintColor = [UIColor semiFujiColor];
+    UIFont *font = [UIFont fontWithName:@"Futura-Medium" size:16.0];
+    NSDictionary *attributes = @{NSFontAttributeName: font, NSForegroundColorAttributeName: [UIColor textFieldPlaceHolderColor]};
+    NSMutableAttributedString *placeholderText = [[NSMutableAttributedString alloc] initWithString:[self placeHolderText] attributes:attributes];
+    self.textField.attributedPlaceholder = placeholderText;
+    
+    self.textField.tintColor = [UIColor textFieldCursorColor];
+    self.textField.textColor = [UIColor whiteColor];
+    self.textField.font = font;
+}
+
+- (NSString *)placeHolderText
+{
+    return @"Email";
 }
 
 @end

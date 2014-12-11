@@ -11,7 +11,6 @@
 @interface LoginViewController : UIViewController < UITableViewDataSource, UITableViewDelegate >
 
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
-@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
