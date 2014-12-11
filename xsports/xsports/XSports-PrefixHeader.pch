@@ -18,6 +18,7 @@
 #import "UIColor+XS.h"
 #import "UIFont+XS.h"
 #import "UIScreen+XS.h"
+#import "NSPredicate+XS.h"
 
 #import "GPUImage.h"
 

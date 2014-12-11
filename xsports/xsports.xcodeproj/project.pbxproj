@@ -16,6 +16,7 @@
 		9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF4C1A3A255C00D16EEE /* LoginEmailCell.m */; };
 		9C54EF501A3A260900D16EEE /* LoginPasswordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF4F1A3A260900D16EEE /* LoginPasswordCell.m */; };
 		9C54EF531A3A3B6000D16EEE /* UIScreen+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF521A3A3B6000D16EEE /* UIScreen+XS.m */; };
+		9C54EF561A3A457000D16EEE /* NSPredicate+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF551A3A457000D16EEE /* NSPredicate+XS.m */; };
 		9C6B21E91A397BB100FE8B43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C6B21E81A397BB100FE8B43 /* Images.xcassets */; };
 		9C6B21EC1A39812D00FE8B43 /* UIFont+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6B21EB1A39812D00FE8B43 /* UIFont+XS.m */; };
 		9C7DEBB21A396E6B00A0436E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DEBB11A396E6B00A0436E /* main.m */; };
@@ -54,6 +55,8 @@
 		9C54EF4F1A3A260900D16EEE /* LoginPasswordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPasswordCell.m; sourceTree = "<group>"; };
 		9C54EF511A3A3B6000D16EEE /* UIScreen+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+XS.h"; sourceTree = "<group>"; };
 		9C54EF521A3A3B6000D16EEE /* UIScreen+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+XS.m"; sourceTree = "<group>"; };
+		9C54EF541A3A457000D16EEE /* NSPredicate+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPredicate+XS.h"; sourceTree = "<group>"; };
+		9C54EF551A3A457000D16EEE /* NSPredicate+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPredicate+XS.m"; sourceTree = "<group>"; };
 		9C6B21E81A397BB100FE8B43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9C6B21EA1A39812D00FE8B43 /* UIFont+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+XS.h"; sourceTree = "<group>"; };
 		9C6B21EB1A39812D00FE8B43 /* UIFont+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+XS.m"; sourceTree = "<group>"; };
@@ -200,6 +203,8 @@
 				9C6B21EB1A39812D00FE8B43 /* UIFont+XS.m */,
 				9C54EF511A3A3B6000D16EEE /* UIScreen+XS.h */,
 				9C54EF521A3A3B6000D16EEE /* UIScreen+XS.m */,
+				9C54EF541A3A457000D16EEE /* NSPredicate+XS.h */,
+				9C54EF551A3A457000D16EEE /* NSPredicate+XS.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -379,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C7DEBB51A396E6B00A0436E /* AppDelegate.m in Sources */,
+				9C54EF561A3A457000D16EEE /* NSPredicate+XS.m in Sources */,
 				9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */,
 				9C54EF501A3A260900D16EEE /* LoginPasswordCell.m in Sources */,
 				9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */,

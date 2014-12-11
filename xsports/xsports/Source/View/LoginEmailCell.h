@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginEmailCell : UITableViewCell < UITextFieldDelegate >
+@property (weak, nonatomic) IBOutlet UIImageView *warningImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @end

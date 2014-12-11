@@ -3,12 +3,16 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "bg_login.png"
+      "filename" : "ico_check.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "bg_login@2x.png"
+      "filename" : "ico_check@2x.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

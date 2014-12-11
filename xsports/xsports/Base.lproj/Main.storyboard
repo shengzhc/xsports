@@ -45,6 +45,9 @@
                                                         <outlet property="delegate" destination="FcQ-CV-vBC" id="XM8-hO-orL"/>
                                                     </connections>
                                                 </textField>
+                                                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_warning" translatesAutoresizingMaskIntoConstraints="NO" id="Egr-MW-TkC">
+                                                    <rect key="frame" x="272" y="6" width="32" height="32"/>
+                                                </imageView>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWp-mD-We3" userLabel="seperator">
                                                     <rect key="frame" x="13" y="42" width="291" height="1"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -55,6 +58,8 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstItem="8tG-hY-f5y" firstAttribute="trailing" secondItem="Egr-MW-TkC" secondAttribute="trailing" id="77y-8i-Pmc"/>
+                                                <constraint firstAttribute="centerY" secondItem="Egr-MW-TkC" secondAttribute="centerY" id="BmR-TU-hUj"/>
                                                 <constraint firstItem="8tG-hY-f5y" firstAttribute="leading" secondItem="8r4-BM-bbE" secondAttribute="trailing" constant="8" id="EwH-Jn-bbY"/>
                                                 <constraint firstAttribute="centerY" secondItem="8tG-hY-f5y" secondAttribute="centerY" id="Hn2-vZ-jtu"/>
                                                 <constraint firstAttribute="centerY" secondItem="8r4-BM-bbE" secondAttribute="centerY" id="P7m-oV-NSo"/>
@@ -69,6 +74,7 @@
                                         <connections>
                                             <outlet property="iconImageView" destination="8r4-BM-bbE" id="IC3-ZM-JKi"/>
                                             <outlet property="textField" destination="8tG-hY-f5y" id="hHR-EB-WgA"/>
+                                            <outlet property="warningImageView" destination="Egr-MW-TkC" id="BiW-d9-jkc"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LoginPasswordCell" rowHeight="44" id="Xev-5c-Zc0" customClass="LoginPasswordCell">
@@ -95,6 +101,9 @@
                                                         <constraint firstAttribute="height" constant="1" id="WFh-gQ-Lu8"/>
                                                     </constraints>
                                                 </view>
+                                                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_warning" translatesAutoresizingMaskIntoConstraints="NO" id="xxm-uV-9uN">
+                                                    <rect key="frame" x="272" y="6" width="32" height="32"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -104,13 +113,16 @@
                                                 <constraint firstItem="lmT-sw-GzG" firstAttribute="leading" secondItem="kf5-jF-MvS" secondAttribute="leading" id="T3I-fe-BHv"/>
                                                 <constraint firstItem="IjQ-RR-xRA" firstAttribute="leading" secondItem="kf5-jF-MvS" secondAttribute="trailing" constant="8" id="gtj-Ps-Akr"/>
                                                 <constraint firstItem="lmT-sw-GzG" firstAttribute="trailing" secondItem="IjQ-RR-xRA" secondAttribute="trailing" id="kNB-4g-m0T"/>
+                                                <constraint firstAttribute="centerY" secondItem="xxm-uV-9uN" secondAttribute="centerY" id="pQr-cE-Ktc"/>
                                                 <constraint firstAttribute="trailing" secondItem="IjQ-RR-xRA" secondAttribute="trailing" constant="16" id="pTB-tG-wax"/>
                                                 <constraint firstAttribute="bottom" secondItem="lmT-sw-GzG" secondAttribute="bottom" constant="1" id="srQ-5q-l68"/>
+                                                <constraint firstItem="IjQ-RR-xRA" firstAttribute="trailing" secondItem="xxm-uV-9uN" secondAttribute="trailing" id="znj-pg-bj5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="textField" destination="IjQ-RR-xRA" id="8Ii-VI-rat"/>
+                                            <outlet property="warningImageView" destination="xxm-uV-9uN" id="Dre-E9-eP2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -207,6 +219,7 @@
         <image name="ico_email" width="32" height="32"/>
         <image name="ico_lock" width="32" height="32"/>
         <image name="ico_logo" width="240" height="240"/>
+        <image name="ico_warning" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
