@@ -33,25 +33,4 @@
     return @"Email";
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    NSString *email = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    
-    if ((email && email.length > 0 && [NSPredicate validateEmail:email]) || (email.length == 0)) {
-        if (self.warningImageView.alpha != 0) {
-            [UIView animateWithDuration:0.2 animations:^{
-                self.warningImageView.alpha = 0;
-            }];
-        }
-    } else {
-        if (self.warningImageView.alpha != 1.0) {
-            [UIView animateWithDuration:0.2 animations:^{
-                self.warningImageView.alpha = 1.0;
-            }];
-        }
-    }
-    
-    return YES;
-}
-
 @end

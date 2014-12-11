@@ -14,7 +14,7 @@
 #define LoginEmailTextFieldTag 100
 #define LoginPasswordTextFieldTag 101
 
-@interface LoginViewController ()
+@interface LoginViewController () < UITextFieldDelegate >
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonContainerTopConstraint;
 @property (strong, nonatomic) NSString *m_email;
 @property (strong, nonatomic) NSString *m_password;
@@ -33,7 +33,7 @@
 {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -74,18 +74,6 @@
 {
 }
 
-- (IBAction)didValueChanged:(id)sender
-{
-    if ([sender isKindOfClass:[UITextField class]]) {
-        UITextField *textField = (UITextField *)sender;
-        if (textField.tag == LoginEmailTextFieldTag) {
-            self.m_email = textField.text;
-        } else if (textField.tag == LoginPasswordTextFieldTag) {
-            self.m_password = textField.text;
-        }
-    }
-}
-
 #pragma mark Keyboard
 - (void)keyboardWillShow:(NSNotification *)notification
 {
@@ -94,7 +82,7 @@
     [self.tableView setContentInset:insets];
 }
 
-- (void)keyboardDidHide:(NSNotification *)notification
+- (void)keyboardWillHide:(NSNotification *)notification
 {
     UIEdgeInsets insets = self.tableView.contentInset;
     insets.top += KEYBOARD_OFFSET;
@@ -141,6 +129,66 @@
         }
     }
 }
+
+#pragma mark UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField.tag == LoginEmailTextFieldTag) {
+        NSString *email = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        LoginEmailCell *cell = (LoginEmailCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        if ((email && email.length > 0 && [NSPredicate validateEmail:email]) || (email.length == 0)) {
+            if (cell.warningImageView.alpha != 0) {
+                [UIView animateWithDuration:0.2 animations:^{
+                    cell.warningImageView.alpha = 0;
+                }];
+            }
+        } else {
+            if (cell.warningImageView.alpha != 1.0) {
+                [UIView animateWithDuration:0.2 animations:^{
+                    cell.warningImageView.alpha = 1.0;
+                }];
+            }
+        }
+        self.m_email = email;
+        return YES;
+    } else if (textField.tag == LoginPasswordTextFieldTag) {
+        NSString *password = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        LoginPasswordCell *cell = (LoginPasswordCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+        if ((password && password.length >= 4) || (password.length == 0)) {
+            if (cell.warningImageView.alpha != 0) {
+                [UIView animateWithDuration:0.2 animations:^{
+                    cell.warningImageView.alpha = 0;
+                }];
+            }
+        } else {
+            if (cell.warningImageView.alpha != 1.0) {
+                [UIView animateWithDuration:0.2 animations:^{
+                    cell.warningImageView.alpha = 1.0;
+                }];
+            }
+        }
+        if (password.length >= 12) {
+            return NO;
+        }
+        self.m_password = password;
+        return YES;
+    }
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField.tag == LoginEmailTextFieldTag) {
+        LoginPasswordCell *cell = (LoginPasswordCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+        [cell.textField becomeFirstResponder];
+    } else if (textField.tag == LoginPasswordTextFieldTag) {
+        [textField resignFirstResponder];
+    }
+    return YES;
+}
+
 
 - (NSUInteger)supportedInterfaceOrientations
 {

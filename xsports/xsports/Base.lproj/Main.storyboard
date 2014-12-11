@@ -41,8 +41,7 @@
                                                     <attributedString key="attributedText"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
                                                     <connections>
-                                                        <action selector="didValueChanged:" destination="YyP-No-6np" eventType="editingChanged" id="V6S-OH-aoy"/>
-                                                        <outlet property="delegate" destination="FcQ-CV-vBC" id="XM8-hO-orL"/>
+                                                        <outlet property="delegate" destination="YyP-No-6np" id="5LX-RH-YAW"/>
                                                     </connections>
                                                 </textField>
                                                 <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_warning" translatesAutoresizingMaskIntoConstraints="NO" id="Egr-MW-TkC">
@@ -90,8 +89,7 @@
                                                     <attributedString key="attributedText"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done" secureTextEntry="YES"/>
                                                     <connections>
-                                                        <action selector="didValueChanged:" destination="YyP-No-6np" eventType="editingChanged" id="6u7-wh-uo2"/>
-                                                        <outlet property="delegate" destination="Xev-5c-Zc0" id="FKr-9x-YhU"/>
+                                                        <outlet property="delegate" destination="YyP-No-6np" id="Djl-AF-Qcg"/>
                                                     </connections>
                                                 </textField>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmT-sw-GzG" userLabel="seperator">

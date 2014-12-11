@@ -33,30 +33,4 @@
     return @"Password";
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    NSString *password = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    
-    if ((password && password.length >= 4) || (password.length == 0)) {
-        if (self.warningImageView.alpha != 0) {
-            [UIView animateWithDuration:0.2 animations:^{
-                self.warningImageView.alpha = 0;
-            }];
-        }
-    } else {
-        if (self.warningImageView.alpha != 1.0) {
-            [UIView animateWithDuration:0.2 animations:^{
-                self.warningImageView.alpha = 1.0;
-            }];
-        }
-    }
-    
-    if (password.length >= 12) {
-        return NO;
-    }
-    
-    return YES;
-}
-
-
 @end
