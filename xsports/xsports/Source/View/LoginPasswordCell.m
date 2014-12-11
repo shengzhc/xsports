@@ -37,7 +37,7 @@
 {
     NSString *password = [textField.text stringByReplacingCharactersInRange:range withString:string];
     
-    if ((password && password.length > 4) || (password.length == 0)) {
+    if ((password && password.length >= 4) || (password.length == 0)) {
         if (self.warningImageView.alpha != 0) {
             [UIView animateWithDuration:0.2 animations:^{
                 self.warningImageView.alpha = 0;

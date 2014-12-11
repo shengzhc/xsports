@@ -63,6 +63,11 @@
 #pragma mark Button Action
 - (IBAction)didSignInButtonClicked:(id)sender
 {
+    if ([NSPredicate validateEmail:self.m_email] && self.m_password.length >= 4) {
+        
+    } else {
+    
+    }
 }
 
 - (IBAction)didSignUpButtonClicked:(id)sender
