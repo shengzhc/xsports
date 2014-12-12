@@ -26,4 +26,11 @@
     return alertView;
 }
 
+- (LoadingViewController *)showLoadingIndicator
+{
+    LoadingViewController *loadingViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:LoadingViewControllerIdentifier];
+    [self presentViewController:loadingViewController animated:YES completion:nil];
+    return loadingViewController;
+}
+
 @end

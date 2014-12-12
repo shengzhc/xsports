@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+
 #import "LoginEmailCell.h"
 #import "LoginPasswordCell.h"
 
@@ -63,8 +64,13 @@
 #pragma mark Logic
 - (void)signIn
 {
+    LoadingViewController *loadingViewController = [self showLoadingIndicator];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [loadingViewController dismissViewControllerAnimated:YES completion:nil];
+    });
+    return;
     if ([NSPredicate validateEmail:self.m_email] && self.m_password.length >= 4) {
-        
+        [self showLoadingIndicator];
     } else {
         SIAlertView *alertView = [self cancelAlertViewWithTitle:nil message:@"Email or Password is incorrect..."];
         [alertView show];

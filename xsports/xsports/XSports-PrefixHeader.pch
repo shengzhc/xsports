@@ -14,10 +14,12 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
 
 #import "GPUImage.h"
 #import <pop/POP.h>
 #import "SIAlertView.h"
+#import "MBProgressHUD.h"
 
 #import "XSConstants.h"
 #import "UIColor+XS.h"
@@ -25,5 +27,8 @@
 #import "UIScreen+XS.h"
 #import "NSPredicate+XS.h"
 #import "UIViewController+XS.h"
+#import "UIImage+XS.h"
+#import "UIView+XS.h"
+#import "LoadingAnimator.h"
 
 #endif

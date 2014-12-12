@@ -211,12 +211,66 @@
             </objects>
             <point key="canvasLocation" x="248" y="5"/>
         </scene>
+        <!--Loading View Controller-->
+        <scene sceneID="Jmr-nh-wb4">
+            <objects>
+                <viewController storyboardIdentifier="LoadingViewController" id="9w7-3Z-Llw" customClass="LoadingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RXS-BY-e0O"/>
+                        <viewControllerLayoutGuide type="bottom" id="JCb-VX-HuQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sZq-ei-rAz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWN-1G-GKb">
+                                <rect key="frame" x="0.0" y="292" width="320" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2g5-g2-hCf" userLabel="middle">
+                                <rect key="frame" x="159" y="283" width="1" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Wdw-Rd-Isn"/>
+                                    <constraint firstAttribute="width" constant="1" id="hvM-HO-72N"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_power_00" translatesAutoresizingMaskIntoConstraints="NO" id="eYm-fb-kTt" userLabel="loading">
+                                <rect key="frame" x="96" y="205" width="128" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="MA8-XW-8YG"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2g5-g2-hCf" firstAttribute="top" secondItem="eYm-fb-kTt" secondAttribute="bottom" constant="8" id="97I-9d-ps3"/>
+                            <constraint firstAttribute="centerX" secondItem="eYm-fb-kTt" secondAttribute="centerX" id="9Bf-4Q-l4P"/>
+                            <constraint firstAttribute="trailing" secondItem="NWN-1G-GKb" secondAttribute="trailing" id="Kjq-Rd-E2f"/>
+                            <constraint firstAttribute="centerY" secondItem="2g5-g2-hCf" secondAttribute="centerY" id="a3S-2z-JsI"/>
+                            <constraint firstItem="NWN-1G-GKb" firstAttribute="top" secondItem="2g5-g2-hCf" secondAttribute="bottom" constant="8" id="aHZ-Pt-wCI"/>
+                            <constraint firstItem="NWN-1G-GKb" firstAttribute="leading" secondItem="sZq-ei-rAz" secondAttribute="leading" id="gqo-SY-Fk4"/>
+                            <constraint firstAttribute="centerX" secondItem="2g5-g2-hCf" secondAttribute="centerX" id="iEO-oL-CTz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loadingImageView" destination="eYm-fb-kTt" id="fgz-fh-gXY"/>
+                        <outlet property="loadingLabel" destination="NWN-1G-GKb" id="e33-Tj-AOw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="noC-gv-zKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="728" y="-7"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bg_login" width="311" height="552"/>
         <image name="ico_email" width="32" height="32"/>
         <image name="ico_lock" width="32" height="32"/>
         <image name="ico_logo" width="240" height="240"/>
+        <image name="ico_power_00" width="128" height="128"/>
         <image name="ico_warning" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

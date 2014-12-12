@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoadingViewController.h"
 
 @interface UIViewController (XS)
 
 - (SIAlertView *)cancelAlertViewWithTitle:(NSString *)title message:(NSString *)message;
+- (LoadingViewController *)showLoadingIndicator;
 
 @end

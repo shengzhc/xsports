@@ -10,7 +10,7 @@
 #define _XSConstants_
 
 #define LoginViewControllerIdentifier @"LoginViewController"
-
+#define LoadingViewControllerIdentifier @"LoadingViewController"
 
 #define LoginEmailCellIdentifier @"LoginEmailCell"
 #define LoginPasswordCellIdentifier @"LoginPasswordCell"

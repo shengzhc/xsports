@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		760E18122B9B51E3F7FB8B96 /* libPods-xsports.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 378009332D2FB93EAFF7632A /* libPods-xsports.a */; };
+		9C02EA0C1A3A706F00FA1631 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA0B1A3A706F00FA1631 /* LoadingViewController.m */; };
+		9C02EA0F1A3A793500FA1631 /* UIImage+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA0E1A3A793500FA1631 /* UIImage+XS.m */; };
+		9C02EA121A3A7A0300FA1631 /* UIView+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA111A3A7A0300FA1631 /* UIView+XS.m */; };
+		9C02EA161A3AB55500FA1631 /* LoadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA151A3AB55500FA1631 /* LoadingAnimator.m */; };
 		9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */; };
 		9C54EF411A39EF0B00D16EEE /* NotoSansCJKsc-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C54EF3E1A39EF0B00D16EEE /* NotoSansCJKsc-Bold.otf */; };
 		9C54EF421A39EF0B00D16EEE /* NotoSansCJKsc-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C54EF3F1A39EF0B00D16EEE /* NotoSansCJKsc-Regular.otf */; };
@@ -24,6 +28,7 @@
 		9C7DEBBB1A396E6B00A0436E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C7DEBB91A396E6B00A0436E /* Main.storyboard */; };
 		9C7DEBC01A396E6B00A0436E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C7DEBBE1A396E6B00A0436E /* LaunchScreen.xib */; };
 		9C7DEBCC1A396E6B00A0436E /* xsportsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DEBCB1A396E6B00A0436E /* xsportsTests.m */; };
+		9C835CDB1A3AC47100A75B91 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C835CDA1A3AC47100A75B91 /* QuartzCore.framework */; };
 		9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9862F91A39753F003D5F86 /* UIColor+XS.m */; };
 		9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */; };
 /* End PBXBuildFile section */
@@ -42,6 +47,14 @@
 		1A4BB79BAD41A832D7723277 /* Pods-xsports.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xsports.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xsports/Pods-xsports.debug.xcconfig"; sourceTree = "<group>"; };
 		2D2912C89A0F0CA9CC13598C /* Pods-xsports.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xsports.release.xcconfig"; path = "Pods/Target Support Files/Pods-xsports/Pods-xsports.release.xcconfig"; sourceTree = "<group>"; };
 		378009332D2FB93EAFF7632A /* libPods-xsports.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xsports.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C02EA0A1A3A706F00FA1631 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		9C02EA0B1A3A706F00FA1631 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
+		9C02EA0D1A3A793500FA1631 /* UIImage+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XS.h"; sourceTree = "<group>"; };
+		9C02EA0E1A3A793500FA1631 /* UIImage+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XS.m"; sourceTree = "<group>"; };
+		9C02EA101A3A7A0300FA1631 /* UIView+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XS.h"; sourceTree = "<group>"; };
+		9C02EA111A3A7A0300FA1631 /* UIView+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XS.m"; sourceTree = "<group>"; };
+		9C02EA141A3AB55500FA1631 /* LoadingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingAnimator.h; sourceTree = "<group>"; };
+		9C02EA151A3AB55500FA1631 /* LoadingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingAnimator.m; sourceTree = "<group>"; };
 		9C54EF3A1A39EECA00D16EEE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9C54EF3E1A39EF0B00D16EEE /* NotoSansCJKsc-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKsc-Bold.otf"; sourceTree = "<group>"; };
@@ -71,6 +84,7 @@
 		9C7DEBC51A396E6B00A0436E /* xsportsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xsportsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7DEBCA1A396E6B00A0436E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C7DEBCB1A396E6B00A0436E /* xsportsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xsportsTests.m; sourceTree = "<group>"; };
+		9C835CDA1A3AC47100A75B91 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9C9862F81A39753F003D5F86 /* UIColor+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XS.h"; sourceTree = "<group>"; };
 		9C9862F91A39753F003D5F86 /* UIColor+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XS.m"; sourceTree = "<group>"; };
 		9CCF45DA1A3A5A2300FB1A94 /* UIViewController+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XS.h"; sourceTree = "<group>"; };
@@ -82,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C835CDB1A3AC47100A75B91 /* QuartzCore.framework in Frameworks */,
 				760E18122B9B51E3F7FB8B96 /* libPods-xsports.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,9 +123,19 @@
 		9A695D9815CBD1C135E8EF80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9C835CDA1A3AC47100A75B91 /* QuartzCore.framework */,
 				378009332D2FB93EAFF7632A /* libPods-xsports.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C02EA131A3AB54300FA1631 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9C02EA141A3AB55500FA1631 /* LoadingAnimator.h */,
+				9C02EA151A3AB55500FA1631 /* LoadingAnimator.m */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		9C54EF3D1A39EF0B00D16EEE /* Font */ = {
@@ -189,6 +214,7 @@
 		9C9862EF1A3974A8003D5F86 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				9C02EA131A3AB54300FA1631 /* Helper */,
 				9C9862F11A3974D6003D5F86 /* Controller */,
 				9C9862F21A3974D6003D5F86 /* Model */,
 				9C9862F31A3974D6003D5F86 /* View */,
@@ -210,6 +236,10 @@
 				9C54EF551A3A457000D16EEE /* NSPredicate+XS.m */,
 				9CCF45DA1A3A5A2300FB1A94 /* UIViewController+XS.h */,
 				9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */,
+				9C02EA0D1A3A793500FA1631 /* UIImage+XS.h */,
+				9C02EA0E1A3A793500FA1631 /* UIImage+XS.m */,
+				9C02EA101A3A7A0300FA1631 /* UIView+XS.h */,
+				9C02EA111A3A7A0300FA1631 /* UIView+XS.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -220,6 +250,8 @@
 				9C7DEBB91A396E6B00A0436E /* Main.storyboard */,
 				9C54EF3A1A39EECA00D16EEE /* LoginViewController.h */,
 				9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */,
+				9C02EA0A1A3A706F00FA1631 /* LoadingViewController.h */,
+				9C02EA0B1A3A706F00FA1631 /* LoadingViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -389,14 +421,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C7DEBB51A396E6B00A0436E /* AppDelegate.m in Sources */,
+				9C02EA161A3AB55500FA1631 /* LoadingAnimator.m in Sources */,
 				9C54EF561A3A457000D16EEE /* NSPredicate+XS.m in Sources */,
 				9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */,
+				9C02EA121A3A7A0300FA1631 /* UIView+XS.m in Sources */,
 				9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */,
 				9C54EF501A3A260900D16EEE /* LoginPasswordCell.m in Sources */,
 				9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */,
 				9C54EF531A3A3B6000D16EEE /* UIScreen+XS.m in Sources */,
+				9C02EA0C1A3A706F00FA1631 /* LoadingViewController.m in Sources */,
 				9C54EF491A39F11A00D16EEE /* XSConstants.m in Sources */,
 				9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */,
+				9C02EA0F1A3A793500FA1631 /* UIImage+XS.m in Sources */,
 				9C7DEBB21A396E6B00A0436E /* main.m in Sources */,
 				9C6B21EC1A39812D00FE8B43 /* UIFont+XS.m in Sources */,
 			);
