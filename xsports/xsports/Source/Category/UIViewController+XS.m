@@ -14,11 +14,11 @@
 {
     SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:title andMessage:message];
     [alertView addButtonWithTitle:@"Close" type:SIAlertViewButtonTypeCancel handler:nil];
-    [alertView setTitleFont:[UIFont fontWithName:@"Futura-Medium" size:16.0]];
+    [alertView setTitleFont:[UIFont mediumEngFont]];
     [alertView setTitleColor:[UIColor fujiColor]];
-    [alertView setMessageFont:[UIFont fontWithName:@"Futura-Medium" size:16.0]];
+    [alertView setMessageFont:[UIFont mediumEngFont]];
     [alertView setMessageColor:[UIColor fujiColor]];
-    [alertView setButtonFont:[UIFont fontWithName:@"Futura-Medium" size:18.0]];
+    [alertView setButtonFont:[UIFont mediumEngFontWithSize:18.0]];
     [alertView setCancelButtonColor:[UIColor coralColor]];
     alertView.backgroundStyle = SIAlertViewBackgroundStyleGradient;
     alertView.didDismissHandler = ^(SIAlertView *alertView){ [alertView removeFromSuperview];};

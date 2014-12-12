@@ -43,5 +43,16 @@
     return font;
 }
 
++ (UIFont *)mediumEngFont
+{
+    return [self mediumEngFontWithSize:16.0];
+}
+
++ (UIFont *)mediumEngFontWithSize:(CGFloat)size
+{
+    UIFont *font = [UIFont fontWithName:@"Futura-Medium" size:size];
+    return font;
+}
+
 
 @end

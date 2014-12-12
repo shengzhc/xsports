@@ -18,7 +18,7 @@
 
 - (void)setup
 {
-    UIFont *font = [UIFont fontWithName:@"Futura-Medium" size:16.0];
+    UIFont *font = [UIFont mediumEngFont];
     NSDictionary *attributes = @{NSFontAttributeName: font, NSForegroundColorAttributeName: [UIColor textFieldPlaceHolderColor]};
     NSMutableAttributedString *placeholderText = [[NSMutableAttributedString alloc] initWithString:[self placeHolderText] attributes:attributes];
     self.textField.attributedPlaceholder = placeholderText;

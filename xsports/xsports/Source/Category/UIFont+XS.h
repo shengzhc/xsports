@@ -18,4 +18,7 @@
 + (UIFont *)boldFontWithSize:(CGFloat)size;
 + (UIFont *)thinFontWithSize:(CGFloat)size;
 
++ (UIFont *)mediumEngFont;
++ (UIFont *)mediumEngFontWithSize:(CGFloat)size;
+
 @end

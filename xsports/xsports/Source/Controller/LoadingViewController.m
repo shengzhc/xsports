@@ -49,7 +49,7 @@
 
 - (void)setupLabel
 {
-    self.loadingLabel.font = [UIFont fontWithName:@"Futura-Medium" size:22.0];
+    self.loadingLabel.font = [UIFont mediumEngFontWithSize:22.0];
     self.loadingLabel.textColor = [UIColor fujiColor];
 }
 

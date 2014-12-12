@@ -55,20 +55,15 @@
 {
     self.buttonContainerTopConstraint.constant = self.tableView.rowHeight * 2.0 + self.tableView.contentInset.top + 24.0;
     self.signInButton.backgroundColor = [UIColor lightWaveColor];
-    self.signInButton.titleLabel.font = [UIFont fontWithName:@"Futura-Medium" size:18.0];
+    self.signInButton.titleLabel.font = [UIFont mediumEngFontWithSize:18.0];
 
     self.signUpButton.backgroundColor = [UIColor lightJadeColor];
-    self.signUpButton.titleLabel.font = [UIFont fontWithName:@"Futura-Medium" size:18.0];
+    self.signUpButton.titleLabel.font = [UIFont mediumEngFontWithSize:18.0];
 }
 
 #pragma mark Logic
 - (void)signIn
 {
-    LoadingViewController *loadingViewController = [self showLoadingIndicator];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [loadingViewController dismissViewControllerAnimated:YES completion:nil];
-    });
-    return;
     if ([NSPredicate validateEmail:self.m_email] && self.m_password.length >= 4) {
         [self showLoadingIndicator];
     } else {
