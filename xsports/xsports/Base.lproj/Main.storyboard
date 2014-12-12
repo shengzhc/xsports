@@ -308,7 +308,7 @@
                                             <constraint firstAttribute="width" constant="1" id="YRO-JQ-YpW"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g35-mg-zPe" userLabel="profileImageView">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lookup_amatorka.png" translatesAutoresizingMaskIntoConstraints="NO" id="g35-mg-zPe" userLabel="profileImageView">
                                         <rect key="frame" x="8" y="8" width="80" height="80"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -323,21 +323,26 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kK-Y2-33m">
-                                        <rect key="frame" x="96" y="52" width="66.5" height="20.5"/>
+                                        <rect key="frame" x="120" y="56" width="66.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_location" translatesAutoresizingMaskIntoConstraints="NO" id="4rb-RZ-i7Y">
+                                        <rect key="frame" x="88" y="50" width="32" height="32"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="8kK-Y2-33m" firstAttribute="centerY" secondItem="4rb-RZ-i7Y" secondAttribute="centerY" id="6Cq-09-eI9"/>
                                     <constraint firstItem="g35-mg-zPe" firstAttribute="leading" secondItem="wrK-dg-vDm" secondAttribute="leading" constant="8" id="77U-Ea-iEG"/>
-                                    <constraint firstItem="8kK-Y2-33m" firstAttribute="top" secondItem="pEE-MO-OdD" secondAttribute="bottom" constant="4" id="9dD-D0-g9L"/>
                                     <constraint firstAttribute="centerX" secondItem="pEE-MO-OdD" secondAttribute="centerX" id="Bo7-An-IKb"/>
+                                    <constraint firstItem="4rb-RZ-i7Y" firstAttribute="leading" secondItem="g35-mg-zPe" secondAttribute="trailing" id="Bog-dL-BFl"/>
                                     <constraint firstItem="pEE-MO-OdD" firstAttribute="bottom" secondItem="5p4-nc-jTV" secondAttribute="bottom" constant="4" id="DYY-je-gR9"/>
+                                    <constraint firstItem="8kK-Y2-33m" firstAttribute="leading" secondItem="4rb-RZ-i7Y" secondAttribute="trailing" id="Lfa-n1-ggG"/>
+                                    <constraint firstItem="4rb-RZ-i7Y" firstAttribute="top" secondItem="pEE-MO-OdD" secondAttribute="bottom" constant="2" id="S00-rn-VsJ"/>
                                     <constraint firstItem="g35-mg-zPe" firstAttribute="top" secondItem="wrK-dg-vDm" secondAttribute="top" constant="8" id="TEp-ZA-JJX"/>
                                     <constraint firstItem="5p4-nc-jTV" firstAttribute="leading" secondItem="g35-mg-zPe" secondAttribute="trailing" constant="8" id="V4r-ze-Dv5"/>
-                                    <constraint firstItem="8kK-Y2-33m" firstAttribute="leading" secondItem="g35-mg-zPe" secondAttribute="trailing" constant="8" id="j8h-hc-Zk0"/>
                                     <constraint firstAttribute="bottom" secondItem="g35-mg-zPe" secondAttribute="bottom" constant="8" id="kXI-ps-ezC"/>
                                     <constraint firstAttribute="centerY" secondItem="pEE-MO-OdD" secondAttribute="centerY" id="udB-kE-qx2"/>
                                 </constraints>
@@ -408,10 +413,12 @@
         <image name="bg_blur_00" width="621" height="1104"/>
         <image name="bg_login" width="311" height="552"/>
         <image name="ico_email" width="32" height="32"/>
+        <image name="ico_location" width="32" height="32"/>
         <image name="ico_lock" width="32" height="32"/>
         <image name="ico_logo" width="240" height="240"/>
         <image name="ico_power_00" width="128" height="128"/>
         <image name="ico_warning" width="32" height="32"/>
+        <image name="lookup_amatorka.png" width="512" height="512"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
