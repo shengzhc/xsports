@@ -14,6 +14,7 @@ pod 'CocoaLumberjack'
 pod 'FastImageCache'
 pod 'SIAlertView'
 pod 'MBProgressHUD'
+pod 'ECSlidingViewController'
 
 end
 

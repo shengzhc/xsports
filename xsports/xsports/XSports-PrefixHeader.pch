@@ -20,6 +20,7 @@
 #import <pop/POP.h>
 #import "SIAlertView.h"
 #import "MBProgressHUD.h"
+#import "ECSlidingViewController.h"
 
 #import "XSConstants.h"
 #import "UIColor+XS.h"

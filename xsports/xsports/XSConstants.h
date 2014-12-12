@@ -11,6 +11,10 @@
 
 #define LoginViewControllerIdentifier @"LoginViewController"
 #define LoadingViewControllerIdentifier @"LoadingViewController"
+#define SlidingViewControllerIdentifier @"SlidingViewController"
+#define MenuViewControllerIdentifier @"MenuViewController"
+#define FeedViewControllerIdentifier @"FeedViewController"
+#define NavFeedViewControllerIdentifier @"Nav_FeedViewController"
 
 #define LoginEmailCellIdentifier @"LoginEmailCell"
 #define LoginPasswordCellIdentifier @"LoginPasswordCell"

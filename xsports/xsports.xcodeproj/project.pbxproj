@@ -28,6 +28,9 @@
 		9C7DEBBB1A396E6B00A0436E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C7DEBB91A396E6B00A0436E /* Main.storyboard */; };
 		9C7DEBC01A396E6B00A0436E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C7DEBBE1A396E6B00A0436E /* LaunchScreen.xib */; };
 		9C7DEBCC1A396E6B00A0436E /* xsportsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DEBCB1A396E6B00A0436E /* xsportsTests.m */; };
+		9C7ED1231A3B89B4007AB927 /* SlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7ED1221A3B89B4007AB927 /* SlidingViewController.m */; };
+		9C7ED1261A3B8AD0007AB927 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7ED1251A3B8AD0007AB927 /* MenuViewController.m */; };
+		9C7ED1291A3BA13C007AB927 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7ED1281A3BA13C007AB927 /* FeedViewController.m */; };
 		9C835CDB1A3AC47100A75B91 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C835CDA1A3AC47100A75B91 /* QuartzCore.framework */; };
 		9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9862F91A39753F003D5F86 /* UIColor+XS.m */; };
 		9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */; };
@@ -84,6 +87,12 @@
 		9C7DEBC51A396E6B00A0436E /* xsportsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xsportsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7DEBCA1A396E6B00A0436E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C7DEBCB1A396E6B00A0436E /* xsportsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xsportsTests.m; sourceTree = "<group>"; };
+		9C7ED1211A3B89B4007AB927 /* SlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingViewController.h; sourceTree = "<group>"; };
+		9C7ED1221A3B89B4007AB927 /* SlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidingViewController.m; sourceTree = "<group>"; };
+		9C7ED1241A3B8AD0007AB927 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		9C7ED1251A3B8AD0007AB927 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		9C7ED1271A3BA13C007AB927 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		9C7ED1281A3BA13C007AB927 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		9C835CDA1A3AC47100A75B91 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9C9862F81A39753F003D5F86 /* UIColor+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XS.h"; sourceTree = "<group>"; };
 		9C9862F91A39753F003D5F86 /* UIColor+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XS.m"; sourceTree = "<group>"; };
@@ -252,6 +261,12 @@
 				9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */,
 				9C02EA0A1A3A706F00FA1631 /* LoadingViewController.h */,
 				9C02EA0B1A3A706F00FA1631 /* LoadingViewController.m */,
+				9C7ED1211A3B89B4007AB927 /* SlidingViewController.h */,
+				9C7ED1221A3B89B4007AB927 /* SlidingViewController.m */,
+				9C7ED1241A3B8AD0007AB927 /* MenuViewController.h */,
+				9C7ED1251A3B8AD0007AB927 /* MenuViewController.m */,
+				9C7ED1271A3BA13C007AB927 /* FeedViewController.h */,
+				9C7ED1281A3BA13C007AB927 /* FeedViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -421,6 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C7DEBB51A396E6B00A0436E /* AppDelegate.m in Sources */,
+				9C7ED1261A3B8AD0007AB927 /* MenuViewController.m in Sources */,
 				9C02EA161A3AB55500FA1631 /* LoadingAnimator.m in Sources */,
 				9C54EF561A3A457000D16EEE /* NSPredicate+XS.m in Sources */,
 				9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */,
@@ -431,9 +447,11 @@
 				9C54EF531A3A3B6000D16EEE /* UIScreen+XS.m in Sources */,
 				9C02EA0C1A3A706F00FA1631 /* LoadingViewController.m in Sources */,
 				9C54EF491A39F11A00D16EEE /* XSConstants.m in Sources */,
+				9C7ED1231A3B89B4007AB927 /* SlidingViewController.m in Sources */,
 				9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */,
 				9C02EA0F1A3A793500FA1631 /* UIImage+XS.m in Sources */,
 				9C7DEBB21A396E6B00A0436E /* main.m in Sources */,
+				9C7ED1291A3BA13C007AB927 /* FeedViewController.m in Sources */,
 				9C6B21EC1A39812D00FE8B43 /* UIFont+XS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
