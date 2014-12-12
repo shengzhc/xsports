@@ -19,11 +19,11 @@
 
 - (void)setupLabel
 {
-    self.nameLabel.font = [UIFont mediumEngFontWithSize:22.0];
+    self.nameLabel.font = [UIFont mediumEngFont];
     self.nameLabel.textColor = [UIColor whiteColor];
     self.nameLabel.text = @"Frank Rapacciuolo";
-    self.locationLabel.font = [UIFont mediumEngFont];
-    self.locationLabel.textColor = [UIColor lightJadeColor];
+    self.locationLabel.font = [UIFont mediumEngFontWithSize:14.0];
+    self.locationLabel.textColor = [UIColor lightPebbleColor];
     self.locationLabel.text = @"San Francisco";
 }
 
