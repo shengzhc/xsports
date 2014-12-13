@@ -65,39 +65,40 @@
     {
         self.navFeedViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavFeedViewControllerIdentifier];
         self.feedViewController = (FeedViewController *)self.navFeedViewController.topViewController;
-        [self.navFeedViewController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-        self.navFeedViewController.navigationBar.shadowImage = [UIImage new];
-        self.navFeedViewController.navigationBar.translucent = YES;
-        self.navFeedViewController.view.backgroundColor = [UIColor clearColor];
+        [self.navFeedViewController clearBackground];
+    }
+    
+    {
+        self.navSettingViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavSettingViewControllerIdentifier];
+        self.settingViewController = (SettingViewController *)self.navSettingViewController.topViewController;
+        [self.navSettingViewController clearBackground];
     }
 }
 
 #pragma mark
 - (void)select:(MenuItem)menuItem animated:(BOOL)animated
 {
-    if (menuItem == self.selectedRow) {
-        return;
+    if (menuItem != self.selectedRow) {
+        self.selectedRow = menuItem;
+        switch (self.selectedRow) {
+            case kMenuItemNew:
+                self.slidingViewController.topViewController = self.navFeedViewController;
+                break;
+            case kMenuItemChat:
+                break;
+            case kMenuItemContact:
+                break;
+            case kMenuItemFavorite:
+                break;
+            case kMenuItemSetting:
+                self.slidingViewController.topViewController = self.navSettingViewController;
+                break;
+            default:
+                break;
+        }
     }
-    self.selectedRow = menuItem;
-    
-    switch (self.selectedRow) {
-        case kMenuItemNew:
-            
-            break;
-        case kMenuItemChat:
-            break;
-        case kMenuItemContact:
-            break;
-        case kMenuItemFavorite:
-            break;
-        case kMenuItemSetting:
-            break;
-        default:
-            break;
-    }
-    
-    [self slidingViewController].topViewController = self.navFeedViewController;
-    [[self slidingViewController] anchorTopViewToLeftAnimated:animated];
+
+    [self.slidingViewController resetTopViewAnimated:YES];
 }
 
 #pragma mark UITableViewDelegate & UITableViewDataSource
@@ -149,7 +150,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [self select:indexPath.row animated:YES];
 }
 
 @end

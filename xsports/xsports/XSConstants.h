@@ -15,6 +15,8 @@
 #define MenuViewControllerIdentifier @"MenuViewController"
 #define FeedViewControllerIdentifier @"FeedViewController"
 #define NavFeedViewControllerIdentifier @"Nav_FeedViewController"
+#define SettingViewControllerIdentifier @"SettingViewController"
+#define NavSettingViewControllerIdentifier @"Nav_SettingViewController"
 
 #define LoginEmailCellIdentifier @"LoginEmailCell"
 #define LoginPasswordCellIdentifier @"LoginPasswordCell"

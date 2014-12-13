@@ -457,7 +457,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="sOA-Yj-FfS">
-                        <barButtonItem key="leftBarButtonItem" image="ico_menu" style="plain" id="0yT-9e-2NJ">
+                        <barButtonItem key="leftBarButtonItem" image="ico_menu" id="0yT-9e-2NJ">
                             <inset key="imageInsets" minX="-12" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -468,7 +468,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWK-jZ-Lth" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="964" y="-1179"/>
+            <point key="canvasLocation" x="54" y="-1875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pi7-Gv-aEP">
@@ -487,11 +487,74 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7lb-3S-IQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="569" y="-1179"/>
+            <point key="canvasLocation" x="-367" y="-1875"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="yw5-Mm-HvL">
+            <objects>
+                <viewController storyboardIdentifier="SettingViewController" id="pmS-LY-wqY" customClass="SettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iBY-Cx-Laq"/>
+                        <viewControllerLayoutGuide type="bottom" id="uoL-r2-vJB"/>
+                    </layoutGuides>
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="c1l-pU-pg7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_blur_03" translatesAutoresizingMaskIntoConstraints="NO" id="0gT-O3-Tcg" userLabel="background">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="0gT-O3-Tcg" secondAttribute="trailing" id="3c1-dQ-eoC"/>
+                            <constraint firstItem="0gT-O3-Tcg" firstAttribute="leading" secondItem="c1l-pU-pg7" secondAttribute="leading" id="MGW-9D-D9f"/>
+                            <constraint firstItem="0gT-O3-Tcg" firstAttribute="top" secondItem="c1l-pU-pg7" secondAttribute="top" id="TZQ-mR-PUB"/>
+                            <constraint firstAttribute="bottom" secondItem="0gT-O3-Tcg" secondAttribute="bottom" id="VtB-Yc-nxe"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <navigationItem key="navigationItem" id="G94-Uz-LND">
+                        <barButtonItem key="leftBarButtonItem" image="ico_menu" id="B7w-Td-myZ">
+                            <inset key="imageInsets" minX="-12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="menuBarItemClicked:" destination="pmS-LY-wqY" id="OtR-8V-CsU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZOi-iI-nK9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="54" y="-2567"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CFQ-xW-ZSq">
+            <objects>
+                <navigationController storyboardIdentifier="Nav_SettingViewController" automaticallyAdjustsScrollViewInsets="NO" id="Jen-Tl-qJV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T2s-hh-Ltg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pmS-LY-wqY" kind="relationship" relationship="rootViewController" id="nJY-Jw-Qb2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sLm-Lg-d07" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-367" y="-2567"/>
         </scene>
     </scenes>
     <resources>
         <image name="bg_blur_02" width="621" height="1104"/>
+        <image name="bg_blur_03" width="621" height="1104"/>
         <image name="bg_blur_06" width="540" height="960"/>
         <image name="bg_login" width="311" height="552"/>
         <image name="ico_email" width="32" height="32"/>

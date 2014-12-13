@@ -37,6 +37,8 @@
 		9CBCE71C1A3CC56200C9BD35 /* MEDynamicTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE7151A3CC56200C9BD35 /* MEDynamicTransition.m */; };
 		9CBCE71D1A3CC56200C9BD35 /* MEFoldAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE7171A3CC56200C9BD35 /* MEFoldAnimationController.m */; };
 		9CBCE71F1A3CC56200C9BD35 /* MEZoomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE71B1A3CC56200C9BD35 /* MEZoomAnimationController.m */; };
+		9CBCE7221A3CCFF700C9BD35 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE7211A3CCFF700C9BD35 /* SettingViewController.m */; };
+		9CBCE7251A3CD0B900C9BD35 /* UINavigationController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE7241A3CD0B900C9BD35 /* UINavigationController+XS.m */; };
 		9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +110,10 @@
 		9CBCE7171A3CC56200C9BD35 /* MEFoldAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEFoldAnimationController.m; sourceTree = "<group>"; };
 		9CBCE71A1A3CC56200C9BD35 /* MEZoomAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEZoomAnimationController.h; sourceTree = "<group>"; };
 		9CBCE71B1A3CC56200C9BD35 /* MEZoomAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEZoomAnimationController.m; sourceTree = "<group>"; };
+		9CBCE7201A3CCFF700C9BD35 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		9CBCE7211A3CCFF700C9BD35 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		9CBCE7231A3CD0B900C9BD35 /* UINavigationController+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+XS.h"; sourceTree = "<group>"; };
+		9CBCE7241A3CD0B900C9BD35 /* UINavigationController+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+XS.m"; sourceTree = "<group>"; };
 		9CCF45DA1A3A5A2300FB1A94 /* UIViewController+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XS.h"; sourceTree = "<group>"; };
 		9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XS.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -262,6 +268,8 @@
 				9C02EA0E1A3A793500FA1631 /* UIImage+XS.m */,
 				9C02EA101A3A7A0300FA1631 /* UIView+XS.h */,
 				9C02EA111A3A7A0300FA1631 /* UIView+XS.m */,
+				9CBCE7231A3CD0B900C9BD35 /* UINavigationController+XS.h */,
+				9CBCE7241A3CD0B900C9BD35 /* UINavigationController+XS.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -280,6 +288,8 @@
 				9C7ED1251A3B8AD0007AB927 /* MenuViewController.m */,
 				9C7ED1271A3BA13C007AB927 /* FeedViewController.h */,
 				9C7ED1281A3BA13C007AB927 /* FeedViewController.m */,
+				9CBCE7201A3CCFF700C9BD35 /* SettingViewController.h */,
+				9CBCE7211A3CCFF700C9BD35 /* SettingViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -473,9 +483,11 @@
 				9C02EA121A3A7A0300FA1631 /* UIView+XS.m in Sources */,
 				9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */,
 				9C54EF501A3A260900D16EEE /* LoginPasswordCell.m in Sources */,
+				9CBCE7221A3CCFF700C9BD35 /* SettingViewController.m in Sources */,
 				9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */,
 				9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */,
 				9C54EF531A3A3B6000D16EEE /* UIScreen+XS.m in Sources */,
+				9CBCE7251A3CD0B900C9BD35 /* UINavigationController+XS.m in Sources */,
 				9C02EA0C1A3A706F00FA1631 /* LoadingViewController.m in Sources */,
 				9C54EF491A39F11A00D16EEE /* XSConstants.m in Sources */,
 				9C7ED1231A3B89B4007AB927 /* SlidingViewController.m in Sources */,

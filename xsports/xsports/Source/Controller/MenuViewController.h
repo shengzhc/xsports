@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FeedViewController.h"
+#import "SettingViewController.h"
 
 typedef enum : NSInteger {
     kMenuItemNew,
@@ -28,6 +29,8 @@ typedef enum : NSInteger {
 
 @property (strong, nonatomic) UINavigationController *navFeedViewController;
 @property (strong, nonatomic) FeedViewController *feedViewController;
+@property (strong, nonatomic) UINavigationController *navSettingViewController;
+@property (strong, nonatomic) SettingViewController *settingViewController;
 
 - (void)select:(MenuItem)menuItem animated:(BOOL)animated;
 
