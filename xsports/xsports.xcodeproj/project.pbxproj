@@ -12,6 +12,7 @@
 		9C02EA0F1A3A793500FA1631 /* UIImage+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA0E1A3A793500FA1631 /* UIImage+XS.m */; };
 		9C02EA121A3A7A0300FA1631 /* UIView+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA111A3A7A0300FA1631 /* UIView+XS.m */; };
 		9C02EA161A3AB55500FA1631 /* LoadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA151A3AB55500FA1631 /* LoadingAnimator.m */; };
+		9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C44C6291A3C2041002CB86B /* MenuViewCell.m */; };
 		9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */; };
 		9C54EF411A39EF0B00D16EEE /* NotoSansCJKsc-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C54EF3E1A39EF0B00D16EEE /* NotoSansCJKsc-Bold.otf */; };
 		9C54EF421A39EF0B00D16EEE /* NotoSansCJKsc-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C54EF3F1A39EF0B00D16EEE /* NotoSansCJKsc-Regular.otf */; };
@@ -58,6 +59,8 @@
 		9C02EA111A3A7A0300FA1631 /* UIView+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XS.m"; sourceTree = "<group>"; };
 		9C02EA141A3AB55500FA1631 /* LoadingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingAnimator.h; sourceTree = "<group>"; };
 		9C02EA151A3AB55500FA1631 /* LoadingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingAnimator.m; sourceTree = "<group>"; };
+		9C44C6281A3C2041002CB86B /* MenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewCell.h; sourceTree = "<group>"; };
+		9C44C6291A3C2041002CB86B /* MenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewCell.m; sourceTree = "<group>"; };
 		9C54EF3A1A39EECA00D16EEE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9C54EF3E1A39EF0B00D16EEE /* NotoSansCJKsc-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKsc-Bold.otf"; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 				9C54EF4C1A3A255C00D16EEE /* LoginEmailCell.m */,
 				9C54EF4E1A3A260900D16EEE /* LoginPasswordCell.h */,
 				9C54EF4F1A3A260900D16EEE /* LoginPasswordCell.m */,
+				9C44C6281A3C2041002CB86B /* MenuViewCell.h */,
+				9C44C6291A3C2041002CB86B /* MenuViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -443,6 +448,7 @@
 				9C02EA121A3A7A0300FA1631 /* UIView+XS.m in Sources */,
 				9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */,
 				9C54EF501A3A260900D16EEE /* LoginPasswordCell.m in Sources */,
+				9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */,
 				9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */,
 				9C54EF531A3A3B6000D16EEE /* UIScreen+XS.m in Sources */,
 				9C02EA0C1A3A706F00FA1631 /* LoadingViewController.m in Sources */,
