@@ -7,10 +7,13 @@
 //
 
 #import "SlidingViewController.h"
+#import "LoginViewController.h"
+
 #import "MEZoomAnimationController.h"
 
 @interface SlidingViewController ()
 @property (strong, nonatomic) MEZoomAnimationController *zoomAnimator;
+@property (strong, nonatomic) LoginViewController *loginViewController;
 @end
 
 @implementation SlidingViewController
@@ -24,13 +27,26 @@
 
     self.menuViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:MenuViewControllerIdentifier];
     self.underLeftViewController = self.menuViewController;
-    [self.menuViewController select:kMenuItemNew animated:NO];
+    
+    if (YES) {
+        self.topViewController = self.loginViewController;
+    } else {
+        [self.menuViewController select:kMenuItemNew animated:NO];
+    }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightPebbleColor];
+}
+
+- (LoginViewController *)loginViewController
+{
+    if (_loginViewController == nil) {
+        _loginViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:LoginViewControllerIdentifier];
+    }
+    return _loginViewController;
 }
 
 @end
