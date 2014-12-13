@@ -15,7 +15,7 @@
     [super awakeFromNib];
     self.menuViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:MenuViewControllerIdentifier];
     self.underLeftViewController = self.menuViewController;
-    self.topViewController = self.menuViewController;
+    [self.menuViewController select:kMenuItemNew animated:NO];
 }
 
 @end

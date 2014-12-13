@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FeedViewController.h"
 
-typedef enum : NSUInteger {
+typedef enum : NSInteger {
     kMenuItemNew,
     kMenuItemChat,
     kMenuItemFavorite,
@@ -24,7 +24,11 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+@property (assign, nonatomic) MenuItem selectedRow;
 
+@property (strong, nonatomic) UINavigationController *navFeedViewController;
 @property (strong, nonatomic) FeedViewController *feedViewController;
+
+- (void)select:(MenuItem)menuItem animated:(BOOL)animated;
 
 @end

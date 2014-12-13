@@ -11,6 +11,12 @@
 
 @implementation MenuViewController
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    [self setupMenuItem];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -19,6 +25,7 @@
     [self setupButton];
 }
 
+#pragma mark Setup
 - (void)setupLabel
 {
     self.nameLabel.font = [UIFont mediumEngFontWithSize:18];
@@ -51,6 +58,40 @@
     self.logoutButton.layer.borderColor = [UIColor whiteColor].CGColor;
 }
 
+- (void)setupMenuItem
+{
+    self.selectedRow = -1;
+    self.navFeedViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavFeedViewControllerIdentifier];
+    self.feedViewController = (FeedViewController *)self.navFeedViewController.topViewController;
+}
+
+#pragma mark
+- (void)select:(MenuItem)menuItem animated:(BOOL)animated
+{
+    if (menuItem == self.selectedRow) {
+        return;
+    }
+    self.selectedRow = menuItem;
+    
+    switch (self.selectedRow) {
+        case kMenuItemNew:
+            
+            break;
+        case kMenuItemChat:
+            break;
+        case kMenuItemContact:
+            break;
+        case kMenuItemFavorite:
+            break;
+        case kMenuItemSetting:
+            break;
+        default:
+            break;
+    }
+    
+    [self slidingViewController].topViewController = self.navFeedViewController;
+    [[self slidingViewController] anchorTopViewToLeftAnimated:animated];
+}
 
 #pragma mark UITableViewDelegate & UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -97,6 +138,11 @@
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 @end

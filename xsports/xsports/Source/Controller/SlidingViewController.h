@@ -8,7 +8,6 @@
 
 #import "ECSlidingViewController.h"
 #import "MenuViewController.h"
-#import "FeedViewController.h"
 
 @interface SlidingViewController : ECSlidingViewController
 @property (strong, nonatomic) MenuViewController *menuViewController;
