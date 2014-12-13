@@ -61,8 +61,15 @@
 - (void)setupMenuItem
 {
     self.selectedRow = -1;
-    self.navFeedViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavFeedViewControllerIdentifier];
-    self.feedViewController = (FeedViewController *)self.navFeedViewController.topViewController;
+    
+    {
+        self.navFeedViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavFeedViewControllerIdentifier];
+        self.feedViewController = (FeedViewController *)self.navFeedViewController.topViewController;
+        [self.navFeedViewController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        self.navFeedViewController.navigationBar.shadowImage = [UIImage new];
+        self.navFeedViewController.navigationBar.translucent = YES;
+        self.navFeedViewController.view.backgroundColor = [UIColor clearColor];
+    }
 }
 
 #pragma mark

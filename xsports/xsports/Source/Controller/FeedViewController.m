@@ -10,4 +10,11 @@
 
 @implementation FeedViewController
 
+
+#pragma Action
+- (IBAction)menuBarItemClicked:(id)sender
+{
+    [self.slidingViewController anchorTopViewToRightAnimated:YES];
+}
+
 @end

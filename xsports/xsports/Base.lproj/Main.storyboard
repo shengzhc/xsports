@@ -435,12 +435,36 @@
                         <viewControllerLayoutGuide type="top" id="ubc-tO-ID4"/>
                         <viewControllerLayoutGuide type="bottom" id="hTE-HL-kyV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ciG-eU-fpa">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="ciG-eU-fpa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_blur_02" translatesAutoresizingMaskIntoConstraints="NO" id="0SI-Rm-t2d" userLabel="background">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="0SI-Rm-t2d" secondAttribute="trailing" id="1Ha-lY-Udf"/>
+                            <constraint firstAttribute="bottom" secondItem="0SI-Rm-t2d" secondAttribute="bottom" id="2Fp-4U-tzf"/>
+                            <constraint firstItem="0SI-Rm-t2d" firstAttribute="top" secondItem="ciG-eU-fpa" secondAttribute="top" id="WuN-ph-pzp"/>
+                            <constraint firstItem="0SI-Rm-t2d" firstAttribute="leading" secondItem="ciG-eU-fpa" secondAttribute="leading" id="Z8B-5o-USk"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" id="sOA-Yj-FfS"/>
+                    <navigationItem key="navigationItem" id="sOA-Yj-FfS">
+                        <barButtonItem key="leftBarButtonItem" image="ico_menu" style="plain" id="0yT-9e-2NJ">
+                            <inset key="imageInsets" minX="-12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="menuBarItemClicked:" destination="kUd-DW-rt9" id="Fve-iF-7vS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWK-jZ-Lth" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -454,6 +478,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NJW-Co-cpg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -466,11 +491,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bg_blur_02" width="621" height="1104"/>
         <image name="bg_blur_06" width="540" height="960"/>
         <image name="bg_login" width="311" height="552"/>
         <image name="ico_email" width="32" height="32"/>
         <image name="ico_lock" width="32" height="32"/>
         <image name="ico_logo" width="240" height="240"/>
+        <image name="ico_menu" width="44" height="44"/>
         <image name="ico_myself" width="120" height="120"/>
         <image name="ico_power_00" width="128" height="128"/>
         <image name="ico_warning" width="32" height="32"/>
