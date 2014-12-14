@@ -11,7 +11,7 @@
 
 #import "MEZoomAnimationController.h"
 
-@interface SlidingViewController ()
+@interface SlidingViewController () < LoginViewControllerDelegate >
 @property (strong, nonatomic) MEZoomAnimationController *zoomAnimator;
 @property (strong, nonatomic) LoginViewController *loginViewController;
 @end
@@ -28,7 +28,7 @@
     self.menuViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:MenuViewControllerIdentifier];
     self.underLeftViewController = self.menuViewController;
     
-    if (YES) {
+    if (/* DISABLES CODE */ (NO)) {
         self.topViewController = self.loginViewController;
     } else {
         [self.menuViewController select:kMenuItemNew animated:NO];
@@ -45,8 +45,15 @@
 {
     if (_loginViewController == nil) {
         _loginViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:LoginViewControllerIdentifier];
+        _loginViewController.delegate = self;
     }
     return _loginViewController;
+}
+
+#pragma mark LoginViewControllerDelegate
+- (void)loginViewController:(LoginViewController *)viewController didSignIn:(id)sender
+{
+    [self.menuViewController select:kMenuItemNew animated:YES];
 }
 
 @end
