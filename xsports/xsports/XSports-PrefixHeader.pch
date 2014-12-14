@@ -20,8 +20,12 @@
 #import <pop/POP.h>
 #import "SIAlertView.h"
 #import "MBProgressHUD.h"
+#import "AFNetworking.h"
 #import "ECSlidingViewController.h"
 #import "UIViewController+ECSlidingViewController.h"
+
+#import "User.h"
+#import "Media.h"
 
 #import "XSConstants.h"
 #import "UIColor+XS.h"
@@ -33,5 +37,6 @@
 #import "UIView+XS.h"
 #import "UINavigationController+XS.h"
 #import "LoadingAnimator.h"
+#import "InstagramServices.h"
 
 #endif

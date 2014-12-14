@@ -15,6 +15,7 @@ pod 'FastImageCache'
 pod 'SIAlertView'
 pod 'MBProgressHUD'
 pod 'ECSlidingViewController'
+pod 'JSONModel'
 
 end
 
