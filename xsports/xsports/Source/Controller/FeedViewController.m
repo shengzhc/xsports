@@ -21,6 +21,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.collectionView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, 0, 0);
     [self load];
 }
 

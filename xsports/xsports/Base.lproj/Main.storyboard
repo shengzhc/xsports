@@ -449,7 +449,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6jh-qm-8sF">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="5td-bf-cbv">
                                     <size key="itemSize" width="320" height="500"/>
@@ -643,7 +643,7 @@
                             <constraint firstAttribute="bottom" secondItem="UAS-Nx-SO0" secondAttribute="bottom" id="fgh-e2-ci3"/>
                             <constraint firstItem="6jh-qm-8sF" firstAttribute="leading" secondItem="ciG-eU-fpa" secondAttribute="leading" id="hVY-EB-haz"/>
                             <constraint firstAttribute="trailing" secondItem="UAS-Nx-SO0" secondAttribute="trailing" id="iAl-IL-LMC"/>
-                            <constraint firstItem="6jh-qm-8sF" firstAttribute="top" secondItem="ciG-eU-fpa" secondAttribute="top" constant="64" id="rai-64-cLz"/>
+                            <constraint firstItem="6jh-qm-8sF" firstAttribute="top" secondItem="ciG-eU-fpa" secondAttribute="top" id="rai-64-cLz"/>
                             <constraint firstItem="UAS-Nx-SO0" firstAttribute="top" secondItem="ciG-eU-fpa" secondAttribute="top" id="zH8-5D-2GY"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
