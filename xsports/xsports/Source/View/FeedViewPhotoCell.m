@@ -24,11 +24,19 @@
     self.nameLabel.textColor = [UIColor fujiColor];
     self.timeLabel.font = [UIFont mediumEngFontWithSize:14];
     self.timeLabel.textColor = [UIColor darkFujiColor];
+    self.topSeperator.backgroundColor = [UIColor darkPebbleColor];
     
     self.likeAmountButton.titleLabel.font = [UIFont mediumEngFont];
     [self.likeAmountButton setTitleColor:[UIColor semiWaveColor] forState:UIControlStateNormal];
-    self.captionLabel.font = [UIFont mediumEngFont];
-    self.captionLabel.textColor = [UIColor lightGrayColor];
+    self.captionLabel.font = [UIFont mediumEngFontWithSize:12.0];
+    self.captionLabel.textColor = [UIColor semiTempuraColor];
+}
+
+- (void)setMedia:(Media *)media
+{
+    _media = media;
+    self.nameLabel.text = media.creator.fullName;
+    self.captionLabel.text = media.caption.text;
 }
 
 @end

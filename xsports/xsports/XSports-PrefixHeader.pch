@@ -23,9 +23,7 @@
 #import "AFNetworking.h"
 #import "ECSlidingViewController.h"
 #import "UIViewController+ECSlidingViewController.h"
-
-#import "User.h"
-#import "Media.h"
+#import "JSONModel.h"
 
 #import "XSConstants.h"
 #import "UIColor+XS.h"
@@ -36,7 +34,12 @@
 #import "UIImage+XS.h"
 #import "UIView+XS.h"
 #import "UINavigationController+XS.h"
+
 #import "LoadingAnimator.h"
+
+#import "User.h"
+#import "Media.h"
+
 #import "InstagramServices.h"
 
 #endif

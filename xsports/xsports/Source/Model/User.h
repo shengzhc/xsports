@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface User : NSObject
+@interface User : JSONModel
 @property (strong, nonatomic) NSString *fullName;
 @property (strong, nonatomic) NSString *uid;
 @property (strong, nonatomic) NSString *profilePicture;

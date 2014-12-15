@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UIView *topSeperator;
 
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 
@@ -23,4 +24,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
+@property (strong, nonatomic) Media *media;
 @end

@@ -7,10 +7,13 @@
 //
 
 #import "FeedViewController.h"
+#import "FeedViewPhotoCell.h"
 
 @interface FeedViewController () < UICollectionViewDelegate, UICollectionViewDataSource >
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
+
+@property (strong, nonatomic) NSArray *feeds;
 @end
 
 @implementation FeedViewController
@@ -18,6 +21,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self load];
 }
 
 - (void)viewWillLayoutSubviews
@@ -29,6 +33,20 @@
     }
 }
 
+- (void)load
+{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"instagram" ofType:@"txt"];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    NSArray *medias = json[@"data"];
+    NSMutableArray *feeds = [NSMutableArray new];
+    for (NSDictionary *media in medias) {
+        [feeds addObject:[[Media alloc] initWithDictionary:media error:nil]];
+    }
+    self.feeds = feeds;
+    [self.collectionView reloadData];
+}
+
 #pragma mark Action
 - (IBAction)menuBarItemClicked:(id)sender
 {
@@ -38,12 +56,14 @@
 #pragma mark UICollectionViewDelegate & UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 2;
+    return self.feeds.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FeedViewPhotoCellIdentifier forIndexPath:indexPath];
+    
+    ((FeedViewPhotoCell *)cell).media = self.feeds[indexPath.item];
     return cell;
 }
 

@@ -10,4 +10,19 @@
 
 @implementation User
 
++ (BOOL)propertyIsOptional:(NSString *)propertyName
+{
+    return YES;
+}
+
++ (JSONKeyMapper *)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{@"full_name": @"fullName",
+                                                       @"id": @"uid",
+                                                       @"profile_picture": @"profilePicture",
+                                                       @"username": @"userName",
+                                                       @"bio": @"bio",
+                                                       @"website": @"website"}];
+}
+
 @end

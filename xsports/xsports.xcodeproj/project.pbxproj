@@ -43,6 +43,7 @@
 		9CBCE72C1A3E2A0200C9BD35 /* InstagramServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE72B1A3E2A0200C9BD35 /* InstagramServices.m */; };
 		9CBCE72F1A3E2EF100C9BD35 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE72E1A3E2EF100C9BD35 /* User.m */; };
 		9CBCE7321A3E2F5000C9BD35 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE7311A3E2F5000C9BD35 /* Media.m */; };
+		9CBCE7371A3E381B00C9BD35 /* instagram.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7361A3E381B00C9BD35 /* instagram.txt */; };
 		9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,7 @@
 		9CBCE72E1A3E2EF100C9BD35 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		9CBCE7301A3E2F5000C9BD35 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
 		9CBCE7311A3E2F5000C9BD35 /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
+		9CBCE7361A3E381B00C9BD35 /* instagram.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instagram.txt; sourceTree = "<group>"; };
 		9CCF45DA1A3A5A2300FB1A94 /* UIViewController+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XS.h"; sourceTree = "<group>"; };
 		9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XS.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -310,6 +312,7 @@
 		9C9862F21A3974D6003D5F86 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9CBCE7361A3E381B00C9BD35 /* instagram.txt */,
 				9CBCE72D1A3E2EF100C9BD35 /* User.h */,
 				9CBCE72E1A3E2EF100C9BD35 /* User.m */,
 				9CBCE7301A3E2F5000C9BD35 /* Media.h */,
@@ -450,6 +453,7 @@
 				9C54EF411A39EF0B00D16EEE /* NotoSansCJKsc-Bold.otf in Resources */,
 				9C54EF421A39EF0B00D16EEE /* NotoSansCJKsc-Regular.otf in Resources */,
 				9C54EF431A39EF0B00D16EEE /* NotoSansCJKsc-Thin.otf in Resources */,
+				9CBCE7371A3E381B00C9BD35 /* instagram.txt in Resources */,
 				9C7DEBC01A396E6B00A0436E /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

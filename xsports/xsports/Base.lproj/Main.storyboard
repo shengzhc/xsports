@@ -475,14 +475,14 @@
                                                             </constraints>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_clock" translatesAutoresizingMaskIntoConstraints="NO" id="Kl8-Ra-qNb" userLabel="clockImageView">
-                                                            <rect key="frame" x="256" y="7" width="32" height="32"/>
+                                                            <rect key="frame" x="260.5" y="7" width="32" height="32"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="32" id="9hH-tk-2kv"/>
                                                                 <constraint firstAttribute="height" constant="32" id="Emi-LH-fmm"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oE9-lI-8gA" userLabel="timeLabel">
-                                                            <rect key="frame" x="288" y="13" width="19.5" height="20.5"/>
+                                                            <rect key="frame" x="292.5" y="13" width="19.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
@@ -492,17 +492,27 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOs-8e-Ubj" userLabel="seperator">
+                                                            <rect key="frame" x="8" y="45.5" width="304" height="0.5"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="0.5" id="9mq-vM-DhO"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="TDb-SP-dE4" secondAttribute="bottom" constant="8" id="7YN-RW-Uug"/>
                                                         <constraint firstItem="TDb-SP-dE4" firstAttribute="centerY" secondItem="3jm-7D-wK3" secondAttribute="centerY" id="9yr-8N-1nl"/>
                                                         <constraint firstItem="3jm-7D-wK3" firstAttribute="leading" secondItem="TDb-SP-dE4" secondAttribute="trailing" constant="8" id="Gtc-qE-G70"/>
+                                                        <constraint firstAttribute="trailing" secondItem="WOs-8e-Ubj" secondAttribute="trailing" constant="8" id="IDl-y2-Mhw"/>
                                                         <constraint firstItem="TDb-SP-dE4" firstAttribute="centerY" secondItem="oE9-lI-8gA" secondAttribute="centerY" id="KlD-Pg-Kea"/>
                                                         <constraint firstItem="oE9-lI-8gA" firstAttribute="leading" secondItem="Kl8-Ra-qNb" secondAttribute="trailing" id="LYQ-P4-R1P"/>
                                                         <constraint firstItem="TDb-SP-dE4" firstAttribute="centerY" secondItem="Kl8-Ra-qNb" secondAttribute="centerY" id="Zgb-6L-bFD"/>
                                                         <constraint firstItem="TDb-SP-dE4" firstAttribute="leading" secondItem="rgg-Nj-Dyc" secondAttribute="leading" constant="8" id="dpl-F1-5Df"/>
-                                                        <constraint firstAttribute="trailing" secondItem="oE9-lI-8gA" secondAttribute="trailing" constant="12" id="onl-Qi-Em7"/>
+                                                        <constraint firstAttribute="bottom" secondItem="WOs-8e-Ubj" secondAttribute="bottom" id="f3u-0f-ZoD"/>
+                                                        <constraint firstItem="WOs-8e-Ubj" firstAttribute="leading" secondItem="rgg-Nj-Dyc" secondAttribute="leading" constant="8" id="kxW-Li-dVn"/>
+                                                        <constraint firstAttribute="trailing" secondItem="oE9-lI-8gA" secondAttribute="trailing" constant="8" id="onl-Qi-Em7"/>
                                                         <constraint firstItem="TDb-SP-dE4" firstAttribute="top" secondItem="rgg-Nj-Dyc" secondAttribute="top" constant="8" id="vkf-bJ-dJb"/>
                                                     </constraints>
                                                 </view>
@@ -611,6 +621,7 @@
                                             <outlet property="shareButton" destination="PE2-1W-723" id="LTw-8u-r9C"/>
                                             <outlet property="timeLabel" destination="oE9-lI-8gA" id="0L7-7d-JtM"/>
                                             <outlet property="topContainer" destination="rgg-Nj-Dyc" id="pv5-Kw-8J5"/>
+                                            <outlet property="topSeperator" destination="WOs-8e-Ubj" id="NBC-Ea-4sl"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

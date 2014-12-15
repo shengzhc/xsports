@@ -41,10 +41,20 @@ static const NSString *instagramSecretId = @"9c939511d38346649600ba65658ebfc4";
                                                parameters:@{@"client_id": instagramClientId, @"secret_id": instagramSecretId}
                                                   success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
-        NSLog(@"AAA");
+        NSArray *data = [responseObject objectForKey:@"data"];
+        NSMutableArray *medias = [NSMutableArray new];
+        for (NSDictionary *media in data) {
+            [medias addObject:[[Media alloc] initWithDictionary:media error:nil]];
+        }
+        if (success) {
+            success(nil, medias);
+        }
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
     {
-        NSLog(@"BBB");
+        if (failure) {
+            failure(error, nil);
+        }
     }];
     
     return operation;

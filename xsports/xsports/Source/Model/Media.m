@@ -9,54 +9,113 @@
 #import "Media.h"
 
 @implementation Caption
-- (instancetype)initWithJsonObject:(NSDictionary *)jsonObject
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
-    if (self = [super init]) {
-        
-    }
-    return self;
+    return YES;
 }
+
++ (JSONKeyMapper *)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{@"created_time": @"createdTime",
+                                                       @"from": @"creator",
+                                                       @"id": @"cid",
+                                                       @"text": @"text"}];
+}
+
+
 @end
 
 @implementation Comment
-- (instancetype)initWithJsonObject:(NSDictionary *)jsonObject
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
-    if (self = [super init]) {
-        
-    }
-    return self;
+    return YES;
+}
+
++ (JSONKeyMapper *)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{@"created_time": @"createdTime",
+                                                       @"from": @"creator",
+                                                       @"id": @"cid",
+                                                       @"text": @"text"}];
 }
 
 @end
 
 @implementation Image
-- (instancetype)initWithJsonObject:(NSDictionary *)jsonObject
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
-    if (self = [super init]) {
-        
-    }
-    return self;
+    return YES;
+}
+
++ (JSONKeyMapper *)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{@"height": @"height",
+                                                       @"url": @"url",
+                                                       @"width": @"width"}];
+}
+
+@end
+
+@implementation Images
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName
+{
+    return YES;
+}
+
++ (JSONKeyMapper *)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{@"low_resolution": @"low",
+                                                       @"standard_resolution": @"standard",
+                                                       @"thumbnail": @"high"}];
 }
 
 @end
 
 @implementation Location
-- (instancetype)initWithJsonObject:(NSDictionary *)jsonObject
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
-    if (self = [super init]) {
-        
-    }
-    return self;
+    return YES;
+}
+
++ (JSONKeyMapper *)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{@"id": @"lid",
+                                                       @"latitude": @"latitude",
+                                                       @"longitude": @"longitude",
+                                                       @"name": @"name"}];
 }
 
 @end
 
 @implementation Media
-- (instancetype)initWithJsonObject:(NSDictionary *)jsonObject
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName
 {
-    if (self = [super init]) {
-        self.attribution = [jsonObject objectForKey:@"attribution"];
-    }
-    return self;
+    return YES;
 }
+
++ (JSONKeyMapper *)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{@"attribution": @"attribution",
+                                                       @"caption": @"caption",
+                                                       @"comments.count": @"totalComments",
+                                                       @"comments.data": @"comments",
+                                                       @"created_time": @"createdTime",
+                                                       @"filter": @"filter",
+                                                       @"id": @"mid",
+                                                       @"images": @"images",
+                                                       @"likes.count": @"totalLikes",
+                                                       @"likes.data": @"likes",
+                                                       @"link": @"link",
+                                                       @"location": @"location",
+                                                       @"type": @"type",
+                                                       @"user": @"creator"}];
+}
+
+
 @end
