@@ -16,6 +16,7 @@ pod 'SIAlertView'
 pod 'MBProgressHUD'
 pod 'ECSlidingViewController'
 pod 'JSONModel'
+pod 'SDWebImage'
 
 end
 

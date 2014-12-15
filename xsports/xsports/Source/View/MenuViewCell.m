@@ -28,7 +28,7 @@
 
 - (void)setupLabel
 {
-    self.iconTextLabel.font = [UIFont mediumEngFontWithSize:18.0];
+    self.iconTextLabel.font = [UIFont regularFontWithSize:18.0];
     self.iconTextLabel.textColor = [UIColor whiteColor];
 }
 

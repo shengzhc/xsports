@@ -18,7 +18,7 @@
 
 - (void)setup
 {
-    UIFont *font = [UIFont mediumEngFont];
+    UIFont *font = [UIFont regularFont];
     NSDictionary *attributes = @{NSFontAttributeName: font, NSForegroundColorAttributeName: [UIColor textFieldPlaceHolderColor]};
     NSMutableAttributedString *placeholderText = [[NSMutableAttributedString alloc] initWithString:[self placeHolderText] attributes:attributes];
     self.textField.attributedPlaceholder = placeholderText;

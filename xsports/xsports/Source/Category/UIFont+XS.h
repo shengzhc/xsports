@@ -11,14 +11,14 @@
 @interface UIFont (XS)
 
 + (UIFont *)regularFont;
-+ (UIFont *)thinFont;
++ (UIFont *)lightFont;
 + (UIFont *)boldFont;
++ (UIFont *)extraLightFont;
++ (UIFont *)semiBoldFont;
 
 + (UIFont *)regularFontWithSize:(CGFloat)size;
 + (UIFont *)boldFontWithSize:(CGFloat)size;
-+ (UIFont *)thinFontWithSize:(CGFloat)size;
-
-+ (UIFont *)mediumEngFont;
-+ (UIFont *)mediumEngFontWithSize:(CGFloat)size;
-
++ (UIFont *)lightFontWithSize:(CGFloat)size;
++ (UIFont *)extraLightFontWithSize:(CGFloat)size;
++ (UIFont *)semiBoldFontWithSize:(CGFloat)size;
 @end

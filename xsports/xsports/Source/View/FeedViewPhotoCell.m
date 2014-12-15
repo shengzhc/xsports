@@ -20,16 +20,29 @@
 {
     self.profileImageView.layer.cornerRadius = 4.0;
     self.profileImageView.layer.masksToBounds = YES;
-    self.nameLabel.font = [UIFont mediumEngFont];
+    self.nameLabel.font = [UIFont boldFontWithSize:16];
     self.nameLabel.textColor = [UIColor fujiColor];
-    self.timeLabel.font = [UIFont mediumEngFontWithSize:14];
+    self.timeLabel.font = [UIFont regularFont];
     self.timeLabel.textColor = [UIColor darkFujiColor];
-    self.topSeperator.backgroundColor = [UIColor darkPebbleColor];
+    self.topSeperator.backgroundColor = [UIColor pebbleColor];
     
-    self.likeAmountButton.titleLabel.font = [UIFont mediumEngFont];
+    self.likeAmountButton.titleLabel.font = [UIFont regularFont];
     [self.likeAmountButton setTitleColor:[UIColor semiWaveColor] forState:UIControlStateNormal];
-    self.captionLabel.font = [UIFont mediumEngFontWithSize:12.0];
+    self.captionLabel.font = [UIFont regularFontWithSize:12.0];
     self.captionLabel.textColor = [UIColor semiTempuraColor];
+    
+    self.shareButton.layer.cornerRadius = 4.0;
+    [self.shareButton setBackgroundColor:[UIColor lightGrayColor]];
+
+    self.commentButton.layer.cornerRadius = 4.0;
+    [self.commentButton setBackgroundColor:[UIColor lightGrayColor]];
+    self.commentButton.titleLabel.font = [UIFont regularFont];
+    [self.commentButton setTitleColor:[UIColor fujiColor] forState:UIControlStateNormal];
+    
+    self.likeButton.layer.cornerRadius = 4.0;
+    [self.likeButton setBackgroundColor:[UIColor lightGrayColor]];
+    self.likeButton.titleLabel.font = [UIFont regularFont];
+    [self.likeButton setTitleColor:[UIColor fujiColor] forState:UIControlStateNormal];
 }
 
 - (void)setMedia:(Media *)media
@@ -37,6 +50,7 @@
     _media = media;
     self.nameLabel.text = media.creator.fullName;
     self.captionLabel.text = media.caption.text;
+    [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:media.images.standard.url] placeholderImage:nil options:SDWebImageContinueInBackground];
 }
 
 @end

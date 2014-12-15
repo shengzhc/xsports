@@ -30,9 +30,11 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>NotoSansCJKsc-Bold.otf</string>
-		<string>NotoSansCJKsc-Regular.otf</string>
-		<string>NotoSansCJKsc-Thin.otf</string>
+		<string>SourceSansPro-Regular.otf</string>
+		<string>SourceSansPro-Bold.otf</string>
+		<string>SourceSansPro-Light.otf</string>
+		<string>SourceSansPro-ExtraLight.otf</string>
+		<string>SourceSansPro-Semibold.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

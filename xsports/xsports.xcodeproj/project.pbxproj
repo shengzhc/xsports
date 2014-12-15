@@ -14,9 +14,6 @@
 		9C02EA161A3AB55500FA1631 /* LoadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA151A3AB55500FA1631 /* LoadingAnimator.m */; };
 		9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C44C6291A3C2041002CB86B /* MenuViewCell.m */; };
 		9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */; };
-		9C54EF411A39EF0B00D16EEE /* NotoSansCJKsc-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C54EF3E1A39EF0B00D16EEE /* NotoSansCJKsc-Bold.otf */; };
-		9C54EF421A39EF0B00D16EEE /* NotoSansCJKsc-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C54EF3F1A39EF0B00D16EEE /* NotoSansCJKsc-Regular.otf */; };
-		9C54EF431A39EF0B00D16EEE /* NotoSansCJKsc-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C54EF401A39EF0B00D16EEE /* NotoSansCJKsc-Thin.otf */; };
 		9C54EF491A39F11A00D16EEE /* XSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF481A39F11A00D16EEE /* XSConstants.m */; };
 		9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF4C1A3A255C00D16EEE /* LoginEmailCell.m */; };
 		9C54EF501A3A260900D16EEE /* LoginPasswordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF4F1A3A260900D16EEE /* LoginPasswordCell.m */; };
@@ -44,6 +41,18 @@
 		9CBCE72F1A3E2EF100C9BD35 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE72E1A3E2EF100C9BD35 /* User.m */; };
 		9CBCE7321A3E2F5000C9BD35 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE7311A3E2F5000C9BD35 /* Media.m */; };
 		9CBCE7371A3E381B00C9BD35 /* instagram.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7361A3E381B00C9BD35 /* instagram.txt */; };
+		9CBCE74E1A3ECD9000C9BD35 /* SourceSansPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7421A3ECD9000C9BD35 /* SourceSansPro-Black.otf */; };
+		9CBCE74F1A3ECD9000C9BD35 /* SourceSansPro-BlackIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7431A3ECD9000C9BD35 /* SourceSansPro-BlackIt.otf */; };
+		9CBCE7501A3ECD9000C9BD35 /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7441A3ECD9000C9BD35 /* SourceSansPro-Bold.otf */; };
+		9CBCE7511A3ECD9000C9BD35 /* SourceSansPro-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7451A3ECD9000C9BD35 /* SourceSansPro-BoldIt.otf */; };
+		9CBCE7521A3ECD9000C9BD35 /* SourceSansPro-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7461A3ECD9000C9BD35 /* SourceSansPro-ExtraLight.otf */; };
+		9CBCE7531A3ECD9000C9BD35 /* SourceSansPro-ExtraLightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7471A3ECD9000C9BD35 /* SourceSansPro-ExtraLightIt.otf */; };
+		9CBCE7541A3ECD9000C9BD35 /* SourceSansPro-It.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7481A3ECD9000C9BD35 /* SourceSansPro-It.otf */; };
+		9CBCE7551A3ECD9000C9BD35 /* SourceSansPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7491A3ECD9000C9BD35 /* SourceSansPro-Light.otf */; };
+		9CBCE7561A3ECD9000C9BD35 /* SourceSansPro-LightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE74A1A3ECD9000C9BD35 /* SourceSansPro-LightIt.otf */; };
+		9CBCE7571A3ECD9000C9BD35 /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE74B1A3ECD9000C9BD35 /* SourceSansPro-Regular.otf */; };
+		9CBCE7581A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE74C1A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf */; };
+		9CBCE7591A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE74D1A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf */; };
 		9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */; };
 /* End PBXBuildFile section */
 
@@ -73,9 +82,6 @@
 		9C44C6291A3C2041002CB86B /* MenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewCell.m; sourceTree = "<group>"; };
 		9C54EF3A1A39EECA00D16EEE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		9C54EF3E1A39EF0B00D16EEE /* NotoSansCJKsc-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKsc-Bold.otf"; sourceTree = "<group>"; };
-		9C54EF3F1A39EF0B00D16EEE /* NotoSansCJKsc-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKsc-Regular.otf"; sourceTree = "<group>"; };
-		9C54EF401A39EF0B00D16EEE /* NotoSansCJKsc-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKsc-Thin.otf"; sourceTree = "<group>"; };
 		9C54EF471A39F11A00D16EEE /* XSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSConstants.h; sourceTree = "<group>"; };
 		9C54EF481A39F11A00D16EEE /* XSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSConstants.m; sourceTree = "<group>"; };
 		9C54EF4A1A39F8BC00D16EEE /* XSports-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XSports-PrefixHeader.pch"; sourceTree = "<group>"; };
@@ -128,6 +134,18 @@
 		9CBCE7301A3E2F5000C9BD35 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
 		9CBCE7311A3E2F5000C9BD35 /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
 		9CBCE7361A3E381B00C9BD35 /* instagram.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instagram.txt; sourceTree = "<group>"; };
+		9CBCE7421A3ECD9000C9BD35 /* SourceSansPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Black.otf"; sourceTree = "<group>"; };
+		9CBCE7431A3ECD9000C9BD35 /* SourceSansPro-BlackIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-BlackIt.otf"; sourceTree = "<group>"; };
+		9CBCE7441A3ECD9000C9BD35 /* SourceSansPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.otf"; sourceTree = "<group>"; };
+		9CBCE7451A3ECD9000C9BD35 /* SourceSansPro-BoldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-BoldIt.otf"; sourceTree = "<group>"; };
+		9CBCE7461A3ECD9000C9BD35 /* SourceSansPro-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLight.otf"; sourceTree = "<group>"; };
+		9CBCE7471A3ECD9000C9BD35 /* SourceSansPro-ExtraLightIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLightIt.otf"; sourceTree = "<group>"; };
+		9CBCE7481A3ECD9000C9BD35 /* SourceSansPro-It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-It.otf"; sourceTree = "<group>"; };
+		9CBCE7491A3ECD9000C9BD35 /* SourceSansPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.otf"; sourceTree = "<group>"; };
+		9CBCE74A1A3ECD9000C9BD35 /* SourceSansPro-LightIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-LightIt.otf"; sourceTree = "<group>"; };
+		9CBCE74B1A3ECD9000C9BD35 /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
+		9CBCE74C1A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
+		9CBCE74D1A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiboldIt.otf"; sourceTree = "<group>"; };
 		9CCF45DA1A3A5A2300FB1A94 /* UIViewController+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XS.h"; sourceTree = "<group>"; };
 		9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XS.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,9 +201,18 @@
 		9C54EF3D1A39EF0B00D16EEE /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				9C54EF3E1A39EF0B00D16EEE /* NotoSansCJKsc-Bold.otf */,
-				9C54EF3F1A39EF0B00D16EEE /* NotoSansCJKsc-Regular.otf */,
-				9C54EF401A39EF0B00D16EEE /* NotoSansCJKsc-Thin.otf */,
+				9CBCE7421A3ECD9000C9BD35 /* SourceSansPro-Black.otf */,
+				9CBCE7431A3ECD9000C9BD35 /* SourceSansPro-BlackIt.otf */,
+				9CBCE7441A3ECD9000C9BD35 /* SourceSansPro-Bold.otf */,
+				9CBCE7451A3ECD9000C9BD35 /* SourceSansPro-BoldIt.otf */,
+				9CBCE7461A3ECD9000C9BD35 /* SourceSansPro-ExtraLight.otf */,
+				9CBCE7471A3ECD9000C9BD35 /* SourceSansPro-ExtraLightIt.otf */,
+				9CBCE7481A3ECD9000C9BD35 /* SourceSansPro-It.otf */,
+				9CBCE7491A3ECD9000C9BD35 /* SourceSansPro-Light.otf */,
+				9CBCE74A1A3ECD9000C9BD35 /* SourceSansPro-LightIt.otf */,
+				9CBCE74B1A3ECD9000C9BD35 /* SourceSansPro-Regular.otf */,
+				9CBCE74C1A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf */,
+				9CBCE74D1A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -448,12 +475,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CBCE7541A3ECD9000C9BD35 /* SourceSansPro-It.otf in Resources */,
+				9CBCE74F1A3ECD9000C9BD35 /* SourceSansPro-BlackIt.otf in Resources */,
+				9CBCE7511A3ECD9000C9BD35 /* SourceSansPro-BoldIt.otf in Resources */,
+				9CBCE7591A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf in Resources */,
+				9CBCE7521A3ECD9000C9BD35 /* SourceSansPro-ExtraLight.otf in Resources */,
+				9CBCE7581A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf in Resources */,
+				9CBCE7501A3ECD9000C9BD35 /* SourceSansPro-Bold.otf in Resources */,
+				9CBCE7561A3ECD9000C9BD35 /* SourceSansPro-LightIt.otf in Resources */,
+				9CBCE7571A3ECD9000C9BD35 /* SourceSansPro-Regular.otf in Resources */,
 				9C6B21E91A397BB100FE8B43 /* Images.xcassets in Resources */,
+				9CBCE7551A3ECD9000C9BD35 /* SourceSansPro-Light.otf in Resources */,
 				9C7DEBBB1A396E6B00A0436E /* Main.storyboard in Resources */,
-				9C54EF411A39EF0B00D16EEE /* NotoSansCJKsc-Bold.otf in Resources */,
-				9C54EF421A39EF0B00D16EEE /* NotoSansCJKsc-Regular.otf in Resources */,
-				9C54EF431A39EF0B00D16EEE /* NotoSansCJKsc-Thin.otf in Resources */,
 				9CBCE7371A3E381B00C9BD35 /* instagram.txt in Resources */,
+				9CBCE74E1A3ECD9000C9BD35 /* SourceSansPro-Black.otf in Resources */,
+				9CBCE7531A3ECD9000C9BD35 /* SourceSansPro-ExtraLightIt.otf in Resources */,
 				9C7DEBC01A396E6B00A0436E /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

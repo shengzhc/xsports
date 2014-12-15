@@ -12,47 +12,52 @@
 
 + (UIFont *)regularFont
 {
-    return [self regularFontWithSize:16.0];
+    return [self regularFontWithSize:14.0];
 }
 
 + (UIFont *)boldFont
 {
-    return [self boldFontWithSize:16.0];
+    return [self boldFontWithSize:14.0];
 }
 
-+ (UIFont *)thinFont
++ (UIFont *)lightFont
 {
-    return [self thinFontWithSize:16.0];
+    return [self lightFontWithSize:14.0];
+}
+
++ (UIFont *)extraLightFont
+{
+    return [self extraLightFontWithSize:14.0];
+}
+
++ (UIFont *)semiBoldFont
+{
+    return [self semiBoldFontWithSize:14.0];
 }
 
 + (UIFont *)regularFontWithSize:(CGFloat)size
 {
-    UIFont *font = [UIFont fontWithName:@"NotoSansCJKsc-Regular" size:size];
-    return font;
+    return [UIFont fontWithName:@"SourceSansPro-Regular" size:size];
 }
 
 + (UIFont *)boldFontWithSize:(CGFloat)size
 {
-    UIFont *font = [UIFont fontWithName:@"NotoSansCJKsc-Bold" size:size];
-    return font;
+    return [UIFont fontWithName:@"SourceSansPro-Bold" size:size];
 }
 
-+ (UIFont *)thinFontWithSize:(CGFloat)size
++ (UIFont *)lightFontWithSize:(CGFloat)size
 {
-    UIFont *font = [UIFont fontWithName:@"NotoSansCJKsc-Thin" size:size];
-    return font;
+    return [UIFont fontWithName:@"SourceSansPro-Light" size:size];
 }
 
-+ (UIFont *)mediumEngFont
++ (UIFont *)extraLightFontWithSize:(CGFloat)size
 {
-    return [self mediumEngFontWithSize:16.0];
+    return [UIFont fontWithName:@"SourceSansPro-ExtraLight" size:size];
 }
 
-+ (UIFont *)mediumEngFontWithSize:(CGFloat)size
++ (UIFont *)semiBoldFontWithSize:(CGFloat)size
 {
-    UIFont *font = [UIFont fontWithName:@"Futura-Medium" size:size];
-    return font;
+    return [UIFont fontWithName:@"SourceSansPro-Semibold" size:size];
 }
-
 
 @end

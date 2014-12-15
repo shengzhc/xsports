@@ -28,10 +28,10 @@
 #pragma mark Setup
 - (void)setupLabel
 {
-    self.nameLabel.font = [UIFont mediumEngFontWithSize:18];
+    self.nameLabel.font = [UIFont regularFontWithSize:18];
     self.nameLabel.textColor = [UIColor whiteColor];
     self.nameLabel.text = @"Frank Rapacciuolo";
-    self.locationLabel.font = [UIFont mediumEngFontWithSize:14.0];
+    self.locationLabel.font = [UIFont regularFont];
     self.locationLabel.textColor = [UIColor darkJadeColor];
     self.locationLabel.text = @"San Francisco";
 }
@@ -51,7 +51,7 @@
 - (void)setupButton
 {
     self.logoutButton.layer.cornerRadius = 4.0;
-    self.logoutButton.titleLabel.font = [UIFont mediumEngFontWithSize:18];
+    self.logoutButton.titleLabel.font = [UIFont regularFontWithSize:18];
     [self.logoutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.logoutButton setBackgroundColor:[UIColor clearColor]];
     self.logoutButton.layer.borderWidth = 1.5;

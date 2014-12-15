@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SDWebImageManager.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,7 @@
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     [[InstagramServices sharedInstance] getPopularMediaWithSuccessBlock:nil failBlock:nil];
+    [self setupImageCache];
     return YES;
 }
 
@@ -42,6 +44,15 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)setupImageCache
+{
+    SDWebImageManager.sharedManager.cacheKeyFilter = ^(NSURL *url)
+    {
+        url = [[NSURL alloc] initWithScheme:url.scheme host:url.host path:url.path];
+        return [url absoluteString];
+    };
 }
 
 @end

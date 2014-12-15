@@ -21,8 +21,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.collectionView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
-    self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, 0, 0);
     [self load];
 }
 
@@ -30,7 +28,7 @@
 {
     [super viewWillLayoutSubviews];
     if (self.flowLayout.itemSize.width != self.collectionView.bounds.size.width) {
-        self.flowLayout.itemSize = CGSizeMake(self.collectionView.bounds.size.width, 500.0);
+        self.flowLayout.itemSize = CGSizeMake(self.collectionView.bounds.size.width, 680.0);
         [self.flowLayout invalidateLayout];
     }
 }

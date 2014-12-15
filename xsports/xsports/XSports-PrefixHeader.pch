@@ -24,6 +24,7 @@
 #import "ECSlidingViewController.h"
 #import "UIViewController+ECSlidingViewController.h"
 #import "JSONModel.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 #import "XSConstants.h"
 #import "UIColor+XS.h"
