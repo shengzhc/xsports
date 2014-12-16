@@ -35,6 +35,7 @@
 #import "UIImage+XS.h"
 #import "UIView+XS.h"
 #import "UINavigationController+XS.h"
+#import "JSONValueTransformer+XS.h"
 
 #import "LoadingAnimator.h"
 
