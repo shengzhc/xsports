@@ -56,6 +56,8 @@
 		9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */; };
 		9CF88D411A3FBCE400D4E72E /* FeedViewPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CF88D401A3FBCE400D4E72E /* FeedViewPhotoCell.xib */; };
 		9CF88D441A3FC3F300D4E72E /* JSONValueTransformer+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF88D431A3FC3F300D4E72E /* JSONValueTransformer+XS.m */; };
+		9CF88D461A3FE5ED00D4E72E /* Tasks in Resources */ = {isa = PBXBuildFile; fileRef = 9CF88D451A3FE5ED00D4E72E /* Tasks */; };
+		9CF88D491A3FE6A300D4E72E /* NSDate+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF88D481A3FE6A300D4E72E /* NSDate+XS.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +155,9 @@
 		9CF88D401A3FBCE400D4E72E /* FeedViewPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewPhotoCell.xib; sourceTree = "<group>"; };
 		9CF88D421A3FC3F300D4E72E /* JSONValueTransformer+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONValueTransformer+XS.h"; sourceTree = "<group>"; };
 		9CF88D431A3FC3F300D4E72E /* JSONValueTransformer+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+XS.m"; sourceTree = "<group>"; };
+		9CF88D451A3FE5ED00D4E72E /* Tasks */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Tasks; sourceTree = "<group>"; };
+		9CF88D471A3FE6A300D4E72E /* NSDate+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+XS.h"; sourceTree = "<group>"; };
+		9CF88D481A3FE6A300D4E72E /* NSDate+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+XS.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +260,7 @@
 				9C6B21E81A397BB100FE8B43 /* Images.xcassets */,
 				9C7DEBAF1A396E6B00A0436E /* Supporting Files */,
 				9C54EF4A1A39F8BC00D16EEE /* XSports-PrefixHeader.pch */,
+				9CF88D451A3FE5ED00D4E72E /* Tasks */,
 			);
 			path = xsports;
 			sourceTree = "<group>";
@@ -319,6 +325,8 @@
 				9CBCE7241A3CD0B900C9BD35 /* UINavigationController+XS.m */,
 				9CF88D421A3FC3F300D4E72E /* JSONValueTransformer+XS.h */,
 				9CF88D431A3FC3F300D4E72E /* JSONValueTransformer+XS.m */,
+				9CF88D471A3FE6A300D4E72E /* NSDate+XS.h */,
+				9CF88D481A3FE6A300D4E72E /* NSDate+XS.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -486,6 +494,7 @@
 				9CBCE7541A3ECD9000C9BD35 /* SourceSansPro-It.otf in Resources */,
 				9CBCE74F1A3ECD9000C9BD35 /* SourceSansPro-BlackIt.otf in Resources */,
 				9CBCE7511A3ECD9000C9BD35 /* SourceSansPro-BoldIt.otf in Resources */,
+				9CF88D461A3FE5ED00D4E72E /* Tasks in Resources */,
 				9CBCE7591A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf in Resources */,
 				9CBCE7521A3ECD9000C9BD35 /* SourceSansPro-ExtraLight.otf in Resources */,
 				9CF88D411A3FBCE400D4E72E /* FeedViewPhotoCell.xib in Resources */,
@@ -575,6 +584,7 @@
 				9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */,
 				9CBCE7321A3E2F5000C9BD35 /* Media.m in Sources */,
 				9CBCE71D1A3CC56200C9BD35 /* MEFoldAnimationController.m in Sources */,
+				9CF88D491A3FE6A300D4E72E /* NSDate+XS.m in Sources */,
 				9C02EA0F1A3A793500FA1631 /* UIImage+XS.m in Sources */,
 				9C7DEBB21A396E6B00A0436E /* main.m in Sources */,
 				9C7ED1291A3BA13C007AB927 /* FeedViewController.m in Sources */,

@@ -51,6 +51,7 @@
     self.nameLabel.text = media.creator.fullName;
     self.captionLabel.text = media.caption.text;
     [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:media.images.standard.url] placeholderImage:nil options:SDWebImageContinueInBackground];
+    self.timeLabel.text = [media.createdTime dateOffset];
 }
 
 @end
