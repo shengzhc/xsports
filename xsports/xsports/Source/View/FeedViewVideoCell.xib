@@ -167,13 +167,20 @@
                             <constraint firstItem="8Eg-h5-fjS" firstAttribute="leading" secondItem="Fuz-cW-Tls" secondAttribute="trailing" constant="4" id="z0X-P4-UfW"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tjc-np-0hg" userLabel="player" customClass="AVPlayerView">
+                        <rect key="frame" x="0.0" y="46" width="320" height="320"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="1f8-dr-sxs" secondAttribute="trailing" id="7MD-dH-K2M"/>
+                <constraint firstItem="Tjc-np-0hg" firstAttribute="trailing" secondItem="25Q-mu-gIw" secondAttribute="trailing" id="9ey-8E-6Ny"/>
                 <constraint firstItem="25Q-mu-gIw" firstAttribute="leading" secondItem="1iL-aC-sIe" secondAttribute="leading" id="A5d-0P-8ro"/>
+                <constraint firstItem="Tjc-np-0hg" firstAttribute="leading" secondItem="25Q-mu-gIw" secondAttribute="leading" id="Apg-Q2-QMf"/>
+                <constraint firstItem="Tjc-np-0hg" firstAttribute="top" secondItem="25Q-mu-gIw" secondAttribute="top" id="BdD-Ss-3Hk"/>
                 <constraint firstAttribute="trailing" secondItem="25Q-mu-gIw" secondAttribute="trailing" id="CLd-nY-0fr"/>
                 <constraint firstItem="xKa-BP-8Kn" firstAttribute="top" secondItem="OKr-lu-Kv0" secondAttribute="bottom" constant="12" id="LWy-0n-qfq"/>
                 <constraint firstItem="25Q-mu-gIw" firstAttribute="top" secondItem="OKr-lu-Kv0" secondAttribute="bottom" id="Px9-i9-43J"/>
@@ -183,8 +190,15 @@
                 <constraint firstItem="OKr-lu-Kv0" firstAttribute="leading" secondItem="1iL-aC-sIe" secondAttribute="leading" id="jQs-BS-VYu"/>
                 <constraint firstItem="OKr-lu-Kv0" firstAttribute="leading" secondItem="1iL-aC-sIe" secondAttribute="leading" id="k1g-jP-ACr"/>
                 <constraint firstItem="OKr-lu-Kv0" firstAttribute="top" secondItem="1iL-aC-sIe" secondAttribute="top" id="lYk-uo-Od5"/>
+                <constraint firstItem="25Q-mu-gIw" firstAttribute="bottom" secondItem="Tjc-np-0hg" secondAttribute="bottom" id="o44-fr-Eis"/>
+                <constraint firstItem="25Q-mu-gIw" firstAttribute="leading" secondItem="Tjc-np-0hg" secondAttribute="leading" id="uiG-h6-nNq"/>
                 <constraint firstItem="1f8-dr-sxs" firstAttribute="top" secondItem="25Q-mu-gIw" secondAttribute="bottom" id="yN1-MX-vIf"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="uiG-h6-nNq"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="bottomContainer" destination="1f8-dr-sxs" id="s4y-Hi-zh7"/>
                 <outlet property="captionLabel" destination="Tcc-ed-UUH" id="ahm-sL-sZb"/>
