@@ -52,6 +52,30 @@
     self.captionLabel.text = media.caption.text;
     [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:media.images.standard.url] placeholderImage:nil options:SDWebImageContinueInBackground];
     self.timeLabel.text = [media.createdTime dateOffset];
+    [self updateLikeButton:media.isLike];
+}
+
+- (void)updateLikeButton:(BOOL)like
+{
+    if (like) {
+        [self.likeButton setImage:[UIImage imageNamed:@"ico_heart_purple"] forState:UIControlStateNormal];
+        [self.likeButton setTitle:@"Liked" forState:UIControlStateNormal];
+        [self.likeButton setTitleColor:[UIColor coralColor] forState:UIControlStateNormal];
+        [self.likeAmountButton setTitle:[NSString stringWithFormat:@"%@", @(self.media.totalLikes+1)] forState:UIControlStateNormal];
+    } else {
+        [self.likeButton setImage:[UIImage imageNamed:@"ico_empty_heart_purple"] forState:UIControlStateNormal];
+        [self.likeButton setTitle:@"Like" forState:UIControlStateNormal];
+        [self.likeButton setTitleColor:[UIColor fujiColor] forState:UIControlStateNormal];
+        [self.likeAmountButton setTitle:[NSString stringWithFormat:@"%@", @(self.media.totalLikes)] forState:UIControlStateNormal];
+
+    }
+}
+
+#pragma mark Action
+- (IBAction)didLikeButtonClicked:(id)sender
+{
+    self.media.isLike = !self.media.isLike;
+    [self updateLikeButton:self.media.isLike];
 }
 
 @end

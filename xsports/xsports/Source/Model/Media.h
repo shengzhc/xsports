@@ -56,4 +56,5 @@
 @property (strong, nonatomic) Location *location;
 @property (strong, nonatomic) NSString *type;
 @property (strong, nonatomic) User *creator;
+@property (assign, nonatomic) BOOL isLike;
 @end

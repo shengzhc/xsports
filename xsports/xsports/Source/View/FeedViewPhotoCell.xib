@@ -33,13 +33,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ep2-0c-2IJ" userLabel="timeLabel">
-                                <rect key="frame" x="292" y="13" width="20" height="21"/>
+                                <rect key="frame" x="292" y="13" width="19.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jo-IV-ojx" userLabel="nameLabel">
-                                <rect key="frame" x="46" y="13" width="46" height="21"/>
+                                <rect key="frame" x="46" y="13" width="45.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -75,7 +75,7 @@
                         </constraints>
                     </imageView>
                     <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRq-OX-nPH" userLabel="bottom">
-                        <rect key="frame" x="0.0" y="366" width="320" height="99"/>
+                        <rect key="frame" x="0.0" y="366" width="320" height="98.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_heart" translatesAutoresizingMaskIntoConstraints="NO" id="37e-SW-Mlu">
                                 <rect key="frame" x="8" y="13" width="12" height="12"/>
@@ -98,7 +98,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9P-FP-bOu" userLabel="caption">
-                                <rect key="frame" x="24" y="34" width="280" height="21"/>
+                                <rect key="frame" x="24" y="34" width="280" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -112,6 +112,9 @@
                                 <state key="normal" title="Like" image="ico_empty_heart_purple">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="didLikeButtonClicked:" destination="8FX-vD-r8u" eventType="touchUpInside" id="Y67-7h-Lbb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJU-Zr-V2F" userLabel="Comment">
                                 <rect key="frame" x="75" y="62" width="109" height="24"/>
