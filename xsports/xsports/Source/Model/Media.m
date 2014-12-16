@@ -75,6 +75,41 @@
 
 @end
 
+@implementation Video
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName
+{
+    return YES;
+}
+
++ (JSONKeyMapper *)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{@"height": @"height",
+                                                       @"url": @"url",
+                                                       @"width": @"width"}];
+}
+
+@end
+
+@implementation Videos
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName
+{
+    return YES;
+}
+
++ (JSONKeyMapper *)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{@"low_bandwidth": @"low",
+                                                       @"standard_resolution": @"standard",
+                                                       @"low_resolution": @"high"}];
+}
+
+
+
+@end
+
+
 @implementation Location
 
 + (BOOL)propertyIsOptional:(NSString *)propertyName
@@ -91,6 +126,8 @@
 }
 
 @end
+
+
 
 @implementation Media
 
@@ -109,6 +146,7 @@
                                                        @"filter": @"filter",
                                                        @"id": @"mid",
                                                        @"images": @"images",
+                                                       @"videos": @"videos",
                                                        @"likes.count": @"totalLikes",
                                                        @"likes.data": @"likes",
                                                        @"link": @"link",
@@ -116,6 +154,5 @@
                                                        @"type": @"type",
                                                        @"user": @"creator"}];
 }
-
 
 @end

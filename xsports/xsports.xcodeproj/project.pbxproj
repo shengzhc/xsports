@@ -12,6 +12,7 @@
 		9C02EA0F1A3A793500FA1631 /* UIImage+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA0E1A3A793500FA1631 /* UIImage+XS.m */; };
 		9C02EA121A3A7A0300FA1631 /* UIView+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA111A3A7A0300FA1631 /* UIView+XS.m */; };
 		9C02EA161A3AB55500FA1631 /* LoadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA151A3AB55500FA1631 /* LoadingAnimator.m */; };
+		9C09285F1A3FFEE5001340F2 /* FeedViewPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CF88D401A3FBCE400D4E72E /* FeedViewPhotoCell.xib */; };
 		9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C44C6291A3C2041002CB86B /* MenuViewCell.m */; };
 		9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */; };
 		9C54EF491A39F11A00D16EEE /* XSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF481A39F11A00D16EEE /* XSConstants.m */; };
@@ -54,7 +55,6 @@
 		9CBCE7581A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE74C1A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf */; };
 		9CBCE7591A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE74D1A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf */; };
 		9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */; };
-		9CF88D411A3FBCE400D4E72E /* FeedViewPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CF88D401A3FBCE400D4E72E /* FeedViewPhotoCell.xib */; };
 		9CF88D441A3FC3F300D4E72E /* JSONValueTransformer+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF88D431A3FC3F300D4E72E /* JSONValueTransformer+XS.m */; };
 		9CF88D461A3FE5ED00D4E72E /* Tasks in Resources */ = {isa = PBXBuildFile; fileRef = 9CF88D451A3FE5ED00D4E72E /* Tasks */; };
 		9CF88D491A3FE6A300D4E72E /* NSDate+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF88D481A3FE6A300D4E72E /* NSDate+XS.m */; };
@@ -491,13 +491,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C09285F1A3FFEE5001340F2 /* FeedViewPhotoCell.xib in Resources */,
 				9CBCE7541A3ECD9000C9BD35 /* SourceSansPro-It.otf in Resources */,
 				9CBCE74F1A3ECD9000C9BD35 /* SourceSansPro-BlackIt.otf in Resources */,
 				9CBCE7511A3ECD9000C9BD35 /* SourceSansPro-BoldIt.otf in Resources */,
 				9CF88D461A3FE5ED00D4E72E /* Tasks in Resources */,
 				9CBCE7591A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf in Resources */,
 				9CBCE7521A3ECD9000C9BD35 /* SourceSansPro-ExtraLight.otf in Resources */,
-				9CF88D411A3FBCE400D4E72E /* FeedViewPhotoCell.xib in Resources */,
 				9CBCE7581A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf in Resources */,
 				9CBCE7501A3ECD9000C9BD35 /* SourceSansPro-Bold.otf in Resources */,
 				9CBCE7561A3ECD9000C9BD35 /* SourceSansPro-LightIt.otf in Resources */,

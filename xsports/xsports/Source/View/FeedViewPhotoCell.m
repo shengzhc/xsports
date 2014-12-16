@@ -9,7 +9,6 @@
 #import "FeedViewPhotoCell.h"
 
 @implementation FeedViewPhotoCell
-
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -58,12 +57,12 @@
 - (void)updateLikeButton:(BOOL)like
 {
     if (like) {
-        [self.likeButton setImage:[UIImage imageNamed:@"ico_heart_purple"] forState:UIControlStateNormal];
+        [self.likeButton setImage:[UIImage imageNamed:@"ico_heart_purple.png"] forState:UIControlStateNormal];
         [self.likeButton setTitle:@"Liked" forState:UIControlStateNormal];
         [self.likeButton setTitleColor:[UIColor coralColor] forState:UIControlStateNormal];
         [self.likeAmountButton setTitle:[NSString stringWithFormat:@"%@", @(self.media.totalLikes+1)] forState:UIControlStateNormal];
     } else {
-        [self.likeButton setImage:[UIImage imageNamed:@"ico_empty_heart_purple"] forState:UIControlStateNormal];
+        [self.likeButton setImage:[UIImage imageNamed:@"ico_empty_heart_purple.png"] forState:UIControlStateNormal];
         [self.likeButton setTitle:@"Like" forState:UIControlStateNormal];
         [self.likeButton setTitleColor:[UIColor fujiColor] forState:UIControlStateNormal];
         [self.likeAmountButton setTitle:[NSString stringWithFormat:@"%@", @(self.media.totalLikes)] forState:UIControlStateNormal];
@@ -76,6 +75,16 @@
 {
     self.media.isLike = !self.media.isLike;
     [self updateLikeButton:self.media.isLike];
+}
+
+- (IBAction)didCommentButtonClicked:(id)sender
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+- (IBAction)didShareButtonClicked:(id)sender
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
 @end

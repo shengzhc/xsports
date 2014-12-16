@@ -34,6 +34,18 @@
 @property (strong, nonatomic) Image *high;
 @end
 
+@interface Video : JSONModel
+@property (assign, nonatomic) CGFloat width;
+@property (assign, nonatomic) CGFloat height;
+@property (strong, nonatomic) NSString *url;
+@end
+
+@interface Videos : JSONModel
+@property (strong, nonatomic) Video *low;
+@property (strong, nonatomic) Video *standard;
+@property (strong, nonatomic) Video *high;
+@end
+
 @interface Location : JSONModel
 @property (strong, nonatomic) NSString *lid;
 @property (strong, nonatomic) NSString *name;
@@ -50,6 +62,7 @@
 @property (strong, nonatomic) NSString *filter;
 @property (strong, nonatomic) NSString *mid;
 @property (strong, nonatomic) Images *images;
+@property (strong, nonatomic) Videos *videos;
 @property (assign, nonatomic) NSUInteger totalLikes;
 @property (strong, nonatomic) NSArray *likes;
 @property (strong, nonatomic) NSString *link;
