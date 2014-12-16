@@ -67,7 +67,7 @@
                             <constraint firstItem="anE-xm-9Fk" firstAttribute="centerY" secondItem="4t4-8q-XG0" secondAttribute="centerY" id="xL3-Po-HS2"/>
                         </constraints>
                     </view>
-                    <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="skiboard" translatesAutoresizingMaskIntoConstraints="NO" id="0aL-Hu-8Ly" userLabel="photo">
+                    <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0aL-Hu-8Ly" userLabel="photo">
                         <rect key="frame" x="0.0" y="46" width="320" height="320"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -199,6 +199,5 @@
         <image name="ico_message" width="20" height="20"/>
         <image name="ico_myself" width="120" height="120"/>
         <image name="ico_share" width="32" height="21"/>
-        <image name="skiboard" width="950" height="246"/>
     </resources>
 </document>
