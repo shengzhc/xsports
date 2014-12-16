@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FeedViewPhotoCell" id="1iL-aC-sIe" customClass="FeedViewPhotoCell">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FeedViewVideoCell" id="1iL-aC-sIe" customClass="FeedViewVideoCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -74,6 +74,15 @@
                             <constraint firstAttribute="width" secondItem="25Q-mu-gIw" secondAttribute="height" multiplier="1:1" id="uA0-xJ-Yzb"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKa-BP-8Kn" userLabel="ico_video">
+                        <rect key="frame" x="276" y="58" width="32" height="32"/>
+                        <state key="normal" backgroundImage="ico_video_play">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="didVideoButtonClicked:" destination="1iL-aC-sIe" eventType="touchUpInside" id="cfd-uu-Gqm"/>
+                        </connections>
+                    </button>
                     <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1f8-dr-sxs" userLabel="bottom">
                         <rect key="frame" x="0.0" y="366" width="320" height="98.5"/>
                         <subviews>
@@ -166,9 +175,11 @@
                 <constraint firstAttribute="trailing" secondItem="1f8-dr-sxs" secondAttribute="trailing" id="7MD-dH-K2M"/>
                 <constraint firstItem="25Q-mu-gIw" firstAttribute="leading" secondItem="1iL-aC-sIe" secondAttribute="leading" id="A5d-0P-8ro"/>
                 <constraint firstAttribute="trailing" secondItem="25Q-mu-gIw" secondAttribute="trailing" id="CLd-nY-0fr"/>
+                <constraint firstItem="xKa-BP-8Kn" firstAttribute="top" secondItem="OKr-lu-Kv0" secondAttribute="bottom" constant="12" id="LWy-0n-qfq"/>
                 <constraint firstItem="25Q-mu-gIw" firstAttribute="top" secondItem="OKr-lu-Kv0" secondAttribute="bottom" id="Px9-i9-43J"/>
                 <constraint firstAttribute="trailing" secondItem="OKr-lu-Kv0" secondAttribute="trailing" id="VYH-oM-e55"/>
                 <constraint firstItem="1f8-dr-sxs" firstAttribute="leading" secondItem="1iL-aC-sIe" secondAttribute="leading" id="eWC-MV-cok"/>
+                <constraint firstAttribute="trailing" secondItem="xKa-BP-8Kn" secondAttribute="trailing" constant="12" id="g82-jJ-D7j"/>
                 <constraint firstItem="OKr-lu-Kv0" firstAttribute="leading" secondItem="1iL-aC-sIe" secondAttribute="leading" id="jQs-BS-VYu"/>
                 <constraint firstItem="OKr-lu-Kv0" firstAttribute="leading" secondItem="1iL-aC-sIe" secondAttribute="leading" id="k1g-jP-ACr"/>
                 <constraint firstItem="OKr-lu-Kv0" firstAttribute="top" secondItem="1iL-aC-sIe" secondAttribute="top" id="lYk-uo-Od5"/>
@@ -187,6 +198,7 @@
                 <outlet property="timeLabel" destination="otC-M6-Nbh" id="oZh-Bk-RWo"/>
                 <outlet property="topContainer" destination="OKr-lu-Kv0" id="vGc-7Y-L1g"/>
                 <outlet property="topSeperator" destination="FeR-n5-Epe" id="bEg-rH-NWM"/>
+                <outlet property="videoButton" destination="xKa-BP-8Kn" id="vil-gJ-DDB"/>
             </connections>
             <point key="canvasLocation" x="902" y="-81"/>
         </collectionViewCell>
@@ -199,5 +211,6 @@
         <image name="ico_message" width="20" height="20"/>
         <image name="ico_myself" width="120" height="120"/>
         <image name="ico_share" width="32" height="21"/>
+        <image name="ico_video_play" width="32" height="32"/>
     </resources>
 </document>

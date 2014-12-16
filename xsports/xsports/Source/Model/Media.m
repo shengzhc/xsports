@@ -127,8 +127,6 @@
 
 @end
 
-
-
 @implementation Media
 
 + (BOOL)propertyIsOptional:(NSString *)propertyName
@@ -153,6 +151,14 @@
                                                        @"location": @"location",
                                                        @"type": @"type",
                                                        @"user": @"creator"}];
+}
+
+- (BOOL)isVideo
+{
+    if ([[self.type lowercaseString] isEqualToString:@"video"] && self.videos.standard) {
+        return YES;
+    }
+    return NO;
 }
 
 @end

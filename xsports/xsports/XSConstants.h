@@ -22,5 +22,6 @@
 #define LoginPasswordCellIdentifier @"LoginPasswordCell"
 #define MenuViewCellIdentifier @"MenuViewCell"
 #define FeedViewPhotoCellIdentifier @"FeedViewPhotoCell"
+#define FeedViewVideoCellIdentifier @"FeedViewVideoCell"
 
 #endif

@@ -70,4 +70,5 @@
 @property (strong, nonatomic) NSString *type;
 @property (strong, nonatomic) User *creator;
 @property (assign, nonatomic) BOOL isLike;
+- (BOOL)isVideo;
 @end

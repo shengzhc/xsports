@@ -8,6 +8,7 @@
 
 #import "FeedViewController.h"
 #import "FeedViewPhotoCell.h"
+#import "FeedViewVideoCell.h"
 
 @interface FeedViewController () < UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout >
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -23,6 +24,7 @@
 {
     [super viewDidLoad];
     [self.collectionView registerNib:[UINib nibWithNibName:@"FeedViewPhotoCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:FeedViewPhotoCellIdentifier];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"FeedViewVideoCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:FeedViewVideoCellIdentifier];
     [self preparePrototypes];
     [self load];
 }
@@ -30,8 +32,11 @@
 - (void)preparePrototypes
 {
     NSMutableDictionary *prototypes = [NSMutableDictionary new];
-    FeedViewPhotoCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"FeedViewPhotoCell" owner:nil options:nil] objectAtIndex:0];
+    id cell = [[[NSBundle mainBundle] loadNibNamed:@"FeedViewPhotoCell" owner:nil options:nil] objectAtIndex:0];
     prototypes[FeedViewPhotoCellIdentifier] = cell;
+    
+    cell = [[[NSBundle mainBundle] loadNibNamed:@"FeedViewVideoCell" owner:nil options:nil] objectAtIndex:0];
+    prototypes[FeedViewVideoCellIdentifier] = cell;
     self.prototypes = prototypes;
 }
 
@@ -63,19 +68,33 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FeedViewPhotoCellIdentifier forIndexPath:indexPath];
-    ((FeedViewPhotoCell *)cell).media = self.feeds[indexPath.item];
+    Media *media = self.feeds[indexPath.item];
+    UICollectionViewCell *cell = nil;
+    if ([media isVideo]) {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:FeedViewVideoCellIdentifier forIndexPath:indexPath];
+        ((FeedViewVideoCell *)cell).media = self.feeds[indexPath.item];
+
+    } else {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:FeedViewPhotoCellIdentifier forIndexPath:indexPath];
+        ((FeedViewPhotoCell *)cell).media = self.feeds[indexPath.item];
+    }
     return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    FeedViewPhotoCell *cell = self.prototypes[FeedViewPhotoCellIdentifier];
-    cell.frame = CGRectMake(0, 0, collectionView.bounds.size.width, 1000);
+    Media *media = self.feeds[indexPath.item];
+    FeedViewPhotoCell *cell = nil;
+    if ([media isVideo]) {
+        cell = self.prototypes[FeedViewVideoCellIdentifier];
+    } else {
+        cell = self.prototypes[FeedViewPhotoCellIdentifier];
+    }
+    cell.frame = CGRectMake(0, 0, collectionView.bounds.size.width, 10000);
     cell.media = self.feeds[indexPath.item];
     [cell setNeedsLayout];
     [cell layoutIfNeeded];
-    CGSize size = CGSizeMake(collectionView.bounds.size.width, ((FeedViewPhotoCell *)cell).bottomContainer.frame.origin.y + ((FeedViewPhotoCell *)cell).bottomContainer.bounds.size.height);
+    CGSize size = CGSizeMake(collectionView.bounds.size.width, cell.bottomContainer.frame.origin.y + cell.bottomContainer.frame.size.height);
     size.width = ceilf(size.width);
     size.height = ceilf(size.height);
     return size;

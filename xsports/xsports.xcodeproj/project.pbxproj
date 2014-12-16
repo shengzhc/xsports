@@ -14,6 +14,7 @@
 		9C02EA161A3AB55500FA1631 /* LoadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA151A3AB55500FA1631 /* LoadingAnimator.m */; };
 		9C09285F1A3FFEE5001340F2 /* FeedViewPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CF88D401A3FBCE400D4E72E /* FeedViewPhotoCell.xib */; };
 		9C0928611A4000E5001340F2 /* FeedViewVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C0928601A4000E5001340F2 /* FeedViewVideoCell.xib */; };
+		9C0928641A400C8C001340F2 /* FeedViewVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0928631A400C8C001340F2 /* FeedViewVideoCell.m */; };
 		9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C44C6291A3C2041002CB86B /* MenuViewCell.m */; };
 		9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */; };
 		9C54EF491A39F11A00D16EEE /* XSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF481A39F11A00D16EEE /* XSConstants.m */; };
@@ -84,6 +85,8 @@
 		9C02EA141A3AB55500FA1631 /* LoadingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingAnimator.h; sourceTree = "<group>"; };
 		9C02EA151A3AB55500FA1631 /* LoadingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingAnimator.m; sourceTree = "<group>"; };
 		9C0928601A4000E5001340F2 /* FeedViewVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewVideoCell.xib; sourceTree = "<group>"; };
+		9C0928621A400C8C001340F2 /* FeedViewVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewVideoCell.h; sourceTree = "<group>"; };
+		9C0928631A400C8C001340F2 /* FeedViewVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewVideoCell.m; sourceTree = "<group>"; };
 		9C44C6281A3C2041002CB86B /* MenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewCell.h; sourceTree = "<group>"; };
 		9C44C6291A3C2041002CB86B /* MenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewCell.m; sourceTree = "<group>"; };
 		9C54EF3A1A39EECA00D16EEE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -378,6 +381,8 @@
 				9CBCE7271A3D7B9B00C9BD35 /* FeedViewPhotoCell.m */,
 				9CF88D401A3FBCE400D4E72E /* FeedViewPhotoCell.xib */,
 				9C0928601A4000E5001340F2 /* FeedViewVideoCell.xib */,
+				9C0928621A400C8C001340F2 /* FeedViewVideoCell.h */,
+				9C0928631A400C8C001340F2 /* FeedViewVideoCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -566,6 +571,7 @@
 				9C7DEBB51A396E6B00A0436E /* AppDelegate.m in Sources */,
 				9C7ED1261A3B8AD0007AB927 /* MenuViewController.m in Sources */,
 				9CBCE72F1A3E2EF100C9BD35 /* User.m in Sources */,
+				9C0928641A400C8C001340F2 /* FeedViewVideoCell.m in Sources */,
 				9CBCE7281A3D7B9B00C9BD35 /* FeedViewPhotoCell.m in Sources */,
 				9CBCE71F1A3CC56200C9BD35 /* MEZoomAnimationController.m in Sources */,
 				9CF88D441A3FC3F300D4E72E /* JSONValueTransformer+XS.m in Sources */,
