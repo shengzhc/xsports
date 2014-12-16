@@ -9,11 +9,12 @@
 #import "FeedViewController.h"
 #import "FeedViewPhotoCell.h"
 
-@interface FeedViewController () < UICollectionViewDelegate, UICollectionViewDataSource >
+@interface FeedViewController () < UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout >
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
 @property (strong, nonatomic) NSArray *feeds;
+@property (strong, nonatomic) NSDictionary *prototypes;
 @end
 
 @implementation FeedViewController
@@ -21,16 +22,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"FeedViewPhotoCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:FeedViewPhotoCellIdentifier];
+    [self preparePrototypes];
     [self load];
 }
 
-- (void)viewWillLayoutSubviews
+- (void)preparePrototypes
 {
-    [super viewWillLayoutSubviews];
-    if (self.flowLayout.itemSize.width != self.collectionView.bounds.size.width) {
-        self.flowLayout.itemSize = CGSizeMake(self.collectionView.bounds.size.width, 680.0);
-        [self.flowLayout invalidateLayout];
-    }
+    NSMutableDictionary *prototypes = [NSMutableDictionary new];
+    FeedViewPhotoCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"FeedViewPhotoCell" owner:nil options:nil] objectAtIndex:0];
+    prototypes[FeedViewPhotoCellIdentifier] = cell;
+    self.prototypes = prototypes;
 }
 
 - (void)load
@@ -62,9 +64,21 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FeedViewPhotoCellIdentifier forIndexPath:indexPath];
-    
     ((FeedViewPhotoCell *)cell).media = self.feeds[indexPath.item];
     return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    FeedViewPhotoCell *cell = self.prototypes[FeedViewPhotoCellIdentifier];
+    cell.frame = CGRectMake(0, 0, collectionView.bounds.size.width, 1000);
+    cell.media = self.feeds[indexPath.item];
+    [cell setNeedsLayout];
+    [cell layoutIfNeeded];
+    CGSize size = CGSizeMake(collectionView.bounds.size.width, ((FeedViewPhotoCell *)cell).bottomContainer.frame.origin.y + ((FeedViewPhotoCell *)cell).bottomContainer.bounds.size.height);
+    size.width = ceilf(size.width);
+    size.height = ceilf(size.height);
+    return size;
 }
 
 @end
