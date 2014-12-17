@@ -36,12 +36,20 @@
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
-    NSArray *attributes = [super layoutAttributesForElementsInRect:rect];
-    NSMutableArray *nAttribute = [NSMutableArray new];
-    for (UICollectionViewLayoutAttributes *attribute in attributes) {
-        [nAttribute addObject:[self layoutAttributesForItemAtIndexPath:attribute.indexPath]];
+    NSUInteger section = rect.origin.y/(self.padding*2+[self oneColumnWidth]+[self twoColumnWidth]);
+    NSUInteger i = section*6;
+    NSUInteger count = [self.collectionView numberOfItemsInSection:0];
+    
+    NSMutableArray *attributes = [NSMutableArray new];
+    for (; i<count; i++) {
+        UICollectionViewLayoutAttributes *attribute = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
+        if (CGRectIntersectsRect(rect, attribute.frame)) {
+            [attributes addObject:attribute];
+        } else {
+            break;
+        }
     }
-    return nAttribute;
+    return attributes;
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath

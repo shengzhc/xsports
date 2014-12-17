@@ -10,6 +10,14 @@
 
 @implementation FeedViewGridPhotoCell
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.layer.cornerRadius = 4.0;
+    self.layer.masksToBounds = YES;
+    self.backgroundColor = [UIColor semiWaveColor];
+}
+
 - (void)setMedia:(Media *)media
 {
     _media = media;

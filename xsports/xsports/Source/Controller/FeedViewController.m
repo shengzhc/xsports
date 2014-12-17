@@ -45,8 +45,8 @@
 - (void)setupGridLayout
 {
     self.gridLayout = [[GridLayout alloc] init];
-    self.gridLayout.minimumInteritemSpacing = 0;
-    self.gridLayout.minimumLineSpacing = 0;
+//    self.gridLayout.minimumInteritemSpacing = 0;
+//    self.gridLayout.minimumLineSpacing = 0;
 }
 
 - (void)setupCollectionView
