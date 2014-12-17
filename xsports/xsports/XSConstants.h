@@ -23,5 +23,6 @@
 #define MenuViewCellIdentifier @"MenuViewCell"
 #define FeedViewPhotoCellIdentifier @"FeedViewPhotoCell"
 #define FeedViewVideoCellIdentifier @"FeedViewVideoCell"
+#define FeedViewGridPhotoCellIdentifier @"FeedViewGridPhotoCell"
 
 #endif

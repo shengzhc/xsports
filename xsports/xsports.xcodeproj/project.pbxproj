@@ -20,6 +20,9 @@
 		9C09286B1A401D5E001340F2 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C09286A1A401D5E001340F2 /* AssetsLibrary.framework */; };
 		9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C44C6291A3C2041002CB86B /* MenuViewCell.m */; };
 		9C4B94EC1A413B4F00DFCC7F /* VideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B94EB1A413B4F00DFCC7F /* VideoController.m */; };
+		9C4B94F01A41697900DFCC7F /* FeedViewGridPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B94EE1A41697900DFCC7F /* FeedViewGridPhotoCell.m */; };
+		9C4B94F11A41697900DFCC7F /* FeedViewGridPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C4B94EF1A41697900DFCC7F /* FeedViewGridPhotoCell.xib */; };
+		9C4B94F41A416D1B00DFCC7F /* GridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B94F31A416D1B00DFCC7F /* GridLayout.m */; };
 		9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */; };
 		9C54EF491A39F11A00D16EEE /* XSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF481A39F11A00D16EEE /* XSConstants.m */; };
 		9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF4C1A3A255C00D16EEE /* LoginEmailCell.m */; };
@@ -99,6 +102,11 @@
 		9C44C6291A3C2041002CB86B /* MenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewCell.m; sourceTree = "<group>"; };
 		9C4B94EA1A413B4F00DFCC7F /* VideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoController.h; sourceTree = "<group>"; };
 		9C4B94EB1A413B4F00DFCC7F /* VideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoController.m; sourceTree = "<group>"; };
+		9C4B94ED1A41697900DFCC7F /* FeedViewGridPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewGridPhotoCell.h; sourceTree = "<group>"; };
+		9C4B94EE1A41697900DFCC7F /* FeedViewGridPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewGridPhotoCell.m; sourceTree = "<group>"; };
+		9C4B94EF1A41697900DFCC7F /* FeedViewGridPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewGridPhotoCell.xib; sourceTree = "<group>"; };
+		9C4B94F21A416D1B00DFCC7F /* GridLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridLayout.h; sourceTree = "<group>"; };
+		9C4B94F31A416D1B00DFCC7F /* GridLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridLayout.m; sourceTree = "<group>"; };
 		9C54EF3A1A39EECA00D16EEE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9C54EF471A39F11A00D16EEE /* XSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSConstants.h; sourceTree = "<group>"; };
@@ -225,6 +233,8 @@
 				9C02EA151A3AB55500FA1631 /* LoadingAnimator.m */,
 				9C4B94EA1A413B4F00DFCC7F /* VideoController.h */,
 				9C4B94EB1A413B4F00DFCC7F /* VideoController.m */,
+				9C4B94F21A416D1B00DFCC7F /* GridLayout.h */,
+				9C4B94F31A416D1B00DFCC7F /* GridLayout.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -401,6 +411,9 @@
 				9C0928631A400C8C001340F2 /* FeedViewVideoCell.m */,
 				9C0928651A40173B001340F2 /* AVPlayerView.h */,
 				9C0928661A40173B001340F2 /* AVPlayerView.m */,
+				9C4B94ED1A41697900DFCC7F /* FeedViewGridPhotoCell.h */,
+				9C4B94EE1A41697900DFCC7F /* FeedViewGridPhotoCell.m */,
+				9C4B94EF1A41697900DFCC7F /* FeedViewGridPhotoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -518,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C09285F1A3FFEE5001340F2 /* FeedViewPhotoCell.xib in Resources */,
+				9C4B94F11A41697900DFCC7F /* FeedViewGridPhotoCell.xib in Resources */,
 				9CBCE7541A3ECD9000C9BD35 /* SourceSansPro-It.otf in Resources */,
 				9CBCE74F1A3ECD9000C9BD35 /* SourceSansPro-BlackIt.otf in Resources */,
 				9CBCE7511A3ECD9000C9BD35 /* SourceSansPro-BoldIt.otf in Resources */,
@@ -593,6 +607,7 @@
 				9CBCE7281A3D7B9B00C9BD35 /* FeedViewPhotoCell.m in Sources */,
 				9CBCE71F1A3CC56200C9BD35 /* MEZoomAnimationController.m in Sources */,
 				9CF88D441A3FC3F300D4E72E /* JSONValueTransformer+XS.m in Sources */,
+				9C4B94F01A41697900DFCC7F /* FeedViewGridPhotoCell.m in Sources */,
 				9CBCE72C1A3E2A0200C9BD35 /* InstagramServices.m in Sources */,
 				9C0928671A40173B001340F2 /* AVPlayerView.m in Sources */,
 				9CBCE71C1A3CC56200C9BD35 /* MEDynamicTransition.m in Sources */,
@@ -608,6 +623,7 @@
 				9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */,
 				9C54EF531A3A3B6000D16EEE /* UIScreen+XS.m in Sources */,
 				9CBCE7251A3CD0B900C9BD35 /* UINavigationController+XS.m in Sources */,
+				9C4B94F41A416D1B00DFCC7F /* GridLayout.m in Sources */,
 				9C02EA0C1A3A706F00FA1631 /* LoadingViewController.m in Sources */,
 				9C54EF491A39F11A00D16EEE /* XSConstants.m in Sources */,
 				9C7ED1231A3B89B4007AB927 /* SlidingViewController.m in Sources */,
