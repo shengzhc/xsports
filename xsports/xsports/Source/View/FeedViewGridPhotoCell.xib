@@ -20,6 +20,11 @@
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ckE-RH-I6X" secondAttribute="height" multiplier="207:88" id="HGe-p9-7Ke"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="HGe-p9-7Ke"/>
+                            </mask>
+                        </variation>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

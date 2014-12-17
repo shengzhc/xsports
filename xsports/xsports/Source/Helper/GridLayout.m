@@ -10,6 +10,30 @@
 
 @implementation GridLayout
 
+- (instancetype)init
+{
+    if (self = [super init]) {
+        self.padding = 4.0;
+    }
+    return self;
+}
+
+- (CGFloat)oneColumnWidth
+{
+    return (self.collectionView.bounds.size.width - self.padding * 4)/3.0;
+}
+
+- (CGFloat)twoColumnWidth
+{
+    return self.collectionView.bounds.size.width - [self oneColumnWidth] - self.padding * 3;
+}
+
+- (CGSize)collectionViewContentSize
+{
+    CGSize size = [super collectionViewContentSize];
+    return size;
+}
+
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
     NSArray *attributes = [super layoutAttributesForElementsInRect:rect];
@@ -23,32 +47,44 @@
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewLayoutAttributes *attribute = [super layoutAttributesForItemAtIndexPath:indexPath];
-    CGFloat width = self.collectionView.bounds.size.width;
-    int row = (int)indexPath.item/3;
-    int col = (int)indexPath.item%3;
-    if (row % 2 ==0 ) {
-        CGRect frame = CGRectMake(0, 0, width/3.0, width/3.0);
-        CGFloat x = col*width/3.0;
-        CGFloat y = (row/2) * width;
-        frame.origin = CGPointMake(x, y);
-        attribute.frame = frame;
+    attribute.frame = [self itemFrameAtIndexPath:indexPath];
+    return attribute;
+}
+
+- (CGRect)itemFrameAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSUInteger row = (NSUInteger)indexPath.item/3;
+    NSUInteger col = (NSUInteger)indexPath.item%3;
+    CGRect frame = CGRectZero;
+    CGFloat oneColumnWidth = [self oneColumnWidth];
+    CGFloat twoColumnWidth = [self twoColumnWidth];
+
+    if (row%2==0) {
+        frame.size = CGSizeMake(oneColumnWidth, oneColumnWidth);
+        frame.origin = CGPointMake(self.padding+col*([self oneColumnWidth]+self.padding), self.padding+(row/2)*(oneColumnWidth+twoColumnWidth+self.padding*2));
     } else {
-        if (col == 0) {
-            CGRect frame = CGRectMake(0, 0, width*2.0/3.0, width*2.0/3.0);
-            CGFloat x = 0;
-            CGFloat y = (row-1)/2*width + width/3.0;
-            frame.origin = CGPointMake(x, y);
-            attribute.frame = frame;
+        CGFloat top = self.padding+(row/2)*(oneColumnWidth+twoColumnWidth+self.padding*2) + oneColumnWidth + self.padding;
+        if ((row/2+1)%2 == 0) {
+            if (col == 2) {
+                frame.size = CGSizeMake(twoColumnWidth, twoColumnWidth);
+                frame.origin = CGPointMake(self.padding + oneColumnWidth + self.padding, top);
+            } else {
+                frame.size = CGSizeMake(oneColumnWidth, oneColumnWidth);
+                frame.origin = CGPointMake(self.padding, top+col*(oneColumnWidth+self.padding));
+            }
         } else {
-            CGRect frame = CGRectMake(0, 0, width/3.0, width/3.0);
-            CGFloat x = width*2.0/3.0;
-            CGFloat y = (row-1)/2*width + width/3.0+(col-1)*width/3.0;
-            frame.origin = CGPointMake(x, y);
-            attribute.frame = frame;
+            if (col == 0) {
+                frame.size = CGSizeMake(twoColumnWidth, twoColumnWidth);
+                frame.origin = CGPointMake(self.padding, top);
+            } else {
+                frame.size = CGSizeMake(oneColumnWidth, oneColumnWidth);
+                frame.origin = CGPointMake(self.padding+twoColumnWidth+self.padding, top+(col-1)*(oneColumnWidth+self.padding));
+            }
         }
     }
     
-    return attribute;
+    
+    return frame;
 }
 
 @end

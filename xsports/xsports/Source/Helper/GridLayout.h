@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GridLayout : UICollectionViewFlowLayout
-
+@property (assign, nonatomic) CGFloat padding;
 @end
