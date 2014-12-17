@@ -3,9 +3,12 @@
 - Add Like high light button (DONE)
 
 12.16
-- Video Feed Cell
-- Start Grid Layout
+- Video Feed Cell (Need more research on AVPlayer) (DONE)
+- Start Grid Layout (DONE)
 
 12.17
 - Get Grid Layout completed
+- More research on AVPlayer
+
+12.18
 - Find image loader module to do image loading process
