@@ -11,9 +11,12 @@
 #import "FeedViewVideoCell.h"
 #import "FeedViewGridPhotoCell.h"
 
+#import "GridLayout.h"
+
 @interface FeedViewController () < UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout >
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
+@property (strong, nonatomic) GridLayout *gridLayout;
 
 @property (strong, nonatomic) NSArray *feeds;
 @property (strong, nonatomic) NSDictionary *prototypes;
@@ -24,10 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"FeedViewPhotoCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:FeedViewPhotoCellIdentifier];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"FeedViewVideoCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:FeedViewVideoCellIdentifier];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"FeedViewGridPhotoCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:FeedViewGridPhotoCellIdentifier];
-    [self preparePrototypes];
+    [self setupCollectionView];
     [self load];
 }
 
@@ -40,6 +40,23 @@
     cell = [[[NSBundle mainBundle] loadNibNamed:@"FeedViewVideoCell" owner:nil options:nil] objectAtIndex:0];
     prototypes[FeedViewVideoCellIdentifier] = cell;
     self.prototypes = prototypes;
+}
+
+- (void)setupGridLayout
+{
+    self.gridLayout = [[GridLayout alloc] init];
+    self.gridLayout.minimumInteritemSpacing = 0;
+    self.gridLayout.minimumLineSpacing = 0;
+}
+
+- (void)setupCollectionView
+{
+    [self.collectionView registerNib:[UINib nibWithNibName:@"FeedViewPhotoCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:FeedViewPhotoCellIdentifier];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"FeedViewVideoCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:FeedViewVideoCellIdentifier];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"FeedViewGridPhotoCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:FeedViewGridPhotoCellIdentifier];
+    [self setupGridLayout];
+    [self preparePrototypes];
+    [self.collectionView setCollectionViewLayout:self.gridLayout animated:YES];
 }
 
 - (void)load
