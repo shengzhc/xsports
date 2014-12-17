@@ -74,6 +74,10 @@
                             <constraint firstAttribute="width" secondItem="25Q-mu-gIw" secondAttribute="height" multiplier="1:1" id="uA0-xJ-Yzb"/>
                         </constraints>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tjc-np-0hg" userLabel="player" customClass="AVPlayerView">
+                        <rect key="frame" x="0.0" y="46" width="320" height="320"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKa-BP-8Kn" userLabel="ico_video">
                         <rect key="frame" x="276" y="58" width="32" height="32"/>
                         <state key="normal" backgroundImage="ico_video_play">
@@ -167,10 +171,6 @@
                             <constraint firstItem="8Eg-h5-fjS" firstAttribute="leading" secondItem="Fuz-cW-Tls" secondAttribute="trailing" constant="4" id="z0X-P4-UfW"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tjc-np-0hg" userLabel="player" customClass="AVPlayerView">
-                        <rect key="frame" x="0.0" y="46" width="320" height="320"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
@@ -207,6 +207,7 @@
                 <outlet property="likeButton" destination="Fuz-cW-Tls" id="uKd-LZ-X2D"/>
                 <outlet property="nameLabel" destination="Lui-xs-CZd" id="6Wb-oD-qWV"/>
                 <outlet property="photoImageView" destination="25Q-mu-gIw" id="197-T9-cyN"/>
+                <outlet property="playerView" destination="Tjc-np-0hg" id="N9t-BG-TMY"/>
                 <outlet property="profileImageView" destination="CLM-2y-3xo" id="MPB-QF-6Cy"/>
                 <outlet property="shareButton" destination="8ES-3u-Vdy" id="vf4-8W-4Gh"/>
                 <outlet property="timeLabel" destination="otC-M6-Nbh" id="oZh-Bk-RWo"/>

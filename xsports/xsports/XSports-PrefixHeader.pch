@@ -39,6 +39,7 @@
 #import "NSDate+XS.h"
 
 #import "LoadingAnimator.h"
+#import "VideoController.h"
 
 #import "User.h"
 #import "Media.h"

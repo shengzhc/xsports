@@ -7,7 +7,9 @@
 //
 
 #import "FeedViewPhotoCell.h"
+#import "AVPlayerView.h"
 
 @interface FeedViewVideoCell : FeedViewPhotoCell
 @property (weak, nonatomic) IBOutlet UIButton *videoButton;
+@property (weak, nonatomic) IBOutlet AVPlayerView *playerView;
 @end

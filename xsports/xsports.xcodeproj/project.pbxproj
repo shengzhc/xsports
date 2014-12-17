@@ -19,6 +19,7 @@
 		9C0928691A401D50001340F2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0928681A401D50001340F2 /* AVFoundation.framework */; };
 		9C09286B1A401D5E001340F2 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C09286A1A401D5E001340F2 /* AssetsLibrary.framework */; };
 		9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C44C6291A3C2041002CB86B /* MenuViewCell.m */; };
+		9C4B94EC1A413B4F00DFCC7F /* VideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B94EB1A413B4F00DFCC7F /* VideoController.m */; };
 		9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */; };
 		9C54EF491A39F11A00D16EEE /* XSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF481A39F11A00D16EEE /* XSConstants.m */; };
 		9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF4C1A3A255C00D16EEE /* LoginEmailCell.m */; };
@@ -96,6 +97,8 @@
 		9C09286A1A401D5E001340F2 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		9C44C6281A3C2041002CB86B /* MenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewCell.h; sourceTree = "<group>"; };
 		9C44C6291A3C2041002CB86B /* MenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewCell.m; sourceTree = "<group>"; };
+		9C4B94EA1A413B4F00DFCC7F /* VideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoController.h; sourceTree = "<group>"; };
+		9C4B94EB1A413B4F00DFCC7F /* VideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoController.m; sourceTree = "<group>"; };
 		9C54EF3A1A39EECA00D16EEE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9C54EF471A39F11A00D16EEE /* XSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSConstants.h; sourceTree = "<group>"; };
@@ -220,6 +223,8 @@
 				9CBCE7131A3CC56200C9BD35 /* METransitions */,
 				9C02EA141A3AB55500FA1631 /* LoadingAnimator.h */,
 				9C02EA151A3AB55500FA1631 /* LoadingAnimator.m */,
+				9C4B94EA1A413B4F00DFCC7F /* VideoController.h */,
+				9C4B94EB1A413B4F00DFCC7F /* VideoController.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -596,6 +601,7 @@
 				9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */,
 				9C02EA121A3A7A0300FA1631 /* UIView+XS.m in Sources */,
 				9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */,
+				9C4B94EC1A413B4F00DFCC7F /* VideoController.m in Sources */,
 				9C54EF501A3A260900D16EEE /* LoginPasswordCell.m in Sources */,
 				9CBCE7221A3CCFF700C9BD35 /* SettingViewController.m in Sources */,
 				9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */,

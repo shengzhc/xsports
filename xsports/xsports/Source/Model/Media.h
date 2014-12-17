@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Media;
 
 @interface Caption : JSONModel
 @property (strong, nonatomic) NSDate *createdTime;
@@ -53,6 +54,13 @@
 @property (assign, nonatomic) double longitude;
 @end
 
+@protocol MediaDelegate <NSObject>
+@optional
+- (void)media:(Media *)media didPlayItemReadyToPlay:(AVPlayerItem *)playerItem;
+- (void)media:(Media *)media didPlayItemFailoPlay:(AVPlayerItem *)playerItem;
+- (void)media:(Media *)media didPlayItemEndPlay:(AVPlayerItem *)playerItem;
+@end
+
 @interface Media : JSONModel
 @property (strong, nonatomic) NSDictionary *attribution;
 @property (strong, nonatomic) Caption *caption;
@@ -70,5 +78,10 @@
 @property (strong, nonatomic) NSString *type;
 @property (strong, nonatomic) User *creator;
 @property (assign, nonatomic) BOOL isLike;
+
+@property (strong, nonatomic) AVPlayerItem *playerItem;
+@property (strong, nonatomic) AVPlayer *player;
+@property (weak, nonatomic) id<MediaDelegate> delegate;
 - (BOOL)isVideo;
+- (void)loadPlayerItem;
 @end

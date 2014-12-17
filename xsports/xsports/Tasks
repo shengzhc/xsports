@@ -1,9 +1,11 @@
 12.15
 - Replace timelabel with real data (DONE)
 - Add Like high light button (DONE)
-- Video Feed Cell
-
 
 12.16
-- Find image loader module to do image loading process
+- Video Feed Cell
 - Start Grid Layout
+
+12.17
+- Get Grid Layout completed
+- Find image loader module to do image loading process

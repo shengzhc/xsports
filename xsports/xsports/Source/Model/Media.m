@@ -7,6 +7,10 @@
 //
 
 #import "Media.h"
+static void *AVPlayerDemoPlaybackViewControllerRateObservationContext = &AVPlayerDemoPlaybackViewControllerRateObservationContext;
+static void *AVPlayerDemoPlaybackViewControllerStatusObservationContext = &AVPlayerDemoPlaybackViewControllerStatusObservationContext;
+static void *AVPlayerDemoPlaybackViewControllerCurrentItemObservationContext = &AVPlayerDemoPlaybackViewControllerCurrentItemObservationContext;
+
 
 @implementation Caption
 
@@ -159,6 +163,84 @@
         return YES;
     }
     return NO;
+}
+
+- (void)loadPlayerItem
+{
+    if (self.playerItem) {
+        return;
+    }
+    
+    AVURLAsset *asset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:self.videos.standard.url] options:nil];
+    NSArray *requestedKeys = @[@"playable"];
+    [asset loadValuesAsynchronouslyForKeys:requestedKeys completionHandler:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self prepareToPlayAsset:asset withKeys:requestedKeys];
+        });
+    }];
+}
+
+- (void)prepareToPlayAsset:(AVURLAsset *)asset withKeys:(NSArray *)requestedKeys
+{
+    for (NSString *thisKey in requestedKeys) {
+        NSError *error = nil;
+        AVKeyValueStatus keyStatus = [asset statusOfValueForKey:thisKey error:&error];
+        if (keyStatus == AVKeyValueStatusFailed) {
+            [self loadPlayerItem];
+            return;
+        }
+    }
+    
+    if (!asset.playable) {
+        return;
+    }
+
+    NSAssert(self.playerItem == nil, @"Should be empty");
+    self.playerItem = [AVPlayerItem playerItemWithAsset:asset];
+    
+    [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:AVPlayerDemoPlaybackViewControllerStatusObservationContext];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
+    NSLog(@"CHEN");
+
+    self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
+//    [self.player addObserver:self forKeyPath:@"currentItem" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:AVPlayerDemoPlaybackViewControllerCurrentItemObservationContext];
+//    [self.player addObserver:self forKeyPath:@"rate" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:AVPlayerDemoPlaybackViewControllerRateObservationContext];
+    [self.player replaceCurrentItemWithPlayerItem:self.playerItem];
+}
+
+- (void)playerItemDidReachEnd:(NSNotification *)notification
+{
+    if ([self.delegate respondsToSelector:@selector(media:didPlayItemEndPlay:)]) {
+        [self.delegate media:self didPlayItemEndPlay:self.playerItem];
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString*) path ofObject:(id)object change:(NSDictionary*)change context:(void*)context
+{
+    if (context == AVPlayerDemoPlaybackViewControllerStatusObservationContext) {
+        AVPlayerItemStatus status = [[change objectForKey:NSKeyValueChangeNewKey] integerValue];
+        switch (status) {
+            case AVPlayerItemStatusUnknown:
+            case AVPlayerItemStatusFailed:
+            {
+                if ([self.delegate respondsToSelector:@selector(media:didPlayItemFailoPlay:)]) {
+                    [self.delegate media:self didPlayItemFailoPlay:object];
+                }
+            }
+                break;
+            case AVPlayerItemStatusReadyToPlay:
+            {
+                if ([self.delegate respondsToSelector:@selector(media:didPlayItemReadyToPlay:)]) {
+                    [self.delegate media:self didPlayItemReadyToPlay:object];
+                }
+            }
+                break;
+            default:
+                break;
+        }
+    } else {
+        [super observeValueForKeyPath:path ofObject:object change:change context:context];
+    }
 }
 
 @end
