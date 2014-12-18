@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GridLayout : UICollectionViewFlowLayout
+@interface GridLayout : UICollectionViewLayout
 @property (assign, nonatomic) CGFloat padding;
 @end

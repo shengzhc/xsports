@@ -30,31 +30,62 @@
 
 - (CGSize)collectionViewContentSize
 {
-    CGSize size = [super collectionViewContentSize];
-    return size;
+    NSUInteger count = [self.collectionView numberOfItemsInSection:0];
+    if (count == 0) {
+        return CGSizeMake(self.collectionView.bounds.size.width, 0);
+    }
+    NSUInteger rows = count/3;
+    NSUInteger cols = count%3;
+    CGFloat height = 0;
+    CGFloat initialHeight = [self oneColumnWidth];
+    CGFloat switchHeight = [self twoColumnWidth];
+    for (int i=0; i<rows; i++) {
+        height += (initialHeight + self.padding);
+        CGFloat f = initialHeight;
+        initialHeight = switchHeight;
+        switchHeight = f;
+    }
+    if (cols > 0) {
+        height += (self.padding + initialHeight);
+    }
+    height += self.padding;
+    return CGSizeMake(self.collectionView.bounds.size.width, height);
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
-    NSUInteger section = rect.origin.y/(self.padding*2+[self oneColumnWidth]+[self twoColumnWidth]);
-    NSUInteger i = section*6;
-    NSUInteger count = [self.collectionView numberOfItemsInSection:0];
-    
+    NSInteger section = rect.origin.y/(self.padding*2+[self oneColumnWidth]+[self twoColumnWidth]);
+    NSInteger i = (section+1)*6;
+    NSInteger count = [self.collectionView numberOfItemsInSection:0];
     NSMutableArray *attributes = [NSMutableArray new];
-    for (; i<count; i++) {
-        UICollectionViewLayoutAttributes *attribute = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
+    
+    for (NSInteger j=MIN(i, count-1); j>=0; j--) {
+        UICollectionViewLayoutAttributes *attribute = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:j inSection:0]];
         if (CGRectIntersectsRect(rect, attribute.frame)) {
             [attributes addObject:attribute];
         } else {
             break;
         }
     }
+    for (NSInteger j=i; j<count; j++) {
+        UICollectionViewLayoutAttributes *attribute = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:j inSection:0]];
+        if (CGRectIntersectsRect(rect, attribute.frame)) {
+            [attributes addObject:attribute];
+        } else {
+            break;
+        }
+    }
+    
+    if (attributes.count > 0) {
+        NSLog(@"%@", attributes.lastObject);
+    }
+
     return attributes;
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewLayoutAttributes *attribute = [super layoutAttributesForItemAtIndexPath:indexPath];
+    UICollectionViewLayoutAttributes *attribute = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     attribute.frame = [self itemFrameAtIndexPath:indexPath];
     return attribute;
 }
@@ -90,8 +121,6 @@
             }
         }
     }
-    
-    
     return frame;
 }
 
