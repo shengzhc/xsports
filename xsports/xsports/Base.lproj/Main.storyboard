@@ -491,10 +491,18 @@
                                 <action selector="menuBarItemClicked:" destination="kUd-DW-rt9" id="Fve-iF-7vS"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="ico_layout_grid" id="PGc-uH-43T">
+                            <inset key="imageInsets" minX="0.0" minY="10" maxX="10" maxY="0.0"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="didLayoutBarButtonItemClicked:" destination="kUd-DW-rt9" id="NQt-eh-Are"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="6jh-qm-8sF" id="gRP-Z6-o6q"/>
                         <outlet property="flowLayout" destination="5td-bf-cbv" id="zTa-eE-TsX"/>
+                        <outlet property="layoutBarButtonItem" destination="PGc-uH-43T" id="Ncw-Ca-fFO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWK-jZ-Lth" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -589,6 +597,7 @@
         <image name="bg_blur_06" width="540" height="960"/>
         <image name="bg_login" width="311" height="552"/>
         <image name="ico_email" width="32" height="32"/>
+        <image name="ico_layout_grid" width="44" height="44"/>
         <image name="ico_lock" width="32" height="32"/>
         <image name="ico_logo" width="240" height="240"/>
         <image name="ico_menu" width="44" height="44"/>

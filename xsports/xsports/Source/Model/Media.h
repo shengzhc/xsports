@@ -79,6 +79,7 @@
 @property (strong, nonatomic) User *creator;
 @property (assign, nonatomic) BOOL isLike;
 
+@property (assign, nonatomic) CGFloat flowLayoutHeight;
 @property (strong, nonatomic) AVPlayerItem *playerItem;
 @property (strong, nonatomic) AVPlayer *player;
 @property (weak, nonatomic) id<MediaDelegate> delegate;

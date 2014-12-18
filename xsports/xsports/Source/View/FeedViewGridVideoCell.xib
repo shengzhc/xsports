@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FeedViewGridVideoCell" id="r5m-g5-X1r" customClass="FeedViewGridVideoCell">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="176"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="176"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4JA-NP-TLP">
+                        <rect key="frame" x="4" y="4" width="406" height="168"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="4JA-NP-TLP" secondAttribute="height" multiplier="207:88" id="1IV-ns-6tC"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1IV-ns-6tC"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1H-OI-SFc" userLabel="videoButton">
+                        <rect key="frame" x="366" y="16" width="32" height="32"/>
+                        <state key="normal" backgroundImage="ico_video_play">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="didVideoButtonClicked:" destination="r5m-g5-X1r" eventType="touchUpInside" id="5U4-rY-VP8"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="4JA-NP-TLP" secondAttribute="trailing" constant="4" id="7xd-CT-pEz"/>
+                <constraint firstItem="V1H-OI-SFc" firstAttribute="top" secondItem="r5m-g5-X1r" secondAttribute="top" constant="16" id="ayN-jv-wRb"/>
+                <constraint firstItem="4JA-NP-TLP" firstAttribute="top" secondItem="r5m-g5-X1r" secondAttribute="top" constant="4" id="g1C-BY-5q7"/>
+                <constraint firstItem="4JA-NP-TLP" firstAttribute="leading" secondItem="r5m-g5-X1r" secondAttribute="leading" constant="4" id="nff-Mn-Pac"/>
+                <constraint firstAttribute="bottom" secondItem="4JA-NP-TLP" secondAttribute="bottom" constant="4" id="pbE-tC-D6v"/>
+                <constraint firstAttribute="trailing" secondItem="V1H-OI-SFc" secondAttribute="trailing" constant="16" id="z9G-nz-ufQ"/>
+            </constraints>
+            <size key="customSize" width="250" height="176"/>
+            <connections>
+                <outlet property="photoImageView" destination="4JA-NP-TLP" id="XX1-x7-V7h"/>
+                <outlet property="videoButton" destination="V1H-OI-SFc" id="6kn-6a-PUl"/>
+            </connections>
+            <point key="canvasLocation" x="449" y="214"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ico_video_play" width="32" height="32"/>
+    </resources>
+</document>

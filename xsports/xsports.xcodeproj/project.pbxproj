@@ -23,6 +23,8 @@
 		9C4B94F01A41697900DFCC7F /* FeedViewGridPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B94EE1A41697900DFCC7F /* FeedViewGridPhotoCell.m */; };
 		9C4B94F11A41697900DFCC7F /* FeedViewGridPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C4B94EF1A41697900DFCC7F /* FeedViewGridPhotoCell.xib */; };
 		9C4B94F41A416D1B00DFCC7F /* GridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B94F31A416D1B00DFCC7F /* GridLayout.m */; };
+		9C4B94F81A425FFC00DFCC7F /* FeedViewGridVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B94F61A425FFC00DFCC7F /* FeedViewGridVideoCell.m */; };
+		9C4B94F91A425FFC00DFCC7F /* FeedViewGridVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C4B94F71A425FFC00DFCC7F /* FeedViewGridVideoCell.xib */; };
 		9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */; };
 		9C54EF491A39F11A00D16EEE /* XSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF481A39F11A00D16EEE /* XSConstants.m */; };
 		9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF4C1A3A255C00D16EEE /* LoginEmailCell.m */; };
@@ -107,6 +109,9 @@
 		9C4B94EF1A41697900DFCC7F /* FeedViewGridPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewGridPhotoCell.xib; sourceTree = "<group>"; };
 		9C4B94F21A416D1B00DFCC7F /* GridLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridLayout.h; sourceTree = "<group>"; };
 		9C4B94F31A416D1B00DFCC7F /* GridLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridLayout.m; sourceTree = "<group>"; };
+		9C4B94F51A425FFC00DFCC7F /* FeedViewGridVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewGridVideoCell.h; sourceTree = "<group>"; };
+		9C4B94F61A425FFC00DFCC7F /* FeedViewGridVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewGridVideoCell.m; sourceTree = "<group>"; };
+		9C4B94F71A425FFC00DFCC7F /* FeedViewGridVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewGridVideoCell.xib; sourceTree = "<group>"; };
 		9C54EF3A1A39EECA00D16EEE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9C54EF471A39F11A00D16EEE /* XSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSConstants.h; sourceTree = "<group>"; };
@@ -414,6 +419,9 @@
 				9C4B94ED1A41697900DFCC7F /* FeedViewGridPhotoCell.h */,
 				9C4B94EE1A41697900DFCC7F /* FeedViewGridPhotoCell.m */,
 				9C4B94EF1A41697900DFCC7F /* FeedViewGridPhotoCell.xib */,
+				9C4B94F51A425FFC00DFCC7F /* FeedViewGridVideoCell.h */,
+				9C4B94F61A425FFC00DFCC7F /* FeedViewGridVideoCell.m */,
+				9C4B94F71A425FFC00DFCC7F /* FeedViewGridVideoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -538,6 +546,7 @@
 				9CF88D461A3FE5ED00D4E72E /* Tasks in Resources */,
 				9CBCE7591A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf in Resources */,
 				9CBCE7521A3ECD9000C9BD35 /* SourceSansPro-ExtraLight.otf in Resources */,
+				9C4B94F91A425FFC00DFCC7F /* FeedViewGridVideoCell.xib in Resources */,
 				9CBCE7581A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf in Resources */,
 				9CBCE7501A3ECD9000C9BD35 /* SourceSansPro-Bold.otf in Resources */,
 				9CBCE7561A3ECD9000C9BD35 /* SourceSansPro-LightIt.otf in Resources */,
@@ -622,6 +631,7 @@
 				9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */,
 				9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */,
 				9C54EF531A3A3B6000D16EEE /* UIScreen+XS.m in Sources */,
+				9C4B94F81A425FFC00DFCC7F /* FeedViewGridVideoCell.m in Sources */,
 				9CBCE7251A3CD0B900C9BD35 /* UINavigationController+XS.m in Sources */,
 				9C4B94F41A416D1B00DFCC7F /* GridLayout.m in Sources */,
 				9C02EA0C1A3A706F00FA1631 /* LoadingViewController.m in Sources */,
