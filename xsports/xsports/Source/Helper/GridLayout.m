@@ -76,10 +76,6 @@
         }
     }
     
-    if (attributes.count > 0) {
-        NSLog(@"%@", attributes.lastObject);
-    }
-
     return attributes;
 }
 
