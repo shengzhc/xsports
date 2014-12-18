@@ -27,6 +27,7 @@
 		9C4B94F91A425FFC00DFCC7F /* FeedViewGridVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C4B94F71A425FFC00DFCC7F /* FeedViewGridVideoCell.xib */; };
 		9C4B94FC1A4292DD00DFCC7F /* FeedFlowCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B94FB1A4292DD00DFCC7F /* FeedFlowCollectionViewController.m */; };
 		9C4B94FF1A4292EE00DFCC7F /* FeedGridCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B94FE1A4292EE00DFCC7F /* FeedGridCollectionViewController.m */; };
+		9C4B95021A42AE7800DFCC7F /* SlidingAndFadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B95011A42AE7800DFCC7F /* SlidingAndFadingAnimator.m */; };
 		9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */; };
 		9C54EF491A39F11A00D16EEE /* XSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF481A39F11A00D16EEE /* XSConstants.m */; };
 		9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF4C1A3A255C00D16EEE /* LoginEmailCell.m */; };
@@ -118,6 +119,8 @@
 		9C4B94FB1A4292DD00DFCC7F /* FeedFlowCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedFlowCollectionViewController.m; sourceTree = "<group>"; };
 		9C4B94FD1A4292EE00DFCC7F /* FeedGridCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedGridCollectionViewController.h; sourceTree = "<group>"; };
 		9C4B94FE1A4292EE00DFCC7F /* FeedGridCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedGridCollectionViewController.m; sourceTree = "<group>"; };
+		9C4B95001A42AE7800DFCC7F /* SlidingAndFadingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingAndFadingAnimator.h; sourceTree = "<group>"; };
+		9C4B95011A42AE7800DFCC7F /* SlidingAndFadingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidingAndFadingAnimator.m; sourceTree = "<group>"; };
 		9C54EF3A1A39EECA00D16EEE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		9C54EF471A39F11A00D16EEE /* XSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSConstants.h; sourceTree = "<group>"; };
@@ -246,6 +249,8 @@
 				9C4B94EB1A413B4F00DFCC7F /* VideoController.m */,
 				9C4B94F21A416D1B00DFCC7F /* GridLayout.h */,
 				9C4B94F31A416D1B00DFCC7F /* GridLayout.m */,
+				9C4B95001A42AE7800DFCC7F /* SlidingAndFadingAnimator.h */,
+				9C4B95011A42AE7800DFCC7F /* SlidingAndFadingAnimator.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -639,6 +644,7 @@
 				9C4B94EC1A413B4F00DFCC7F /* VideoController.m in Sources */,
 				9C54EF501A3A260900D16EEE /* LoginPasswordCell.m in Sources */,
 				9CBCE7221A3CCFF700C9BD35 /* SettingViewController.m in Sources */,
+				9C4B95021A42AE7800DFCC7F /* SlidingAndFadingAnimator.m in Sources */,
 				9C4B94FF1A4292EE00DFCC7F /* FeedGridCollectionViewController.m in Sources */,
 				9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */,
 				9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */,

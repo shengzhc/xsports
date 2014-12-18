@@ -41,6 +41,12 @@
     self.prototypes = prototypes;
 }
 
+- (void)setFeeds:(NSArray *)feeds
+{
+    _feeds = feeds;
+    [self.collectionView reloadData];
+}
+
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
