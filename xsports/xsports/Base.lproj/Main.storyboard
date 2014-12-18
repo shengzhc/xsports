@@ -446,35 +446,27 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6jh-qm-8sF">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T7C-if-kJ5" userLabel="contentView">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="5td-bf-cbv">
-                                    <size key="itemSize" width="320" height="500"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
                                 <connections>
-                                    <outlet property="dataSource" destination="kUd-DW-rt9" id="xn0-jf-l9l"/>
-                                    <outlet property="delegate" destination="kUd-DW-rt9" id="mKB-8u-Ccj"/>
+                                    <segue destination="yrk-Jx-bMz" kind="embed" identifier="FeedView_FeedFlowLayout_Segue" id="EcR-bh-AYw"/>
                                 </connections>
-                            </collectionView>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="0SI-Rm-t2d" secondAttribute="trailing" id="1Ha-lY-Udf"/>
                             <constraint firstAttribute="bottom" secondItem="0SI-Rm-t2d" secondAttribute="bottom" id="2Fp-4U-tzf"/>
-                            <constraint firstAttribute="bottom" secondItem="6jh-qm-8sF" secondAttribute="bottom" id="2H5-hb-IJ1"/>
+                            <constraint firstItem="T7C-if-kJ5" firstAttribute="leading" secondItem="ciG-eU-fpa" secondAttribute="leading" id="2kt-Xc-s9H"/>
                             <constraint firstItem="UAS-Nx-SO0" firstAttribute="leading" secondItem="ciG-eU-fpa" secondAttribute="leading" id="9P0-th-35I"/>
-                            <constraint firstAttribute="trailing" secondItem="6jh-qm-8sF" secondAttribute="trailing" id="OI6-xI-r5t"/>
+                            <constraint firstItem="T7C-if-kJ5" firstAttribute="top" secondItem="ciG-eU-fpa" secondAttribute="top" constant="64" id="TKR-cK-NOT"/>
                             <constraint firstItem="0SI-Rm-t2d" firstAttribute="top" secondItem="ciG-eU-fpa" secondAttribute="top" id="WuN-ph-pzp"/>
                             <constraint firstItem="0SI-Rm-t2d" firstAttribute="leading" secondItem="ciG-eU-fpa" secondAttribute="leading" id="Z8B-5o-USk"/>
+                            <constraint firstAttribute="trailing" secondItem="T7C-if-kJ5" secondAttribute="trailing" id="ZsH-n7-IA1"/>
+                            <constraint firstAttribute="bottom" secondItem="T7C-if-kJ5" secondAttribute="bottom" id="cXm-MR-O0O"/>
                             <constraint firstAttribute="bottom" secondItem="UAS-Nx-SO0" secondAttribute="bottom" id="fgh-e2-ci3"/>
-                            <constraint firstItem="6jh-qm-8sF" firstAttribute="leading" secondItem="ciG-eU-fpa" secondAttribute="leading" id="hVY-EB-haz"/>
                             <constraint firstAttribute="trailing" secondItem="UAS-Nx-SO0" secondAttribute="trailing" id="iAl-IL-LMC"/>
-                            <constraint firstItem="6jh-qm-8sF" firstAttribute="top" secondItem="ciG-eU-fpa" secondAttribute="top" constant="64" id="rai-64-cLz"/>
                             <constraint firstItem="UAS-Nx-SO0" firstAttribute="top" secondItem="ciG-eU-fpa" secondAttribute="top" id="zH8-5D-2GY"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -500,14 +492,61 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectionView" destination="6jh-qm-8sF" id="gRP-Z6-o6q"/>
-                        <outlet property="flowLayout" destination="5td-bf-cbv" id="zTa-eE-TsX"/>
+                        <outlet property="contentView" destination="T7C-if-kJ5" id="NA5-6r-i75"/>
                         <outlet property="layoutBarButtonItem" destination="PGc-uH-43T" id="Ncw-Ca-fFO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWK-jZ-Lth" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="54" y="-1875"/>
+        </scene>
+        <!--Feed Flow Collection View Controller-->
+        <scene sceneID="7mn-uI-WZj">
+            <objects>
+                <collectionViewController storyboardIdentifier="FeedFlowCollectionViewController" id="yrk-Jx-bMz" customClass="FeedFlowCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="0PL-hV-7yc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="YlG-fe-9mA">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="yrk-Jx-bMz" id="R8o-5k-C21"/>
+                            <outlet property="delegate" destination="yrk-Jx-bMz" id="HPf-aH-4Q0"/>
+                        </connections>
+                    </collectionView>
+                    <connections>
+                        <outlet property="flowLayout" destination="YlG-fe-9mA" id="5oK-Lq-n3B"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BZI-5s-Kzp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="473" y="-1875"/>
+        </scene>
+        <!--Feed Grid Collection View Controller-->
+        <scene sceneID="jLx-go-ZI7">
+            <objects>
+                <collectionViewController storyboardIdentifier="FeedGridCollectionViewController" id="4Vb-cG-uBR" customClass="FeedGridCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="O9U-yS-Toz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <collectionViewLayout key="collectionViewLayout" id="Q22-u5-62B" customClass="GridLayout"/>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="4Vb-cG-uBR" id="LJ6-pJ-upu"/>
+                            <outlet property="delegate" destination="4Vb-cG-uBR" id="h6z-zh-5wJ"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hsd-My-n5Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828" y="-1867"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pi7-Gv-aEP">

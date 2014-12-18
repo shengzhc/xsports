@@ -17,6 +17,8 @@
 #define NavFeedViewControllerIdentifier @"Nav_FeedViewController"
 #define SettingViewControllerIdentifier @"SettingViewController"
 #define NavSettingViewControllerIdentifier @"Nav_SettingViewController"
+#define FeedFlowCollectionViewControllerIdentifier @"FeedFlowCollectionViewController"
+#define FeedGridCollectionViewControllerIdentifier @"FeedGridCollectionViewController"
 
 #define LoginEmailCellIdentifier @"LoginEmailCell"
 #define LoginPasswordCellIdentifier @"LoginPasswordCell"
@@ -25,5 +27,7 @@
 #define FeedViewVideoCellIdentifier @"FeedViewVideoCell"
 #define FeedViewGridPhotoCellIdentifier @"FeedViewGridPhotoCell"
 #define FeedViewGridVideoCellIdentifier @"FeedViewGridVideoCell"
+
+#define FeedViewFeedFlowLayoutSegueIdentifier @"FeedView_FeedFlowLayout_Segue"
 
 #endif
