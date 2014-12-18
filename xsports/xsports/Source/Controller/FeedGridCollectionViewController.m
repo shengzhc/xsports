@@ -58,7 +58,7 @@
     Media *media = self.feeds[indexPath.item];
     UICollectionViewCell *cell = nil;
     if ([media  isVideo]) {
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:FeedViewGridPhotoCellIdentifier forIndexPath:indexPath];
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:FeedViewGridVideoCellIdentifier forIndexPath:indexPath];
         ((FeedViewGridVideoCell *)cell).media = media;
     } else {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:FeedViewGridPhotoCellIdentifier forIndexPath:indexPath];
