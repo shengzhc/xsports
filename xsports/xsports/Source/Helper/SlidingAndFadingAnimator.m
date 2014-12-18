@@ -21,6 +21,7 @@
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIView *container = [transitionContext containerView];
+    toViewController.view.frame = container.bounds;
     [container addSubview:toViewController.view];
     toViewController.view.alpha = 0;
     CGFloat offset = container.bounds.size.width/2.0;

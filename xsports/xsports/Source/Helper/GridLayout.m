@@ -13,9 +13,23 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-        self.padding = 4.0;
+        [self commonInit];
+        
     }
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void)commonInit
+{
+    self.padding = 4.0;
 }
 
 - (CGFloat)oneColumnWidth
@@ -75,6 +89,7 @@
             break;
         }
     }
+    
     
     return attributes;
 }
