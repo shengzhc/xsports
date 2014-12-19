@@ -34,14 +34,7 @@
 {
     if (_gridCollectionViewController == nil) {
         _gridCollectionViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:FeedGridCollectionViewControllerIdentifier];
-        
-        __weak FeedViewController *weakSelf = (FeedViewController *)self;
-        [_gridCollectionViewController.collectionView addPullToRefreshWithActionHandler:^{
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [weakSelf load];
-                [weakSelf.gridCollectionViewController.collectionView.pullToRefreshView stopAnimating];
-            });
-        }];
+        [self setupGridCollectionViewPullAndInfinite];
     }
     
     return _gridCollectionViewController;
@@ -137,18 +130,46 @@
     }
 }
 
+- (void)setupFlowCollectionViewPullAndInfinite
+{
+    __weak FeedViewController *weakSelf = (FeedViewController *)self;
+    [self.flowCollectionViewController.collectionView addPullToRefreshWithActionHandler:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf load];
+            [weakSelf.flowCollectionViewController.collectionView.pullToRefreshView stopAnimating];
+        });
+    }];
+    
+    [self.flowCollectionViewController.collectionView addInfiniteScrollingWithActionHandler:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf.flowCollectionViewController.collectionView.infiniteScrollingView stopAnimating];
+        });
+    }];
+}
+
+- (void)setupGridCollectionViewPullAndInfinite
+{
+    __weak FeedViewController *weakSelf = (FeedViewController *)self;
+    [self.gridCollectionViewController.collectionView addPullToRefreshWithActionHandler:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf load];
+            [weakSelf.gridCollectionViewController.collectionView.pullToRefreshView stopAnimating];
+        });
+    }];
+    
+    [self.gridCollectionViewController.collectionView addInfiniteScrollingWithActionHandler:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf.gridCollectionViewController.collectionView.infiniteScrollingView stopAnimating];
+        });
+    }];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [super prepareForSegue:segue sender:sender];
     if ([segue.identifier isEqualToString:FeedViewFeedFlowLayoutSegueIdentifier]) {
         self.flowCollectionViewController = (FeedFlowCollectionViewController *)segue.destinationViewController;
-        __weak FeedViewController *weakSelf = (FeedViewController *)self;
-        [self.flowCollectionViewController.collectionView addPullToRefreshWithActionHandler:^{
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [weakSelf load];
-                [weakSelf.flowCollectionViewController.collectionView.pullToRefreshView stopAnimating];
-            });
-        }];
+        [self setupFlowCollectionViewPullAndInfinite];
     }
 }
 

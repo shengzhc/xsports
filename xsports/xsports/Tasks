@@ -12,9 +12,10 @@
 
 12.18
 - AVPlayer (DONE)
+- Pull to refresh (DONE)
+- Infinite pulling
 
 12.19
 - Improve the AVPlayer to use just 1 whenever possible.
 - Improve the whole selections to disable and enable the button click
-- Improve the loading animation for the thing
 - Find image loader module to do image loading process
