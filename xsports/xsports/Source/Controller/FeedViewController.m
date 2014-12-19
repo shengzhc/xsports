@@ -34,6 +34,14 @@
 {
     if (_gridCollectionViewController == nil) {
         _gridCollectionViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:FeedGridCollectionViewControllerIdentifier];
+        
+        __weak FeedViewController *weakSelf = (FeedViewController *)self;
+        [_gridCollectionViewController.collectionView addPullToRefreshWithActionHandler:^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [weakSelf load];
+                [weakSelf.gridCollectionViewController.collectionView.pullToRefreshView stopAnimating];
+            });
+        }];
     }
     
     return _gridCollectionViewController;
@@ -134,8 +142,14 @@
     [super prepareForSegue:segue sender:sender];
     if ([segue.identifier isEqualToString:FeedViewFeedFlowLayoutSegueIdentifier]) {
         self.flowCollectionViewController = (FeedFlowCollectionViewController *)segue.destinationViewController;
+        __weak FeedViewController *weakSelf = (FeedViewController *)self;
+        [self.flowCollectionViewController.collectionView addPullToRefreshWithActionHandler:^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [weakSelf load];
+                [weakSelf.flowCollectionViewController.collectionView.pullToRefreshView stopAnimating];
+            });
+        }];
     }
-    
 }
 
 @end

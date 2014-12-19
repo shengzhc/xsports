@@ -17,6 +17,7 @@ pod 'MBProgressHUD'
 pod 'ECSlidingViewController'
 pod 'JSONModel'
 pod 'SDWebImage'
+pod 'SVPullToRefresh'
 
 end
 

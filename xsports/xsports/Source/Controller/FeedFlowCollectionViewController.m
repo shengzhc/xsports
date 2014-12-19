@@ -73,7 +73,12 @@
 {
     Media *media = self.feeds[indexPath.item];
     if ([media isVideo]) {
-        [((FeedViewVideoCell *)cell) play];
+        for (UICollectionViewCell *item in collectionView.visibleCells) {
+            if ([item isKindOfClass:[FeedViewVideoCell class]]) {
+                [((FeedViewVideoCell *)cell) pause];
+            }
+        }
+//        [((FeedViewVideoCell *)cell) play];
     }
 }
 
