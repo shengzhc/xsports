@@ -582,13 +582,21 @@
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_blur_03" translatesAutoresizingMaskIntoConstraints="NO" id="0gT-O3-Tcg" userLabel="background">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSR-pH-Mmp" customClass="AVPlayerView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="PSR-pH-Mmp" secondAttribute="trailing" id="2xk-Am-fBi"/>
                             <constraint firstAttribute="trailing" secondItem="0gT-O3-Tcg" secondAttribute="trailing" id="3c1-dQ-eoC"/>
                             <constraint firstItem="0gT-O3-Tcg" firstAttribute="leading" secondItem="c1l-pU-pg7" secondAttribute="leading" id="MGW-9D-D9f"/>
                             <constraint firstItem="0gT-O3-Tcg" firstAttribute="top" secondItem="c1l-pU-pg7" secondAttribute="top" id="TZQ-mR-PUB"/>
+                            <constraint firstAttribute="bottom" secondItem="PSR-pH-Mmp" secondAttribute="bottom" id="UbH-Dh-gqo"/>
                             <constraint firstAttribute="bottom" secondItem="0gT-O3-Tcg" secondAttribute="bottom" id="VtB-Yc-nxe"/>
+                            <constraint firstItem="PSR-pH-Mmp" firstAttribute="leading" secondItem="c1l-pU-pg7" secondAttribute="leading" id="Vvk-Tw-u1C"/>
+                            <constraint firstItem="PSR-pH-Mmp" firstAttribute="top" secondItem="c1l-pU-pg7" secondAttribute="top" constant="64" id="bAE-FM-Gjw"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -605,6 +613,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="playerView" destination="PSR-pH-Mmp" id="Rtg-Sc-gCg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZOi-iI-nK9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

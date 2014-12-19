@@ -27,7 +27,7 @@
                         </variation>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1H-OI-SFc" userLabel="videoButton">
-                        <rect key="frame" x="366" y="16" width="32" height="32"/>
+                        <rect key="frame" x="378" y="4" width="32" height="32"/>
                         <state key="normal" backgroundImage="ico_video_play">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -41,11 +41,11 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="4JA-NP-TLP" secondAttribute="trailing" constant="4" id="7xd-CT-pEz"/>
-                <constraint firstItem="V1H-OI-SFc" firstAttribute="top" secondItem="r5m-g5-X1r" secondAttribute="top" constant="16" id="ayN-jv-wRb"/>
+                <constraint firstItem="V1H-OI-SFc" firstAttribute="top" secondItem="r5m-g5-X1r" secondAttribute="top" constant="4" id="ayN-jv-wRb"/>
                 <constraint firstItem="4JA-NP-TLP" firstAttribute="top" secondItem="r5m-g5-X1r" secondAttribute="top" constant="4" id="g1C-BY-5q7"/>
                 <constraint firstItem="4JA-NP-TLP" firstAttribute="leading" secondItem="r5m-g5-X1r" secondAttribute="leading" constant="4" id="nff-Mn-Pac"/>
                 <constraint firstAttribute="bottom" secondItem="4JA-NP-TLP" secondAttribute="bottom" constant="4" id="pbE-tC-D6v"/>
-                <constraint firstAttribute="trailing" secondItem="V1H-OI-SFc" secondAttribute="trailing" constant="16" id="z9G-nz-ufQ"/>
+                <constraint firstAttribute="trailing" secondItem="V1H-OI-SFc" secondAttribute="trailing" constant="4" id="z9G-nz-ufQ"/>
             </constraints>
             <size key="customSize" width="250" height="176"/>
             <connections>

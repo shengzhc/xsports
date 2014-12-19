@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AVPlayerView.h"
 
 @interface SettingViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet AVPlayerView *playerView;
 @end

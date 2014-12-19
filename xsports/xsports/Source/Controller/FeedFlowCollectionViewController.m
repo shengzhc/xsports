@@ -71,8 +71,20 @@
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    Media *media = self.feeds[indexPath.item];
+    Media *media = self.feeds[indexPath.item];
+    if ([media isVideo]) {
+        [((FeedViewVideoCell *)cell) play];
+    }
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    Media *media = self.feeds[indexPath.item];
+    if ([media isVideo]) {
+        [((FeedViewVideoCell *)cell) clear];
+    }
+}
+
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {

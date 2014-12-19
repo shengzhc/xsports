@@ -40,7 +40,6 @@
 
 #import "LoadingAnimator.h"
 #import "SlidingAndFadingAnimator.h"
-#import "VideoController.h"
 
 #import "User.h"
 #import "Media.h"
