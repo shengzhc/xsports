@@ -60,19 +60,19 @@ static const NSString *instagramSecretId = @"9c939511d38346649600ba65658ebfc4";
     return operation;
 }
 
-- (AFHTTPRequestOperation *)getLikesWithMediaId:(NSString *)mediaId successBlock:(void (^)(NSError *error, id response))success failBlock:(void (^)(NSError *error, id response))failure
+- (AFHTTPRequestOperation *)getLikesWithMediaId:(NSString *)mediaId successBlock:(void (^)(NSError *error, NSArray *likers))success failBlock:(void (^)(NSError *error, id response))failure
 {
     AFHTTPRequestOperation *operation = [self.manager GET:[NSString stringWithFormat:@"/v1/media/%@/likes?", mediaId]
                                                parameters:@{@"client_id": instagramClientId, @"secret_id": instagramSecretId}
                                                   success:^(AFHTTPRequestOperation *operation, id responseObject)
                                          {
                                              NSArray *data = [responseObject objectForKey:@"data"];
-                                             NSMutableArray *likes = [NSMutableArray new];
+                                             NSMutableArray *likers = [NSMutableArray new];
                                              for (NSDictionary *like in data) {
-                                                 [likes addObject:[[Like alloc] initWithDictionary:like error:nil]];
+                                                 [likers addObject:[[User alloc] initWithDictionary:like error:nil]];
                                              }
                                              if (success) {
-                                                 success(nil, likes);
+                                                 success(nil, likers);
                                              }
                                          } failure:^(AFHTTPRequestOperation *operation, NSError *error)
                                          {

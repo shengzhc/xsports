@@ -18,6 +18,7 @@ pod 'ECSlidingViewController'
 pod 'JSONModel'
 pod 'SDWebImage'
 pod 'SVPullToRefresh'
+pod 'VCTransitionsLibrary'
 
 end
 

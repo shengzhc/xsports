@@ -7,6 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class FeedViewPhotoCell;
+@protocol FeedViewPhotoCellDelegate <NSObject>
+@optional
+- (void)feedViewPhotoCell:(FeedViewPhotoCell *)cell didLikeAmountButtonClicked:(id)sender;
+@end
 
 @interface FeedViewPhotoCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIView *topContainer;
@@ -25,4 +30,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
 @property (strong, nonatomic) Media *media;
+@property (weak, nonatomic) id < FeedViewPhotoCellDelegate > delegate;
 @end

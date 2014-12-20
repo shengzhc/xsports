@@ -11,7 +11,7 @@
 #import "FeedGridCollectionViewController.h"
 
 
-@interface FeedViewController ()
+@interface FeedViewController () < UINavigationControllerDelegate >
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *layoutBarButtonItem;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
@@ -171,6 +171,15 @@
         self.flowCollectionViewController = (FeedFlowCollectionViewController *)segue.destinationViewController;
         [self setupFlowCollectionViewPullAndInfinite];
     }
+}
+
+#pragma mark UINavigationControllerDelegate
+- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                   animationControllerForOperation:(UINavigationControllerOperation)operation
+                                                fromViewController:(UIViewController *)fromVC
+                                                  toViewController:(UIViewController *)toVC
+{
+    return nil;
 }
 
 @end

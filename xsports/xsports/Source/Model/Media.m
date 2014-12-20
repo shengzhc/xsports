@@ -69,15 +69,6 @@ static void *AVPlayerDemoPlaybackViewControllerCurrentItemObservationContext = &
 }
 @end
 
-@implementation Like
-+ (BOOL)propertyIsOptional:(NSString *)propertyName { return YES; }
-+ (JSONKeyMapper *)keyMapper
-{
-    return [[JSONKeyMapper alloc] initWithDictionary:@{@"id": @"lid", @"first_name": @"firstName", @"last_name": @"lastName",
-                                                       @"username": @"userName", @"type": @"type"}];
-}
-@end
-
 @implementation Media
 + (BOOL)propertyIsOptional:(NSString *)propertyName { return YES; }
 + (JSONKeyMapper *)keyMapper

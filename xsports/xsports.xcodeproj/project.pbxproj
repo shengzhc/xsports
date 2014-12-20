@@ -17,6 +17,9 @@
 		9C0928671A40173B001340F2 /* AVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0928661A40173B001340F2 /* AVPlayerView.m */; };
 		9C0928691A401D50001340F2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0928681A401D50001340F2 /* AVFoundation.framework */; };
 		9C09286B1A401D5E001340F2 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C09286A1A401D5E001340F2 /* AssetsLibrary.framework */; };
+		9C3428561A455D9D0021AB2B /* PageNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3428551A455D9D0021AB2B /* PageNavigationController.m */; };
+		9C3428591A455F940021AB2B /* LikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3428581A455F940021AB2B /* LikesViewController.m */; };
+		9C34285C1A4560800021AB2B /* LikesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C34285B1A4560800021AB2B /* LikesCell.m */; };
 		9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C44C6291A3C2041002CB86B /* MenuViewCell.m */; };
 		9C4B94F01A41697900DFCC7F /* FeedViewGridPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B94EE1A41697900DFCC7F /* FeedViewGridPhotoCell.m */; };
 		9C4B94F11A41697900DFCC7F /* FeedViewGridPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C4B94EF1A41697900DFCC7F /* FeedViewGridPhotoCell.xib */; };
@@ -65,17 +68,6 @@
 		9CBCE7571A3ECD9000C9BD35 /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE74B1A3ECD9000C9BD35 /* SourceSansPro-Regular.otf */; };
 		9CBCE7581A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE74C1A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf */; };
 		9CBCE7591A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE74D1A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf */; };
-		9CCC75681A45486F00F9EE3D /* CECardsAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75531A45486F00F9EE3D /* CECardsAnimationController.m */; };
-		9CCC75691A45486F00F9EE3D /* CECrossfadeAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75551A45486F00F9EE3D /* CECrossfadeAnimationController.m */; };
-		9CCC756A1A45486F00F9EE3D /* CECubeAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75571A45486F00F9EE3D /* CECubeAnimationController.m */; };
-		9CCC756B1A45486F00F9EE3D /* CEExplodeAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75591A45486F00F9EE3D /* CEExplodeAnimationController.m */; };
-		9CCC756C1A45486F00F9EE3D /* CEFlipAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC755B1A45486F00F9EE3D /* CEFlipAnimationController.m */; };
-		9CCC756D1A45486F00F9EE3D /* CEFoldAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC755D1A45486F00F9EE3D /* CEFoldAnimationController.m */; };
-		9CCC756E1A45486F00F9EE3D /* CENatGeoAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC755F1A45486F00F9EE3D /* CENatGeoAnimationController.m */; };
-		9CCC756F1A45486F00F9EE3D /* CEPanAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75611A45486F00F9EE3D /* CEPanAnimationController.m */; };
-		9CCC75701A45486F00F9EE3D /* CEPortalAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75631A45486F00F9EE3D /* CEPortalAnimationController.m */; };
-		9CCC75711A45486F00F9EE3D /* CEReversibleAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75651A45486F00F9EE3D /* CEReversibleAnimationController.m */; };
-		9CCC75721A45486F00F9EE3D /* CETurnAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75671A45486F00F9EE3D /* CETurnAnimationController.m */; };
 		9CCC75771A45488F00F9EE3D /* LoadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75741A45488F00F9EE3D /* LoadingAnimator.m */; };
 		9CCC75781A45488F00F9EE3D /* SlidingAndFadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75761A45488F00F9EE3D /* SlidingAndFadingAnimator.m */; };
 		9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */; };
@@ -111,6 +103,12 @@
 		9C0928661A40173B001340F2 /* AVPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPlayerView.m; sourceTree = "<group>"; };
 		9C0928681A401D50001340F2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9C09286A1A401D5E001340F2 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		9C3428541A455D9D0021AB2B /* PageNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageNavigationController.h; sourceTree = "<group>"; };
+		9C3428551A455D9D0021AB2B /* PageNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageNavigationController.m; sourceTree = "<group>"; };
+		9C3428571A455F940021AB2B /* LikesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesViewController.h; sourceTree = "<group>"; };
+		9C3428581A455F940021AB2B /* LikesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesViewController.m; sourceTree = "<group>"; };
+		9C34285A1A4560800021AB2B /* LikesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesCell.h; sourceTree = "<group>"; };
+		9C34285B1A4560800021AB2B /* LikesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesCell.m; sourceTree = "<group>"; };
 		9C44C6281A3C2041002CB86B /* MenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewCell.h; sourceTree = "<group>"; };
 		9C44C6291A3C2041002CB86B /* MenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewCell.m; sourceTree = "<group>"; };
 		9C4B94ED1A41697900DFCC7F /* FeedViewGridPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewGridPhotoCell.h; sourceTree = "<group>"; };
@@ -191,28 +189,6 @@
 		9CBCE74B1A3ECD9000C9BD35 /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
 		9CBCE74C1A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
 		9CBCE74D1A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiboldIt.otf"; sourceTree = "<group>"; };
-		9CCC75521A45486F00F9EE3D /* CECardsAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CECardsAnimationController.h; sourceTree = "<group>"; };
-		9CCC75531A45486F00F9EE3D /* CECardsAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CECardsAnimationController.m; sourceTree = "<group>"; };
-		9CCC75541A45486F00F9EE3D /* CECrossfadeAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CECrossfadeAnimationController.h; sourceTree = "<group>"; };
-		9CCC75551A45486F00F9EE3D /* CECrossfadeAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CECrossfadeAnimationController.m; sourceTree = "<group>"; };
-		9CCC75561A45486F00F9EE3D /* CECubeAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CECubeAnimationController.h; sourceTree = "<group>"; };
-		9CCC75571A45486F00F9EE3D /* CECubeAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CECubeAnimationController.m; sourceTree = "<group>"; };
-		9CCC75581A45486F00F9EE3D /* CEExplodeAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEExplodeAnimationController.h; sourceTree = "<group>"; };
-		9CCC75591A45486F00F9EE3D /* CEExplodeAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEExplodeAnimationController.m; sourceTree = "<group>"; };
-		9CCC755A1A45486F00F9EE3D /* CEFlipAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFlipAnimationController.h; sourceTree = "<group>"; };
-		9CCC755B1A45486F00F9EE3D /* CEFlipAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFlipAnimationController.m; sourceTree = "<group>"; };
-		9CCC755C1A45486F00F9EE3D /* CEFoldAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEFoldAnimationController.h; sourceTree = "<group>"; };
-		9CCC755D1A45486F00F9EE3D /* CEFoldAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEFoldAnimationController.m; sourceTree = "<group>"; };
-		9CCC755E1A45486F00F9EE3D /* CENatGeoAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CENatGeoAnimationController.h; sourceTree = "<group>"; };
-		9CCC755F1A45486F00F9EE3D /* CENatGeoAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CENatGeoAnimationController.m; sourceTree = "<group>"; };
-		9CCC75601A45486F00F9EE3D /* CEPanAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPanAnimationController.h; sourceTree = "<group>"; };
-		9CCC75611A45486F00F9EE3D /* CEPanAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPanAnimationController.m; sourceTree = "<group>"; };
-		9CCC75621A45486F00F9EE3D /* CEPortalAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPortalAnimationController.h; sourceTree = "<group>"; };
-		9CCC75631A45486F00F9EE3D /* CEPortalAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPortalAnimationController.m; sourceTree = "<group>"; };
-		9CCC75641A45486F00F9EE3D /* CEReversibleAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEReversibleAnimationController.h; sourceTree = "<group>"; };
-		9CCC75651A45486F00F9EE3D /* CEReversibleAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEReversibleAnimationController.m; sourceTree = "<group>"; };
-		9CCC75661A45486F00F9EE3D /* CETurnAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CETurnAnimationController.h; sourceTree = "<group>"; };
-		9CCC75671A45486F00F9EE3D /* CETurnAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CETurnAnimationController.m; sourceTree = "<group>"; };
 		9CCC75731A45488F00F9EE3D /* LoadingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingAnimator.h; sourceTree = "<group>"; };
 		9CCC75741A45488F00F9EE3D /* LoadingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingAnimator.m; sourceTree = "<group>"; };
 		9CCC75751A45488F00F9EE3D /* SlidingAndFadingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingAndFadingAnimator.h; sourceTree = "<group>"; };
@@ -423,6 +399,10 @@
 				9C4B94FB1A4292DD00DFCC7F /* FeedFlowCollectionViewController.m */,
 				9C4B94FD1A4292EE00DFCC7F /* FeedGridCollectionViewController.h */,
 				9C4B94FE1A4292EE00DFCC7F /* FeedGridCollectionViewController.m */,
+				9C3428541A455D9D0021AB2B /* PageNavigationController.h */,
+				9C3428551A455D9D0021AB2B /* PageNavigationController.m */,
+				9C3428571A455F940021AB2B /* LikesViewController.h */,
+				9C3428581A455F940021AB2B /* LikesViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -462,6 +442,8 @@
 				9C4B94F51A425FFC00DFCC7F /* FeedViewGridVideoCell.h */,
 				9C4B94F61A425FFC00DFCC7F /* FeedViewGridVideoCell.m */,
 				9C4B94F71A425FFC00DFCC7F /* FeedViewGridVideoCell.xib */,
+				9C34285A1A4560800021AB2B /* LikesCell.h */,
+				9C34285B1A4560800021AB2B /* LikesCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -503,28 +485,6 @@
 				9CCC75741A45488F00F9EE3D /* LoadingAnimator.m */,
 				9CCC75751A45488F00F9EE3D /* SlidingAndFadingAnimator.h */,
 				9CCC75761A45488F00F9EE3D /* SlidingAndFadingAnimator.m */,
-				9CCC75521A45486F00F9EE3D /* CECardsAnimationController.h */,
-				9CCC75531A45486F00F9EE3D /* CECardsAnimationController.m */,
-				9CCC75541A45486F00F9EE3D /* CECrossfadeAnimationController.h */,
-				9CCC75551A45486F00F9EE3D /* CECrossfadeAnimationController.m */,
-				9CCC75561A45486F00F9EE3D /* CECubeAnimationController.h */,
-				9CCC75571A45486F00F9EE3D /* CECubeAnimationController.m */,
-				9CCC75581A45486F00F9EE3D /* CEExplodeAnimationController.h */,
-				9CCC75591A45486F00F9EE3D /* CEExplodeAnimationController.m */,
-				9CCC755A1A45486F00F9EE3D /* CEFlipAnimationController.h */,
-				9CCC755B1A45486F00F9EE3D /* CEFlipAnimationController.m */,
-				9CCC755C1A45486F00F9EE3D /* CEFoldAnimationController.h */,
-				9CCC755D1A45486F00F9EE3D /* CEFoldAnimationController.m */,
-				9CCC755E1A45486F00F9EE3D /* CENatGeoAnimationController.h */,
-				9CCC755F1A45486F00F9EE3D /* CENatGeoAnimationController.m */,
-				9CCC75601A45486F00F9EE3D /* CEPanAnimationController.h */,
-				9CCC75611A45486F00F9EE3D /* CEPanAnimationController.m */,
-				9CCC75621A45486F00F9EE3D /* CEPortalAnimationController.h */,
-				9CCC75631A45486F00F9EE3D /* CEPortalAnimationController.m */,
-				9CCC75641A45486F00F9EE3D /* CEReversibleAnimationController.h */,
-				9CCC75651A45486F00F9EE3D /* CEReversibleAnimationController.m */,
-				9CCC75661A45486F00F9EE3D /* CETurnAnimationController.h */,
-				9CCC75671A45486F00F9EE3D /* CETurnAnimationController.m */,
 			);
 			path = AnimationControllers;
 			sourceTree = "<group>";
@@ -684,27 +644,21 @@
 			files = (
 				9C7DEBB51A396E6B00A0436E /* AppDelegate.m in Sources */,
 				9C7ED1261A3B8AD0007AB927 /* MenuViewController.m in Sources */,
-				9CCC75691A45486F00F9EE3D /* CECrossfadeAnimationController.m in Sources */,
 				9CBCE72F1A3E2EF100C9BD35 /* User.m in Sources */,
 				9C0928641A400C8C001340F2 /* FeedViewVideoCell.m in Sources */,
 				9CBCE7281A3D7B9B00C9BD35 /* FeedViewPhotoCell.m in Sources */,
-				9CCC756F1A45486F00F9EE3D /* CEPanAnimationController.m in Sources */,
-				9CCC75681A45486F00F9EE3D /* CECardsAnimationController.m in Sources */,
 				9CCC75781A45488F00F9EE3D /* SlidingAndFadingAnimator.m in Sources */,
 				9CBCE71F1A3CC56200C9BD35 /* MEZoomAnimationController.m in Sources */,
 				9CF88D441A3FC3F300D4E72E /* JSONValueTransformer+XS.m in Sources */,
-				9CCC756E1A45486F00F9EE3D /* CENatGeoAnimationController.m in Sources */,
+				9C3428561A455D9D0021AB2B /* PageNavigationController.m in Sources */,
+				9C34285C1A4560800021AB2B /* LikesCell.m in Sources */,
 				9C4B94F01A41697900DFCC7F /* FeedViewGridPhotoCell.m in Sources */,
-				9CCC756A1A45486F00F9EE3D /* CECubeAnimationController.m in Sources */,
 				9CBCE72C1A3E2A0200C9BD35 /* InstagramServices.m in Sources */,
 				9C4B94FC1A4292DD00DFCC7F /* FeedFlowCollectionViewController.m in Sources */,
 				9C0928671A40173B001340F2 /* AVPlayerView.m in Sources */,
-				9CCC756B1A45486F00F9EE3D /* CEExplodeAnimationController.m in Sources */,
-				9CCC75711A45486F00F9EE3D /* CEReversibleAnimationController.m in Sources */,
 				9CBCE71C1A3CC56200C9BD35 /* MEDynamicTransition.m in Sources */,
-				9CCC75721A45486F00F9EE3D /* CETurnAnimationController.m in Sources */,
 				9C54EF561A3A457000D16EEE /* NSPredicate+XS.m in Sources */,
-				9CCC756C1A45486F00F9EE3D /* CEFlipAnimationController.m in Sources */,
+				9C3428591A455F940021AB2B /* LikesViewController.m in Sources */,
 				9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */,
 				9C02EA121A3A7A0300FA1631 /* UIView+XS.m in Sources */,
 				9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */,
@@ -719,10 +673,8 @@
 				9C4B94F41A416D1B00DFCC7F /* GridLayout.m in Sources */,
 				9C02EA0C1A3A706F00FA1631 /* LoadingViewController.m in Sources */,
 				9C54EF491A39F11A00D16EEE /* XSConstants.m in Sources */,
-				9CCC75701A45486F00F9EE3D /* CEPortalAnimationController.m in Sources */,
 				9CCC75771A45488F00F9EE3D /* LoadingAnimator.m in Sources */,
 				9C7ED1231A3B89B4007AB927 /* SlidingViewController.m in Sources */,
-				9CCC756D1A45486F00F9EE3D /* CEFoldAnimationController.m in Sources */,
 				9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */,
 				9CBCE7321A3E2F5000C9BD35 /* Media.m in Sources */,
 				9CBCE71D1A3CC56200C9BD35 /* MEFoldAnimationController.m in Sources */,

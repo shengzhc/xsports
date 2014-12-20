@@ -89,6 +89,9 @@
                                 <state key="normal" title="5 Likes">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="didLikeAmountButtonClicked:" destination="8FX-vD-r8u" eventType="touchUpInside" id="O0q-Sj-hNV"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_message" translatesAutoresizingMaskIntoConstraints="NO" id="fax-uJ-ykh">
                                 <rect key="frame" x="8" y="38" width="12" height="12"/>

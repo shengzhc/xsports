@@ -18,7 +18,7 @@
 12.19
 - Improve the AVPlayer to use just 1 whenever possible.(DONE)
 - Improve the whole selections to disable and enable the button click (DONE)
-- Introduce GET comments, likes and User info call.
+- Introduce GET comments, likes and User info call. (DONE)
 
 12.20
 - Find image loader module to do image loading process

@@ -7,13 +7,14 @@
 //
 
 #import "FeedFlowCollectionViewController.h"
+#import "LikesViewController.h"
 #import "FeedViewPhotoCell.h"
 #import "FeedViewVideoCell.h"
 
 static void *AVPlayerItemStatusObservationContext = &AVPlayerItemStatusObservationContext;
 static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObservationContext;
 
-@interface FeedFlowCollectionViewController () < UICollectionViewDelegateFlowLayout, FeedViewVideoCellDelegate >
+@interface FeedFlowCollectionViewController () < UICollectionViewDelegateFlowLayout, FeedViewVideoCellDelegate, FeedViewPhotoCellDelegate >
 @property (strong, nonatomic) NSDictionary *prototypes;
 @property (strong, nonatomic) AVPlayer *player;
 @property (strong, nonatomic) AVPlayerItem *playerItem;
@@ -141,6 +142,13 @@ static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObserva
     [self attachPlayer:self.player toVideoCell:cell withMedia:cell.media];
 }
 
+- (void)feedViewPhotoCell:(FeedViewPhotoCell *)cell didLikeAmountButtonClicked:(id)sender
+{
+    LikesViewController *likesViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:LikesViewControllerIdentifier];
+    likesViewController.mediaId = cell.media.mid;
+    [self.navigationController pushViewController:likesViewController animated:YES];
+}
+
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -158,6 +166,7 @@ static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObserva
     } else {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:FeedViewPhotoCellIdentifier forIndexPath:indexPath];
         ((FeedViewPhotoCell *)cell).media = self.feeds[indexPath.item];
+        ((FeedViewPhotoCell *)cell).delegate = self;
     }
     
     return cell;

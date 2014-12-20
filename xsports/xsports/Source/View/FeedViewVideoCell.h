@@ -24,7 +24,7 @@ typedef enum : NSUInteger {
 @interface FeedViewVideoCell : FeedViewPhotoCell
 @property (weak, nonatomic) IBOutlet UIButton *videoButton;
 @property (weak, nonatomic) IBOutlet AVPlayerView *playerView;
-@property (weak, nonatomic) id <FeedViewVideoCellDelegate> delegate;
+@property (weak, nonatomic) id <FeedViewVideoCellDelegate, FeedViewPhotoCellDelegate> delegate;
 
 - (void)syncWithStatus:(VideoStatus)status;
 - (IBAction)didVideoButtonClicked:(id)sender;

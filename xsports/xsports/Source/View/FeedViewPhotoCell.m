@@ -66,7 +66,6 @@
         [self.likeButton setTitle:@"Like" forState:UIControlStateNormal];
         [self.likeButton setTitleColor:[UIColor fujiColor] forState:UIControlStateNormal];
         [self.likeAmountButton setTitle:[NSString stringWithFormat:@"%@", @(self.media.totalLikes)] forState:UIControlStateNormal];
-
     }
 }
 
@@ -85,6 +84,13 @@
 - (IBAction)didShareButtonClicked:(id)sender
 {
     NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+- (IBAction)didLikeAmountButtonClicked:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(feedViewPhotoCell:didLikeAmountButtonClicked:)]) {
+        [self.delegate feedViewPhotoCell:self didLikeAmountButtonClicked:sender];
+    }
 }
 
 @end

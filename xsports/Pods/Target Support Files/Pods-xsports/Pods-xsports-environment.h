@@ -144,3 +144,9 @@
 #define COCOAPODS_VERSION_MINOR_SVPullToRefresh 4
 #define COCOAPODS_VERSION_PATCH_SVPullToRefresh 1
 
+// VCTransitionsLibrary
+#define COCOAPODS_POD_AVAILABLE_VCTransitionsLibrary
+#define COCOAPODS_VERSION_MAJOR_VCTransitionsLibrary 1
+#define COCOAPODS_VERSION_MINOR_VCTransitionsLibrary 5
+#define COCOAPODS_VERSION_PATCH_VCTransitionsLibrary 0
+
