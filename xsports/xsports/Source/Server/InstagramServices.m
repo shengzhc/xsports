@@ -60,4 +60,73 @@ static const NSString *instagramSecretId = @"9c939511d38346649600ba65658ebfc4";
     return operation;
 }
 
+- (AFHTTPRequestOperation *)getLikesWithMediaId:(NSString *)mediaId successBlock:(void (^)(NSError *error, id response))success failBlock:(void (^)(NSError *error, id response))failure
+{
+    AFHTTPRequestOperation *operation = [self.manager GET:[NSString stringWithFormat:@"/v1/media/%@/likes?", mediaId]
+                                               parameters:@{@"client_id": instagramClientId, @"secret_id": instagramSecretId}
+                                                  success:^(AFHTTPRequestOperation *operation, id responseObject)
+                                         {
+                                             NSArray *data = [responseObject objectForKey:@"data"];
+                                             NSMutableArray *likes = [NSMutableArray new];
+                                             for (NSDictionary *like in data) {
+                                                 [likes addObject:[[Like alloc] initWithDictionary:like error:nil]];
+                                             }
+                                             if (success) {
+                                                 success(nil, likes);
+                                             }
+                                         } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+                                         {
+                                             if (failure) {
+                                                 failure(error, nil);
+                                             }
+                                         }];
+    return operation;
+}
+
+- (AFHTTPRequestOperation *)getCommentsWithMediaId:(NSString *)mediaId successBlock:(void (^)(NSError *error, id response))success failBlock:(void (^)(NSError *error, id response))failure
+{
+    AFHTTPRequestOperation *operation = [self.manager GET:[NSString stringWithFormat:@"/v1/media/%@/comments?", mediaId]
+                                               parameters:@{@"client_id": instagramClientId, @"secret_id": instagramSecretId}
+                                                  success:^(AFHTTPRequestOperation *operation, id responseObject)
+                                         {
+                                             NSArray *data = [responseObject objectForKey:@"data"];
+                                             NSMutableArray *comments = [NSMutableArray new];
+                                             for (NSDictionary *comment in data) {
+                                                 [comments addObject:[[Comment alloc] initWithDictionary:comment error:nil]];
+                                             }
+                                             if (success) {
+                                                 success(nil, comments);
+                                             }
+                                         } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+                                         {
+                                             if (failure) {
+                                                 failure(error, nil);
+                                             }
+                                         }];
+    return operation;
+    
+}
+
+- (AFHTTPRequestOperation *)getUserInfoWithUserId:(NSString *)userId successBlock:(void (^)(NSError *error, id response))success failBlock:(void (^)(NSError *error, id response))failure
+{
+    AFHTTPRequestOperation *operation = [self.manager GET:[NSString stringWithFormat:@"/v1/users/%@?", userId]
+                                               parameters:@{@"client_id": instagramClientId, @"secret_id": instagramSecretId}
+                                                  success:^(AFHTTPRequestOperation *operation, id responseObject)
+                                         {
+                                             NSDictionary *data = [responseObject objectForKey:@"data"];
+                                             User *user = [[User alloc] initWithDictionary:data error:nil];
+                                             if (success) {
+                                                 success(nil, user);
+                                             }
+                                             
+                                         } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+                                         {
+                                             if (failure) {
+                                                 failure(error, nil);
+                                             }
+                                         }];
+    return operation;
+}
+
+
 @end

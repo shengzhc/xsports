@@ -27,6 +27,8 @@ static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObserva
     [super viewDidLoad];
     [self setupPlayer];
     [self setupCollectionView];
+    
+    [self.playerItem loadedTimeRanges];
 }
 
 - (void)setupCollectionView

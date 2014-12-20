@@ -22,7 +22,10 @@
                                                        @"profile_picture": @"profilePicture",
                                                        @"username": @"userName",
                                                        @"bio": @"bio",
-                                                       @"website": @"website"}];
+                                                       @"website": @"website",
+                                                       @"counts.media": @"totalMedias",
+                                                       @"counts.follows": @"totalFollows",
+                                                       @"counts.followed_by": @"totalFollowers"}];
 }
 
 @end

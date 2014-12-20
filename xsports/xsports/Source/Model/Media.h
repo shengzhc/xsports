@@ -54,18 +54,26 @@
 @property (assign, nonatomic) double longitude;
 @end
 
+@interface Like : JSONModel
+@property (strong, nonatomic) NSString *userName;
+@property (strong, nonatomic) NSString *firstName;
+@property (strong, nonatomic) NSString *lastName;
+@property (strong, nonatomic) NSString *type;
+@property (strong, nonatomic) NSString *lid;
+@end
+
 @interface Media : JSONModel
 @property (strong, nonatomic) NSDictionary *attribution;
 @property (strong, nonatomic) Caption *caption;
 @property (assign, nonatomic) NSUInteger totalComments;
-@property (strong, nonatomic) NSArray *comments;
+@property (strong, nonatomic) NSArray<Comment> *comments;
 @property (strong, nonatomic) NSDate *createdTime;
 @property (strong, nonatomic) NSString *filter;
 @property (strong, nonatomic) NSString *mid;
 @property (strong, nonatomic) Images *images;
 @property (strong, nonatomic) Videos *videos;
 @property (assign, nonatomic) NSUInteger totalLikes;
-@property (strong, nonatomic) NSArray *likes;
+@property (strong, nonatomic) NSArray<Like> *likes;
 @property (strong, nonatomic) NSString *link;
 @property (strong, nonatomic) Location *location;
 @property (strong, nonatomic) NSString *type;

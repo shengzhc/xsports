@@ -15,4 +15,7 @@
 @property (strong, nonatomic) NSString *userName;
 @property (strong, nonatomic) NSString *bio;
 @property (strong, nonatomic) NSString *website;
+@property (strong, nonatomic) NSString *totalMedias;
+@property (strong, nonatomic) NSString *totalFollows;
+@property (strong, nonatomic) NSString *totalFollowers;
 @end
