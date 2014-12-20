@@ -20,6 +20,7 @@
 #define FeedFlowCollectionViewControllerIdentifier @"FeedFlowCollectionViewController"
 #define FeedGridCollectionViewControllerIdentifier @"FeedGridCollectionViewController"
 #define LikesViewControllerIdentifier @"LikesViewController"
+#define CommentsViewControllerIdentifier @"CommentsViewController"
 
 #define LoginEmailCellIdentifier @"LoginEmailCell"
 #define LoginPasswordCellIdentifier @"LoginPasswordCell"
@@ -29,6 +30,7 @@
 #define FeedViewGridPhotoCellIdentifier @"FeedViewGridPhotoCell"
 #define FeedViewGridVideoCellIdentifier @"FeedViewGridVideoCell"
 #define LikesCellIdentifier @"LikesCell"
+#define CommentsCellIdentifier @"CommentsCell"
 
 #define FeedViewFeedFlowLayoutSegueIdentifier @"FeedView_FeedFlowLayout_Segue"
 

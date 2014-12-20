@@ -22,7 +22,9 @@
 {
     self.profileImageView.layer.cornerRadius = 5.0;
     self.profileImageView.layer.masksToBounds = YES;
-    self.profileImageView.image = [UIImage imageNamed:@"ico_myself"];
+    int rand = random()%4+1;
+    NSString *name = [NSString stringWithFormat:@"img_profile_0%@", @(rand)];
+    self.profileImageView.image = [UIImage imageNamed:name];
 }
 
 - (void)setupLabels

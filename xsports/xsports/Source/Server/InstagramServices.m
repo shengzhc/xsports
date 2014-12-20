@@ -83,7 +83,7 @@ static const NSString *instagramSecretId = @"9c939511d38346649600ba65658ebfc4";
     return operation;
 }
 
-- (AFHTTPRequestOperation *)getCommentsWithMediaId:(NSString *)mediaId successBlock:(void (^)(NSError *error, id response))success failBlock:(void (^)(NSError *error, id response))failure
+- (AFHTTPRequestOperation *)getCommentsWithMediaId:(NSString *)mediaId successBlock:(void (^)(NSError *error, NSArray *comments))success failBlock:(void (^)(NSError *error, id response))failure
 {
     AFHTTPRequestOperation *operation = [self.manager GET:[NSString stringWithFormat:@"/v1/media/%@/comments?", mediaId]
                                                parameters:@{@"client_id": instagramClientId, @"secret_id": instagramSecretId}

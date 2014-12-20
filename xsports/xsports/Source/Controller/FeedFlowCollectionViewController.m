@@ -8,6 +8,7 @@
 
 #import "FeedFlowCollectionViewController.h"
 #import "LikesViewController.h"
+#import "CommentsViewController.h"
 #import "FeedViewPhotoCell.h"
 #import "FeedViewVideoCell.h"
 
@@ -147,6 +148,13 @@ static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObserva
     LikesViewController *likesViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:LikesViewControllerIdentifier];
     likesViewController.mediaId = cell.media.mid;
     [self.navigationController pushViewController:likesViewController animated:YES];
+}
+
+- (void)feedViewPhotoCell:(FeedViewPhotoCell *)cell didCommentButtonClicked:(id)sender
+{
+    CommentsViewController *commentsViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:CommentsViewControllerIdentifier];
+    commentsViewController.mediaId = cell.media.mid;
+    [self.navigationController pushViewController:commentsViewController animated:YES];
 }
 
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate

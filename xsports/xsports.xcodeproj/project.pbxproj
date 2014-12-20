@@ -17,6 +17,9 @@
 		9C0928671A40173B001340F2 /* AVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0928661A40173B001340F2 /* AVPlayerView.m */; };
 		9C0928691A401D50001340F2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0928681A401D50001340F2 /* AVFoundation.framework */; };
 		9C09286B1A401D5E001340F2 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C09286A1A401D5E001340F2 /* AssetsLibrary.framework */; };
+		9C11A45F1A45E50200A9E4CD /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C11A45E1A45E50200A9E4CD /* CommentsViewController.m */; };
+		9C11A4621A45E54D00A9E4CD /* CommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C11A4611A45E54D00A9E4CD /* CommentsCell.m */; };
+		9C11A4641A45F08400A9E4CD /* CommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C11A4631A45F08400A9E4CD /* CommentsCell.xib */; };
 		9C3428561A455D9D0021AB2B /* PageNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3428551A455D9D0021AB2B /* PageNavigationController.m */; };
 		9C3428591A455F940021AB2B /* LikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3428581A455F940021AB2B /* LikesViewController.m */; };
 		9C34285C1A4560800021AB2B /* LikesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C34285B1A4560800021AB2B /* LikesCell.m */; };
@@ -103,6 +106,11 @@
 		9C0928661A40173B001340F2 /* AVPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPlayerView.m; sourceTree = "<group>"; };
 		9C0928681A401D50001340F2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9C09286A1A401D5E001340F2 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		9C11A45D1A45E50200A9E4CD /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsViewController.h; sourceTree = "<group>"; };
+		9C11A45E1A45E50200A9E4CD /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
+		9C11A4601A45E54D00A9E4CD /* CommentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsCell.h; sourceTree = "<group>"; };
+		9C11A4611A45E54D00A9E4CD /* CommentsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsCell.m; sourceTree = "<group>"; };
+		9C11A4631A45F08400A9E4CD /* CommentsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsCell.xib; sourceTree = "<group>"; };
 		9C3428541A455D9D0021AB2B /* PageNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageNavigationController.h; sourceTree = "<group>"; };
 		9C3428551A455D9D0021AB2B /* PageNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageNavigationController.m; sourceTree = "<group>"; };
 		9C3428571A455F940021AB2B /* LikesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesViewController.h; sourceTree = "<group>"; };
@@ -403,6 +411,8 @@
 				9C3428551A455D9D0021AB2B /* PageNavigationController.m */,
 				9C3428571A455F940021AB2B /* LikesViewController.h */,
 				9C3428581A455F940021AB2B /* LikesViewController.m */,
+				9C11A45D1A45E50200A9E4CD /* CommentsViewController.h */,
+				9C11A45E1A45E50200A9E4CD /* CommentsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -444,6 +454,9 @@
 				9C4B94F71A425FFC00DFCC7F /* FeedViewGridVideoCell.xib */,
 				9C34285A1A4560800021AB2B /* LikesCell.h */,
 				9C34285B1A4560800021AB2B /* LikesCell.m */,
+				9C11A4601A45E54D00A9E4CD /* CommentsCell.h */,
+				9C11A4611A45E54D00A9E4CD /* CommentsCell.m */,
+				9C11A4631A45F08400A9E4CD /* CommentsCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -588,6 +601,7 @@
 				9CBCE7551A3ECD9000C9BD35 /* SourceSansPro-Light.otf in Resources */,
 				9C7DEBBB1A396E6B00A0436E /* Main.storyboard in Resources */,
 				9CBCE7371A3E381B00C9BD35 /* instagram.txt in Resources */,
+				9C11A4641A45F08400A9E4CD /* CommentsCell.xib in Resources */,
 				9CBCE74E1A3ECD9000C9BD35 /* SourceSansPro-Black.otf in Resources */,
 				9C0928611A4000E5001340F2 /* FeedViewVideoCell.xib in Resources */,
 				9CBCE7531A3ECD9000C9BD35 /* SourceSansPro-ExtraLightIt.otf in Resources */,
@@ -668,7 +682,9 @@
 				9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */,
 				9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */,
 				9C54EF531A3A3B6000D16EEE /* UIScreen+XS.m in Sources */,
+				9C11A45F1A45E50200A9E4CD /* CommentsViewController.m in Sources */,
 				9C4B94F81A425FFC00DFCC7F /* FeedViewGridVideoCell.m in Sources */,
+				9C11A4621A45E54D00A9E4CD /* CommentsCell.m in Sources */,
 				9CBCE7251A3CD0B900C9BD35 /* UINavigationController+XS.m in Sources */,
 				9C4B94F41A416D1B00DFCC7F /* GridLayout.m in Sources */,
 				9C02EA0C1A3A706F00FA1631 /* LoadingViewController.m in Sources */,

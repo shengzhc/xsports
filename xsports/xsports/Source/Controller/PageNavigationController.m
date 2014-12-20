@@ -20,7 +20,7 @@
     if (self = [super initWithCoder:aDecoder]) {
         self.delegate = self;
         self.cardAnimator = [[CECardsAnimationController alloc] init];
-        self.cardAnimator.duration = 0.3f;
+        self.cardAnimator.duration = 0.75;
     }
     return self;
 }
@@ -30,6 +30,5 @@
     self.cardAnimator.reverse = (operation == UINavigationControllerOperationPop);
     return self.cardAnimator;
 }
-
 
 @end

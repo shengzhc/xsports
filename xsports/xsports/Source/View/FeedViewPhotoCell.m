@@ -78,7 +78,9 @@
 
 - (IBAction)didCommentButtonClicked:(id)sender
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    if ([self.delegate respondsToSelector:@selector(feedViewPhotoCell:didCommentButtonClicked:)]) {
+        [self.delegate feedViewPhotoCell:self didCommentButtonClicked:sender];
+    }
 }
 
 - (IBAction)didShareButtonClicked:(id)sender
