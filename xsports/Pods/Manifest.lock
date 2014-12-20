@@ -39,6 +39,9 @@ PODS:
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
   - SIAlertView (1.3)
+  - SlackTextViewController (1.4):
+    - SlackTextViewController/Additions (= 1.4)
+  - SlackTextViewController/Additions (1.4)
   - SVPullToRefresh (0.4.1)
   - VCTransitionsLibrary (1.5.0)
 
@@ -55,6 +58,7 @@ DEPENDENCIES:
   - Pop
   - SDWebImage
   - SIAlertView
+  - SlackTextViewController
   - SVPullToRefresh
   - VCTransitionsLibrary
 
@@ -71,6 +75,7 @@ SPEC CHECKSUMS:
   pop: 2f14a1ea61339767af9e66741b418c831b3844df
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   SIAlertView: d00609a1faa9d82f17b9f0b4eede64e84a577b10
+  SlackTextViewController: e3f5998407ef7442aa9d311c65e3430146f1779a
   SVPullToRefresh: d5161ebc833a38b465364412e5e307ca80bbb190
   VCTransitionsLibrary: 3c33ef649f7380bdb5bff5212f01c8f3f9eb5492
 

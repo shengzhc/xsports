@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SLKTextViewController.h"
 
 @interface CommentsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

@@ -19,6 +19,7 @@ pod 'JSONModel'
 pod 'SDWebImage'
 pod 'SVPullToRefresh'
 pod 'VCTransitionsLibrary'
+pod 'SlackTextViewController'
 
 end
 
