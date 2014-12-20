@@ -13,7 +13,7 @@
 static void *AVPlayerItemStatusObservationContext = &AVPlayerItemStatusObservationContext;
 static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObservationContext;
 
-@interface FeedFlowCollectionViewController () < UICollectionViewDelegateFlowLayout >
+@interface FeedFlowCollectionViewController () < UICollectionViewDelegateFlowLayout, FeedViewVideoCellDelegate >
 @property (strong, nonatomic) NSDictionary *prototypes;
 @property (strong, nonatomic) AVPlayer *player;
 @property (strong, nonatomic) AVPlayerItem *playerItem;
@@ -67,8 +67,20 @@ static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObserva
 
 - (void)attachPlayer:(AVPlayer *)player toVideoCell:(FeedViewVideoCell *)cell withMedia:(Media *)media
 {
+    if (self.playerVideoCell == cell && cell.playerView.player == player) {
+        if (self.player.rate > 0) {
+            [self.player pause];
+            [self.playerVideoCell syncWithStatus:kVideoStatusPause];
+        } else {
+            [self.player play];
+            [self.playerVideoCell syncWithStatus:kVideoStatusPlaying];
+        }
+        return;
+    }
+    
     [self detachPlayer:player fromVideoCell:self.playerVideoCell];
     self.playerVideoCell = cell;
+    [self.playerVideoCell syncWithStatus:kVideoStatusLoading];
     self.playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:media.videos.standard.url]];
     [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:AVPlayerItemStatusObservationContext];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
@@ -80,6 +92,7 @@ static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObserva
         [player seekToTime:kCMTimeZero];
         [cell.playerView setPlayer:nil];
         [self.playerVideoCell.playerView setPlayer:nil];
+        [cell syncWithStatus:kVideoStatusPause];
         [self.playerItem removeObserver:self forKeyPath:@"status"];
         [[NSNotificationCenter defaultCenter] removeObserver:self];
         self.playerItem = nil;
@@ -95,6 +108,7 @@ static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObserva
             if (self.playerVideoCell.window) {
                 [self.playerVideoCell.playerView setPlayer:self.player];
                 [self.player play];
+                [self.playerVideoCell syncWithStatus:kVideoStatusPlaying];
             }
         }
     } else if (context == AVPlayerItemStatusObservationContext) {
@@ -119,6 +133,12 @@ static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObserva
     }
 }
 
+#pragma mark FeedViewVideoCellDelegate
+- (void)feedViewVideoCell:(FeedViewVideoCell *)cell didVideoButtonClicked:(id)sender
+{
+    [self attachPlayer:self.player toVideoCell:cell withMedia:cell.media];
+}
+
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -132,6 +152,7 @@ static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObserva
     if ([media isVideo]) {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:FeedViewVideoCellIdentifier forIndexPath:indexPath];
         ((FeedViewVideoCell *)cell).media = self.feeds[indexPath.item];
+        ((FeedViewVideoCell *)cell).delegate = self;
     } else {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:FeedViewPhotoCellIdentifier forIndexPath:indexPath];
         ((FeedViewPhotoCell *)cell).media = self.feeds[indexPath.item];
@@ -158,7 +179,11 @@ static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObserva
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    Media *media = self.feeds[indexPath.item];
+    if ([media isVideo]) {
+        FeedViewVideoCell *cell = (FeedViewVideoCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        [self attachPlayer:self.player toVideoCell:cell withMedia:media];
+    }
 }
 
 
