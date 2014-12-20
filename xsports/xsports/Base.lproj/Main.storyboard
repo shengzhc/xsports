@@ -660,7 +660,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVx-3P-Tre">
-                                                    <rect key="frame" x="44" y="8.5" width="80.5" height="14.5"/>
+                                                    <rect key="frame" x="44" y="8" width="80.5" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -672,17 +672,28 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="of6-gV-dPy" userLabel="seperator">
-                                                    <rect key="frame" x="44" y="43.5" width="276" height="0.5"/>
+                                                    <rect key="frame" x="44" y="43" width="276" height="0.5"/>
                                                     <color key="backgroundColor" red="0.36576700775091503" green="0.38727491979287537" blue="0.51124526515151514" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="0.5" id="rrH-MG-c64"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmZ-ia-nnT">
+                                                    <rect key="frame" x="221" y="7.5" width="83" height="29"/>
+                                                    <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="3"/>
+                                                    <state key="normal" title="Follow" image="ico_add_follower">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didFollowButtonClicked:" destination="Ul1-aL-MWx" eventType="touchUpInside" id="Efj-eL-3iv"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="of6-gV-dPy" secondAttribute="bottom" id="7E4-Vo-MOV"/>
                                                 <constraint firstItem="of6-gV-dPy" firstAttribute="leading" secondItem="XSq-6Q-UeV" secondAttribute="trailing" constant="8" id="7XG-WP-txc"/>
+                                                <constraint firstAttribute="centerY" secondItem="kmZ-ia-nnT" secondAttribute="centerY" id="8LJ-tC-Hgu"/>
                                                 <constraint firstItem="cOS-GY-pDY" firstAttribute="leading" secondItem="XSq-6Q-UeV" secondAttribute="trailing" constant="8" id="FEr-3J-P3c"/>
                                                 <constraint firstItem="XSq-6Q-UeV" firstAttribute="centerY" secondItem="cOS-GY-pDY" secondAttribute="centerY" constant="-8" id="LaW-AS-R9Q"/>
                                                 <constraint firstItem="cOS-GY-pDY" firstAttribute="top" secondItem="SVx-3P-Tre" secondAttribute="bottom" id="MVR-3F-q9L"/>
@@ -690,11 +701,13 @@
                                                 <constraint firstItem="XSq-6Q-UeV" firstAttribute="leading" secondItem="raM-DI-Ots" secondAttribute="leading" constant="8" id="TRJ-Lo-z4q"/>
                                                 <constraint firstAttribute="centerY" secondItem="XSq-6Q-UeV" secondAttribute="centerY" id="c5h-i8-fxK"/>
                                                 <constraint firstAttribute="trailing" secondItem="of6-gV-dPy" secondAttribute="trailing" id="ktO-yq-wA1"/>
+                                                <constraint firstAttribute="trailing" secondItem="kmZ-ia-nnT" secondAttribute="trailing" constant="16" id="n8R-cZ-b4p"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="accountLabel" destination="SVx-3P-Tre" id="Zek-K9-0UR"/>
+                                            <outlet property="followButton" destination="kmZ-ia-nnT" id="xGg-tg-IOR"/>
                                             <outlet property="nameLabel" destination="cOS-GY-pDY" id="w5r-eN-ykr"/>
                                             <outlet property="profileImageView" destination="XSq-6Q-UeV" id="6UX-dR-lUf"/>
                                         </connections>
@@ -756,6 +769,7 @@
         <image name="bg_blur_03" width="621" height="1104"/>
         <image name="bg_blur_06" width="540" height="960"/>
         <image name="bg_login" width="311" height="552"/>
+        <image name="ico_add_follower" width="22" height="22"/>
         <image name="ico_email" width="32" height="32"/>
         <image name="ico_layout_grid" width="44" height="44"/>
         <image name="ico_lock" width="32" height="32"/>
