@@ -10,8 +10,14 @@
 #import "FeedViewPhotoCell.h"
 #import "FeedViewVideoCell.h"
 
+static void *AVPlayerItemStatusObservationContext = &AVPlayerItemStatusObservationContext;
+static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObservationContext;
+
 @interface FeedFlowCollectionViewController () < UICollectionViewDelegateFlowLayout >
 @property (strong, nonatomic) NSDictionary *prototypes;
+@property (strong, nonatomic) AVPlayer *player;
+@property (strong, nonatomic) AVPlayerItem *playerItem;
+@property (weak, nonatomic) FeedViewVideoCell *playerVideoCell;
 @end
 
 @implementation FeedFlowCollectionViewController
@@ -19,6 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupPlayer];
     [self setupCollectionView];
 }
 
@@ -27,6 +34,12 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"FeedViewPhotoCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:FeedViewPhotoCellIdentifier];
     [self.collectionView registerNib:[UINib nibWithNibName:@"FeedViewVideoCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:FeedViewVideoCellIdentifier];
     [self preparePrototypes];
+}
+
+- (void)setupPlayer
+{
+    self.player = [[AVPlayer alloc] init];
+    [self.player addObserver:self forKeyPath:@"currentItem" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:AVPlayerCurrentItemObservationContext];
 }
 
 - (void)preparePrototypes
@@ -47,6 +60,65 @@
     [self.collectionView reloadData];
 }
 
+- (void)playerItemDidReachEnd:(NSNotification *)notification
+{
+    [self.player seekToTime:kCMTimeZero];
+}
+
+- (void)attachPlayer:(AVPlayer *)player toVideoCell:(FeedViewVideoCell *)cell withMedia:(Media *)media
+{
+    [self detachPlayer:player fromVideoCell:self.playerVideoCell];
+    self.playerVideoCell = cell;
+    self.playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:media.videos.standard.url]];
+    [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:AVPlayerItemStatusObservationContext];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
+}
+
+- (void)detachPlayer:(AVPlayer *)player fromVideoCell:(FeedViewVideoCell *)cell
+{
+    if (self.playerVideoCell == cell) {
+        [player seekToTime:kCMTimeZero];
+        [cell.playerView setPlayer:nil];
+        [self.playerVideoCell.playerView setPlayer:nil];
+        [self.playerItem removeObserver:self forKeyPath:@"status"];
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+        self.playerItem = nil;
+        self.playerVideoCell = nil;
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == AVPlayerCurrentItemObservationContext) {
+        AVPlayerItem *newPlayerItem = [change objectForKey:NSKeyValueChangeNewKey];
+        if (newPlayerItem == self.playerItem) {
+            if (self.playerVideoCell.window) {
+                [self.playerVideoCell.playerView setPlayer:self.player];
+                [self.player play];
+            }
+        }
+    } else if (context == AVPlayerItemStatusObservationContext) {
+        if (object == self.playerItem) {
+            AVPlayerItemStatus status = [[change objectForKey:NSKeyValueChangeNewKey] integerValue];
+            switch (status)
+            {
+                case AVPlayerItemStatusUnknown:
+                case AVPlayerItemStatusReadyToPlay:
+                {
+                    if (self.player.currentItem != self.playerItem) {
+                        [self.player replaceCurrentItemWithPlayerItem:self.playerItem];
+                    }
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+    } else {
+        return [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -60,7 +132,6 @@
     if ([media isVideo]) {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:FeedViewVideoCellIdentifier forIndexPath:indexPath];
         ((FeedViewVideoCell *)cell).media = self.feeds[indexPath.item];
-        
     } else {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:FeedViewPhotoCellIdentifier forIndexPath:indexPath];
         ((FeedViewPhotoCell *)cell).media = self.feeds[indexPath.item];
@@ -73,12 +144,7 @@
 {
     Media *media = self.feeds[indexPath.item];
     if ([media isVideo]) {
-        for (UICollectionViewCell *item in collectionView.visibleCells) {
-            if ([item isKindOfClass:[FeedViewVideoCell class]]) {
-                [((FeedViewVideoCell *)cell) pause];
-            }
-        }
-//        [((FeedViewVideoCell *)cell) play];
+        [self attachPlayer:self.player toVideoCell:(FeedViewVideoCell *)cell withMedia:media];
     }
 }
 
@@ -86,8 +152,13 @@
 {
     Media *media = self.feeds[indexPath.item];
     if ([media isVideo]) {
-        [((FeedViewVideoCell *)cell) clear];
+        [self detachPlayer:self.player fromVideoCell:(FeedViewVideoCell *)cell];
     }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
 
@@ -113,6 +184,5 @@
     
     return CGSizeMake(self.collectionView.bounds.size.width, media.flowLayoutHeight);
 }
-
 
 @end

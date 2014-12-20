@@ -13,7 +13,7 @@
 12.18
 - AVPlayer (DONE)
 - Pull to refresh (DONE)
-- Infinite pulling
+- Infinite pulling (DONE)
 
 12.19
 - Improve the AVPlayer to use just 1 whenever possible.
