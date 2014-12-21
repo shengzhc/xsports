@@ -782,23 +782,56 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2j-UC-Mji" userLabel="comments container">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="7y5-tu-mDh" kind="embed" identifier="Comments_TextViewControllerSegue" id="dFR-7J-oRC"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ymi-38-Bas" secondAttribute="bottom" id="2Af-Pf-ZEG"/>
                             <constraint firstItem="ZGv-iw-KYd" firstAttribute="leading" secondItem="vN6-3y-Ial" secondAttribute="leading" id="4Pj-qL-v7d"/>
+                            <constraint firstItem="U2j-UC-Mji" firstAttribute="top" secondItem="vN6-3y-Ial" secondAttribute="top" id="6qX-9Q-RkD"/>
+                            <constraint firstItem="U2j-UC-Mji" firstAttribute="leading" secondItem="vN6-3y-Ial" secondAttribute="leading" id="Gfh-h6-QIm"/>
                             <constraint firstItem="ZGv-iw-KYd" firstAttribute="top" secondItem="vN6-3y-Ial" secondAttribute="top" id="KHG-Nh-mbW"/>
                             <constraint firstItem="ymi-38-Bas" firstAttribute="leading" secondItem="vN6-3y-Ial" secondAttribute="leading" id="KP7-jS-ZSw"/>
                             <constraint firstAttribute="trailing" secondItem="ymi-38-Bas" secondAttribute="trailing" id="Qu4-IL-N5Y"/>
+                            <constraint firstAttribute="trailing" secondItem="U2j-UC-Mji" secondAttribute="trailing" id="Xuf-FV-taI"/>
                             <constraint firstAttribute="trailing" secondItem="ZGv-iw-KYd" secondAttribute="trailing" id="Z87-Ox-AXM"/>
+                            <constraint firstAttribute="bottom" secondItem="U2j-UC-Mji" secondAttribute="bottom" id="dQQ-z8-bZi"/>
                             <constraint firstItem="ymi-38-Bas" firstAttribute="top" secondItem="vN6-3y-Ial" secondAttribute="top" id="dSO-tD-qrw"/>
                             <constraint firstAttribute="bottom" secondItem="ZGv-iw-KYd" secondAttribute="bottom" id="jg5-op-YJf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="topConstraint" destination="6qX-9Q-RkD" id="xEi-am-Fj3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uYm-zp-I72" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="924" y="-2566.5"/>
+        </scene>
+        <!--Comments Text View Controller-->
+        <scene sceneID="IeK-d7-Dvy">
+            <objects>
+                <viewController storyboardIdentifier="CommentsTextViewController" automaticallyAdjustsScrollViewInsets="NO" id="7y5-tu-mDh" customClass="CommentsTextViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iKw-X9-7Wl"/>
+                        <viewControllerLayoutGuide type="bottom" id="gQR-E6-fZn"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XRL-5m-7kS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Agc-7y-Kk1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1335" y="-2567"/>
         </scene>
     </scenes>
     <resources>

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SLKTextViewController.h"
+#import "CommentsTextViewController.h"
 
-@interface CommentsViewController : SLKTextViewController
+@interface CommentsViewController : UIViewController
+@property (strong, nonatomic) CommentsTextViewController *textViewController;
 @property (strong, nonatomic) NSString *mediaId;
 @end

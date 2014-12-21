@@ -21,6 +21,7 @@
 #define FeedGridCollectionViewControllerIdentifier @"FeedGridCollectionViewController"
 #define LikesViewControllerIdentifier @"LikesViewController"
 #define CommentsViewControllerIdentifier @"CommentsViewController"
+#define CommentsTextViewControllerIdentifier @"CommentsTextViewController"
 
 #define LoginEmailCellIdentifier @"LoginEmailCell"
 #define LoginPasswordCellIdentifier @"LoginPasswordCell"
@@ -33,5 +34,6 @@
 #define CommentsCellIdentifier @"CommentsCell"
 
 #define FeedViewFeedFlowLayoutSegueIdentifier @"FeedView_FeedFlowLayout_Segue"
+#define CommentsTextViewControllerSegueIdentifier @"Comments_TextViewControllerSegue"
 
 #endif

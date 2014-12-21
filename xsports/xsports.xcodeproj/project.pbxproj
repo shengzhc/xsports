@@ -74,6 +74,7 @@
 		9CCC75771A45488F00F9EE3D /* LoadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75741A45488F00F9EE3D /* LoadingAnimator.m */; };
 		9CCC75781A45488F00F9EE3D /* SlidingAndFadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75761A45488F00F9EE3D /* SlidingAndFadingAnimator.m */; };
 		9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */; };
+		9CE4F0901A46987E005EB73C /* CommentsTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4F08F1A46987E005EB73C /* CommentsTextViewController.m */; };
 		9CF88D441A3FC3F300D4E72E /* JSONValueTransformer+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF88D431A3FC3F300D4E72E /* JSONValueTransformer+XS.m */; };
 		9CF88D461A3FE5ED00D4E72E /* Tasks in Resources */ = {isa = PBXBuildFile; fileRef = 9CF88D451A3FE5ED00D4E72E /* Tasks */; };
 		9CF88D491A3FE6A300D4E72E /* NSDate+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF88D481A3FE6A300D4E72E /* NSDate+XS.m */; };
@@ -203,6 +204,8 @@
 		9CCC75761A45488F00F9EE3D /* SlidingAndFadingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidingAndFadingAnimator.m; sourceTree = "<group>"; };
 		9CCF45DA1A3A5A2300FB1A94 /* UIViewController+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XS.h"; sourceTree = "<group>"; };
 		9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XS.m"; sourceTree = "<group>"; };
+		9CE4F08E1A46987E005EB73C /* CommentsTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsTextViewController.h; sourceTree = "<group>"; };
+		9CE4F08F1A46987E005EB73C /* CommentsTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsTextViewController.m; sourceTree = "<group>"; };
 		9CF88D401A3FBCE400D4E72E /* FeedViewPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewPhotoCell.xib; sourceTree = "<group>"; };
 		9CF88D421A3FC3F300D4E72E /* JSONValueTransformer+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONValueTransformer+XS.h"; sourceTree = "<group>"; };
 		9CF88D431A3FC3F300D4E72E /* JSONValueTransformer+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+XS.m"; sourceTree = "<group>"; };
@@ -413,6 +416,8 @@
 				9C3428581A455F940021AB2B /* LikesViewController.m */,
 				9C11A45D1A45E50200A9E4CD /* CommentsViewController.h */,
 				9C11A45E1A45E50200A9E4CD /* CommentsViewController.m */,
+				9CE4F08E1A46987E005EB73C /* CommentsTextViewController.h */,
+				9CE4F08F1A46987E005EB73C /* CommentsTextViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -665,6 +670,7 @@
 				9CBCE71F1A3CC56200C9BD35 /* MEZoomAnimationController.m in Sources */,
 				9CF88D441A3FC3F300D4E72E /* JSONValueTransformer+XS.m in Sources */,
 				9C3428561A455D9D0021AB2B /* PageNavigationController.m in Sources */,
+				9CE4F0901A46987E005EB73C /* CommentsTextViewController.m in Sources */,
 				9C34285C1A4560800021AB2B /* LikesCell.m in Sources */,
 				9C4B94F01A41697900DFCC7F /* FeedViewGridPhotoCell.m in Sources */,
 				9CBCE72C1A3E2A0200C9BD35 /* InstagramServices.m in Sources */,
