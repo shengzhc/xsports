@@ -782,15 +782,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SGC-Ne-Bik">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="UXp-yr-RrX" id="RrL-xd-uvR"/>
-                                    <outlet property="delegate" destination="UXp-yr-RrX" id="c2d-Yt-oRL"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -798,20 +789,12 @@
                             <constraint firstItem="ZGv-iw-KYd" firstAttribute="leading" secondItem="vN6-3y-Ial" secondAttribute="leading" id="4Pj-qL-v7d"/>
                             <constraint firstItem="ZGv-iw-KYd" firstAttribute="top" secondItem="vN6-3y-Ial" secondAttribute="top" id="KHG-Nh-mbW"/>
                             <constraint firstItem="ymi-38-Bas" firstAttribute="leading" secondItem="vN6-3y-Ial" secondAttribute="leading" id="KP7-jS-ZSw"/>
-                            <constraint firstItem="SGC-Ne-Bik" firstAttribute="top" secondItem="vN6-3y-Ial" secondAttribute="top" id="Kgj-2H-S1i"/>
-                            <constraint firstAttribute="trailing" secondItem="SGC-Ne-Bik" secondAttribute="trailing" id="Lym-Vy-0HJ"/>
                             <constraint firstAttribute="trailing" secondItem="ymi-38-Bas" secondAttribute="trailing" id="Qu4-IL-N5Y"/>
                             <constraint firstAttribute="trailing" secondItem="ZGv-iw-KYd" secondAttribute="trailing" id="Z87-Ox-AXM"/>
                             <constraint firstItem="ymi-38-Bas" firstAttribute="top" secondItem="vN6-3y-Ial" secondAttribute="top" id="dSO-tD-qrw"/>
-                            <constraint firstItem="SGC-Ne-Bik" firstAttribute="leading" secondItem="vN6-3y-Ial" secondAttribute="leading" id="he4-qb-UOL"/>
                             <constraint firstAttribute="bottom" secondItem="ZGv-iw-KYd" secondAttribute="bottom" id="jg5-op-YJf"/>
-                            <constraint firstAttribute="bottom" secondItem="SGC-Ne-Bik" secondAttribute="bottom" id="u3t-51-oW3"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="tableView" destination="SGC-Ne-Bik" id="jl6-Do-1A4"/>
-                        <outlet property="tableViewTopConstraint" destination="Kgj-2H-S1i" id="DQe-qx-Sux"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uYm-zp-I72" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

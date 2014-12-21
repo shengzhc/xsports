@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SLKTextViewController.h"
 
-@interface CommentsViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@interface CommentsViewController : SLKTextViewController
 @property (strong, nonatomic) NSString *mediaId;
 @end

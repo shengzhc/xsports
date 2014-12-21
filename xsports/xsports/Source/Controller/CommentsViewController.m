@@ -10,12 +10,16 @@
 #import "CommentsCell.h"
 
 @interface CommentsViewController () < UITableViewDataSource, UITableViewDelegate >
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewTopConstraint;
 @property (strong, nonatomic) NSDictionary *prototypes;
 @property (strong, nonatomic) NSArray *comments;
 @end
 
 @implementation CommentsViewController
+
++ (UITableViewStyle)tableViewStyleForCoder:(NSCoder *)decoder
+{
+    return UITableViewStylePlain;
+}
 
 - (void)viewDidLoad
 {
@@ -28,10 +32,31 @@
 - (void)setupTableView
 {
     [self.tableView registerNib:[UINib nibWithNibName:@"CommentsCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CommentsCellIdentifier];
-    if (self.navigationController) {
-        self.tableViewTopConstraint.constant = 64.0;
-    }
     [self setupPrototypes];
+    
+    self.bounces = YES;
+    self.shakeToClearEnabled = YES;
+    self.keyboardPanningEnabled = YES;
+    self.shouldScrollToBottomAfterKeyboardShows = NO;
+    self.inverted = NO;
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    
+    self.textView.placeholder = NSLocalizedString(@"Comment", nil);
+    [self.textView setTintColor:[UIColor textFieldCursorColor]];
+    [self.textView setPlaceholderColor:[UIColor textFieldPlaceHolderColor]];
+    [self.textView setFont:[UIFont regularFont]];
+    [self.textView setTextColor:[UIColor semiFujiColor]];
+    self.textView.layer.borderColor = [UIColor colorWithRed:217.0/255.0 green:217.0/255.0 blue:217.0/255.0 alpha:1.0].CGColor;
+    self.textView.pastableMediaTypes = SLKPastableMediaTypeAll|SLKPastableMediaTypePassbook;
+    
+    [self.rightButton setTitle:NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
+    
+    [self.textInputbar setBackgroundColor:[UIColor whiteColor]];
+    self.textInputbar.autoHideRightButton = YES;
+    self.textInputbar.maxCharCount = 140;
+    self.textInputbar.counterStyle = SLKCounterStyleSplit;
 }
 
 - (void)setupPrototypes

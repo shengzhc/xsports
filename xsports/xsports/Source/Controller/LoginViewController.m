@@ -64,6 +64,7 @@
 #pragma mark Logic
 - (void)signIn
 {
+    [self.view endEditing:YES];
     if ([NSPredicate validateEmail:self.m_email] && self.m_password.length >= 4) {
         LoadingViewController *loadingViewController = [self showLoadingIndicator];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -81,6 +82,7 @@
 
 - (void)signUp
 {
+    [self.view endEditing:YES];
     SIAlertView *alertView = [self cancelAlertViewWithTitle:nil message:@"Please waiting for the new Feature..."];
     [alertView show];
 }
