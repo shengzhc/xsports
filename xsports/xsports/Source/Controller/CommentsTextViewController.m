@@ -26,6 +26,18 @@
     [self setupTableView];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self presentKeyboard:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self dismissKeyboard:animated];
+    [super viewWillDisappear:animated];
+}
+
 - (void)setupTableView
 {
     [self.tableView registerNib:[UINib nibWithNibName:@"CommentsCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CommentsCellIdentifier];
