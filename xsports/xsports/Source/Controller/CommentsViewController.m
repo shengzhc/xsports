@@ -52,6 +52,11 @@
     self.textView.pastableMediaTypes = SLKPastableMediaTypeAll|SLKPastableMediaTypePassbook;
     
     [self.rightButton setTitle:NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
+    [self.rightButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.rightButton.titleLabel.font = [UIFont regularFontWithSize:16.0];
+    [self.rightButton setBackgroundColor:[UIColor lightBambooColor]];
+    self.rightButton.layer.cornerRadius = 5.0;
+    self.rightButton.layer.masksToBounds = YES;
     
     [self.textInputbar setBackgroundColor:[UIColor whiteColor]];
     self.textInputbar.autoHideRightButton = YES;
@@ -110,10 +115,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Comment *comment = self.comments[indexPath.row];
-    CommentsCell *cell = [tableView dequeueReusableCellWithIdentifier:CommentsCellIdentifier forIndexPath:indexPath];
-    cell.comment = comment;
-    return cell;
+    if (tableView == self.tableView) {
+        Comment *comment = self.comments[indexPath.row];
+        CommentsCell *cell = [tableView dequeueReusableCellWithIdentifier:CommentsCellIdentifier forIndexPath:indexPath];
+        cell.comment = comment;
+        return cell;
+    }
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

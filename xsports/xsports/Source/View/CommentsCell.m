@@ -15,6 +15,7 @@
     [super awakeFromNib];
     [self setupImageView];
     [self setupLabels];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setupImageView
