@@ -635,7 +635,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Mxl-xa-6y4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vON-gj-jum">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XH-JV-2MU" customClass="AVCamPreviewView">
@@ -888,6 +888,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hEN-LM-FmV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.02217487374" green="0.02217487374" blue="0.02217487374" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
