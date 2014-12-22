@@ -7,6 +7,7 @@
 //
 
 #import "MenuViewController.h"
+#import "AVCamViewController.h"
 #import "MenuViewCell.h"
 
 @implementation MenuViewController
@@ -75,7 +76,7 @@
     }
 }
 
-#pragma mark
+#pragma mark Action
 - (void)select:(MenuItem)menuItem animated:(BOOL)animated
 {
     if (menuItem != self.selectedRow) {
@@ -99,6 +100,12 @@
     }
 
     [self.slidingViewController resetTopViewAnimated:YES];
+}
+
+- (IBAction)didSignoutButtonClicked:(id)sender
+{
+    UINavigationController *camViewController = (UINavigationController *)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavAVCamViewControllerIdentifier];
+    [self presentViewController:camViewController animated:YES completion:nil];
 }
 
 #pragma mark UITableViewDelegate & UITableViewDataSource

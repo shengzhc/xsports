@@ -22,6 +22,8 @@
 #define LikesViewControllerIdentifier @"LikesViewController"
 #define CommentsViewControllerIdentifier @"CommentsViewController"
 #define CommentsTextViewControllerIdentifier @"CommentsTextViewController"
+#define AVCamViewControllerIdentifier @"AVCamViewController"
+#define NavAVCamViewControllerIdentifier @"Nav_AVCamViewController"
 
 #define LoginEmailCellIdentifier @"LoginEmailCell"
 #define LoginPasswordCellIdentifier @"LoginPasswordCell"

@@ -396,6 +396,9 @@
                                 <state key="normal" title="Sign Out">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="didSignoutButtonClicked:" destination="ZYe-TR-d8w" eventType="touchUpInside" id="b4b-9v-lEP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -623,6 +626,46 @@
             </objects>
             <point key="canvasLocation" x="54" y="-2567"/>
         </scene>
+        <!--Cam View Controller-->
+        <scene sceneID="igs-BP-M7i">
+            <objects>
+                <viewController storyboardIdentifier="AVCamViewController" id="LIL-l0-XkK" customClass="AVCamViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FBx-Cs-EHe"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mxl-xa-6y4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vON-gj-jum">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XH-JV-2MU" customClass="AVCamPreviewView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="3XH-JV-2MU" secondAttribute="bottom" id="1J2-JF-Zn4"/>
+                            <constraint firstItem="3XH-JV-2MU" firstAttribute="leading" secondItem="vON-gj-jum" secondAttribute="leading" id="Gdq-12-ivb"/>
+                            <constraint firstAttribute="trailing" secondItem="3XH-JV-2MU" secondAttribute="trailing" id="RZX-Cz-1Gg"/>
+                            <constraint firstItem="3XH-JV-2MU" firstAttribute="top" secondItem="vON-gj-jum" secondAttribute="top" id="SIh-ej-iUz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cYb-z9-iL7">
+                        <barButtonItem key="leftBarButtonItem" image="ico_close" id="Hj7-WI-YMj">
+                            <inset key="imageInsets" minX="-16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="previewView" destination="3XH-JV-2MU" id="Rvf-zM-Ydb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vzk-wn-f71" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1015" y="-3224"/>
+        </scene>
         <!--Likes View Controller-->
         <scene sceneID="w6U-He-6ha">
             <objects>
@@ -833,6 +876,25 @@
             </objects>
             <point key="canvasLocation" x="1335" y="-2567"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jA6-D2-Lvn">
+            <objects>
+                <navigationController storyboardIdentifier="Nav_AVCamViewController" automaticallyAdjustsScrollViewInsets="NO" id="u3y-8X-0rm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hEN-LM-FmV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LIL-l0-XkK" kind="relationship" relationship="rootViewController" id="nWE-PG-Nac"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PQE-xN-MAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="483" y="-3224"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bg_blur_02" width="621" height="1104"/>
@@ -840,6 +902,7 @@
         <image name="bg_blur_06" width="540" height="960"/>
         <image name="bg_login" width="311" height="552"/>
         <image name="ico_add_follower" width="22" height="22"/>
+        <image name="ico_close" width="44" height="44"/>
         <image name="ico_email" width="32" height="32"/>
         <image name="ico_layout_grid" width="44" height="44"/>
         <image name="ico_lock" width="32" height="32"/>

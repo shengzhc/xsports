@@ -2,8 +2,9 @@ BUG:
 1. Video Cell like and Comment not working
 
 Backlog:
-1. Camera and Photo Library research like instagram
-2. Profile page
+- Camera and Photo Library research like instagram
+- Profile page
+- Find image loader module to do image loading process
 
 12.15
 - Replace timelabel with real data (DONE)
@@ -28,5 +29,5 @@ Backlog:
 - Introduce GET comments, likes and User info call. (DONE)
 
 12.20
-- Adding SLKTextViewController support to comments page
-- Find image loader module to do image loading process
+- Adding SLKTextViewController support to comments page (DONE)
+- Reading AVFoundation for media capture stuff
