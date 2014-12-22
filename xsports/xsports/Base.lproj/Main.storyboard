@@ -643,10 +643,10 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBI-fX-2MB" userLabel="toolContainer">
-                                <rect key="frame" x="0.0" y="364" width="320" height="48"/>
+                                <rect key="frame" x="0.0" y="364" width="320" height="56"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJ0-Xi-R45" userLabel="flashButton">
-                                        <rect key="frame" x="228" y="4" width="40" height="40"/>
+                                        <rect key="frame" x="228" y="8" width="40" height="40"/>
                                         <state key="normal" image="ico_flash_white">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -657,7 +657,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPj-L0-8cU" userLabel="flipButton">
-                                        <rect key="frame" x="140" y="4" width="40" height="40"/>
+                                        <rect key="frame" x="140" y="8" width="40" height="40"/>
                                         <state key="normal" image="ico_cam_rotate_white">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -667,7 +667,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gl-Nn-z1N" userLabel="gridButton">
-                                        <rect key="frame" x="46" y="4" width="40" height="40"/>
+                                        <rect key="frame" x="46" y="8" width="40" height="40"/>
                                         <state key="normal" image="ico_cam_grid_white">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -685,12 +685,24 @@
                                     <constraint firstAttribute="centerY" secondItem="3gl-Nn-z1N" secondAttribute="centerY" id="TfU-xK-H5D"/>
                                     <constraint firstAttribute="trailing" secondItem="SJ0-Xi-R45" secondAttribute="trailing" constant="52" id="rMb-8n-O75"/>
                                     <constraint firstAttribute="centerY" secondItem="SJ0-Xi-R45" secondAttribute="centerY" id="rcr-Mn-Vic"/>
-                                    <constraint firstAttribute="height" constant="48" id="yqW-BU-btD"/>
+                                    <constraint firstAttribute="height" constant="56" id="yqW-BU-btD"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDS-fe-Sj2" userLabel="BottomContainer">
-                                <rect key="frame" x="0.0" y="412" width="320" height="156"/>
+                                <rect key="frame" x="0.0" y="420" width="320" height="148"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBg-mO-5WQ" customClass="CamScrollView">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="148"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </scrollView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="bBg-mO-5WQ" firstAttribute="top" secondItem="jDS-fe-Sj2" secondAttribute="top" id="KAn-Mf-kvB"/>
+                                    <constraint firstAttribute="trailing" secondItem="bBg-mO-5WQ" secondAttribute="trailing" id="c9S-cf-99z"/>
+                                    <constraint firstItem="bBg-mO-5WQ" firstAttribute="leading" secondItem="jDS-fe-Sj2" secondAttribute="leading" id="dIz-Qq-wR0"/>
+                                    <constraint firstAttribute="bottom" secondItem="bBg-mO-5WQ" secondAttribute="bottom" id="jFI-Fl-raN"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -769,26 +781,26 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVx-3P-Tre">
-                                                    <rect key="frame" x="44" y="8" width="80.5" height="14.5"/>
+                                                    <rect key="frame" x="44" y="9" width="81" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FullName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOS-GY-pDY">
-                                                    <rect key="frame" x="44" y="23" width="52.5" height="14.5"/>
+                                                    <rect key="frame" x="44" y="23" width="53" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="of6-gV-dPy" userLabel="seperator">
-                                                    <rect key="frame" x="44" y="43" width="276" height="0.5"/>
+                                                    <rect key="frame" x="44" y="43" width="276" height="1"/>
                                                     <color key="backgroundColor" red="0.36576700775091503" green="0.38727491979287537" blue="0.51124526515151514" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="0.5" id="rrH-MG-c64"/>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmZ-ia-nnT">
-                                                    <rect key="frame" x="221" y="7.5" width="83" height="29"/>
+                                                    <rect key="frame" x="221" y="8" width="83" height="29"/>
                                                     <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="3"/>
                                                     <state key="normal" title="Follow" image="ico_add_follower">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

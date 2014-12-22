@@ -133,8 +133,9 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
         if ([session canAddOutput:movieFileOutput]) {
             [session addOutput:movieFileOutput];
             AVCaptureConnection *connection = [movieFileOutput connectionWithMediaType:AVMediaTypeVideo];
-            if ([connection isVideoStabilizationSupported])
+            if ([connection isVideoStabilizationSupported]) {
                 [connection setEnablesVideoStabilizationWhenAvailable:YES];
+            }
             [self setMovieFileOutput:movieFileOutput];
         }
         

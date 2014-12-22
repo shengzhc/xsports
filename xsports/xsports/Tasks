@@ -30,4 +30,15 @@ Backlog:
 
 12.20
 - Adding SLKTextViewController support to comments page (DONE)
-- Reading AVFoundation for media capture stuff
+- Reading AVFoundation for media capture stuff (DONE)
+
+12.21
+- Adding AVFoundation for media capture (DONE)
+
+12.22
+- Adding bottom scroll area for camera, using a touchArea view to enable/disable touch area
+- Adding still image capture functionality
+
+12.23
+- Adding video capture functionality
+- Explore image filtering open library
