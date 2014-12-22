@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "ico_close.png"
+      "filename" : "ico_cam_rotate_green.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "ico_close@2x.png"
+      "filename" : "ico_cam_rotate_green@2x.png"
     }
   ],
   "info" : {

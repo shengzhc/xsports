@@ -642,13 +642,70 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBI-fX-2MB" userLabel="toolContainer">
+                                <rect key="frame" x="0.0" y="364" width="320" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJ0-Xi-R45" userLabel="flashButton">
+                                        <rect key="frame" x="228" y="4" width="40" height="40"/>
+                                        <state key="normal" image="ico_flash_white">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" image="ico_flash_green"/>
+                                        <state key="highlighted" image="ico_flash_green"/>
+                                        <connections>
+                                            <action selector="didFlashButtonClicked:" destination="LIL-l0-XkK" eventType="touchUpInside" id="LI7-gB-SxT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPj-L0-8cU" userLabel="flipButton">
+                                        <rect key="frame" x="140" y="4" width="40" height="40"/>
+                                        <state key="normal" image="ico_cam_rotate_white">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" image="ico_cam_rotate_green"/>
+                                        <connections>
+                                            <action selector="didFlipButtonClicked:" destination="LIL-l0-XkK" eventType="touchUpInside" id="fNZ-Jz-VHn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gl-Nn-z1N" userLabel="gridButton">
+                                        <rect key="frame" x="46" y="4" width="40" height="40"/>
+                                        <state key="normal" image="ico_cam_grid_white">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" image="ico_cam_grid_green"/>
+                                        <connections>
+                                            <action selector="didGridButtonClicked:" destination="LIL-l0-XkK" eventType="touchUpInside" id="Hay-OZ-26n"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.70000000000000007" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="vPj-L0-8cU" secondAttribute="centerY" id="Bw4-S7-qag"/>
+                                    <constraint firstItem="3gl-Nn-z1N" firstAttribute="leading" secondItem="fBI-fX-2MB" secondAttribute="leading" constant="46" id="EZP-uB-Fog"/>
+                                    <constraint firstAttribute="centerX" secondItem="vPj-L0-8cU" secondAttribute="centerX" id="GIN-nm-obq"/>
+                                    <constraint firstAttribute="centerY" secondItem="3gl-Nn-z1N" secondAttribute="centerY" id="TfU-xK-H5D"/>
+                                    <constraint firstAttribute="trailing" secondItem="SJ0-Xi-R45" secondAttribute="trailing" constant="52" id="rMb-8n-O75"/>
+                                    <constraint firstAttribute="centerY" secondItem="SJ0-Xi-R45" secondAttribute="centerY" id="rcr-Mn-Vic"/>
+                                    <constraint firstAttribute="height" constant="48" id="yqW-BU-btD"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDS-fe-Sj2" userLabel="BottomContainer">
+                                <rect key="frame" x="0.0" y="412" width="320" height="156"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="3XH-JV-2MU" secondAttribute="bottom" id="1J2-JF-Zn4"/>
+                            <constraint firstItem="jDS-fe-Sj2" firstAttribute="leading" secondItem="vON-gj-jum" secondAttribute="leading" id="DrH-50-sOH"/>
                             <constraint firstItem="3XH-JV-2MU" firstAttribute="leading" secondItem="vON-gj-jum" secondAttribute="leading" id="Gdq-12-ivb"/>
+                            <constraint firstAttribute="trailing" secondItem="fBI-fX-2MB" secondAttribute="trailing" id="JX2-CV-uZH"/>
                             <constraint firstAttribute="trailing" secondItem="3XH-JV-2MU" secondAttribute="trailing" id="RZX-Cz-1Gg"/>
                             <constraint firstItem="3XH-JV-2MU" firstAttribute="top" secondItem="vON-gj-jum" secondAttribute="top" id="SIh-ej-iUz"/>
+                            <constraint firstItem="fBI-fX-2MB" firstAttribute="leading" secondItem="vON-gj-jum" secondAttribute="leading" id="Uuf-Zc-qzr"/>
+                            <constraint firstAttribute="trailing" secondItem="jDS-fe-Sj2" secondAttribute="trailing" id="aOG-iJ-WIv"/>
+                            <constraint firstAttribute="bottom" secondItem="jDS-fe-Sj2" secondAttribute="bottom" id="cql-CR-WVo"/>
+                            <constraint firstItem="jDS-fe-Sj2" firstAttribute="top" secondItem="fBI-fX-2MB" secondAttribute="bottom" id="hjk-Id-XnR"/>
+                            <constraint firstItem="fBI-fX-2MB" firstAttribute="top" secondItem="vON-gj-jum" secondAttribute="top" constant="364" id="m6V-XH-RYX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cYb-z9-iL7">
@@ -662,7 +719,13 @@
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="flashButton" destination="SJ0-Xi-R45" id="EHM-1Z-2Ea"/>
+                        <outlet property="flashButtonTrailConstraint" destination="rMb-8n-O75" id="qDL-gV-Rhh"/>
+                        <outlet property="flipButton" destination="vPj-L0-8cU" id="zVA-Fw-822"/>
+                        <outlet property="gridButton" destination="3gl-Nn-z1N" id="4Sw-qC-P5W"/>
+                        <outlet property="gridButtonLeadingConstraint" destination="EZP-uB-Fog" id="0zW-vw-4Yc"/>
                         <outlet property="previewView" destination="3XH-JV-2MU" id="Rvf-zM-Ydb"/>
+                        <outlet property="toolBarTopConstraint" destination="m6V-XH-RYX" id="yV0-RI-r80"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzk-wn-f71" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -885,12 +948,12 @@
                 <navigationController storyboardIdentifier="Nav_AVCamViewController" automaticallyAdjustsScrollViewInsets="NO" id="u3y-8X-0rm" customClass="StatusHiddenNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hEN-LM-FmV">
+                    <navigationBar key="navigationBar" alpha="0.10000000000000001" contentMode="scaleToFill" id="hEN-LM-FmV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.02217487374" green="0.02217487374" blue="0.02217487374" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="0.01" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -908,8 +971,14 @@
         <image name="bg_blur_06" width="540" height="960"/>
         <image name="bg_login" width="311" height="552"/>
         <image name="ico_add_follower" width="22" height="22"/>
+        <image name="ico_cam_grid_green" width="40" height="40"/>
+        <image name="ico_cam_grid_white" width="40" height="40"/>
+        <image name="ico_cam_rotate_green" width="40" height="40"/>
+        <image name="ico_cam_rotate_white" width="40" height="40"/>
         <image name="ico_close" width="44" height="44"/>
         <image name="ico_email" width="32" height="32"/>
+        <image name="ico_flash_green" width="40" height="40"/>
+        <image name="ico_flash_white" width="40" height="40"/>
         <image name="ico_layout_grid" width="44" height="44"/>
         <image name="ico_lock" width="32" height="32"/>
         <image name="ico_logo" width="240" height="240"/>

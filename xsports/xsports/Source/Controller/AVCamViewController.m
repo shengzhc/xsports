@@ -20,12 +20,22 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 
 // For use in the storyboards.
 @property (nonatomic, weak) IBOutlet AVCamPreviewView *previewView;
+
+@property (weak, nonatomic) IBOutlet UIButton *flashButton;
+@property (weak, nonatomic) IBOutlet UIButton *flipButton;
+@property (weak, nonatomic) IBOutlet UIButton *gridButton;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolBarTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *flashButtonTrailConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *gridButtonLeadingConstraint;
+
+@property (assign, nonatomic) AVCaptureFlashMode flashMode;
+
 @property (nonatomic, weak) IBOutlet UIButton *recordButton;
 @property (nonatomic, weak) IBOutlet UIButton *cameraButton;
 @property (nonatomic, weak) IBOutlet UIButton *stillButton;
 
 - (IBAction)toggleMovieRecording:(id)sender;
-- (IBAction)changeCamera:(id)sender;
 - (IBAction)snapStillImage:(id)sender;
 - (IBAction)focusAndExposeTap:(UIGestureRecognizer *)gestureRecognizer;
 
@@ -60,73 +70,81 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	
-	// Create the AVCaptureSession
-	AVCaptureSession *session = [[AVCaptureSession alloc] init];
-	[self setSession:session];
-	
-	// Setup the preview view
-	[[self previewView] setSession:session];
-	
-	// Check for device authorization
-	[self checkDeviceAuthorizationStatus];
-	
-	// In general it is not safe to mutate an AVCaptureSession or any of its inputs, outputs, or connections from multiple threads at the same time.
-	// Why not do all of this on the main queue?
-	// -[AVCaptureSession startRunning] is a blocking call which can take a long time. We dispatch session setup to the sessionQueue so that the main queue isn't blocked (which keeps the UI responsive).
-	
-	dispatch_queue_t sessionQueue = dispatch_queue_create("session queue", DISPATCH_QUEUE_SERIAL);
-	[self setSessionQueue:sessionQueue];
-	
-	dispatch_async(sessionQueue, ^{
-		[self setBackgroundRecordingId:UIBackgroundTaskInvalid];
-		NSError *error = nil;
-		AVCaptureDevice *videoDevice = [AVCamViewController deviceWithMediaType:AVMediaTypeVideo preferringPosition:AVCaptureDevicePositionBack];
-		AVCaptureDeviceInput *videoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:&error];
-		
-		if (error) {
-			NSLog(@"%@", error);
-		}
-		
-		if ([session canAddInput:videoDeviceInput]) {
-			[session addInput:videoDeviceInput];
-			[self setVideoDeviceInput:videoDeviceInput];
-			dispatch_async(dispatch_get_main_queue(), ^{
-				// Why are we dispatching this to the main queue?
-				// Because AVCaptureVideoPreviewLayer is the backing layer for AVCamPreviewView and UIView can only be manipulated on main thread.
-				// Note: As an exception to the above rule, it is not necessary to serialize video orientation changes on the AVCaptureVideoPreviewLayer’s connection with other session manipulation.
-  
-				[[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] setVideoOrientation:(AVCaptureVideoOrientation)[self interfaceOrientation]];
-			});
-		}
-		
-		AVCaptureDevice *audioDevice = [[AVCaptureDevice devicesWithMediaType:AVMediaTypeAudio] firstObject];
-		AVCaptureDeviceInput *audioDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:audioDevice error:&error];
-		
-		if (error) {
-			NSLog(@"%@", error);
-		}
-		
-		if ([session canAddInput:audioDeviceInput]) {
-			[session addInput:audioDeviceInput];
-		}
-		
-		AVCaptureMovieFileOutput *movieFileOutput = [[AVCaptureMovieFileOutput alloc] init];
-		if ([session canAddOutput:movieFileOutput]) {
-			[session addOutput:movieFileOutput];
-			AVCaptureConnection *connection = [movieFileOutput connectionWithMediaType:AVMediaTypeVideo];
-			if ([connection isVideoStabilizationSupported])
-				[connection setEnablesVideoStabilizationWhenAvailable:YES];
-			[self setMovieFileOutput:movieFileOutput];
-		}
-		
-		AVCaptureStillImageOutput *stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
-		if ([session canAddOutput:stillImageOutput]) {
-			[stillImageOutput setOutputSettings:@{AVVideoCodecKey : AVVideoCodecJPEG}];
-			[session addOutput:stillImageOutput];
-			[self setStillImageOutput:stillImageOutput];
-		}
-	});
+    [self setupConstraints];
+    [self setupCaptureSession];
+}
+
+- (void)setupConstraints
+{
+    self.toolBarTopConstraint.constant = self.view.bounds.size.width + 44.0;
+    self.gridButtonLeadingConstraint.constant = self.view.bounds.size.width/4.0 - self.gridButton.bounds.size.width/2.0;
+    self.flashButtonTrailConstraint.constant = self.view.bounds.size.width/4.0 - self.flashButton.bounds.size.width/2.0;
+}
+
+- (void)setupCaptureSession
+{
+    // Create the AVCaptureSession
+    AVCaptureSession *session = [[AVCaptureSession alloc] init];
+    [self setSession:session];
+    
+    // Setup the preview view
+    [[self previewView] setSession:session];
+
+    // Setup camera button status
+    self.flashMode = AVCaptureFlashModeOff;
+    
+    // Check for device authorization
+    [self checkDeviceAuthorizationStatus];
+    
+    
+    dispatch_queue_t sessionQueue = dispatch_queue_create("session queue", DISPATCH_QUEUE_SERIAL);
+    [self setSessionQueue:sessionQueue];
+    
+    dispatch_async(sessionQueue, ^{
+        [self setBackgroundRecordingId:UIBackgroundTaskInvalid];
+        NSError *error = nil;
+        AVCaptureDevice *videoDevice = [AVCamViewController deviceWithMediaType:AVMediaTypeVideo preferringPosition:AVCaptureDevicePositionBack];
+        AVCaptureDeviceInput *videoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:&error];
+        if (error) {
+            NSLog(@"%@", error);
+        }
+        
+        if ([session canAddInput:videoDeviceInput]) {
+            [session addInput:videoDeviceInput];
+            [self setVideoDeviceInput:videoDeviceInput];
+            [AVCamViewController setFlashMode:self.flashMode forDevice:videoDevice];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] setVideoOrientation:(AVCaptureVideoOrientation)[self interfaceOrientation]];
+            });
+        }
+        
+        AVCaptureDevice *audioDevice = [[AVCaptureDevice devicesWithMediaType:AVMediaTypeAudio] firstObject];
+        AVCaptureDeviceInput *audioDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:audioDevice error:&error];
+        
+        if (error) {
+            NSLog(@"%@", error);
+        }
+        
+        if ([session canAddInput:audioDeviceInput]) {
+            [session addInput:audioDeviceInput];
+        }
+        
+        AVCaptureMovieFileOutput *movieFileOutput = [[AVCaptureMovieFileOutput alloc] init];
+        if ([session canAddOutput:movieFileOutput]) {
+            [session addOutput:movieFileOutput];
+            AVCaptureConnection *connection = [movieFileOutput connectionWithMediaType:AVMediaTypeVideo];
+            if ([connection isVideoStabilizationSupported])
+                [connection setEnablesVideoStabilizationWhenAvailable:YES];
+            [self setMovieFileOutput:movieFileOutput];
+        }
+        
+        AVCaptureStillImageOutput *stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
+        if ([session canAddOutput:stillImageOutput]) {
+            [stillImageOutput setOutputSettings:@{AVVideoCodecKey : AVVideoCodecJPEG}];
+            [session addOutput:stillImageOutput];
+            [self setStillImageOutput:stillImageOutput];
+        }
+    });
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -153,6 +171,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [super viewDidDisappear:animated];
 	dispatch_async([self sessionQueue], ^{
 		[[self session] stopRunning];
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:AVCaptureDeviceSubjectAreaDidChangeNotification object:[[self videoDeviceInput] device]];
@@ -161,27 +180,6 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 		[self removeObserver:self forKeyPath:@"stillImageOutput.capturingStillImage" context:CapturingStillImageContext];
 		[self removeObserver:self forKeyPath:@"movieFileOutput.recording" context:RecordingContext];
 	});
-}
-
-- (BOOL)prefersStatusBarHidden
-{
-	return YES;
-}
-
-- (BOOL)shouldAutorotate
-{
-	// Disable autorotation of the interface when recording is in progress.
-	return ![self lockInterfaceRotation];
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-	return UIInterfaceOrientationMaskAll;
-}
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-	[[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] setVideoOrientation:(AVCaptureVideoOrientation)toInterfaceOrientation];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -228,6 +226,85 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)didFlashButtonClicked:(id)sender
+{
+    // Disable all buttons
+    self.flashButton.enabled = NO;
+    self.flipButton.enabled = NO;
+    self.gridButton.enabled = NO;
+
+    [self.flashButton setSelected:!self.flashButton.selected];
+    self.flashMode = self.flashButton.selected ? AVCaptureFlashModeAuto : AVCaptureFlashModeOff;
+    
+    dispatch_async([self sessionQueue], ^{
+        [[self session] beginConfiguration];
+        AVCaptureDevice *currentVideoDevice = [[self videoDeviceInput] device];
+        [AVCamViewController setFlashMode:self.flashMode forDevice:currentVideoDevice];
+        [[self session] commitConfiguration];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //Enable all buttons
+            self.flashButton.enabled = YES;
+            self.flipButton.enabled = YES;
+            self.gridButton.enabled = YES;
+        });
+    });
+}
+
+- (IBAction)didGridButtonClicked:(id)sender
+{
+}
+
+- (IBAction)didFlipButtonClicked:(id)sender
+{
+    // Disable all buttons
+    self.flashButton.enabled = NO;
+    self.flipButton.enabled = NO;
+    self.gridButton.enabled = NO;
+
+    dispatch_async([self sessionQueue], ^{
+        AVCaptureDevice *currentVideoDevice = [[self videoDeviceInput] device];
+        AVCaptureDevicePosition preferredPosition = AVCaptureDevicePositionUnspecified;
+        AVCaptureDevicePosition currentPosition = [currentVideoDevice position];
+        
+        switch (currentPosition)
+        {
+            case AVCaptureDevicePositionUnspecified:
+                preferredPosition = AVCaptureDevicePositionBack;
+                break;
+            case AVCaptureDevicePositionBack:
+                preferredPosition = AVCaptureDevicePositionFront;
+                break;
+            case AVCaptureDevicePositionFront:
+                preferredPosition = AVCaptureDevicePositionBack;
+                break;
+        }
+        
+        AVCaptureDevice *videoDevice = [AVCamViewController deviceWithMediaType:AVMediaTypeVideo preferringPosition:preferredPosition];
+        AVCaptureDeviceInput *videoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:nil];
+        
+        [[self session] beginConfiguration];
+        
+        [[self session] removeInput:[self videoDeviceInput]];
+        if ([[self session] canAddInput:videoDeviceInput]) {
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:AVCaptureDeviceSubjectAreaDidChangeNotification object:currentVideoDevice];
+            [AVCamViewController setFlashMode:self.flashMode forDevice:videoDevice];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(subjectAreaDidChange:) name:AVCaptureDeviceSubjectAreaDidChangeNotification object:videoDevice];
+            [[self session] addInput:videoDeviceInput];
+            [self setVideoDeviceInput:videoDeviceInput];
+        } else {
+            [[self session] addInput:[self videoDeviceInput]];
+        }
+        
+        [[self session] commitConfiguration];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //Enable all buttons
+            self.flashButton.enabled = YES;
+            self.flipButton.enabled = YES;
+            self.gridButton.enabled = YES;
+        });
+    });
+}
+
 - (IBAction)toggleMovieRecording:(id)sender
 {
 	[[self recordButton] setEnabled:NO];
@@ -253,58 +330,6 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 		} else {
 			[[self movieFileOutput] stopRecording];
 		}
-	});
-}
-
-- (IBAction)changeCamera:(id)sender
-{
-	[[self cameraButton] setEnabled:NO];
-	[[self recordButton] setEnabled:NO];
-	[[self stillButton] setEnabled:NO];
-	
-	dispatch_async([self sessionQueue], ^{
-		AVCaptureDevice *currentVideoDevice = [[self videoDeviceInput] device];
-		AVCaptureDevicePosition preferredPosition = AVCaptureDevicePositionUnspecified;
-		AVCaptureDevicePosition currentPosition = [currentVideoDevice position];
-		
-		switch (currentPosition)
-		{
-			case AVCaptureDevicePositionUnspecified:
-				preferredPosition = AVCaptureDevicePositionBack;
-				break;
-			case AVCaptureDevicePositionBack:
-				preferredPosition = AVCaptureDevicePositionFront;
-				break;
-			case AVCaptureDevicePositionFront:
-				preferredPosition = AVCaptureDevicePositionBack;
-				break;
-		}
-		
-		AVCaptureDevice *videoDevice = [AVCamViewController deviceWithMediaType:AVMediaTypeVideo preferringPosition:preferredPosition];
-		AVCaptureDeviceInput *videoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:nil];
-		
-		[[self session] beginConfiguration];
-		
-		[[self session] removeInput:[self videoDeviceInput]];
-		if ([[self session] canAddInput:videoDeviceInput]) {
-			[[NSNotificationCenter defaultCenter] removeObserver:self name:AVCaptureDeviceSubjectAreaDidChangeNotification object:currentVideoDevice];
-			
-			[AVCamViewController setFlashMode:AVCaptureFlashModeAuto forDevice:videoDevice];
-			[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(subjectAreaDidChange:) name:AVCaptureDeviceSubjectAreaDidChangeNotification object:videoDevice];
-			
-			[[self session] addInput:videoDeviceInput];
-			[self setVideoDeviceInput:videoDeviceInput];
-		} else {
-			[[self session] addInput:[self videoDeviceInput]];
-		}
-		
-		[[self session] commitConfiguration];
-		
-		dispatch_async(dispatch_get_main_queue(), ^{
-			[[self cameraButton] setEnabled:YES];
-			[[self recordButton] setEnabled:YES];
-			[[self stillButton] setEnabled:YES];
-		});
 	});
 }
 
@@ -441,11 +466,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 		} else {
 			//Not granted access to mediaType
 			dispatch_async(dispatch_get_main_queue(), ^{
-				[[[UIAlertView alloc] initWithTitle:@"AVCam!"
-											message:@"AVCam doesn't have permission to use Camera, please change privacy settings"
-										   delegate:self
-								  cancelButtonTitle:@"OK"
-								  otherButtonTitles:nil] show];
+				[[[UIAlertView alloc] initWithTitle:@"AVCam!" message:@"AVCam doesn't have permission to use Camera, please change privacy settings" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 				[self setDeviceAuthorized:NO];
 			});
 		}
