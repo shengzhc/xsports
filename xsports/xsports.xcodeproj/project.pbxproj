@@ -51,6 +51,7 @@
 		9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9862F91A39753F003D5F86 /* UIColor+XS.m */; };
 		9CBC8AB91A47777E006F00A3 /* AVCamPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC8AB81A47777E006F00A3 /* AVCamPreviewView.m */; };
 		9CBC8ABC1A477793006F00A3 /* AVCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC8ABB1A477793006F00A3 /* AVCamViewController.m */; };
+		9CBC8ABF1A47C32C006F00A3 /* StatusHiddenNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC8ABE1A47C32C006F00A3 /* StatusHiddenNavigationController.m */; };
 		9CBCE71C1A3CC56200C9BD35 /* MEDynamicTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE7151A3CC56200C9BD35 /* MEDynamicTransition.m */; };
 		9CBCE71D1A3CC56200C9BD35 /* MEFoldAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE7171A3CC56200C9BD35 /* MEFoldAnimationController.m */; };
 		9CBCE71F1A3CC56200C9BD35 /* MEZoomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE71B1A3CC56200C9BD35 /* MEZoomAnimationController.m */; };
@@ -173,6 +174,8 @@
 		9CBC8AB81A47777E006F00A3 /* AVCamPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamPreviewView.m; sourceTree = "<group>"; };
 		9CBC8ABA1A477793006F00A3 /* AVCamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamViewController.h; sourceTree = "<group>"; };
 		9CBC8ABB1A477793006F00A3 /* AVCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamViewController.m; sourceTree = "<group>"; };
+		9CBC8ABD1A47C32C006F00A3 /* StatusHiddenNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusHiddenNavigationController.h; sourceTree = "<group>"; };
+		9CBC8ABE1A47C32C006F00A3 /* StatusHiddenNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusHiddenNavigationController.m; sourceTree = "<group>"; };
 		9CBCE7141A3CC56200C9BD35 /* MEDynamicTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDynamicTransition.h; sourceTree = "<group>"; };
 		9CBCE7151A3CC56200C9BD35 /* MEDynamicTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDynamicTransition.m; sourceTree = "<group>"; };
 		9CBCE7161A3CC56200C9BD35 /* MEFoldAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEFoldAnimationController.h; sourceTree = "<group>"; };
@@ -426,6 +429,8 @@
 				9C11A45E1A45E50200A9E4CD /* CommentsViewController.m */,
 				9CE4F08E1A46987E005EB73C /* CommentsTextViewController.h */,
 				9CE4F08F1A46987E005EB73C /* CommentsTextViewController.m */,
+				9CBC8ABD1A47C32C006F00A3 /* StatusHiddenNavigationController.h */,
+				9CBC8ABE1A47C32C006F00A3 /* StatusHiddenNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -675,6 +680,7 @@
 				9C7ED1261A3B8AD0007AB927 /* MenuViewController.m in Sources */,
 				9CBCE72F1A3E2EF100C9BD35 /* User.m in Sources */,
 				9C0928641A400C8C001340F2 /* FeedViewVideoCell.m in Sources */,
+				9CBC8ABF1A47C32C006F00A3 /* StatusHiddenNavigationController.m in Sources */,
 				9CBCE7281A3D7B9B00C9BD35 /* FeedViewPhotoCell.m in Sources */,
 				9CCC75781A45488F00F9EE3D /* SlidingAndFadingAnimator.m in Sources */,
 				9CBCE71F1A3CC56200C9BD35 /* MEZoomAnimationController.m in Sources */,

@@ -655,6 +655,9 @@
                         <barButtonItem key="leftBarButtonItem" image="ico_close" id="Hj7-WI-YMj">
                             <inset key="imageInsets" minX="-16" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="didCloseBarButtonItemClicked:" destination="LIL-l0-XkK" id="MBo-Wr-Gnt"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -876,10 +879,10 @@
             </objects>
             <point key="canvasLocation" x="1335" y="-2567"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Status Hidden Navigation Controller-->
         <scene sceneID="jA6-D2-Lvn">
             <objects>
-                <navigationController storyboardIdentifier="Nav_AVCamViewController" automaticallyAdjustsScrollViewInsets="NO" id="u3y-8X-0rm" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Nav_AVCamViewController" automaticallyAdjustsScrollViewInsets="NO" id="u3y-8X-0rm" customClass="StatusHiddenNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hEN-LM-FmV">

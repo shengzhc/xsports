@@ -18,8 +18,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
-//    [[InstagramServices sharedInstance] getPopularMediaWithSuccessBlock:nil failBlock:nil];
     [self setupImageCache];
     return YES;
 }

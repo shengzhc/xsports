@@ -131,7 +131,8 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	dispatch_async([self sessionQueue], ^{
+    [super viewWillAppear:animated];
+    dispatch_async([self sessionQueue], ^{
 		[self addObserver:self forKeyPath:@"sessionRunningAndDeviceAuthorized" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:SessionRunningAndDeviceAuthorizedContext];
 		[self addObserver:self forKeyPath:@"stillImageOutput.capturingStillImage" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:CapturingStillImageContext];
 		[self addObserver:self forKeyPath:@"movieFileOutput.recording" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:RecordingContext];
@@ -222,6 +223,10 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 }
 
 #pragma mark Actions
+- (IBAction)didCloseBarButtonItemClicked:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (IBAction)toggleMovieRecording:(id)sender
 {
