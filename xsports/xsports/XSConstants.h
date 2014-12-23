@@ -22,8 +22,10 @@
 #define LikesViewControllerIdentifier @"LikesViewController"
 #define CommentsViewControllerIdentifier @"CommentsViewController"
 #define CommentsTextViewControllerIdentifier @"CommentsTextViewController"
-#define AVCamViewControllerIdentifier @"AVCamViewController"
+#define CamViewControllerIdentifier @"CamViewController"
+#define CamFilterViewControllerIdentifier @"CamFilterViewController"
 #define NavAVCamViewControllerIdentifier @"Nav_AVCamViewController"
+#define AssetsPickerViewControllerIdentifier @"AssetsPickerViewController"
 
 #define LoginEmailCellIdentifier @"LoginEmailCell"
 #define LoginPasswordCellIdentifier @"LoginPasswordCell"
@@ -37,5 +39,6 @@
 
 #define FeedViewFeedFlowLayoutSegueIdentifier @"FeedView_FeedFlowLayout_Segue"
 #define CommentsTextViewControllerSegueIdentifier @"Comments_TextViewControllerSegue"
+#define CamFilterViewControllerSegueIdentifier @"CamFilterViewControllerSegue"
 
 #endif

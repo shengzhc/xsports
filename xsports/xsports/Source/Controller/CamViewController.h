@@ -9,6 +9,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AVCamViewController : UIViewController
+@interface CamViewController : UIViewController
 
 @end

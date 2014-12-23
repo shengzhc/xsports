@@ -50,7 +50,7 @@
 		9C835CDB1A3AC47100A75B91 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C835CDA1A3AC47100A75B91 /* QuartzCore.framework */; };
 		9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9862F91A39753F003D5F86 /* UIColor+XS.m */; };
 		9CBC8AB91A47777E006F00A3 /* AVCamPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC8AB81A47777E006F00A3 /* AVCamPreviewView.m */; };
-		9CBC8ABC1A477793006F00A3 /* AVCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC8ABB1A477793006F00A3 /* AVCamViewController.m */; };
+		9CBC8ABC1A477793006F00A3 /* CamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC8ABB1A477793006F00A3 /* CamViewController.m */; };
 		9CBC8ABF1A47C32C006F00A3 /* StatusHiddenNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC8ABE1A47C32C006F00A3 /* StatusHiddenNavigationController.m */; };
 		9CBC8AC21A48077B006F00A3 /* CamScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC8AC11A48077B006F00A3 /* CamScrollView.m */; };
 		9CBCE71C1A3CC56200C9BD35 /* MEDynamicTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE7151A3CC56200C9BD35 /* MEDynamicTransition.m */; };
@@ -78,6 +78,8 @@
 		9CCC75771A45488F00F9EE3D /* LoadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75741A45488F00F9EE3D /* LoadingAnimator.m */; };
 		9CCC75781A45488F00F9EE3D /* SlidingAndFadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75761A45488F00F9EE3D /* SlidingAndFadingAnimator.m */; };
 		9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */; };
+		9CDDDE3A1A49373C00144DB8 /* CamFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDDE391A49373C00144DB8 /* CamFilterViewController.m */; };
+		9CDDDE3D1A493DFC00144DB8 /* AssetsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDDE3C1A493DFC00144DB8 /* AssetsPickerViewController.m */; };
 		9CE4F0901A46987E005EB73C /* CommentsTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4F08F1A46987E005EB73C /* CommentsTextViewController.m */; };
 		9CF88D441A3FC3F300D4E72E /* JSONValueTransformer+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF88D431A3FC3F300D4E72E /* JSONValueTransformer+XS.m */; };
 		9CF88D461A3FE5ED00D4E72E /* Tasks in Resources */ = {isa = PBXBuildFile; fileRef = 9CF88D451A3FE5ED00D4E72E /* Tasks */; };
@@ -173,8 +175,8 @@
 		9C9862F91A39753F003D5F86 /* UIColor+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XS.m"; sourceTree = "<group>"; };
 		9CBC8AB71A47777E006F00A3 /* AVCamPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamPreviewView.h; sourceTree = "<group>"; };
 		9CBC8AB81A47777E006F00A3 /* AVCamPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamPreviewView.m; sourceTree = "<group>"; };
-		9CBC8ABA1A477793006F00A3 /* AVCamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamViewController.h; sourceTree = "<group>"; };
-		9CBC8ABB1A477793006F00A3 /* AVCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamViewController.m; sourceTree = "<group>"; };
+		9CBC8ABA1A477793006F00A3 /* CamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamViewController.h; sourceTree = "<group>"; };
+		9CBC8ABB1A477793006F00A3 /* CamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamViewController.m; sourceTree = "<group>"; };
 		9CBC8ABD1A47C32C006F00A3 /* StatusHiddenNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusHiddenNavigationController.h; sourceTree = "<group>"; };
 		9CBC8ABE1A47C32C006F00A3 /* StatusHiddenNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusHiddenNavigationController.m; sourceTree = "<group>"; };
 		9CBC8AC01A48077B006F00A3 /* CamScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamScrollView.h; sourceTree = "<group>"; };
@@ -216,6 +218,10 @@
 		9CCC75761A45488F00F9EE3D /* SlidingAndFadingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidingAndFadingAnimator.m; sourceTree = "<group>"; };
 		9CCF45DA1A3A5A2300FB1A94 /* UIViewController+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XS.h"; sourceTree = "<group>"; };
 		9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XS.m"; sourceTree = "<group>"; };
+		9CDDDE381A49373C00144DB8 /* CamFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamFilterViewController.h; sourceTree = "<group>"; };
+		9CDDDE391A49373C00144DB8 /* CamFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamFilterViewController.m; sourceTree = "<group>"; };
+		9CDDDE3B1A493DFC00144DB8 /* AssetsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsPickerViewController.h; sourceTree = "<group>"; };
+		9CDDDE3C1A493DFC00144DB8 /* AssetsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsPickerViewController.m; sourceTree = "<group>"; };
 		9CE4F08E1A46987E005EB73C /* CommentsTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsTextViewController.h; sourceTree = "<group>"; };
 		9CE4F08F1A46987E005EB73C /* CommentsTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsTextViewController.m; sourceTree = "<group>"; };
 		9CF88D401A3FBCE400D4E72E /* FeedViewPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewPhotoCell.xib; sourceTree = "<group>"; };
@@ -405,8 +411,8 @@
 		9C9862F11A3974D6003D5F86 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9CBC8ABA1A477793006F00A3 /* AVCamViewController.h */,
-				9CBC8ABB1A477793006F00A3 /* AVCamViewController.m */,
+				9CBC8ABA1A477793006F00A3 /* CamViewController.h */,
+				9CBC8ABB1A477793006F00A3 /* CamViewController.m */,
 				9C7DEBB91A396E6B00A0436E /* Main.storyboard */,
 				9C54EF3A1A39EECA00D16EEE /* LoginViewController.h */,
 				9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */,
@@ -434,6 +440,10 @@
 				9CE4F08F1A46987E005EB73C /* CommentsTextViewController.m */,
 				9CBC8ABD1A47C32C006F00A3 /* StatusHiddenNavigationController.h */,
 				9CBC8ABE1A47C32C006F00A3 /* StatusHiddenNavigationController.m */,
+				9CDDDE381A49373C00144DB8 /* CamFilterViewController.h */,
+				9CDDDE391A49373C00144DB8 /* CamFilterViewController.m */,
+				9CDDDE3B1A493DFC00144DB8 /* AssetsPickerViewController.h */,
+				9CDDDE3C1A493DFC00144DB8 /* AssetsPickerViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -712,7 +722,7 @@
 				9C54EF531A3A3B6000D16EEE /* UIScreen+XS.m in Sources */,
 				9C11A45F1A45E50200A9E4CD /* CommentsViewController.m in Sources */,
 				9C4B94F81A425FFC00DFCC7F /* FeedViewGridVideoCell.m in Sources */,
-				9CBC8ABC1A477793006F00A3 /* AVCamViewController.m in Sources */,
+				9CBC8ABC1A477793006F00A3 /* CamViewController.m in Sources */,
 				9CBC8AB91A47777E006F00A3 /* AVCamPreviewView.m in Sources */,
 				9C11A4621A45E54D00A9E4CD /* CommentsCell.m in Sources */,
 				9CBCE7251A3CD0B900C9BD35 /* UINavigationController+XS.m in Sources */,
@@ -722,12 +732,14 @@
 				9CCC75771A45488F00F9EE3D /* LoadingAnimator.m in Sources */,
 				9C7ED1231A3B89B4007AB927 /* SlidingViewController.m in Sources */,
 				9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */,
+				9CDDDE3D1A493DFC00144DB8 /* AssetsPickerViewController.m in Sources */,
 				9CBCE7321A3E2F5000C9BD35 /* Media.m in Sources */,
 				9CBCE71D1A3CC56200C9BD35 /* MEFoldAnimationController.m in Sources */,
 				9CF88D491A3FE6A300D4E72E /* NSDate+XS.m in Sources */,
 				9C02EA0F1A3A793500FA1631 /* UIImage+XS.m in Sources */,
 				9C7DEBB21A396E6B00A0436E /* main.m in Sources */,
 				9C7ED1291A3BA13C007AB927 /* FeedViewController.m in Sources */,
+				9CDDDE3A1A49373C00144DB8 /* CamFilterViewController.m in Sources */,
 				9C6B21EC1A39812D00FE8B43 /* UIFont+XS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -857,6 +869,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xsports/XSports-PrefixHeader.pch";
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INFOPLIST_FILE = xsports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -872,6 +885,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xsports/XSports-PrefixHeader.pch";
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INFOPLIST_FILE = xsports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -36,7 +36,7 @@ Backlog:
 - Adding AVFoundation for media capture (DONE)
 
 12.22
-- Adding bottom scroll area for camera, using a touchArea view to enable/disable touch area
+- Adding bottom scroll area for camera, using a touchArea view to enable/disable touch area (DONE)
 - Adding still image capture functionality
 
 12.23

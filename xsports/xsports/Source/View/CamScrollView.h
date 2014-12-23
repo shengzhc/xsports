@@ -14,4 +14,9 @@
 @property (strong, nonatomic) UIButton *mediaSwitchButton;
 @property (strong, nonatomic) UIButton *recordCaptureButton;
 @property (strong, nonatomic) UIButton *videoGalleryButton;
+
+- (CGRect)rectAtPage:(NSInteger)pageIndex;
+- (NSInteger)pageOfContentOffset:(CGPoint)contentOffset;
+- (void)didScrollEndAtPageIndex:(NSInteger)pageIndex;
+
 @end

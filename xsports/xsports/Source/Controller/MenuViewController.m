@@ -7,7 +7,7 @@
 //
 
 #import "MenuViewController.h"
-#import "AVCamViewController.h"
+#import "CamViewController.h"
 #import "MenuViewCell.h"
 
 @implementation MenuViewController
