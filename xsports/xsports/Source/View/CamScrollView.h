@@ -17,6 +17,5 @@
 
 - (CGRect)rectAtPage:(NSInteger)pageIndex;
 - (NSInteger)pageOfContentOffset:(CGPoint)contentOffset;
-- (void)didScrollEndAtPageIndex:(NSInteger)pageIndex;
 
 @end

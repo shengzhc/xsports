@@ -346,17 +346,21 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 
 - (void)didStillCaptureButtonClicked:(id)sender
 {
-    dispatch_async([self sessionQueue], ^{
-        [[[self stillImageOutput] connectionWithMediaType:AVMediaTypeVideo] setVideoOrientation:[[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] videoOrientation]];
-        [CamViewController setFlashMode:self.flashMode forDevice:[[self videoDeviceInput] device]];
-        [[self stillImageOutput] captureStillImageAsynchronouslyFromConnection:[[self stillImageOutput] connectionWithMediaType:AVMediaTypeVideo] completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
-            if (imageDataSampleBuffer) {
-                NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
-                UIImage *image = [[UIImage alloc] initWithData:imageData];
-                NSLog(@"%@", NSStringFromCGSize(image.size));
-            }
-        }];
-    });
+    [self closeCurtainWithCompletionHandler:^{
+        dispatch_async([self sessionQueue], ^{
+            [[[self stillImageOutput] connectionWithMediaType:AVMediaTypeVideo] setVideoOrientation:[[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] videoOrientation]];
+            [CamViewController setFlashMode:self.flashMode forDevice:[[self videoDeviceInput] device]];
+            [[self stillImageOutput] captureStillImageAsynchronouslyFromConnection:[[self stillImageOutput] connectionWithMediaType:AVMediaTypeVideo] completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+                if (imageDataSampleBuffer) {
+                    NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+                    UIImage *image = [[UIImage alloc] initWithData:imageData];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self performSegueWithIdentifier:CamFilterViewControllerSegueIdentifier sender:image];
+                    });
+                }
+            }];
+        });
+    }];
 }
 
 - (void)didRecordCaptureButtonClicked:(id)sender
