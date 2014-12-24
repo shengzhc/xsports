@@ -67,7 +67,8 @@
 
     self.recordCaptureButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.recordCaptureButton setImage:[UIImage imageNamed:@"ico_record"] forState:UIControlStateNormal];
-    [self.recordCaptureButton addTarget:nil action:@selector(didRecordCaptureButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.recordCaptureButton addTarget:nil action:@selector(didRecordCaptureButtonClicked:) forControlEvents:UIControlEventTouchCancel];
+//    [self.recordCaptureButton addTarget:nil action:@selector(didRecordCaptureButtonReleased:) forControlEvents:UIControlEventTouchDown];
     [self addSubview:self.recordCaptureButton];
     
     self.videoGalleryButton = [UIButton buttonWithType:UIButtonTypeCustom];

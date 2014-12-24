@@ -78,6 +78,7 @@
 		9CCC75771A45488F00F9EE3D /* LoadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75741A45488F00F9EE3D /* LoadingAnimator.m */; };
 		9CCC75781A45488F00F9EE3D /* SlidingAndFadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75761A45488F00F9EE3D /* SlidingAndFadingAnimator.m */; };
 		9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */; };
+		9CD4E32E1A4A33B50062A2F3 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD4E32D1A4A33B50062A2F3 /* ProgressView.m */; };
 		9CDDDE3A1A49373C00144DB8 /* CamFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDDE391A49373C00144DB8 /* CamFilterViewController.m */; };
 		9CDDDE3D1A493DFC00144DB8 /* AssetsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDDE3C1A493DFC00144DB8 /* AssetsPickerViewController.m */; };
 		9CE4F0901A46987E005EB73C /* CommentsTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4F08F1A46987E005EB73C /* CommentsTextViewController.m */; };
@@ -218,6 +219,8 @@
 		9CCC75761A45488F00F9EE3D /* SlidingAndFadingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidingAndFadingAnimator.m; sourceTree = "<group>"; };
 		9CCF45DA1A3A5A2300FB1A94 /* UIViewController+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XS.h"; sourceTree = "<group>"; };
 		9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XS.m"; sourceTree = "<group>"; };
+		9CD4E32C1A4A33B50062A2F3 /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
+		9CD4E32D1A4A33B50062A2F3 /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
 		9CDDDE381A49373C00144DB8 /* CamFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamFilterViewController.h; sourceTree = "<group>"; };
 		9CDDDE391A49373C00144DB8 /* CamFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamFilterViewController.m; sourceTree = "<group>"; };
 		9CDDDE3B1A493DFC00144DB8 /* AssetsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsPickerViewController.h; sourceTree = "<group>"; };
@@ -492,6 +495,8 @@
 				9C11A4631A45F08400A9E4CD /* CommentsCell.xib */,
 				9CBC8AC01A48077B006F00A3 /* CamScrollView.h */,
 				9CBC8AC11A48077B006F00A3 /* CamScrollView.m */,
+				9CD4E32C1A4A33B50062A2F3 /* ProgressView.h */,
+				9CD4E32D1A4A33B50062A2F3 /* ProgressView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -714,6 +719,7 @@
 				9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */,
 				9C02EA121A3A7A0300FA1631 /* UIView+XS.m in Sources */,
 				9C54EF3C1A39EECA00D16EEE /* LoginViewController.m in Sources */,
+				9CD4E32E1A4A33B50062A2F3 /* ProgressView.m in Sources */,
 				9C54EF501A3A260900D16EEE /* LoginPasswordCell.m in Sources */,
 				9CBCE7221A3CCFF700C9BD35 /* SettingViewController.m in Sources */,
 				9C4B94FF1A4292EE00DFCC7F /* FeedGridCollectionViewController.m in Sources */,

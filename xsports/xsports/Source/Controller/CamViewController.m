@@ -12,6 +12,7 @@
 #import "CamViewController.h"
 #import "AVCamPreviewView.h"
 #import "CamScrollView.h"
+#import "ProgressView.h"
 
 static void *CapturingStillImageContext = &CapturingStillImageContext;
 static void *RecordingContext = &RecordingContext;
@@ -27,6 +28,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 @property (weak, nonatomic) IBOutlet UIButton *gridButton;
 @property (weak, nonatomic) IBOutlet UIView *toolContainer;
 @property (weak, nonatomic) IBOutlet CamScrollView *camScrollView;
+@property (weak, nonatomic) IBOutlet ProgressView *progressView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolBarTopConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *flashButtonTrailConstraint;
@@ -70,8 +72,8 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 {
 	[super viewDidLoad];
     [self setupConstraints];
+    [self setupCamScrollView];
     [self setupCaptureSession];
-    self.camScrollView.delegate = self;
 }
 
 - (void)setupConstraints
@@ -139,6 +141,55 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
             [self.session addOutput:movieFileOutput];
             [self setMovieFileOutput:movieFileOutput];
         }
+    });
+}
+
+- (void)setupCamScrollView
+{
+    self.camScrollView.delegate = self;
+    UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleRecordLongPress:)];
+    longPressGestureRecognizer.minimumPressDuration = 0;
+    [self.camScrollView.recordCaptureButton addGestureRecognizer:longPressGestureRecognizer];
+}
+
+- (void)handleRecordLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        [self startRecording];
+    } else if (gestureRecognizer.state == UIGestureRecognizerStateChanged || gestureRecognizer.state == UIGestureRecognizerStatePossible) {
+
+    } else {
+        [self.camScrollView.recordCaptureButton setHighlighted:NO];
+    }
+}
+
+- (void)startRecording
+{
+    [self.camScrollView.recordCaptureButton setHighlighted:YES];
+    dispatch_async([self sessionQueue], ^{
+        if (![[self movieFileOutput] isRecording]) {
+            [self setLockInterfaceRotation:YES];
+            if ([[UIDevice currentDevice] isMultitaskingSupported]) {
+                [self setBackgroundRecordingId:[[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil]];
+            }
+            [[[self movieFileOutput] connectionWithMediaType:AVMediaTypeVideo] setVideoOrientation:[[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] videoOrientation]];
+            [CamViewController setFlashMode:AVCaptureFlashModeOff forDevice:[[self videoDeviceInput] device]];
+            // Start recording to a temporary file.
+            NSString *outputFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[@"movie" stringByAppendingPathExtension:@"mov"]];
+            [[self movieFileOutput] startRecordingToOutputFileURL:[NSURL fileURLWithPath:outputFilePath] recordingDelegate:self];
+        }
+    });
+}
+
+- (void)stopRecording
+{
+    dispatch_async([self sessionQueue], ^{
+        if ([[self movieFileOutput] isRecording]) {
+            [[self movieFileOutput] stopRecording];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.camScrollView.recordCaptureButton setHighlighted:NO];
+        });
     });
 }
 
@@ -365,36 +416,17 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 
 - (void)didRecordCaptureButtonClicked:(id)sender
 {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
 
+- (void)didRecordCaptureButtonReleased:(id)sender
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
 
 - (IBAction)toggleMovieRecording:(id)sender
 {
-	[[self recordButton] setEnabled:NO];
-	
-	dispatch_async([self sessionQueue], ^{
-		if (![[self movieFileOutput] isRecording]) {
-			[self setLockInterfaceRotation:YES];
-			
-			if ([[UIDevice currentDevice] isMultitaskingSupported]) {
-				// Setup background task. This is needed because the captureOutput:didFinishRecordingToOutputFileAtURL: callback is not received until AVCam returns to the foreground unless you request background execution time. This also ensures that there will be time to write the file to the assets library when AVCam is backgrounded. To conclude this background execution, -endBackgroundTask is called in -recorder:recordingDidFinishToOutputFileURL:error: after the recorded file has been saved.
-				[self setBackgroundRecordingId:[[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil]];
-			}
-			
-			// Update the orientation on the movie file output video connection before starting recording.
-			[[[self movieFileOutput] connectionWithMediaType:AVMediaTypeVideo] setVideoOrientation:[[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] videoOrientation]];
-			
-			// Turning OFF flash for video recording
-			[CamViewController setFlashMode:AVCaptureFlashModeOff forDevice:[[self videoDeviceInput] device]];
-			
-			// Start recording to a temporary file.
-			NSString *outputFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[@"movie" stringByAppendingPathExtension:@"mov"]];
-			[[self movieFileOutput] startRecordingToOutputFileURL:[NSURL fileURLWithPath:outputFilePath] recordingDelegate:self];
-		} else {
-			[[self movieFileOutput] stopRecording];
-		}
-	});
 }
 
 - (IBAction)focusAndExposeTap:(UIGestureRecognizer *)gestureRecognizer
@@ -409,24 +441,24 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     if (error) {
 		NSLog(@"%@", error);
     }
-    
-	[self setLockInterfaceRotation:NO];
-	
-	// Note the backgroundRecordingID for use in the ALAssetsLibrary completion handler to end the background task associated with this recording. This allows a new recording to be started, associated with a new UIBackgroundTaskIdentifier, once the movie file output's -isRecording is back to NO — which happens sometime after this method returns.
-	UIBackgroundTaskIdentifier backgroundRecordingID = [self backgroundRecordingId];
-	[self setBackgroundRecordingId:UIBackgroundTaskInvalid];
-	
-	[[[ALAssetsLibrary alloc] init] writeVideoAtPathToSavedPhotosAlbum:outputFileURL completionBlock:^(NSURL *assetURL, NSError *error) {
-        if (error) {
-			NSLog(@"%@", error);
-        }
-		
-		[[NSFileManager defaultManager] removeItemAtURL:outputFileURL error:nil];
-		
-        if (backgroundRecordingID != UIBackgroundTaskInvalid) {
-			[[UIApplication sharedApplication] endBackgroundTask:backgroundRecordingID];
-        }
-	}];
+
+    [self closeCurtainWithCompletionHandler:^{
+        [self setLockInterfaceRotation:NO];
+        UIBackgroundTaskIdentifier backgroundRecordingID = [self backgroundRecordingId];
+        [self setBackgroundRecordingId:UIBackgroundTaskInvalid];
+        [[[ALAssetsLibrary alloc] init] writeVideoAtPathToSavedPhotosAlbum:outputFileURL completionBlock:^(NSURL *assetURL, NSError *error) {
+            if (error) {
+                NSLog(@"%@", error);
+            }
+            [[NSFileManager defaultManager] removeItemAtURL:outputFileURL error:nil];
+            if (backgroundRecordingID != UIBackgroundTaskInvalid) {
+                [[UIApplication sharedApplication] endBackgroundTask:backgroundRecordingID];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self performSegueWithIdentifier:CamFilterViewControllerSegueIdentifier sender:nil];
+            });
+        }];
+    }];
 }
 
 #pragma mark Device Configuration

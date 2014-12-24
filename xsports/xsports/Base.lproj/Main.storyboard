@@ -684,13 +684,23 @@
                                             <action selector="didGridButtonClicked:" destination="LIL-l0-XkK" eventType="touchUpInside" id="Hay-OZ-26n"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSh-Sy-g5j" userLabel="progress view" customClass="ProgressView">
+                                        <rect key="frame" x="0.0" y="50" width="320" height="6"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="6" id="3fx-0X-TLW"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.70000000000000007" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="vPj-L0-8cU" secondAttribute="centerY" id="Bw4-S7-qag"/>
                                     <constraint firstItem="3gl-Nn-z1N" firstAttribute="leading" secondItem="fBI-fX-2MB" secondAttribute="leading" constant="46" id="EZP-uB-Fog"/>
                                     <constraint firstAttribute="centerX" secondItem="vPj-L0-8cU" secondAttribute="centerX" id="GIN-nm-obq"/>
+                                    <constraint firstAttribute="trailing" secondItem="OSh-Sy-g5j" secondAttribute="trailing" id="NWH-Gb-mat"/>
                                     <constraint firstAttribute="centerY" secondItem="3gl-Nn-z1N" secondAttribute="centerY" id="TfU-xK-H5D"/>
+                                    <constraint firstItem="OSh-Sy-g5j" firstAttribute="leading" secondItem="fBI-fX-2MB" secondAttribute="leading" id="YZt-XH-hfJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="OSh-Sy-g5j" secondAttribute="bottom" id="nu2-Lp-kRn"/>
                                     <constraint firstAttribute="trailing" secondItem="SJ0-Xi-R45" secondAttribute="trailing" constant="52" id="rMb-8n-O75"/>
                                     <constraint firstAttribute="centerY" secondItem="SJ0-Xi-R45" secondAttribute="centerY" id="rcr-Mn-Vic"/>
                                     <constraint firstAttribute="height" constant="56" id="yqW-BU-btD"/>
@@ -755,6 +765,7 @@
                         <outlet property="gridButton" destination="3gl-Nn-z1N" id="4Sw-qC-P5W"/>
                         <outlet property="gridButtonLeadingConstraint" destination="EZP-uB-Fog" id="0zW-vw-4Yc"/>
                         <outlet property="previewView" destination="3XH-JV-2MU" id="Rvf-zM-Ydb"/>
+                        <outlet property="progressView" destination="OSh-Sy-g5j" id="aIb-Jy-sI4"/>
                         <outlet property="toolBarTopConstraint" destination="m6V-XH-RYX" id="yV0-RI-r80"/>
                         <outlet property="toolContainer" destination="fBI-fX-2MB" id="HkO-0H-EHn"/>
                         <segue destination="aXh-u4-rCg" kind="push" identifier="CamFilterViewControllerSegue" id="3XN-i1-EEv"/>
