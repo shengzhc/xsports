@@ -14,4 +14,7 @@
 @property (strong, nonatomic) UIView *progressView;
 @property (assign, nonatomic) CGFloat progress;
 @property (assign, nonatomic) CGFloat seperator;
+
+- (void)startAnimation;
+- (void)stopAnimation;
 @end

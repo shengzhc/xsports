@@ -11,6 +11,7 @@
 @interface ProgressView ()
 @property (assign, nonatomic) CGFloat cursorWidth;
 @property (assign, nonatomic) CGFloat seperatorWidth;
+@property (strong, nonatomic) NSTimer *timer;
 @end
 
 @implementation ProgressView
@@ -93,6 +94,23 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(seperatorLeft)-[seperator(seperatorWidth)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[progressView]|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[progressView]-(0)-[cursor]" options:0 metrics:metrics views:views]];
+}
+
+- (void)startAnimation
+{
+    [self stopAnimation];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(flash) userInfo:nil repeats:YES];
+}
+
+- (void)stopAnimation
+{
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
+- (void)flash
+{
+    self.cursorView.hidden = !self.cursorView.hidden;
 }
 
 @end

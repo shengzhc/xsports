@@ -260,6 +260,14 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     
     CGFloat h = factor * (self.toolContainer.frame.origin.y + self.toolContainer.bounds.size.height);
     self.curtainVerticalConstraint.constant = h;
+
+    if (self.lastPageIndex == 1) {
+        [self.progressView stopAnimation];
+    }
+    
+    CGFloat f = 1 - (c - self.camScrollView.contentOffset.x)/c;
+    f = MAX(MIN(f, 1.0), 0);
+    self.progressView.alpha = f;
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
@@ -290,7 +298,11 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     } else {
         [self.camScrollView.mediaSwitchButton setImage:[UIImage imageNamed:@"ico_media_photo"] forState:UIControlStateNormal];
     }
-    [self openCurtainWithCompletionHandler:nil];
+    [self openCurtainWithCompletionHandler:^{
+        if (self.lastPageIndex == 1) {
+            [self.progressView startAnimation];
+        }
+    }];
 }
 
 #pragma mark Actions
