@@ -170,6 +170,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 {
     [self.camScrollView.recordCaptureButton setHighlighted:YES];
     self.recordingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/60 target:self selector:@selector(updateProgressView) userInfo:nil repeats:YES];
+    [self.progressView stopAnimation];
     dispatch_async([self sessionQueue], ^{
         if (![[self movieFileOutput] isRecording]) {
             [self setLockInterfaceRotation:YES];
@@ -190,6 +191,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.recordingTimer invalidate];
         self.recordingTimer = nil;
+        [self.progressView startAnimation];
     });
     
     dispatch_async([self sessionQueue], ^{
@@ -253,7 +255,9 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 {
     if (self.movieFileOutput.isRecording) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.progressView.progress = (self.movieFileOutput.recordedDuration.value/self.movieFileOutput.recordedDuration.timescale)/(self.movieFileOutput.maxRecordedDuration.value/self.movieFileOutput.maxRecordedDuration.timescale);
+            double recordedDuration = self.movieFileOutput.recordedDuration.value*1.0/self.movieFileOutput.recordedDuration.timescale;
+            double maxDuration = self.movieFileOutput.maxRecordedDuration.value*1.0/self.movieFileOutput.maxRecordedDuration.timescale;
+            self.progressView.progress = recordedDuration/maxDuration;
         });
     }
 }
@@ -279,13 +283,9 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     CGFloat h = factor * (self.toolContainer.frame.origin.y + self.toolContainer.bounds.size.height);
     self.curtainVerticalConstraint.constant = h;
 
-    if (self.lastPageIndex == 1) {
-        [self.progressView stopAnimation];
-    }
-    
+    [self.progressView stopAnimation];
     CGFloat f = 1 - (c - self.camScrollView.contentOffset.x)/c;
-    f = MAX(MIN(f, 1.0), 0);
-    self.progressView.alpha = f;
+    self.progressView.alpha = MAX(MIN(f, 1.0), 0);;
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
@@ -317,7 +317,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
         [self.camScrollView.mediaSwitchButton setImage:[UIImage imageNamed:@"ico_media_photo"] forState:UIControlStateNormal];
     }
     [self openCurtainWithCompletionHandler:^{
-        if (self.lastPageIndex == 1) {
+        if (self.lastPageIndex == 1 && !self.recordingTimer) {
             [self.progressView startAnimation];
         }
     }];

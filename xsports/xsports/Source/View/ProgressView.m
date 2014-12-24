@@ -79,12 +79,13 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(seperatorLeft)-[seperator(seperatorWidth)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[progressView]-(0)-[cursor(cursorWidth)]" options:0 metrics:metrics views:views]];
     self.progressWidthConstraint = [NSLayoutConstraint constraintWithItem:self.progressView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:0];
+    [self addConstraint:self.progressWidthConstraint];
 }
 
 - (void)setProgress:(CGFloat)progress
 {
     _progress = MAX(0, MIN(progress, 1.0));
-    self.progressWidthConstraint.constant = MIN(MAX(0, self.bounds.size.width*progress), self.bounds.size.width-self.cursorWidth);
+    self.progressWidthConstraint.constant = MIN(MAX(0, self.bounds.size.width*_progress), self.bounds.size.width-self.cursorWidth);
 }
 
 - (void)setSeperator:(CGFloat)seperator
