@@ -10,6 +10,7 @@
 #define _XSConstants_
 
 #define LoginViewControllerIdentifier @"LoginViewController"
+#define SignUpViewControllerIdentifier @"SignUpViewController"
 #define LoadingViewControllerIdentifier @"LoadingViewController"
 #define SlidingViewControllerIdentifier @"SlidingViewController"
 #define MenuViewControllerIdentifier @"MenuViewController"
@@ -29,6 +30,7 @@
 
 #define LoginEmailCellIdentifier @"LoginEmailCell"
 #define LoginPasswordCellIdentifier @"LoginPasswordCell"
+#define SignupAccountCellIdentifier @"SignupAccountCell"
 #define MenuViewCellIdentifier @"MenuViewCell"
 #define FeedViewPhotoCellIdentifier @"FeedViewPhotoCell"
 #define FeedViewVideoCellIdentifier @"FeedViewVideoCell"
@@ -40,5 +42,6 @@
 #define FeedViewFeedFlowLayoutSegueIdentifier @"FeedView_FeedFlowLayout_Segue"
 #define CommentsTextViewControllerSegueIdentifier @"Comments_TextViewControllerSegue"
 #define CamFilterViewControllerSegueIdentifier @"CamFilterViewControllerSegue"
+#define LoginSignUpViewControllerSegueIdentifier @"SignUpViewControllerSegue"
 
 #endif

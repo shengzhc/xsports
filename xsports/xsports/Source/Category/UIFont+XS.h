@@ -10,6 +10,7 @@
 
 @interface UIFont (XS)
 
++ (UIFont *)chnRegularFont;
 + (UIFont *)regularFont;
 + (UIFont *)lightFont;
 + (UIFont *)boldFont;
@@ -21,4 +22,5 @@
 + (UIFont *)lightFontWithSize:(CGFloat)size;
 + (UIFont *)extraLightFontWithSize:(CGFloat)size;
 + (UIFont *)semiBoldFontWithSize:(CGFloat)size;
++ (UIFont *)chnRegularFontWithSize:(CGFloat)size;
 @end

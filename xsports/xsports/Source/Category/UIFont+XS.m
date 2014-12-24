@@ -10,6 +10,11 @@
 
 @implementation UIFont (XS)
 
++ (UIFont *)chnRegularFont
+{
+    return [self chnRegularFontWithSize:14.0];
+}
+
 + (UIFont *)regularFont
 {
     return [self regularFontWithSize:14.0];
@@ -58,6 +63,11 @@
 + (UIFont *)semiBoldFontWithSize:(CGFloat)size
 {
     return [UIFont fontWithName:@"SourceSansPro-Semibold" size:size];
+}
+
++ (UIFont *)chnRegularFontWithSize:(CGFloat)size
+{
+    return [UIFont fontWithName:@"MicrosoftYaHei" size:size];
 }
 
 @end

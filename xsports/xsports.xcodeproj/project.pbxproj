@@ -20,6 +20,8 @@
 		9C11A45F1A45E50200A9E4CD /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C11A45E1A45E50200A9E4CD /* CommentsViewController.m */; };
 		9C11A4621A45E54D00A9E4CD /* CommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C11A4611A45E54D00A9E4CD /* CommentsCell.m */; };
 		9C11A4641A45F08400A9E4CD /* CommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C11A4631A45F08400A9E4CD /* CommentsCell.xib */; };
+		9C1EE3461A4B2085007372BD /* Microsoft-YaHei.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C1EE3451A4B2085007372BD /* Microsoft-YaHei.ttf */; };
+		9C1EE3491A4B268F007372BD /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1EE3481A4B268F007372BD /* SignUpViewController.m */; };
 		9C3428561A455D9D0021AB2B /* PageNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3428551A455D9D0021AB2B /* PageNavigationController.m */; };
 		9C3428591A455F940021AB2B /* LikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3428581A455F940021AB2B /* LikesViewController.m */; };
 		9C34285C1A4560800021AB2B /* LikesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C34285B1A4560800021AB2B /* LikesCell.m */; };
@@ -37,6 +39,7 @@
 		9C54EF501A3A260900D16EEE /* LoginPasswordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF4F1A3A260900D16EEE /* LoginPasswordCell.m */; };
 		9C54EF531A3A3B6000D16EEE /* UIScreen+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF521A3A3B6000D16EEE /* UIScreen+XS.m */; };
 		9C54EF561A3A457000D16EEE /* NSPredicate+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C54EF551A3A457000D16EEE /* NSPredicate+XS.m */; };
+		9C5BD0D91A4B281800B7B426 /* SignupAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5BD0D81A4B281800B7B426 /* SignupAccountCell.m */; };
 		9C6B21E91A397BB100FE8B43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C6B21E81A397BB100FE8B43 /* Images.xcassets */; };
 		9C6B21EC1A39812D00FE8B43 /* UIFont+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6B21EB1A39812D00FE8B43 /* UIFont+XS.m */; };
 		9C7DEBB21A396E6B00A0436E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DEBB11A396E6B00A0436E /* main.m */; };
@@ -64,17 +67,11 @@
 		9CBCE7321A3E2F5000C9BD35 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE7311A3E2F5000C9BD35 /* Media.m */; };
 		9CBCE7371A3E381B00C9BD35 /* instagram.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7361A3E381B00C9BD35 /* instagram.txt */; };
 		9CBCE74E1A3ECD9000C9BD35 /* SourceSansPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7421A3ECD9000C9BD35 /* SourceSansPro-Black.otf */; };
-		9CBCE74F1A3ECD9000C9BD35 /* SourceSansPro-BlackIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7431A3ECD9000C9BD35 /* SourceSansPro-BlackIt.otf */; };
 		9CBCE7501A3ECD9000C9BD35 /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7441A3ECD9000C9BD35 /* SourceSansPro-Bold.otf */; };
-		9CBCE7511A3ECD9000C9BD35 /* SourceSansPro-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7451A3ECD9000C9BD35 /* SourceSansPro-BoldIt.otf */; };
 		9CBCE7521A3ECD9000C9BD35 /* SourceSansPro-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7461A3ECD9000C9BD35 /* SourceSansPro-ExtraLight.otf */; };
-		9CBCE7531A3ECD9000C9BD35 /* SourceSansPro-ExtraLightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7471A3ECD9000C9BD35 /* SourceSansPro-ExtraLightIt.otf */; };
-		9CBCE7541A3ECD9000C9BD35 /* SourceSansPro-It.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7481A3ECD9000C9BD35 /* SourceSansPro-It.otf */; };
 		9CBCE7551A3ECD9000C9BD35 /* SourceSansPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE7491A3ECD9000C9BD35 /* SourceSansPro-Light.otf */; };
-		9CBCE7561A3ECD9000C9BD35 /* SourceSansPro-LightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE74A1A3ECD9000C9BD35 /* SourceSansPro-LightIt.otf */; };
 		9CBCE7571A3ECD9000C9BD35 /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE74B1A3ECD9000C9BD35 /* SourceSansPro-Regular.otf */; };
 		9CBCE7581A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE74C1A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf */; };
-		9CBCE7591A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCE74D1A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf */; };
 		9CCC75771A45488F00F9EE3D /* LoadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75741A45488F00F9EE3D /* LoadingAnimator.m */; };
 		9CCC75781A45488F00F9EE3D /* SlidingAndFadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75761A45488F00F9EE3D /* SlidingAndFadingAnimator.m */; };
 		9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */; };
@@ -119,6 +116,9 @@
 		9C11A4601A45E54D00A9E4CD /* CommentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsCell.h; sourceTree = "<group>"; };
 		9C11A4611A45E54D00A9E4CD /* CommentsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsCell.m; sourceTree = "<group>"; };
 		9C11A4631A45F08400A9E4CD /* CommentsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsCell.xib; sourceTree = "<group>"; };
+		9C1EE3451A4B2085007372BD /* Microsoft-YaHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Microsoft-YaHei.ttf"; sourceTree = "<group>"; };
+		9C1EE3471A4B268F007372BD /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		9C1EE3481A4B268F007372BD /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		9C3428541A455D9D0021AB2B /* PageNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageNavigationController.h; sourceTree = "<group>"; };
 		9C3428551A455D9D0021AB2B /* PageNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageNavigationController.m; sourceTree = "<group>"; };
 		9C3428571A455F940021AB2B /* LikesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesViewController.h; sourceTree = "<group>"; };
@@ -152,6 +152,8 @@
 		9C54EF521A3A3B6000D16EEE /* UIScreen+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+XS.m"; sourceTree = "<group>"; };
 		9C54EF541A3A457000D16EEE /* NSPredicate+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPredicate+XS.h"; sourceTree = "<group>"; };
 		9C54EF551A3A457000D16EEE /* NSPredicate+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPredicate+XS.m"; sourceTree = "<group>"; };
+		9C5BD0D71A4B281800B7B426 /* SignupAccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupAccountCell.h; sourceTree = "<group>"; };
+		9C5BD0D81A4B281800B7B426 /* SignupAccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupAccountCell.m; sourceTree = "<group>"; };
 		9C6B21E81A397BB100FE8B43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9C6B21EA1A39812D00FE8B43 /* UIFont+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+XS.h"; sourceTree = "<group>"; };
 		9C6B21EB1A39812D00FE8B43 /* UIFont+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+XS.m"; sourceTree = "<group>"; };
@@ -202,17 +204,11 @@
 		9CBCE7311A3E2F5000C9BD35 /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
 		9CBCE7361A3E381B00C9BD35 /* instagram.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = instagram.txt; sourceTree = "<group>"; };
 		9CBCE7421A3ECD9000C9BD35 /* SourceSansPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Black.otf"; sourceTree = "<group>"; };
-		9CBCE7431A3ECD9000C9BD35 /* SourceSansPro-BlackIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-BlackIt.otf"; sourceTree = "<group>"; };
 		9CBCE7441A3ECD9000C9BD35 /* SourceSansPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.otf"; sourceTree = "<group>"; };
-		9CBCE7451A3ECD9000C9BD35 /* SourceSansPro-BoldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-BoldIt.otf"; sourceTree = "<group>"; };
 		9CBCE7461A3ECD9000C9BD35 /* SourceSansPro-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLight.otf"; sourceTree = "<group>"; };
-		9CBCE7471A3ECD9000C9BD35 /* SourceSansPro-ExtraLightIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLightIt.otf"; sourceTree = "<group>"; };
-		9CBCE7481A3ECD9000C9BD35 /* SourceSansPro-It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-It.otf"; sourceTree = "<group>"; };
 		9CBCE7491A3ECD9000C9BD35 /* SourceSansPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.otf"; sourceTree = "<group>"; };
-		9CBCE74A1A3ECD9000C9BD35 /* SourceSansPro-LightIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-LightIt.otf"; sourceTree = "<group>"; };
 		9CBCE74B1A3ECD9000C9BD35 /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
 		9CBCE74C1A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
-		9CBCE74D1A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiboldIt.otf"; sourceTree = "<group>"; };
 		9CCC75731A45488F00F9EE3D /* LoadingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingAnimator.h; sourceTree = "<group>"; };
 		9CCC75741A45488F00F9EE3D /* LoadingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingAnimator.m; sourceTree = "<group>"; };
 		9CCC75751A45488F00F9EE3D /* SlidingAndFadingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingAndFadingAnimator.h; sourceTree = "<group>"; };
@@ -291,18 +287,13 @@
 		9C54EF3D1A39EF0B00D16EEE /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				9C1EE3451A4B2085007372BD /* Microsoft-YaHei.ttf */,
 				9CBCE7421A3ECD9000C9BD35 /* SourceSansPro-Black.otf */,
-				9CBCE7431A3ECD9000C9BD35 /* SourceSansPro-BlackIt.otf */,
 				9CBCE7441A3ECD9000C9BD35 /* SourceSansPro-Bold.otf */,
-				9CBCE7451A3ECD9000C9BD35 /* SourceSansPro-BoldIt.otf */,
 				9CBCE7461A3ECD9000C9BD35 /* SourceSansPro-ExtraLight.otf */,
-				9CBCE7471A3ECD9000C9BD35 /* SourceSansPro-ExtraLightIt.otf */,
-				9CBCE7481A3ECD9000C9BD35 /* SourceSansPro-It.otf */,
 				9CBCE7491A3ECD9000C9BD35 /* SourceSansPro-Light.otf */,
-				9CBCE74A1A3ECD9000C9BD35 /* SourceSansPro-LightIt.otf */,
 				9CBCE74B1A3ECD9000C9BD35 /* SourceSansPro-Regular.otf */,
 				9CBCE74C1A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf */,
-				9CBCE74D1A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -447,6 +438,8 @@
 				9CDDDE391A49373C00144DB8 /* CamFilterViewController.m */,
 				9CDDDE3B1A493DFC00144DB8 /* AssetsPickerViewController.h */,
 				9CDDDE3C1A493DFC00144DB8 /* AssetsPickerViewController.m */,
+				9C1EE3471A4B268F007372BD /* SignUpViewController.h */,
+				9C1EE3481A4B268F007372BD /* SignUpViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -497,6 +490,8 @@
 				9CBC8AC11A48077B006F00A3 /* CamScrollView.m */,
 				9CD4E32C1A4A33B50062A2F3 /* ProgressView.h */,
 				9CD4E32D1A4A33B50062A2F3 /* ProgressView.m */,
+				9C5BD0D71A4B281800B7B426 /* SignupAccountCell.h */,
+				9C5BD0D81A4B281800B7B426 /* SignupAccountCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -626,16 +621,12 @@
 			files = (
 				9C09285F1A3FFEE5001340F2 /* FeedViewPhotoCell.xib in Resources */,
 				9C4B94F11A41697900DFCC7F /* FeedViewGridPhotoCell.xib in Resources */,
-				9CBCE7541A3ECD9000C9BD35 /* SourceSansPro-It.otf in Resources */,
-				9CBCE74F1A3ECD9000C9BD35 /* SourceSansPro-BlackIt.otf in Resources */,
-				9CBCE7511A3ECD9000C9BD35 /* SourceSansPro-BoldIt.otf in Resources */,
 				9CF88D461A3FE5ED00D4E72E /* Tasks in Resources */,
-				9CBCE7591A3ECD9000C9BD35 /* SourceSansPro-SemiboldIt.otf in Resources */,
 				9CBCE7521A3ECD9000C9BD35 /* SourceSansPro-ExtraLight.otf in Resources */,
+				9C1EE3461A4B2085007372BD /* Microsoft-YaHei.ttf in Resources */,
 				9C4B94F91A425FFC00DFCC7F /* FeedViewGridVideoCell.xib in Resources */,
 				9CBCE7581A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf in Resources */,
 				9CBCE7501A3ECD9000C9BD35 /* SourceSansPro-Bold.otf in Resources */,
-				9CBCE7561A3ECD9000C9BD35 /* SourceSansPro-LightIt.otf in Resources */,
 				9CBCE7571A3ECD9000C9BD35 /* SourceSansPro-Regular.otf in Resources */,
 				9C6B21E91A397BB100FE8B43 /* Images.xcassets in Resources */,
 				9CBCE7551A3ECD9000C9BD35 /* SourceSansPro-Light.otf in Resources */,
@@ -644,7 +635,6 @@
 				9C11A4641A45F08400A9E4CD /* CommentsCell.xib in Resources */,
 				9CBCE74E1A3ECD9000C9BD35 /* SourceSansPro-Black.otf in Resources */,
 				9C0928611A4000E5001340F2 /* FeedViewVideoCell.xib in Resources */,
-				9CBCE7531A3ECD9000C9BD35 /* SourceSansPro-ExtraLightIt.otf in Resources */,
 				9C7DEBC01A396E6B00A0436E /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -746,6 +736,8 @@
 				9C7DEBB21A396E6B00A0436E /* main.m in Sources */,
 				9C7ED1291A3BA13C007AB927 /* FeedViewController.m in Sources */,
 				9CDDDE3A1A49373C00144DB8 /* CamFilterViewController.m in Sources */,
+				9C1EE3491A4B268F007372BD /* SignUpViewController.m in Sources */,
+				9C5BD0D91A4B281800B7B426 /* SignupAccountCell.m in Sources */,
 				9C6B21EC1A39812D00FE8B43 /* UIFont+XS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

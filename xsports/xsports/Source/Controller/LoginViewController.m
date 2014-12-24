@@ -55,10 +55,10 @@
 {
     self.buttonContainerTopConstraint.constant = self.tableView.rowHeight * 2.0 + self.tableView.contentInset.top + 24.0;
     self.signInButton.backgroundColor = [UIColor lightWaveColor];
-    self.signInButton.titleLabel.font = [UIFont regularFontWithSize:18.0];
+    self.signInButton.titleLabel.font = [UIFont chnRegularFontWithSize:18.0];
 
     self.signUpButton.backgroundColor = [UIColor lightJadeColor];
-    self.signUpButton.titleLabel.font = [UIFont regularFontWithSize:18.0];
+    self.signUpButton.titleLabel.font = [UIFont chnRegularFontWithSize:18.0];
 }
 
 #pragma mark Logic
@@ -83,8 +83,9 @@
 - (void)signUp
 {
     [self.view endEditing:YES];
-    SIAlertView *alertView = [self cancelAlertViewWithTitle:nil message:@"Please waiting for the new Feature..."];
-    [alertView show];
+//    SIAlertView *alertView = [self cancelAlertViewWithTitle:nil message:@"Please waiting for the new Feature..."];
+//    [alertView show];
+    [self performSegueWithIdentifier:LoginSignUpViewControllerSegueIdentifier sender:nil];
 }
 
 #pragma mark Button Action
@@ -211,12 +212,6 @@
         [textField resignFirstResponder];
     }
     return YES;
-}
-
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationPortrait | UIInterfaceOrientationPortraitUpsideDown;
 }
 
 @end
