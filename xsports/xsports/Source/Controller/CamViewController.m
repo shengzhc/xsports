@@ -36,10 +36,12 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *curtainVerticalConstraint;
 
 @property (assign, nonatomic) AVCaptureFlashMode flashMode;
+@property (strong, nonatomic) NSTimer *recordingTimer;
 
 @property (nonatomic, weak) IBOutlet UIButton *recordButton;
 @property (nonatomic, weak) IBOutlet UIButton *cameraButton;
 @property (nonatomic, weak) IBOutlet UIButton *stillButton;
+
 
 - (IBAction)toggleMovieRecording:(id)sender;
 - (IBAction)focusAndExposeTap:(UIGestureRecognizer *)gestureRecognizer;
@@ -137,6 +139,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
         }
 
         AVCaptureMovieFileOutput *movieFileOutput = [[AVCaptureMovieFileOutput alloc] init];
+        movieFileOutput.maxRecordedDuration = CMTimeMake(10, 1);
         if ([self.session canAddOutput:movieFileOutput]) {
             [self.session addOutput:movieFileOutput];
             [self setMovieFileOutput:movieFileOutput];
@@ -159,13 +162,14 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     } else if (gestureRecognizer.state == UIGestureRecognizerStateChanged || gestureRecognizer.state == UIGestureRecognizerStatePossible) {
 
     } else {
-        [self.camScrollView.recordCaptureButton setHighlighted:NO];
+        [self stopRecording];
     }
 }
 
 - (void)startRecording
 {
     [self.camScrollView.recordCaptureButton setHighlighted:YES];
+    self.recordingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/60 target:self selector:@selector(updateProgressView) userInfo:nil repeats:YES];
     dispatch_async([self sessionQueue], ^{
         if (![[self movieFileOutput] isRecording]) {
             [self setLockInterfaceRotation:YES];
@@ -183,6 +187,11 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 
 - (void)stopRecording
 {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.recordingTimer invalidate];
+        self.recordingTimer = nil;
+    });
+    
     dispatch_async([self sessionQueue], ^{
         if ([[self movieFileOutput] isRecording]) {
             [[self movieFileOutput] stopRecording];
@@ -235,9 +244,18 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 				[[self stillButton] setEnabled:NO];
 			}
 		});
-	} else {
+    } else {
 		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 	}
+}
+
+- (void)updateProgressView
+{
+    if (self.movieFileOutput.isRecording) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.progressView.progress = (self.movieFileOutput.recordedDuration.value/self.movieFileOutput.recordedDuration.timescale)/(self.movieFileOutput.maxRecordedDuration.value/self.movieFileOutput.maxRecordedDuration.timescale);
+        });
+    }
 }
 
 #pragma mark CamScrollViewDelegate
@@ -374,9 +392,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
             
             [[self session] removeInput:[self videoDeviceInput]];
             if ([[self session] canAddInput:videoDeviceInput]) {
-                [[NSNotificationCenter defaultCenter] removeObserver:self name:AVCaptureDeviceSubjectAreaDidChangeNotification object:currentVideoDevice];
                 [CamViewController setFlashMode:self.flashMode forDevice:videoDevice];
-                [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(subjectAreaDidChange:) name:AVCaptureDeviceSubjectAreaDidChangeNotification object:videoDevice];
                 [[self session] addInput:videoDeviceInput];
                 [self setVideoDeviceInput:videoDeviceInput];
             } else {
@@ -476,7 +492,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 #pragma mark Device Configuration
 - (void)focusWithMode:(AVCaptureFocusMode)focusMode exposeWithMode:(AVCaptureExposureMode)exposureMode atDevicePoint:(CGPoint)point monitorSubjectAreaChange:(BOOL)monitorSubjectAreaChange
 {
-	dispatch_async([self sessionQueue], ^{
+    dispatch_async([self sessionQueue], ^{
 		AVCaptureDevice *device = [[self videoDeviceInput] device];
 		NSError *error = nil;
 		if ([device lockForConfiguration:&error]) {

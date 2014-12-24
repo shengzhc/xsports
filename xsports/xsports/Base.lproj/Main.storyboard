@@ -684,7 +684,7 @@
                                             <action selector="didGridButtonClicked:" destination="LIL-l0-XkK" eventType="touchUpInside" id="Hay-OZ-26n"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSh-Sy-g5j" userLabel="progress view" customClass="ProgressView">
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSh-Sy-g5j" userLabel="progress view" customClass="ProgressView">
                                         <rect key="frame" x="0.0" y="50" width="320" height="6"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -791,6 +791,9 @@
                     <navigationItem key="navigationItem" id="mcM-P0-rH3">
                         <barButtonItem key="leftBarButtonItem" image="ico_back" id="L83-o6-rxG">
                             <inset key="imageInsets" minX="-16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <connections>
+                                <action selector="didBackBarButtonItemClicked:" destination="aXh-u4-rCg" id="L7F-9w-0KP"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
