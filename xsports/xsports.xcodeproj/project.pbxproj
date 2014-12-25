@@ -78,6 +78,7 @@
 		9CCF5AA31A4BD5F7001B9029 /* FadingInOutAnimiator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF5AA21A4BD5F7001B9029 /* FadingInOutAnimiator.m */; };
 		9CCF5AA61A4BDF12001B9029 /* SCLocalizable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF5AA51A4BDF12001B9029 /* SCLocalizable.m */; };
 		9CCF5AC01A4BE487001B9029 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CCF5AC21A4BE487001B9029 /* Localizable.strings */; };
+		9CCF5AC81A4BE99E001B9029 /* SinkingAndSlidingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF5AC71A4BE99E001B9029 /* SinkingAndSlidingAnimator.m */; };
 		9CD4E32E1A4A33B50062A2F3 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD4E32D1A4A33B50062A2F3 /* ProgressView.m */; };
 		9CDDDE3A1A49373C00144DB8 /* CamFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDDE391A49373C00144DB8 /* CamFilterViewController.m */; };
 		9CDDDE3D1A493DFC00144DB8 /* AssetsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDDE3C1A493DFC00144DB8 /* AssetsPickerViewController.m */; };
@@ -226,6 +227,8 @@
 		9CCF5AC31A4BE489001B9029 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9CCF5AC41A4BE48A001B9029 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9CCF5AC51A4BE48B001B9029 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9CCF5AC61A4BE99E001B9029 /* SinkingAndSlidingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinkingAndSlidingAnimator.h; sourceTree = "<group>"; };
+		9CCF5AC71A4BE99E001B9029 /* SinkingAndSlidingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinkingAndSlidingAnimator.m; sourceTree = "<group>"; };
 		9CD4E32C1A4A33B50062A2F3 /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
 		9CD4E32D1A4A33B50062A2F3 /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
 		9CDDDE381A49373C00144DB8 /* CamFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamFilterViewController.h; sourceTree = "<group>"; };
@@ -549,6 +552,8 @@
 				9CCC75761A45488F00F9EE3D /* SlidingAndFadingAnimator.m */,
 				9CCF5AA11A4BD5F7001B9029 /* FadingInOutAnimiator.h */,
 				9CCF5AA21A4BD5F7001B9029 /* FadingInOutAnimiator.m */,
+				9CCF5AC61A4BE99E001B9029 /* SinkingAndSlidingAnimator.h */,
+				9CCF5AC71A4BE99E001B9029 /* SinkingAndSlidingAnimator.m */,
 			);
 			path = AnimationControllers;
 			sourceTree = "<group>";
@@ -762,6 +767,7 @@
 				9CBCE71D1A3CC56200C9BD35 /* MEFoldAnimationController.m in Sources */,
 				9CF88D491A3FE6A300D4E72E /* NSDate+XS.m in Sources */,
 				9C02EA0F1A3A793500FA1631 /* UIImage+XS.m in Sources */,
+				9CCF5AC81A4BE99E001B9029 /* SinkingAndSlidingAnimator.m in Sources */,
 				9C7DEBB21A396E6B00A0436E /* main.m in Sources */,
 				9C7ED1291A3BA13C007AB927 /* FeedViewController.m in Sources */,
 				9CDDDE3A1A49373C00144DB8 /* CamFilterViewController.m in Sources */,

@@ -9,10 +9,8 @@
 #import "SlidingViewController.h"
 #import "LoginViewController.h"
 
-#import "MEZoomAnimationController.h"
-
 @interface SlidingViewController () < LoginViewControllerDelegate >
-@property (strong, nonatomic) MEZoomAnimationController *zoomAnimator;
+@property (strong, nonatomic) SinkingAndSlidingAnimator *animator;
 @property (strong, nonatomic) LoginViewController *loginViewController;
 @end
 
@@ -21,14 +19,14 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.zoomAnimator = [[MEZoomAnimationController alloc] init];
-    self.delegate = self.zoomAnimator;
+    self.animator = [[SinkingAndSlidingAnimator alloc] init];
+    self.delegate = self.animator;
     self.topViewAnchoredGesture = ECSlidingViewControllerAnchoredGestureTapping | ECSlidingViewControllerAnchoredGesturePanning;
 
     self.menuViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:MenuViewControllerIdentifier];
     self.underLeftViewController = self.menuViewController;
     
-    if (/* DISABLES CODE */ (YES)) {
+    if (/* DISABLES CODE */ (NO)) {
         self.topViewController = self.loginViewController;
     } else {
         [self.menuViewController select:kMenuItemNew animated:NO];

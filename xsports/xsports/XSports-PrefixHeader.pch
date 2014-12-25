@@ -42,6 +42,7 @@
 #import "LoadingAnimator.h"
 #import "SlidingAndFadingAnimator.h"
 #import "FadingInOutAnimiator.h"
+#import "SinkingAndSlidingAnimator.h"
 #import "SCLocalizable.h"
 
 #import "User.h"
