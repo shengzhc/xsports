@@ -76,6 +76,8 @@
 		9CCC75781A45488F00F9EE3D /* SlidingAndFadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75761A45488F00F9EE3D /* SlidingAndFadingAnimator.m */; };
 		9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */; };
 		9CCF5AA31A4BD5F7001B9029 /* FadingInOutAnimiator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF5AA21A4BD5F7001B9029 /* FadingInOutAnimiator.m */; };
+		9CCF5AA61A4BDF12001B9029 /* SCLocalizable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF5AA51A4BDF12001B9029 /* SCLocalizable.m */; };
+		9CCF5AC01A4BE487001B9029 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CCF5AC21A4BE487001B9029 /* Localizable.strings */; };
 		9CD4E32E1A4A33B50062A2F3 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD4E32D1A4A33B50062A2F3 /* ProgressView.m */; };
 		9CDDDE3A1A49373C00144DB8 /* CamFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDDE391A49373C00144DB8 /* CamFilterViewController.m */; };
 		9CDDDE3D1A493DFC00144DB8 /* AssetsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDDE3C1A493DFC00144DB8 /* AssetsPickerViewController.m */; };
@@ -218,6 +220,12 @@
 		9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XS.m"; sourceTree = "<group>"; };
 		9CCF5AA11A4BD5F7001B9029 /* FadingInOutAnimiator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadingInOutAnimiator.h; sourceTree = "<group>"; };
 		9CCF5AA21A4BD5F7001B9029 /* FadingInOutAnimiator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadingInOutAnimiator.m; sourceTree = "<group>"; };
+		9CCF5AA41A4BDF12001B9029 /* SCLocalizable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLocalizable.h; sourceTree = "<group>"; };
+		9CCF5AA51A4BDF12001B9029 /* SCLocalizable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLocalizable.m; sourceTree = "<group>"; };
+		9CCF5AC11A4BE487001B9029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9CCF5AC31A4BE489001B9029 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9CCF5AC41A4BE48A001B9029 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9CCF5AC51A4BE48B001B9029 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9CD4E32C1A4A33B50062A2F3 /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
 		9CD4E32D1A4A33B50062A2F3 /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
 		9CDDDE381A49373C00144DB8 /* CamFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamFilterViewController.h; sourceTree = "<group>"; };
@@ -283,6 +291,8 @@
 				9CBCE7131A3CC56200C9BD35 /* METransitions */,
 				9C4B94F21A416D1B00DFCC7F /* GridLayout.h */,
 				9C4B94F31A416D1B00DFCC7F /* GridLayout.m */,
+				9CCF5AA41A4BDF12001B9029 /* SCLocalizable.h */,
+				9CCF5AA51A4BDF12001B9029 /* SCLocalizable.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -502,6 +512,7 @@
 		9C9862F71A397508003D5F86 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				9CCF5ABD1A4BE46F001B9029 /* Strings */,
 				9C54EF3D1A39EF0B00D16EEE /* Font */,
 			);
 			path = Resource;
@@ -540,6 +551,14 @@
 				9CCF5AA21A4BD5F7001B9029 /* FadingInOutAnimiator.m */,
 			);
 			path = AnimationControllers;
+			sourceTree = "<group>";
+		};
+		9CCF5ABD1A4BE46F001B9029 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				9CCF5AC21A4BE487001B9029 /* Localizable.strings */,
+			);
+			path = Strings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -605,8 +624,10 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				"zh-Hans",
+				en,
+				"zh-Hant",
 			);
 			mainGroup = 9C7DEBA31A396E6B00A0436E;
 			productRefGroup = 9C7DEBAD1A396E6B00A0436E /* Products */;
@@ -637,6 +658,7 @@
 				9CBCE7551A3ECD9000C9BD35 /* SourceSansPro-Light.otf in Resources */,
 				9C7DEBBB1A396E6B00A0436E /* Main.storyboard in Resources */,
 				9CBCE7371A3E381B00C9BD35 /* instagram.txt in Resources */,
+				9CCF5AC01A4BE487001B9029 /* Localizable.strings in Resources */,
 				9C11A4641A45F08400A9E4CD /* CommentsCell.xib in Resources */,
 				9CBCE74E1A3ECD9000C9BD35 /* SourceSansPro-Black.otf in Resources */,
 				9C0928611A4000E5001340F2 /* FeedViewVideoCell.xib in Resources */,
@@ -697,6 +719,7 @@
 				9C0928641A400C8C001340F2 /* FeedViewVideoCell.m in Sources */,
 				9CBC8ABF1A47C32C006F00A3 /* StatusHiddenNavigationController.m in Sources */,
 				9CBC8AC21A48077B006F00A3 /* CamScrollView.m in Sources */,
+				9CCF5AA61A4BDF12001B9029 /* SCLocalizable.m in Sources */,
 				9CBCE7281A3D7B9B00C9BD35 /* FeedViewPhotoCell.m in Sources */,
 				9CCC75781A45488F00F9EE3D /* SlidingAndFadingAnimator.m in Sources */,
 				9CBCE71F1A3CC56200C9BD35 /* MEZoomAnimationController.m in Sources */,
@@ -782,6 +805,17 @@
 				9C7DEBBF1A396E6B00A0436E /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		9CCF5AC21A4BE487001B9029 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9CCF5AC11A4BE487001B9029 /* Base */,
+				9CCF5AC31A4BE489001B9029 /* zh-Hans */,
+				9CCF5AC41A4BE48A001B9029 /* zh-Hant */,
+				9CCF5AC51A4BE48B001B9029 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

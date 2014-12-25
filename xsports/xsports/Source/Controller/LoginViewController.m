@@ -60,9 +60,11 @@
     self.signInButton.backgroundColor = [UIColor cLightGrayColor];
     self.signInButton.titleLabel.font = [UIFont chnRegularFontWithSize:14.0];
     [self.signInButton setTitleColor:[UIColor cGrayColor] forState:UIControlStateNormal];
+    [self.signInButton setTitle:GET_STRING(@"signin") forState:UIControlStateNormal];
     self.signUpButton.backgroundColor = [UIColor cYellowColor];
     self.signUpButton.titleLabel.font = [UIFont chnRegularFontWithSize:14.0];
     [self.signUpButton setTitleColor:[UIColor cGrayColor] forState:UIControlStateNormal];
+    [self.signUpButton setTitle:GET_STRING(@"signup") forState:UIControlStateNormal];
 }
 
 #pragma mark Logic
@@ -79,7 +81,7 @@
             }];
         });
     } else {
-        SIAlertView *alertView = [self cancelAlertViewWithTitle:nil message:@"Email or Password is incorrect..."];
+        SIAlertView *alertView = [self cancelAlertViewWithTitle:GET_STRING(@"error") message:GET_STRING(@"login_email_password_error_msg")];
         [alertView show];
     }
 }

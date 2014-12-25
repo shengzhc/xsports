@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  xsports
+
+  Created by Shengzhe Chen on 12/24/14.
+  Copyright (c) 2014 Shengzhe Chen. All rights reserved.
+*/
+
+"error" = "错误";
+"close" = "关闭";
+
+//Sign In/Up
+"signin" = "登陆";
+"signup" = "注册";
+"email" = "邮箱";
+"password" = "密码";
+"name" = "姓名";
+"signup_create_account" = "创建账户";
+"login_email_password_error_msg" = "邮箱或密码不正确";
+"signup_error_msg" = "邮箱, 密码或用户名不正确";

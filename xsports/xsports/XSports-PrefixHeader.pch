@@ -42,10 +42,13 @@
 #import "LoadingAnimator.h"
 #import "SlidingAndFadingAnimator.h"
 #import "FadingInOutAnimiator.h"
+#import "SCLocalizable.h"
 
 #import "User.h"
 #import "Media.h"
 
 #import "InstagramServices.h"
+
+#define GET_STRING(key) [SCLocalizable localizedStringForKey:key table:nil]
 
 #endif

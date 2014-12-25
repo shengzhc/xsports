@@ -65,12 +65,13 @@
     self.signUpTopConstraint.constant = self.tableView.rowHeight*[self.tableView numberOfRowsInSection:0] + self.tableView.contentInset.top + 100;
     self.signUpButton.backgroundColor = [UIColor cYellowColor];
     self.signUpButton.titleLabel.font = [UIFont regularFontWithSize:14.0];
+    [self.signUpButton setTitle:GET_STRING(@"signup") forState:UIControlStateNormal];
     [self.signUpButton setTitleColor:[UIColor cGrayColor] forState:UIControlStateNormal];
 }
 
 - (void)setupLabels
 {
-    self.createLabel.text = @"创建账户";
+    self.createLabel.text = GET_STRING(@"signup_create_account");
     self.createLabel.font = [UIFont chnRegularFontWithSize:28];
     self.createLabel.textColor = [UIColor cYellowColor];
     self.createLabelTopConstraint.constant = self.tableView.contentInset.top/2.0 - 16.0;
@@ -86,10 +87,15 @@
 #pragma mark Logic
 - (void)signUp
 {
-    LoadingViewController *loadingViewController = [self showLoadingIndicator];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [loadingViewController dismissViewControllerAnimated:YES completion:self.completionHandler];
-    });
+    if (self.m_name.length > 0 && [NSPredicate validateEmail:self.m_email] && self.m_password.length > 3) {
+        LoadingViewController *loadingViewController = [self showLoadingIndicator];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [loadingViewController dismissViewControllerAnimated:YES completion:self.completionHandler];
+        });
+    } else {
+        SIAlertView *alertView = [self cancelAlertViewWithTitle:GET_STRING(@"error")message:GET_STRING(@"signup_error_msg")];
+        [alertView show];
+    }
 }
 
 #pragma mark Button Action

@@ -30,7 +30,7 @@
 
 - (NSString *)placeHolderText
 {
-    return @"密码";
+    return GET_STRING(@"password");
 }
 
 @end

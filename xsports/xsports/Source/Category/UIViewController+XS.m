@@ -13,7 +13,7 @@
 - (SIAlertView *)cancelAlertViewWithTitle:(NSString *)title message:(NSString *)message
 {
     SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:title andMessage:message];
-    [alertView addButtonWithTitle:@"Close" type:SIAlertViewButtonTypeCancel handler:nil];
+    [alertView addButtonWithTitle:GET_STRING(@"close") type:SIAlertViewButtonTypeCancel handler:nil];
     [alertView setTitleFont:[UIFont regularFont]];
     [alertView setTitleColor:[UIColor fujiColor]];
     [alertView setMessageFont:[UIFont regularFont]];

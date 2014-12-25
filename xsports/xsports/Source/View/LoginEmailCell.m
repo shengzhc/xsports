@@ -30,7 +30,7 @@
 
 - (NSString *)placeHolderText
 {
-    return @"邮箱";
+    return GET_STRING(@"email");
 }
 
 @end

@@ -30,7 +30,7 @@
 
 - (NSString *)placeHolderText
 {
-    return @"姓名";
+    return GET_STRING(@"name");
 }
 
 @end
