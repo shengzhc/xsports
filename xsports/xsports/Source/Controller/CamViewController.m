@@ -38,12 +38,6 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 @property (assign, nonatomic) AVCaptureFlashMode flashMode;
 @property (strong, nonatomic) NSTimer *recordingTimer;
 
-@property (nonatomic, weak) IBOutlet UIButton *recordButton;
-@property (nonatomic, weak) IBOutlet UIButton *cameraButton;
-@property (nonatomic, weak) IBOutlet UIButton *stillButton;
-
-
-- (IBAction)toggleMovieRecording:(id)sender;
 - (IBAction)focusAndExposeTap:(UIGestureRecognizer *)gestureRecognizer;
 
 // Session management.
@@ -78,6 +72,48 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     [self setupCaptureSession];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    dispatch_async([self sessionQueue], ^{
+        [self addObserver:self forKeyPath:@"sessionRunningAndDeviceAuthorized" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:SessionRunningAndDeviceAuthorizedContext];
+        __weak CamViewController *weakSelf = self;
+        [self setRuntimeErrorHandlingObserver:[[NSNotificationCenter defaultCenter] addObserverForName:AVCaptureSessionRuntimeErrorNotification object:[self session] queue:nil usingBlock:^(NSNotification *note) {
+            CamViewController *strongSelf = weakSelf;
+            dispatch_async([strongSelf sessionQueue], ^{
+                [[strongSelf session] startRunning];
+            });
+        }]];
+        [[self session] startRunning];
+        [self openCurtainWithCompletionHandler:nil];
+    });
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    dispatch_async([self sessionQueue], ^{
+        [[self session] stopRunning];
+        [[NSNotificationCenter defaultCenter] removeObserver:[self runtimeErrorHandlingObserver]];
+        [self removeObserver:self forKeyPath:@"sessionRunningAndDeviceAuthorized" context:SessionRunningAndDeviceAuthorizedContext];
+    });
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == SessionRunningAndDeviceAuthorizedContext) {
+        BOOL isRunning = [change[NSKeyValueChangeNewKey] boolValue];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (isRunning) {
+            } else {
+            }
+        });
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
+#pragma mark Setup
 - (void)setupConstraints
 {
     self.toolBarTopConstraint.constant = self.view.bounds.size.width + 44.0;
@@ -155,6 +191,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     [self.camScrollView.recordCaptureButton addGestureRecognizer:longPressGestureRecognizer];
 }
 
+#pragma mark Logic
 - (void)handleRecordLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
 {
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
@@ -202,125 +239,6 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
             [self.camScrollView.recordCaptureButton setHighlighted:NO];
         });
     });
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    dispatch_async([self sessionQueue], ^{
-		[self addObserver:self forKeyPath:@"sessionRunningAndDeviceAuthorized" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:SessionRunningAndDeviceAuthorizedContext];
-		__weak CamViewController *weakSelf = self;
-		[self setRuntimeErrorHandlingObserver:[[NSNotificationCenter defaultCenter] addObserverForName:AVCaptureSessionRuntimeErrorNotification object:[self session] queue:nil usingBlock:^(NSNotification *note) {
-			CamViewController *strongSelf = weakSelf;
-			dispatch_async([strongSelf sessionQueue], ^{
-				[[strongSelf session] startRunning];
-			});
-		}]];
-        [[self session] startRunning];
-        [self openCurtainWithCompletionHandler:nil];
-    });
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-	dispatch_async([self sessionQueue], ^{
-		[[self session] stopRunning];
-		[[NSNotificationCenter defaultCenter] removeObserver:[self runtimeErrorHandlingObserver]];
-		[self removeObserver:self forKeyPath:@"sessionRunningAndDeviceAuthorized" context:SessionRunningAndDeviceAuthorizedContext];
-	});
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if (context == SessionRunningAndDeviceAuthorizedContext) {
-		BOOL isRunning = [change[NSKeyValueChangeNewKey] boolValue];
-		dispatch_async(dispatch_get_main_queue(), ^{
-			if (isRunning) {
-				[[self cameraButton] setEnabled:YES];
-				[[self recordButton] setEnabled:YES];
-				[[self stillButton] setEnabled:YES];
-			} else {
-				[[self cameraButton] setEnabled:NO];
-				[[self recordButton] setEnabled:NO];
-				[[self stillButton] setEnabled:NO];
-			}
-		});
-    } else {
-		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-	}
-}
-
-- (void)updateProgressView
-{
-    if (self.movieFileOutput.isRecording) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            double recordedDuration = self.movieFileOutput.recordedDuration.value*1.0/self.movieFileOutput.recordedDuration.timescale;
-            double maxDuration = self.movieFileOutput.maxRecordedDuration.value*1.0/self.movieFileOutput.maxRecordedDuration.timescale;
-            self.progressView.progress = recordedDuration/maxDuration;
-        });
-    }
-}
-
-#pragma mark CamScrollViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    CGFloat c = self.camScrollView.stillCaptureButton.frame.origin.x;
-    CGFloat factor = 0;
-    if (self.lastPageIndex == 0) {
-        factor = (self.camScrollView.contentOffset.x - 0)/c;
-        factor = MAX(MIN(factor, 1.0), 0);
-        factor = 1.0 - factor;
-        self.camScrollView.stillCaptureButton.alpha = 0.1 + factor*0.9;
-        self.camScrollView.recordCaptureButton.alpha = 0.1 + (1-factor)*0.9;
-    } else {
-        factor = 1 - (c - self.camScrollView.contentOffset.x)/c;
-        factor = MAX(MIN(factor, 1.0), 0);
-        self.camScrollView.recordCaptureButton.alpha = 0.1 + factor*0.9;
-        self.camScrollView.stillCaptureButton.alpha = 0.1 + (1-factor)* 0.9;
-    }
-    
-    CGFloat h = factor * (self.toolContainer.frame.origin.y + self.toolContainer.bounds.size.height);
-    self.curtainVerticalConstraint.constant = h;
-
-    [self.progressView stopAnimation];
-    CGFloat f = 1 - (c - self.camScrollView.contentOffset.x)/c;
-    self.progressView.alpha = MAX(MIN(f, 1.0), 0);;
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-    if (!decelerate) {
-        NSInteger pageIndex = [self.camScrollView pageOfContentOffset:scrollView.contentOffset];
-        [self didScrollEndAtPageIndex:pageIndex];
-    }
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    NSInteger pageIndex = [self.camScrollView pageOfContentOffset:scrollView.contentOffset];
-    [self didScrollEndAtPageIndex:pageIndex];
-}
-
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
-{
-    NSInteger pageIndex = [self.camScrollView pageOfContentOffset:scrollView.contentOffset];
-    [self didScrollEndAtPageIndex:pageIndex];
-}
-
-- (void)didScrollEndAtPageIndex:(NSInteger)pageIndex
-{
-    self.lastPageIndex = pageIndex;
-    if (pageIndex == 0) {
-        [self.camScrollView.mediaSwitchButton setImage:[UIImage imageNamed:@"ico_media_video"] forState:UIControlStateNormal];
-    } else {
-        [self.camScrollView.mediaSwitchButton setImage:[UIImage imageNamed:@"ico_media_photo"] forState:UIControlStateNormal];
-    }
-    [self openCurtainWithCompletionHandler:^{
-        if (self.lastPageIndex == 1 && !self.recordingTimer) {
-            [self.progressView startAnimation];
-        }
-    }];
 }
 
 #pragma mark Actions
@@ -452,11 +370,6 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
-
-- (IBAction)toggleMovieRecording:(id)sender
-{
-}
-
 - (IBAction)focusAndExposeTap:(UIGestureRecognizer *)gestureRecognizer
 {
 	CGPoint devicePoint = [(AVCaptureVideoPreviewLayer *)[[self previewView] layer] captureDevicePointOfInterestForPoint:[gestureRecognizer locationInView:[gestureRecognizer view]]];
@@ -490,6 +403,24 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 }
 
 #pragma mark Device Configuration
+- (void)checkDeviceAuthorizationStatus
+{
+    NSString *mediaType = AVMediaTypeVideo;
+    
+    [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted) {
+        if (granted) {
+            //Granted access to mediaType
+            [self setDeviceAuthorized:YES];
+        } else {
+            //Not granted access to mediaType
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[[UIAlertView alloc] initWithTitle:@"AVCam!" message:@"AVCam doesn't have permission to use Camera, please change privacy settings" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                [self setDeviceAuthorized:NO];
+            });
+        }
+    }];
+}
+
 - (void)focusWithMode:(AVCaptureFocusMode)focusMode exposeWithMode:(AVCaptureExposureMode)exposureMode atDevicePoint:(CGPoint)point monitorSubjectAreaChange:(BOOL)monitorSubjectAreaChange
 {
     dispatch_async([self sessionQueue], ^{
@@ -572,22 +503,78 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     });
 }
 
-- (void)checkDeviceAuthorizationStatus
+- (void)updateProgressView
 {
-	NSString *mediaType = AVMediaTypeVideo;
-	
-	[AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted) {
-		if (granted) {
-			//Granted access to mediaType
-			[self setDeviceAuthorized:YES];
-		} else {
-			//Not granted access to mediaType
-			dispatch_async(dispatch_get_main_queue(), ^{
-				[[[UIAlertView alloc] initWithTitle:@"AVCam!" message:@"AVCam doesn't have permission to use Camera, please change privacy settings" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-				[self setDeviceAuthorized:NO];
-			});
-		}
-	}];
+    if (self.movieFileOutput.isRecording) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            double recordedDuration = self.movieFileOutput.recordedDuration.value*1.0/self.movieFileOutput.recordedDuration.timescale;
+            double maxDuration = self.movieFileOutput.maxRecordedDuration.value*1.0/self.movieFileOutput.maxRecordedDuration.timescale;
+            self.progressView.progress = recordedDuration/maxDuration;
+        });
+    }
 }
+
+#pragma mark CamScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat c = self.camScrollView.stillCaptureButton.frame.origin.x;
+    CGFloat factor = 0;
+    if (self.lastPageIndex == 0) {
+        factor = (self.camScrollView.contentOffset.x - 0)/c;
+        factor = MAX(MIN(factor, 1.0), 0);
+        factor = 1.0 - factor;
+        self.camScrollView.stillCaptureButton.alpha = 0.1 + factor*0.9;
+        self.camScrollView.recordCaptureButton.alpha = 0.1 + (1-factor)*0.9;
+    } else {
+        factor = 1 - (c - self.camScrollView.contentOffset.x)/c;
+        factor = MAX(MIN(factor, 1.0), 0);
+        self.camScrollView.recordCaptureButton.alpha = 0.1 + factor*0.9;
+        self.camScrollView.stillCaptureButton.alpha = 0.1 + (1-factor)* 0.9;
+    }
+    
+    CGFloat h = factor * (self.toolContainer.frame.origin.y + self.toolContainer.bounds.size.height);
+    self.curtainVerticalConstraint.constant = h;
+    
+    [self.progressView stopAnimation];
+    CGFloat f = 1 - (c - self.camScrollView.contentOffset.x)/c;
+    self.progressView.alpha = MAX(MIN(f, 1.0), 0);;
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate) {
+        NSInteger pageIndex = [self.camScrollView pageOfContentOffset:scrollView.contentOffset];
+        [self didScrollEndAtPageIndex:pageIndex];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    NSInteger pageIndex = [self.camScrollView pageOfContentOffset:scrollView.contentOffset];
+    [self didScrollEndAtPageIndex:pageIndex];
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    NSInteger pageIndex = [self.camScrollView pageOfContentOffset:scrollView.contentOffset];
+    [self didScrollEndAtPageIndex:pageIndex];
+}
+
+- (void)didScrollEndAtPageIndex:(NSInteger)pageIndex
+{
+    self.lastPageIndex = pageIndex;
+    if (pageIndex == 0) {
+        [self.camScrollView.mediaSwitchButton setImage:[UIImage imageNamed:@"ico_media_video"] forState:UIControlStateNormal];
+    } else {
+        [self.camScrollView.mediaSwitchButton setImage:[UIImage imageNamed:@"ico_media_photo"] forState:UIControlStateNormal];
+    }
+    [self openCurtainWithCompletionHandler:^{
+        if (self.lastPageIndex == 1 && !self.recordingTimer) {
+            [self.progressView startAnimation];
+        }
+    }];
+}
+
+
 
 @end
