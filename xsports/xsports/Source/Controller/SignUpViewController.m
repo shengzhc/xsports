@@ -87,6 +87,11 @@
     [self signUp];
 }
 
+- (IBAction)didCloseButtonClicked:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark Keyboard
 - (void)keyboardWillShow:(NSNotification *)notification
 {
@@ -150,7 +155,6 @@
 }
 
 #pragma mark UITextFieldDelegate
-
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if (textField.tag == LoginEmailTextFieldTag) {

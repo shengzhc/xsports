@@ -86,8 +86,6 @@
 - (void)signUp
 {
     [self.view endEditing:YES];
-//    SIAlertView *alertView = [self cancelAlertViewWithTitle:nil message:@"Please waiting for the new Feature..."];
-//    [alertView show];
     [self performSegueWithIdentifier:LoginSignUpViewControllerSegueIdentifier sender:nil];
 }
 
@@ -159,7 +157,6 @@
 }
 
 #pragma mark UITextFieldDelegate
-
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if (textField.tag == LoginEmailTextFieldTag) {

@@ -42,7 +42,7 @@
                                                     <attributedString key="attributedText"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="bRn-Tn-U8m" id="1hL-5Q-hbq"/>
+                                                        <outlet property="delegate" destination="YyP-No-6np" id="n0H-N9-Fo4"/>
                                                     </connections>
                                                 </textField>
                                                 <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_warning" translatesAutoresizingMaskIntoConstraints="NO" id="ILO-cn-7p1">
@@ -91,7 +91,7 @@
                                                     <attributedString key="attributedText"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done" secureTextEntry="YES"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="bRn-Tn-U8m" id="fMj-Vg-xC4"/>
+                                                        <outlet property="delegate" destination="YyP-No-6np" id="0Gq-4d-OwM"/>
                                                     </connections>
                                                 </textField>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6dZ-pM-iV8" userLabel="seperator">
@@ -1084,9 +1084,9 @@
                                                     <rect key="frame" x="50" y="10" width="22" height="24"/>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Name" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6zo-Sq-9hR">
-                                                    <rect key="frame" x="80" y="11.5" width="190" height="21"/>
+                                                    <rect key="frame" x="80" y="11" width="190" height="21"/>
                                                     <attributedString key="attributedText"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="bRn-Tn-U8m" id="8v2-5L-vjM"/>
                                                     </connections>
@@ -1125,7 +1125,7 @@
                                                     <rect key="frame" x="50" y="15" width="22" height="14"/>
                                                 </imageView>
                                                 <textField opaque="NO" clipsSubviews="YES" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LSm-7v-KZI">
-                                                    <rect key="frame" x="80" y="11.5" width="190" height="21"/>
+                                                    <rect key="frame" x="80" y="11" width="190" height="21"/>
                                                     <attributedString key="attributedText"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
                                                     <connections>
@@ -1243,6 +1243,15 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gaf-t9-0pC" userLabel="close">
+                                <rect key="frame" x="4" y="12" width="44" height="44"/>
+                                <state key="normal" image="ico_close">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didCloseButtonClicked:" destination="bRn-Tn-U8m" eventType="touchUpInside" id="0bu-kO-XqJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1250,11 +1259,13 @@
                             <constraint firstItem="pWB-I2-jBN" firstAttribute="top" secondItem="sbb-hT-Ek9" secondAttribute="top" id="959-72-w0k"/>
                             <constraint firstItem="lPW-Yf-Wzo" firstAttribute="leading" secondItem="sbb-hT-Ek9" secondAttribute="leading" constant="50" id="Ghx-Mp-AuX"/>
                             <constraint firstItem="acA-HX-xSO" firstAttribute="top" secondItem="BaA-f4-sZZ" secondAttribute="bottom" id="U0D-W8-Yrg"/>
+                            <constraint firstItem="Gaf-t9-0pC" firstAttribute="leading" secondItem="sbb-hT-Ek9" secondAttribute="leading" constant="4" id="X5w-wS-5m9"/>
                             <constraint firstAttribute="trailing" secondItem="lPW-Yf-Wzo" secondAttribute="trailing" constant="50" id="bev-1g-J5y"/>
                             <constraint firstItem="rDh-XS-fD8" firstAttribute="top" secondItem="sbb-hT-Ek9" secondAttribute="top" constant="274" id="c0H-xX-cyK"/>
                             <constraint firstItem="BaA-f4-sZZ" firstAttribute="top" secondItem="sbb-hT-Ek9" secondAttribute="topMargin" id="cYG-tD-bp1"/>
                             <constraint firstItem="rDh-XS-fD8" firstAttribute="trailing" secondItem="lPW-Yf-Wzo" secondAttribute="trailing" id="e2L-VI-m39"/>
                             <constraint firstAttribute="trailing" secondItem="pWB-I2-jBN" secondAttribute="trailing" id="eR0-1F-bOk"/>
+                            <constraint firstItem="Gaf-t9-0pC" firstAttribute="top" secondItem="sbb-hT-Ek9" secondAttribute="top" constant="12" id="k2L-uE-CdV"/>
                             <constraint firstItem="pWB-I2-jBN" firstAttribute="leading" secondItem="sbb-hT-Ek9" secondAttribute="leading" id="kjM-vS-MKD"/>
                             <constraint firstAttribute="bottom" secondItem="pWB-I2-jBN" secondAttribute="bottom" id="ltm-Z2-QpJ"/>
                             <constraint firstAttribute="trailing" secondItem="BaA-f4-sZZ" secondAttribute="trailing" id="qhP-7d-wCf"/>
