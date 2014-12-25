@@ -19,7 +19,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self setupImageCache];
+    [self setupGlobalAppearence];
     return YES;
+}
+
+- (void)setupGlobalAppearence
+{
+    [[UITextField appearance] setKeyboardAppearance:UIKeyboardAppearanceDark];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
