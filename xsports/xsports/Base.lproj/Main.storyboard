@@ -134,12 +134,12 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hzd-fR-Jqc" userLabel="button container">
-                                <rect key="frame" x="0.0" y="400" width="320" height="124"/>
+                                <rect key="frame" x="0.0" y="400" width="320" height="96"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VR3-aQ-jwI" userLabel="btn_signin">
-                                        <rect key="frame" x="50" y="8" width="220" height="44"/>
+                                        <rect key="frame" x="50" y="8" width="220" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="XjE-N4-1Lp"/>
+                                            <constraint firstAttribute="height" constant="30" id="XjE-N4-1Lp"/>
                                         </constraints>
                                         <state key="normal" title="登陆">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -155,9 +155,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMM-AH-AOz" userLabel="btn_signup">
-                                        <rect key="frame" x="50" y="72" width="220" height="44"/>
+                                        <rect key="frame" x="50" y="58" width="220" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="s9Z-sm-WnB"/>
+                                            <constraint firstAttribute="height" constant="30" id="s9Z-sm-WnB"/>
                                         </constraints>
                                         <state key="normal" title="注册">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1220,9 +1220,9 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPW-Yf-Wzo" userLabel="btn_signup">
-                                <rect key="frame" x="50" y="262" width="220" height="44"/>
+                                <rect key="frame" x="50" y="262" width="220" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="aUW-sX-xgB"/>
+                                    <constraint firstAttribute="height" constant="30" id="aUW-sX-xgB"/>
                                 </constraints>
                                 <state key="normal" title="注册">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
