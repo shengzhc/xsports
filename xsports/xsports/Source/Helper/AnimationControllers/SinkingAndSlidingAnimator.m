@@ -8,7 +8,8 @@
 
 #import "SinkingAndSlidingAnimator.h"
 
-static CGFloat const MEZoomAnimationScaleFactor = 0.75;
+static CGFloat const SASZoomAnimationScaleFactor = 0.9;
+static NSUInteger const SASDimmingViewTag = 999;
 
 @interface SinkingAndSlidingAnimator ()
 @property (nonatomic, assign) ECSlidingViewControllerOperation operation;
@@ -41,6 +42,8 @@ static CGFloat const MEZoomAnimationScaleFactor = 0.75;
 {
     if (topViewPosition == ECSlidingViewControllerTopViewPositionAnchoredRight && viewController == slidingViewController.topViewController) {
         return [self topViewAnchoredRightFrame:slidingViewController];
+    } else if (topViewPosition == ECSlidingViewControllerTopViewPositionAnchoredRight && viewController == slidingViewController.underLeftViewController) {
+        return [self underLeftViewAnchoredLeftFrame:slidingViewController];
     } else {
         return CGRectInfinite;
     }
@@ -61,39 +64,56 @@ static CGFloat const MEZoomAnimationScaleFactor = 0.75;
     UIView *topView = topViewController.view;
     topView.frame = containerView.bounds;
 
+    UIView *dimmingView = [[UIView alloc] initWithFrame:containerView.bounds];
+    dimmingView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
+    dimmingView.tag = SASDimmingViewTag;
+    dimmingView.userInteractionEnabled = NO;
+    
     if (self.operation == ECSlidingViewControllerOperationAnchorRight) {
         [containerView insertSubview:underLeftViewController.view aboveSubview:topView];
+        [containerView insertSubview:dimmingView belowSubview:underLeftViewController.view];
         [self topViewStartingState:topView containerFrame:containerView.bounds];
         [self underLeftViewStartingState:underLeftViewController.view containerFrame:containerView.bounds];
         NSTimeInterval duration = [self transitionDuration:transitionContext];
-        [UIView animateWithDuration:duration animations:^{
-            [self underLeftViewEndState:underLeftViewController.view containerFrame:containerView.bounds];
+        dimmingView.alpha = 0;
+        [UIView animateWithDuration:duration*0.6 animations:^{
+            dimmingView.alpha = 1.0;
             [self topViewAnchorRightEndState:topView anchoredFrame:[transitionContext finalFrameForViewController:topViewController]];
         } completion:^(BOOL finished) {
             if ([transitionContext transitionWasCancelled]) {
-                underLeftViewController.view.frame = [transitionContext finalFrameForViewController:underLeftViewController];
-                underLeftViewController.view.alpha = 1;
                 [self topViewStartingState:topView containerFrame:containerView.bounds];
             }
-            
+        }];
+        
+        [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:0.75 initialSpringVelocity:0.2 options:UIViewAnimationOptionCurveLinear animations:^{
+            [self underLeftViewEndState:underLeftViewController.view containerFrame:containerView.bounds];
+        } completion:^(BOOL finished) {
+            if ([transitionContext transitionWasCancelled]) {
+                underLeftViewController.view.frame = [transitionContext finalFrameForViewController:underLeftViewController];
+                underLeftViewController.view.alpha = 1.0;
+            }
             [transitionContext completeTransition:finished];
         }];
     } else if (self.operation == ECSlidingViewControllerOperationResetFromRight) {
         [self topViewAnchorRightEndState:topView anchoredFrame:[transitionContext initialFrameForViewController:topViewController]];
         [self underLeftViewEndState:underLeftViewController.view containerFrame:containerView.bounds];
+        dimmingView = [containerView viewWithTag:SASDimmingViewTag];
         
         NSTimeInterval duration = [self transitionDuration:transitionContext];
         [UIView animateWithDuration:duration animations:^{
             [self underLeftViewStartingState:underLeftViewController.view containerFrame:containerView.bounds];
             [self topViewStartingState:topView containerFrame:containerView.bounds];
+            dimmingView.alpha = 0.0;
         } completion:^(BOOL finished) {
             if ([transitionContext transitionWasCancelled]) {
                 [self underLeftViewEndState:underLeftViewController.view containerFrame:containerView.bounds];
                 [self topViewAnchorRightEndState:topView anchoredFrame:[transitionContext initialFrameForViewController:topViewController]];
+                [dimmingView removeFromSuperview];
             } else {
                 underLeftViewController.view.alpha = 1;
                 underLeftViewController.view.layer.transform = CATransform3DIdentity;
                 [underLeftViewController.view removeFromSuperview];
+                [dimmingView removeFromSuperview];
             }
             
             [transitionContext completeTransition:finished];
@@ -105,10 +125,17 @@ static CGFloat const MEZoomAnimationScaleFactor = 0.75;
 - (CGRect)topViewAnchoredRightFrame:(ECSlidingViewController *)slidingViewController
 {
     CGRect frame = slidingViewController.view.bounds;
-    frame.size.width = frame.size.width * MEZoomAnimationScaleFactor;
-    frame.size.height = frame.size.height * MEZoomAnimationScaleFactor;
+    frame.size.width = frame.size.width * SASZoomAnimationScaleFactor;
+    frame.size.height = frame.size.height * SASZoomAnimationScaleFactor;
     frame.origin.y = (slidingViewController.view.bounds.size.height - frame.size.height)/2.0;
     frame.origin.x = (slidingViewController.view.bounds.size.width - frame.size.width)/2.0;
+    return frame;
+}
+
+- (CGRect)underLeftViewAnchoredLeftFrame:(ECSlidingViewController *)slidingViewController
+{
+    CGRect frame = slidingViewController.view.bounds;
+    frame.size.width = frame.size.width - self.anchorRightRevealingAmount;
     return frame;
 }
 
@@ -120,13 +147,14 @@ static CGFloat const MEZoomAnimationScaleFactor = 0.75;
 
 - (void)topViewAnchorRightEndState:(UIView *)topView anchoredFrame:(CGRect)anchoredFrame
 {
-    topView.layer.transform = CATransform3DMakeScale(MEZoomAnimationScaleFactor, MEZoomAnimationScaleFactor, 1);
+    topView.layer.transform = CATransform3DMakeScale(SASZoomAnimationScaleFactor, SASZoomAnimationScaleFactor, 1);
     topView.frame = anchoredFrame;
     topView.layer.position  = CGPointMake(CGRectGetMidX(anchoredFrame), CGRectGetMidY(anchoredFrame));
 }
 
 - (void)underLeftViewStartingState:(UIView *)underLeftView containerFrame:(CGRect)containerFrame
 {
+    containerFrame = UIEdgeInsetsInsetRect(containerFrame, UIEdgeInsetsMake(0, 0, 0, self.anchorRightRevealingAmount));
     underLeftView.alpha = 0.0;
     underLeftView.frame = CGRectMake(containerFrame.origin.x - containerFrame.size.width, containerFrame.origin.y, containerFrame.size.width, containerFrame.size.height);
 }
@@ -134,7 +162,7 @@ static CGFloat const MEZoomAnimationScaleFactor = 0.75;
 - (void)underLeftViewEndState:(UIView *)underLeftView containerFrame:(CGRect)containerFrame
 {
     underLeftView.alpha = 1.0;
-    underLeftView.frame = containerFrame;
+    underLeftView.frame = UIEdgeInsetsInsetRect(containerFrame, UIEdgeInsetsMake(0, 0, 0, self.anchorRightRevealingAmount));
 }
 
 @end

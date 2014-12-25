@@ -10,5 +10,5 @@
 #import "ECSlidingViewController.h"
 
 @interface SinkingAndSlidingAnimator : NSObject <UIViewControllerAnimatedTransitioning, ECSlidingViewControllerDelegate, ECSlidingViewControllerLayout>
-
+@property (assign, nonatomic) CGFloat anchorRightRevealingAmount;
 @end

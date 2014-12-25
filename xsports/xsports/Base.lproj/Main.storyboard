@@ -295,14 +295,14 @@
                         <viewControllerLayoutGuide type="top" id="rMk-Ze-6q5"/>
                         <viewControllerLayoutGuide type="bottom" id="VfU-0h-1o2"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Tze-6m-pL9">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="Tze-6m-pL9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_blur_06" translatesAutoresizingMaskIntoConstraints="NO" id="REJ-Cu-oaP" userLabel="background">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_blur_06" translatesAutoresizingMaskIntoConstraints="NO" id="REJ-Cu-oaP" userLabel="background">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wrK-dg-vDm" userLabel="profile">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wrK-dg-vDm" userLabel="profile">
                                 <rect key="frame" x="0.0" y="52" width="320" height="68"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pEE-MO-OdD" userLabel="midline">

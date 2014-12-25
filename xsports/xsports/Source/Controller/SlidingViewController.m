@@ -22,11 +22,13 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    self.anchorRightRevealAmount = [UIScreen width] * 0.3;
     self.animator = [[SinkingAndSlidingAnimator alloc] init];
     self.delegate = self.animator;
-    
-    self.zoomAnimator = [[MEZoomAnimationController alloc] init];
-    self.delegate = self.zoomAnimator;
+    self.animator.anchorRightRevealingAmount = self.anchorRightRevealAmount;
+
+//    self.zoomAnimator = [[MEZoomAnimationController alloc] init];
+//    self.delegate = self.zoomAnimator;
     
     self.topViewAnchoredGesture = ECSlidingViewControllerAnchoredGestureTapping | ECSlidingViewControllerAnchoredGesturePanning;
 
