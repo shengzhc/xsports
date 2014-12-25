@@ -88,9 +88,7 @@
 {
     LoadingViewController *loadingViewController = [self showLoadingIndicator];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [loadingViewController dismissViewControllerAnimated:YES completion:^{
-//TODO Add transition to login in and set the top sliding to be the main
-        }];
+        [loadingViewController dismissViewControllerAnimated:YES completion:self.completionHandler];
     });
 }
 

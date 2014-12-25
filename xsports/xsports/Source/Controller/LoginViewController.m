@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "SignUpViewController.h"
 
 #import "LoginEmailCell.h"
 #import "LoginPasswordCell.h"
@@ -212,6 +213,22 @@
         [textField resignFirstResponder];
     }
     return YES;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:LoginSignUpViewControllerSegueIdentifier]) {
+        SignUpViewController *signUpViewController = (SignUpViewController *)segue.destinationViewController;
+        __weak LoginViewController *this = self;
+        signUpViewController.completionHandler = ^() {
+            [this dismissViewControllerAnimated:YES completion:nil];
+            if ([this.delegate respondsToSelector:@selector(loginViewController:didSignIn:)]) {
+                [this.delegate loginViewController:this didSignIn:nil];
+            }
+        };
+    } else {
+        [super prepareForSegue:segue sender:sender];
+    }
 }
 
 @end
