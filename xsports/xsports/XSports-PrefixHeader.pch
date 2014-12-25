@@ -41,6 +41,7 @@
 
 #import "LoadingAnimator.h"
 #import "SlidingAndFadingAnimator.h"
+#import "FadingInOutAnimiator.h"
 
 #import "User.h"
 #import "Media.h"

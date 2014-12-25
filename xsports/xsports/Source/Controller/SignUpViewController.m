@@ -24,6 +24,8 @@
 @property (strong, nonatomic) NSString *m_email;
 @property (strong, nonatomic) NSString *m_password;
 @property (strong, nonatomic) NSString *m_name;
+
+@property (strong, nonatomic) FadingInOutTransitioningDelegate *fadingTransitionDelegate;
 @end
 
 @implementation SignUpViewController
@@ -34,6 +36,7 @@
     [self setupTableView];
     [self setupButtons];
     [self setupLabels];
+    [self setupFadingTransitioningDelegate];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -73,12 +76,22 @@
     self.createLabelTopConstraint.constant = self.tableView.contentInset.top/2.0 - 16.0;
 }
 
+- (void)setupFadingTransitioningDelegate
+{
+    self.modalPresentationStyle = UIModalPresentationCustom;
+    self.fadingTransitionDelegate = [[FadingInOutTransitioningDelegate alloc] init];
+    self.transitioningDelegate = self.fadingTransitionDelegate;
+}
+
 #pragma mark Logic
 - (void)signUp
 {
-    [self.view endEditing:YES];
-    SIAlertView *alertView = [self cancelAlertViewWithTitle:nil message:@"Please waiting for the new Feature..."];
-    [alertView show];
+    LoadingViewController *loadingViewController = [self showLoadingIndicator];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [loadingViewController dismissViewControllerAnimated:YES completion:^{
+//TODO Add transition to login in and set the top sliding to be the main
+        }];
+    });
 }
 
 #pragma mark Button Action

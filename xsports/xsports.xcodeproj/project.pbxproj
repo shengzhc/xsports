@@ -75,6 +75,7 @@
 		9CCC75771A45488F00F9EE3D /* LoadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75741A45488F00F9EE3D /* LoadingAnimator.m */; };
 		9CCC75781A45488F00F9EE3D /* SlidingAndFadingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC75761A45488F00F9EE3D /* SlidingAndFadingAnimator.m */; };
 		9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */; };
+		9CCF5AA31A4BD5F7001B9029 /* FadingInOutAnimiator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF5AA21A4BD5F7001B9029 /* FadingInOutAnimiator.m */; };
 		9CD4E32E1A4A33B50062A2F3 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD4E32D1A4A33B50062A2F3 /* ProgressView.m */; };
 		9CDDDE3A1A49373C00144DB8 /* CamFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDDE391A49373C00144DB8 /* CamFilterViewController.m */; };
 		9CDDDE3D1A493DFC00144DB8 /* AssetsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDDE3C1A493DFC00144DB8 /* AssetsPickerViewController.m */; };
@@ -215,6 +216,8 @@
 		9CCC75761A45488F00F9EE3D /* SlidingAndFadingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidingAndFadingAnimator.m; sourceTree = "<group>"; };
 		9CCF45DA1A3A5A2300FB1A94 /* UIViewController+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XS.h"; sourceTree = "<group>"; };
 		9CCF45DB1A3A5A2300FB1A94 /* UIViewController+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XS.m"; sourceTree = "<group>"; };
+		9CCF5AA11A4BD5F7001B9029 /* FadingInOutAnimiator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadingInOutAnimiator.h; sourceTree = "<group>"; };
+		9CCF5AA21A4BD5F7001B9029 /* FadingInOutAnimiator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadingInOutAnimiator.m; sourceTree = "<group>"; };
 		9CD4E32C1A4A33B50062A2F3 /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
 		9CD4E32D1A4A33B50062A2F3 /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
 		9CDDDE381A49373C00144DB8 /* CamFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamFilterViewController.h; sourceTree = "<group>"; };
@@ -533,6 +536,8 @@
 				9CCC75741A45488F00F9EE3D /* LoadingAnimator.m */,
 				9CCC75751A45488F00F9EE3D /* SlidingAndFadingAnimator.h */,
 				9CCC75761A45488F00F9EE3D /* SlidingAndFadingAnimator.m */,
+				9CCF5AA11A4BD5F7001B9029 /* FadingInOutAnimiator.h */,
+				9CCF5AA21A4BD5F7001B9029 /* FadingInOutAnimiator.m */,
 			);
 			path = AnimationControllers;
 			sourceTree = "<group>";
@@ -701,6 +706,7 @@
 				9C34285C1A4560800021AB2B /* LikesCell.m in Sources */,
 				9C4B94F01A41697900DFCC7F /* FeedViewGridPhotoCell.m in Sources */,
 				9CBCE72C1A3E2A0200C9BD35 /* InstagramServices.m in Sources */,
+				9CCF5AA31A4BD5F7001B9029 /* FadingInOutAnimiator.m in Sources */,
 				9C4B94FC1A4292DD00DFCC7F /* FeedFlowCollectionViewController.m in Sources */,
 				9C0928671A40173B001340F2 /* AVPlayerView.m in Sources */,
 				9CBCE71C1A3CC56200C9BD35 /* MEDynamicTransition.m in Sources */,
