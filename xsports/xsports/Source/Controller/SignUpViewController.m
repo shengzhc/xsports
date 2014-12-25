@@ -59,16 +59,17 @@
 
 - (void)setupButtons
 {
-    self.signUpTopConstraint.constant = self.tableView.rowHeight*[self.tableView numberOfRowsInSection:0] + self.tableView.contentInset.top + 24.0;
-    self.signUpButton.backgroundColor = [UIColor lightJadeColor];
+    self.signUpTopConstraint.constant = self.tableView.rowHeight*[self.tableView numberOfRowsInSection:0] + self.tableView.contentInset.top + 100;
+    self.signUpButton.backgroundColor = [UIColor cYellowColor];
     self.signUpButton.titleLabel.font = [UIFont regularFontWithSize:18.0];
+    [self.signUpButton setTitleColor:[UIColor cGrayColor] forState:UIControlStateNormal];
 }
 
 - (void)setupLabels
 {
-    self.createLabel.text = @"创建账号";
+    self.createLabel.text = @"创建账户";
     self.createLabel.font = [UIFont chnRegularFontWithSize:28];
-    self.createLabel.textColor = [UIColor fujiColor];
+    self.createLabel.textColor = [UIColor cYellowColor];
     self.createLabelTopConstraint.constant = self.tableView.contentInset.top/2.0 - 16.0;
 }
 

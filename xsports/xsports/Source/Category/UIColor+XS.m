@@ -139,4 +139,19 @@
     return [self lightPebbleColor];
 }
 
++ (UIColor *)cYellowColor
+{
+    return [UIColor colorWithRed:1.0 green:252.0/255.0 blue:0 alpha:1];
+}
+
++ (UIColor *)cGrayColor
+{
+    return [UIColor colorWithRed:69.0/255.0 green:69.0/255.0 blue:69.0/255.0 alpha:1.0];
+}
+
++ (UIColor *)cLightGrayColor
+{
+    return [UIColor colorWithRed:211.0/255.0 green:211.0/255.0 blue:211.0/255.0 alpha:1.0];
+}
+
 @end

@@ -17,6 +17,7 @@
 
 @interface LoginViewController () < UITextFieldDelegate >
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonContainerTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoTopConstraint;
 @property (strong, nonatomic) NSString *m_email;
 @property (strong, nonatomic) NSString *m_password;
 @end
@@ -49,16 +50,18 @@
 {
     self.tableView.rowHeight = 44.0;
     self.tableView.contentInset = UIEdgeInsetsMake([UIScreen height]/2.0 - self.tableView.rowHeight, 0, 0, 0);
+    self.logoTopConstraint.constant = self.tableView.contentInset.top - self.logoImageView.image.size.height/2.0 - 110;
 }
 
 - (void)setupButtons
 {
     self.buttonContainerTopConstraint.constant = self.tableView.rowHeight * 2.0 + self.tableView.contentInset.top + 24.0;
-    self.signInButton.backgroundColor = [UIColor lightWaveColor];
+    self.signInButton.backgroundColor = [UIColor cLightGrayColor];
     self.signInButton.titleLabel.font = [UIFont chnRegularFontWithSize:18.0];
-
-    self.signUpButton.backgroundColor = [UIColor lightJadeColor];
+    [self.signInButton setTitleColor:[UIColor cGrayColor] forState:UIControlStateNormal];
+    self.signUpButton.backgroundColor = [UIColor cYellowColor];
     self.signUpButton.titleLabel.font = [UIFont chnRegularFontWithSize:18.0];
+    [self.signUpButton setTitleColor:[UIColor cGrayColor] forState:UIControlStateNormal];
 }
 
 #pragma mark Logic

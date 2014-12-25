@@ -48,4 +48,10 @@
 + (UIColor *)textFieldCursorColor;
 + (UIColor *)textFieldPlaceHolderColor;
 
+
+#pragma mark Color for new design
++ (UIColor *)cYellowColor;
++ (UIColor *)cGrayColor;
++ (UIColor *)cLightGrayColor;
+
 @end
