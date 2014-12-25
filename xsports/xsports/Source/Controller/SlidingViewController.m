@@ -9,9 +9,12 @@
 #import "SlidingViewController.h"
 #import "LoginViewController.h"
 
+#import "MEZoomAnimationController.h"
+
 @interface SlidingViewController () < LoginViewControllerDelegate >
 @property (strong, nonatomic) SinkingAndSlidingAnimator *animator;
 @property (strong, nonatomic) LoginViewController *loginViewController;
+@property (strong, nonatomic) MEZoomAnimationController *zoomAnimator;
 @end
 
 @implementation SlidingViewController
@@ -21,6 +24,10 @@
     [super awakeFromNib];
     self.animator = [[SinkingAndSlidingAnimator alloc] init];
     self.delegate = self.animator;
+    
+    self.zoomAnimator = [[MEZoomAnimationController alloc] init];
+    self.delegate = self.zoomAnimator;
+    
     self.topViewAnchoredGesture = ECSlidingViewControllerAnchoredGestureTapping | ECSlidingViewControllerAnchoredGesturePanning;
 
     self.menuViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:MenuViewControllerIdentifier];
