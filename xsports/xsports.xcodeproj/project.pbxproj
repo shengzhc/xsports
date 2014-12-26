@@ -11,6 +11,8 @@
 		9C02EA0C1A3A706F00FA1631 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA0B1A3A706F00FA1631 /* LoadingViewController.m */; };
 		9C02EA0F1A3A793500FA1631 /* UIImage+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA0E1A3A793500FA1631 /* UIImage+XS.m */; };
 		9C02EA121A3A7A0300FA1631 /* UIView+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA111A3A7A0300FA1631 /* UIView+XS.m */; };
+		9C06BEE91A4D2B14008430B9 /* MPMoviePlayerController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C06BEE81A4D2B14008430B9 /* MPMoviePlayerController+XS.m */; };
+		9C06BEEB1A4D2B32008430B9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C06BEEA1A4D2B32008430B9 /* MediaPlayer.framework */; };
 		9C09285F1A3FFEE5001340F2 /* FeedViewPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CF88D401A3FBCE400D4E72E /* FeedViewPhotoCell.xib */; };
 		9C0928611A4000E5001340F2 /* FeedViewVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C0928601A4000E5001340F2 /* FeedViewVideoCell.xib */; };
 		9C0928641A400C8C001340F2 /* FeedViewVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0928631A400C8C001340F2 /* FeedViewVideoCell.m */; };
@@ -108,6 +110,9 @@
 		9C02EA0E1A3A793500FA1631 /* UIImage+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XS.m"; sourceTree = "<group>"; };
 		9C02EA101A3A7A0300FA1631 /* UIView+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XS.h"; sourceTree = "<group>"; };
 		9C02EA111A3A7A0300FA1631 /* UIView+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XS.m"; sourceTree = "<group>"; };
+		9C06BEE71A4D2B14008430B9 /* MPMoviePlayerController+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPMoviePlayerController+XS.h"; sourceTree = "<group>"; };
+		9C06BEE81A4D2B14008430B9 /* MPMoviePlayerController+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MPMoviePlayerController+XS.m"; sourceTree = "<group>"; };
+		9C06BEEA1A4D2B32008430B9 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		9C0928601A4000E5001340F2 /* FeedViewVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewVideoCell.xib; sourceTree = "<group>"; };
 		9C0928621A400C8C001340F2 /* FeedViewVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewVideoCell.h; sourceTree = "<group>"; };
 		9C0928631A400C8C001340F2 /* FeedViewVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewVideoCell.m; sourceTree = "<group>"; };
@@ -250,6 +255,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C06BEEB1A4D2B32008430B9 /* MediaPlayer.framework in Frameworks */,
 				9C09286B1A401D5E001340F2 /* AssetsLibrary.framework in Frameworks */,
 				9C0928691A401D50001340F2 /* AVFoundation.framework in Frameworks */,
 				9C835CDB1A3AC47100A75B91 /* QuartzCore.framework in Frameworks */,
@@ -279,6 +285,7 @@
 		9A695D9815CBD1C135E8EF80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9C06BEEA1A4D2B32008430B9 /* MediaPlayer.framework */,
 				9C09286A1A401D5E001340F2 /* AssetsLibrary.framework */,
 				9C0928681A401D50001340F2 /* AVFoundation.framework */,
 				9C835CDA1A3AC47100A75B91 /* QuartzCore.framework */,
@@ -414,6 +421,8 @@
 				9CF88D431A3FC3F300D4E72E /* JSONValueTransformer+XS.m */,
 				9CF88D471A3FE6A300D4E72E /* NSDate+XS.h */,
 				9CF88D481A3FE6A300D4E72E /* NSDate+XS.m */,
+				9C06BEE71A4D2B14008430B9 /* MPMoviePlayerController+XS.h */,
+				9C06BEE81A4D2B14008430B9 /* MPMoviePlayerController+XS.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -748,6 +757,7 @@
 				9CBCE7221A3CCFF700C9BD35 /* SettingViewController.m in Sources */,
 				9C4B94FF1A4292EE00DFCC7F /* FeedGridCollectionViewController.m in Sources */,
 				9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */,
+				9C06BEE91A4D2B14008430B9 /* MPMoviePlayerController+XS.m in Sources */,
 				9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */,
 				9C54EF531A3A3B6000D16EEE /* UIScreen+XS.m in Sources */,
 				9C11A45F1A45E50200A9E4CD /* CommentsViewController.m in Sources */,
