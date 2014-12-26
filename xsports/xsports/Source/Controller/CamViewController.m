@@ -406,7 +406,6 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 - (void)checkDeviceAuthorizationStatus
 {
     NSString *mediaType = AVMediaTypeVideo;
-    
     [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted) {
         if (granted) {
             //Granted access to mediaType

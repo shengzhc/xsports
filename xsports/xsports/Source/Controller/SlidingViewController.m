@@ -30,7 +30,7 @@
 //    self.zoomAnimator = [[MEZoomAnimationController alloc] init];
 //    self.delegate = self.zoomAnimator;
     
-    self.topViewAnchoredGesture = ECSlidingViewControllerAnchoredGestureTapping | ECSlidingViewControllerAnchoredGesturePanning;
+    self.topViewAnchoredGesture = ECSlidingViewControllerAnchoredGestureTapping;
 
     self.menuViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:MenuViewControllerIdentifier];
     self.underLeftViewController = self.menuViewController;
