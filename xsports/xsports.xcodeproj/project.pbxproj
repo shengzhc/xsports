@@ -27,6 +27,7 @@
 		9C3428561A455D9D0021AB2B /* PageNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3428551A455D9D0021AB2B /* PageNavigationController.m */; };
 		9C3428591A455F940021AB2B /* LikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3428581A455F940021AB2B /* LikesViewController.m */; };
 		9C34285C1A4560800021AB2B /* LikesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C34285B1A4560800021AB2B /* LikesCell.m */; };
+		9C3C481C1A4EFA9600BABAED /* AVPlayer+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C481B1A4EFA9600BABAED /* AVPlayer+XS.m */; };
 		9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C44C6291A3C2041002CB86B /* MenuViewCell.m */; };
 		9C4B94F01A41697900DFCC7F /* FeedViewGridPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B94EE1A41697900DFCC7F /* FeedViewGridPhotoCell.m */; };
 		9C4B94F11A41697900DFCC7F /* FeedViewGridPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C4B94EF1A41697900DFCC7F /* FeedViewGridPhotoCell.xib */; };
@@ -134,6 +135,8 @@
 		9C3428581A455F940021AB2B /* LikesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesViewController.m; sourceTree = "<group>"; };
 		9C34285A1A4560800021AB2B /* LikesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesCell.h; sourceTree = "<group>"; };
 		9C34285B1A4560800021AB2B /* LikesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesCell.m; sourceTree = "<group>"; };
+		9C3C481A1A4EFA9600BABAED /* AVPlayer+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVPlayer+XS.h"; sourceTree = "<group>"; };
+		9C3C481B1A4EFA9600BABAED /* AVPlayer+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVPlayer+XS.m"; sourceTree = "<group>"; };
 		9C44C6281A3C2041002CB86B /* MenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewCell.h; sourceTree = "<group>"; };
 		9C44C6291A3C2041002CB86B /* MenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewCell.m; sourceTree = "<group>"; };
 		9C4B94ED1A41697900DFCC7F /* FeedViewGridPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewGridPhotoCell.h; sourceTree = "<group>"; };
@@ -423,6 +426,8 @@
 				9CF88D481A3FE6A300D4E72E /* NSDate+XS.m */,
 				9C06BEE71A4D2B14008430B9 /* MPMoviePlayerController+XS.h */,
 				9C06BEE81A4D2B14008430B9 /* MPMoviePlayerController+XS.m */,
+				9C3C481A1A4EFA9600BABAED /* AVPlayer+XS.h */,
+				9C3C481B1A4EFA9600BABAED /* AVPlayer+XS.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -743,6 +748,7 @@
 				9C34285C1A4560800021AB2B /* LikesCell.m in Sources */,
 				9C4B94F01A41697900DFCC7F /* FeedViewGridPhotoCell.m in Sources */,
 				9CBCE72C1A3E2A0200C9BD35 /* InstagramServices.m in Sources */,
+				9C3C481C1A4EFA9600BABAED /* AVPlayer+XS.m in Sources */,
 				9CCF5AA31A4BD5F7001B9029 /* FadingInOutAnimiator.m in Sources */,
 				9C4B94FC1A4292DD00DFCC7F /* FeedFlowCollectionViewController.m in Sources */,
 				9C0928671A40173B001340F2 /* AVPlayerView.m in Sources */,
