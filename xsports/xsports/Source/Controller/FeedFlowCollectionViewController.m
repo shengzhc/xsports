@@ -81,7 +81,7 @@
     for (UICollectionViewCell *cell in self.collectionView.visibleCells) {
         if ([cell isKindOfClass:[FeedViewVideoCell class]]) {
             CGRect frame = [self.collectionView convertRect:((FeedViewVideoCell *)cell).playerView.frame fromView:cell];
-            if (CGRectIntersection(frame, visibleRect).size.height >= frame.size.height/3.0) {
+            if (CGRectIntersection(frame, visibleRect).size.height >= frame.size.height * 0.25) {
                 [validCells addObject:cell];
             }
         }
@@ -97,7 +97,7 @@
         }
     } else {
         if (_lastVideoIndexPath != nil) {
-            FeedViewVideoCell *nextCell = [self.collectionView cellForItemAtIndexPath:_lastVideoIndexPath];
+            FeedViewVideoCell *nextCell = (FeedViewVideoCell *)[self.collectionView cellForItemAtIndexPath:_lastVideoIndexPath];
             [nextCell stop];
             _lastVideoIndexPath = nil;
         }

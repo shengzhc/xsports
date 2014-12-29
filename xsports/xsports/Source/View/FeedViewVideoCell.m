@@ -115,7 +115,7 @@ static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObserva
     [self.player play];
     if (self.player.currentTime.value == 0) {
         self.playerView.alpha = 0.0f;
-        [UIView animateWithDuration:0.25 animations:^{
+        [UIView animateWithDuration:0.5 animations:^{
             self.playerView.alpha = 1.0;
         } completion:^(BOOL finished) {
             self.playerView.alpha = 1.0;
@@ -148,8 +148,14 @@ static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObserva
             [[NSNotificationCenter defaultCenter] removeObserver:self];
             self.playerItem = nil;
         }
-        [self setPlayer:nil];
+
         [[AVPlayerManager sharedInstance] setCurrentPlayingItem:nil];
+        [UIView animateWithDuration:0.25 animations:^{
+            self.playerView.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            [self setPlayer:nil];
+            self.playerView.alpha = 1.0;
+        }];
     }
 }
 
@@ -158,6 +164,29 @@ static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObserva
     if ([self.delegate respondsToSelector:@selector(feedViewVideoCell:didVideoButtonClicked:)]) {
         [self.delegate feedViewVideoCell:self didVideoButtonClicked:sender];
     }
+}
+
+- (AVAsset*)makeAssetComposition
+{
+    int numOfCopies = 1;
+
+    AVMutableComposition *composition = [[AVMutableComposition alloc] init];
+    AVURLAsset* sourceAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:self.media.videos.standard.url] options:nil];
+    // calculate time
+    CMTimeRange editRange = CMTimeRangeMake(CMTimeMake(0, 600), CMTimeMake(sourceAsset.duration.value, sourceAsset.duration.timescale));
+    
+    NSError *editError;
+    
+    // and add into your composition
+    BOOL result = [composition insertTimeRange:editRange ofAsset:sourceAsset atTime:composition.duration error:&editError];
+    
+    if (result) {
+        for (int i = 0; i < numOfCopies; i++) {
+            [composition insertTimeRange:editRange ofAsset:sourceAsset atTime:composition.duration error:&editError];
+        }
+    }
+    
+    return composition;
 }
 
 @end
