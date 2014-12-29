@@ -53,21 +53,6 @@ static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObserva
     }
 }
 
-- (void)setPlayer:(AVPlayer *)player
-{
-    if (_player) {
-        [_player pause];
-        [_player removeObserver:self forKeyPath:@"currentItem"];
-        [_player replaceCurrentItemWithPlayerItem:nil];
-    }
-    
-    _player = player;
-    if (_player) {
-        [self.playerView setPlayer:_player];
-        [_player addObserver:self forKeyPath:@"currentItem" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:AVPlayerCurrentItemObservationContext];
-    }
-}
-
 - (void)syncWithStatus:(VideoStatus)status
 {
     switch (status) {
@@ -128,15 +113,40 @@ static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObserva
     [self.player pause];
 }
 
+- (void)prepareAsset:(AVAsset *)asset requestedKeys:(NSArray *)requestedKeys
+{
+    if (self.playerItem) {
+        [self.playerItem removeObserver:self forKeyPath:@"status"];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
+        self.playerItem = nil;
+    }
+    
+    self.playerItem = [AVPlayerItem playerItemWithAsset:asset];
+    [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:AVPlayerItemStatusObservationContext];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
+    
+    if (!self.player) {
+        [self setPlayer:[[AVPlayerManager sharedInstance] availableAVPlayer]];
+        [self.player addObserver:self forKeyPath:@"currentItem" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:AVPlayerCurrentItemObservationContext];
+    }
+    
+    if (self.player.currentItem != self.self.playerItem) {
+        [self.player replaceCurrentItemWithPlayerItem:self.playerItem];
+    }
+}
+
 - (void)start
 {
     if ([[AVPlayerManager sharedInstance] currentPlayingItem] != self) {
         [[[AVPlayerManager sharedInstance] currentPlayingItem] stop];
-        [self setPlayer:[[AVPlayerManager sharedInstance] availableAVPlayer]];
-        self.playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:self.media.videos.standard.url]];
-        [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:AVPlayerItemStatusObservationContext];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
-        [[AVPlayerManager sharedInstance] setCurrentPlayingItem:self];
+
+        NSArray *requestedKeys = @[@"playable"];
+        AVURLAsset *asset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:self.media.videos.standard.url] options:nil];
+        [asset loadValuesAsynchronouslyForKeys:requestedKeys completionHandler:^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self prepareAsset:asset requestedKeys:requestedKeys];
+            });
+        }];
     }
 }
 
@@ -148,14 +158,18 @@ static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObserva
             [[NSNotificationCenter defaultCenter] removeObserver:self];
             self.playerItem = nil;
         }
-
+        
         [[AVPlayerManager sharedInstance] setCurrentPlayingItem:nil];
-        [UIView animateWithDuration:0.25 animations:^{
-            self.playerView.alpha = 0.0;
-        } completion:^(BOOL finished) {
-            [self setPlayer:nil];
-            self.playerView.alpha = 1.0;
-        }];
+        if (self.player) {
+            [self.player removeObserver:self forKeyPath:@"currentItem"];
+            self.player = nil;
+            [UIView animateWithDuration:0.25 animations:^{
+                self.playerView.alpha = 0.0;
+            } completion:^(BOOL finished) {
+                self.playerView.alpha = 1.0;
+                [self.playerView setPlayer:nil];
+            }];
+        }
     }
 }
 
@@ -164,29 +178,6 @@ static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObserva
     if ([self.delegate respondsToSelector:@selector(feedViewVideoCell:didVideoButtonClicked:)]) {
         [self.delegate feedViewVideoCell:self didVideoButtonClicked:sender];
     }
-}
-
-- (AVAsset*)makeAssetComposition
-{
-    int numOfCopies = 1;
-
-    AVMutableComposition *composition = [[AVMutableComposition alloc] init];
-    AVURLAsset* sourceAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:self.media.videos.standard.url] options:nil];
-    // calculate time
-    CMTimeRange editRange = CMTimeRangeMake(CMTimeMake(0, 600), CMTimeMake(sourceAsset.duration.value, sourceAsset.duration.timescale));
-    
-    NSError *editError;
-    
-    // and add into your composition
-    BOOL result = [composition insertTimeRange:editRange ofAsset:sourceAsset atTime:composition.duration error:&editError];
-    
-    if (result) {
-        for (int i = 0; i < numOfCopies; i++) {
-            [composition insertTimeRange:editRange ofAsset:sourceAsset atTime:composition.duration error:&editError];
-        }
-    }
-    
-    return composition;
 }
 
 @end
