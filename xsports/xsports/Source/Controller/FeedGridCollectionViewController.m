@@ -48,8 +48,8 @@
 }
 
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
     return self.feeds.count;
 }
 

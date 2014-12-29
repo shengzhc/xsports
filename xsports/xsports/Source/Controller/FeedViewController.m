@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor cDarkGrayColor];
+    self.title = GET_STRING(@"feed_title");
+    
     [self load];
     [self showFlowCollectionViewController];
 }
