@@ -36,10 +36,12 @@
     self.commentButton.layer.cornerRadius = 2.0;
     [self.commentButton setBackgroundColor:[UIColor cYellowColor]];
     self.commentButton.titleLabel.font = [UIFont chnRegularFontWithSize:12.0];
+    [self.commentButton setTitle:GET_STRING(@"btn_comment") forState:UIControlStateNormal];
     [self.commentButton setTitleColor:[UIColor cDarkYellowColor] forState:UIControlStateNormal];
     
     self.likeButton.layer.cornerRadius = 2.0;
     self.likeButton.titleLabel.font = [UIFont chnRegularFontWithSize:12.0];
+    [self.likeButton setTitle:GET_STRING(@"btn_great") forState:UIControlStateNormal];
     [self.likeButton setTitleColor:[UIColor cDarkYellowColor] forState:UIControlStateNormal];
 }
 
@@ -57,14 +59,12 @@
 {
     if (like) {
         [self.likeButton setImage:[UIImage imageNamed:@"ico_liked"] forState:UIControlStateNormal];
-        [self.likeButton setTitle:@"Liked" forState:UIControlStateNormal];
         [self.likeButton setBackgroundColor:[UIColor cLightYellowColor]];
-        [self.likeAmountButton setTitle:[NSString stringWithFormat:@"%@", @(self.media.totalLikes+1)] forState:UIControlStateNormal];
+        [self.likeAmountButton setTitle:[NSString stringWithFormat:@"%@ %@", @(self.media.totalLikes+1), GET_STRING(@"btn_great")] forState:UIControlStateNormal];
     } else {
         [self.likeButton setImage:[UIImage imageNamed:@"ico_like"] forState:UIControlStateNormal];
-        [self.likeButton setTitle:@"Like" forState:UIControlStateNormal];
         [self.likeButton setBackgroundColor:[UIColor cYellowColor]];
-        [self.likeAmountButton setTitle:[NSString stringWithFormat:@"%@", @(self.media.totalLikes)] forState:UIControlStateNormal];
+        [self.likeAmountButton setTitle:[NSString stringWithFormat:@"%@ %@", @(self.media.totalLikes), GET_STRING(@"btn_great")] forState:UIControlStateNormal];
     }
 }
 

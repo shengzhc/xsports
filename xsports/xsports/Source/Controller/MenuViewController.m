@@ -66,7 +66,6 @@
     {
         self.navFeedViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavFeedViewControllerIdentifier];
         self.feedViewController = (FeedViewController *)self.navFeedViewController.topViewController;
-        [self.navFeedViewController clearBackground];
     }
     
     {
