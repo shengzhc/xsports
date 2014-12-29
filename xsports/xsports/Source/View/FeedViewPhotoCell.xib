@@ -25,12 +25,18 @@
                                     <constraint firstAttribute="width" constant="30" id="VKy-3C-MuF"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_clock" translatesAutoresizingMaskIntoConstraints="NO" id="4t4-8q-XG0" userLabel="clockImageView">
-                                <rect key="frame" x="260" y="7" width="32" height="32"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_timer" translatesAutoresizingMaskIntoConstraints="NO" id="4t4-8q-XG0" userLabel="clockImageView">
+                                <rect key="frame" x="272" y="15" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="20h-1l-J4t"/>
                                     <constraint firstAttribute="width" constant="32" id="gst-g7-7zh"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="20h-1l-J4t"/>
+                                        <exclude reference="gst-g7-7zh"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ep2-0c-2IJ" userLabel="timeLabel">
                                 <rect key="frame" x="292" y="13" width="19.5" height="20.5"/>
@@ -58,7 +64,7 @@
                             <constraint firstItem="bTK-oh-Ao9" firstAttribute="leading" secondItem="NrE-rf-9Lt" secondAttribute="leading" id="7yP-ob-dFc"/>
                             <constraint firstAttribute="trailing" secondItem="Ep2-0c-2IJ" secondAttribute="trailing" constant="8" id="8O3-Jl-eMd"/>
                             <constraint firstItem="anE-xm-9Fk" firstAttribute="centerY" secondItem="7Jo-IV-ojx" secondAttribute="centerY" id="9nJ-Zp-exJ"/>
-                            <constraint firstItem="Ep2-0c-2IJ" firstAttribute="leading" secondItem="4t4-8q-XG0" secondAttribute="trailing" id="N1U-kv-eQH"/>
+                            <constraint firstItem="Ep2-0c-2IJ" firstAttribute="leading" secondItem="4t4-8q-XG0" secondAttribute="trailing" constant="4" id="N1U-kv-eQH"/>
                             <constraint firstAttribute="bottom" secondItem="bTK-oh-Ao9" secondAttribute="bottom" id="WQG-ev-ZJf"/>
                             <constraint firstItem="anE-xm-9Fk" firstAttribute="top" secondItem="NrE-rf-9Lt" secondAttribute="top" constant="8" id="cso-QG-BC3"/>
                             <constraint firstItem="anE-xm-9Fk" firstAttribute="leading" secondItem="NrE-rf-9Lt" secondAttribute="leading" constant="8" id="eFk-aJ-2Kk"/>
@@ -77,15 +83,8 @@
                     <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRq-OX-nPH" userLabel="bottom">
                         <rect key="frame" x="0.0" y="366" width="320" height="98.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_heart" translatesAutoresizingMaskIntoConstraints="NO" id="37e-SW-Mlu">
-                                <rect key="frame" x="8" y="13" width="12" height="12"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="12" id="Gcv-Nm-DbS"/>
-                                    <constraint firstAttribute="width" constant="12" id="NXU-z2-Dds"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qh-YD-NnT">
-                                <rect key="frame" x="24" y="4" width="49" height="30"/>
+                                <rect key="frame" x="26" y="4" width="49" height="30"/>
                                 <state key="normal" title="5 Likes">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -93,35 +92,31 @@
                                     <action selector="didLikeAmountButtonClicked:" destination="8FX-vD-r8u" eventType="touchUpInside" id="O0q-Sj-hNV"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_message" translatesAutoresizingMaskIntoConstraints="NO" id="fax-uJ-ykh">
-                                <rect key="frame" x="8" y="38" width="12" height="12"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="12" id="1eR-AZ-zRI"/>
-                                    <constraint firstAttribute="height" constant="12" id="psM-pd-Kg7"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9P-FP-bOu" userLabel="caption">
-                                <rect key="frame" x="24" y="34" width="280" height="20.5"/>
+                                <rect key="frame" x="26" y="34" width="278" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJH-1T-IYl" userLabel="Like">
-                                <rect key="frame" x="8" y="62" width="63" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="jJH-1T-IYl" userLabel="Like">
+                                <rect key="frame" x="8" y="62" width="64" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="bYp-yl-3R2"/>
                                 </constraints>
-                                <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
-                                <state key="normal" title="Like" image="ico_empty_heart_purple">
+                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Like" image="ico_like">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="ico_liked"/>
                                 <connections>
                                     <action selector="didLikeButtonClicked:" destination="8FX-vD-r8u" eventType="touchUpInside" id="QaA-UJ-2Ci"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJU-Zr-V2F" userLabel="Comment">
-                                <rect key="frame" x="75" y="62" width="109" height="24"/>
-                                <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
+                                <rect key="frame" x="80" y="62" width="110" height="24"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Comment" image="ico_comment">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -129,11 +124,46 @@
                                     <action selector="didCommentButtonClicked:" destination="8FX-vD-r8u" eventType="touchUpInside" id="4Xr-jD-xHi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVm-Bf-gcS" userLabel="Share">
-                                <rect key="frame" x="272" y="62" width="32" height="24"/>
-                                <state key="normal" backgroundImage="ico_share">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_like" translatesAutoresizingMaskIntoConstraints="NO" id="37e-SW-Mlu">
+                                <rect key="frame" x="8" y="15" width="10" height="8"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="Gcv-Nm-DbS"/>
+                                    <constraint firstAttribute="width" constant="12" id="NXU-z2-Dds"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Gcv-Nm-DbS"/>
+                                        <exclude reference="NXU-z2-Dds"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" image="ico_comment" translatesAutoresizingMaskIntoConstraints="NO" id="fax-uJ-ykh">
+                                <rect key="frame" x="8" y="38" width="10" height="8"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="12" id="1eR-AZ-zRI"/>
+                                    <constraint firstAttribute="height" constant="12" id="psM-pd-Kg7"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1eR-AZ-zRI"/>
+                                        <exclude reference="psM-pd-Kg7"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVm-Bf-gcS" userLabel="Share">
+                                <rect key="frame" x="256" y="62" width="48" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="d5T-Bl-pcq"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="14" minY="0.0" maxX="14" maxY="0.0"/>
+                                <state key="normal" image="ico_more">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="d5T-Bl-pcq"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="didShareButtonClicked:" destination="8FX-vD-r8u" eventType="touchUpInside" id="p8a-Og-ldl"/>
                                 </connections>
@@ -142,23 +172,24 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="jJH-1T-IYl" secondAttribute="bottom" constant="12" id="7UF-on-PGL"/>
-                            <constraint firstItem="x9P-FP-bOu" firstAttribute="top" secondItem="2Qh-YD-NnT" secondAttribute="bottom" id="IqP-Xe-m19"/>
-                            <constraint firstItem="aJU-Zr-V2F" firstAttribute="leading" secondItem="jJH-1T-IYl" secondAttribute="trailing" constant="4" id="JkR-6o-GCG"/>
+                            <constraint firstItem="jJH-1T-IYl" firstAttribute="height" secondItem="aJU-Zr-V2F" secondAttribute="height" id="Azt-go-BVC"/>
+                            <constraint firstItem="fax-uJ-ykh" firstAttribute="top" secondItem="x9P-FP-bOu" secondAttribute="top" constant="4" id="EVI-28-C2E"/>
+                            <constraint firstItem="2Qh-YD-NnT" firstAttribute="centerY" secondItem="37e-SW-Mlu" secondAttribute="centerY" id="Et7-un-Yx5"/>
+                            <constraint firstItem="jJH-1T-IYl" firstAttribute="centerY" secondItem="aJU-Zr-V2F" secondAttribute="centerY" id="FKJ-LU-jLM"/>
+                            <constraint firstItem="x9P-FP-bOu" firstAttribute="leading" secondItem="fax-uJ-ykh" secondAttribute="trailing" constant="8" id="FNI-zZ-eKU"/>
+                            <constraint firstItem="aJU-Zr-V2F" firstAttribute="leading" secondItem="jJH-1T-IYl" secondAttribute="trailing" constant="8" id="KSr-wR-3WF"/>
+                            <constraint firstItem="x9P-FP-bOu" firstAttribute="top" secondItem="2Qh-YD-NnT" secondAttribute="bottom" id="Q38-5U-mS4"/>
                             <constraint firstItem="jJH-1T-IYl" firstAttribute="leading" secondItem="DRq-OX-nPH" secondAttribute="leading" constant="8" id="Qh3-5W-JBd"/>
+                            <constraint firstItem="2Qh-YD-NnT" firstAttribute="leading" secondItem="37e-SW-Mlu" secondAttribute="trailing" constant="8" id="S7j-r3-PHU"/>
                             <constraint firstItem="2Qh-YD-NnT" firstAttribute="top" secondItem="DRq-OX-nPH" secondAttribute="top" constant="4" id="SZN-jh-KZA"/>
                             <constraint firstAttribute="trailing" secondItem="rVm-Bf-gcS" secondAttribute="trailing" constant="16" id="UW8-5T-L1d"/>
                             <constraint firstItem="37e-SW-Mlu" firstAttribute="leading" secondItem="DRq-OX-nPH" secondAttribute="leading" constant="8" id="VRw-I6-o98"/>
                             <constraint firstAttribute="trailing" secondItem="x9P-FP-bOu" secondAttribute="trailing" constant="16" id="asj-ap-luT"/>
-                            <constraint firstItem="rVm-Bf-gcS" firstAttribute="centerY" secondItem="aJU-Zr-V2F" secondAttribute="centerY" id="by4-g6-oA6"/>
-                            <constraint firstItem="jJH-1T-IYl" firstAttribute="top" secondItem="x9P-FP-bOu" secondAttribute="bottom" constant="8" id="d0m-K9-xSG"/>
-                            <constraint firstItem="rVm-Bf-gcS" firstAttribute="height" secondItem="jJH-1T-IYl" secondAttribute="height" id="dbC-wY-FAk"/>
+                            <constraint firstItem="jJH-1T-IYl" firstAttribute="top" secondItem="x9P-FP-bOu" secondAttribute="bottom" constant="8" id="fJi-bf-BU6"/>
+                            <constraint firstItem="jJH-1T-IYl" firstAttribute="height" secondItem="rVm-Bf-gcS" secondAttribute="height" id="gI0-a2-c5Z"/>
                             <constraint firstItem="fax-uJ-ykh" firstAttribute="leading" secondItem="DRq-OX-nPH" secondAttribute="leading" constant="8" id="guO-UW-VRb"/>
-                            <constraint firstItem="37e-SW-Mlu" firstAttribute="centerY" secondItem="2Qh-YD-NnT" secondAttribute="centerY" id="ksF-0x-vjU"/>
-                            <constraint firstItem="rVm-Bf-gcS" firstAttribute="height" secondItem="aJU-Zr-V2F" secondAttribute="height" id="lwo-v1-QmY"/>
-                            <constraint firstItem="2Qh-YD-NnT" firstAttribute="leading" secondItem="x9P-FP-bOu" secondAttribute="leading" id="mFS-0L-El3"/>
-                            <constraint firstItem="2Qh-YD-NnT" firstAttribute="leading" secondItem="37e-SW-Mlu" secondAttribute="trailing" constant="4" id="tsF-4y-sjt"/>
-                            <constraint firstItem="fax-uJ-ykh" firstAttribute="top" secondItem="x9P-FP-bOu" secondAttribute="top" constant="4" id="uH7-uI-LZM"/>
-                            <constraint firstItem="rVm-Bf-gcS" firstAttribute="centerY" secondItem="jJH-1T-IYl" secondAttribute="centerY" id="zhe-Ro-lXN"/>
+                            <constraint firstItem="jJH-1T-IYl" firstAttribute="centerY" secondItem="rVm-Bf-gcS" secondAttribute="centerY" id="kFc-yM-ci3"/>
+                            <constraint firstItem="2Qh-YD-NnT" firstAttribute="leading" secondItem="x9P-FP-bOu" secondAttribute="leading" id="qUn-ru-oxS"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -195,12 +226,11 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="ico_clock" width="32" height="32"/>
-        <image name="ico_comment" width="21" height="21"/>
-        <image name="ico_empty_heart_purple" width="21" height="21"/>
-        <image name="ico_heart" width="20" height="19"/>
-        <image name="ico_message" width="20" height="20"/>
+        <image name="ico_comment" width="10" height="8"/>
+        <image name="ico_like" width="10" height="8"/>
+        <image name="ico_liked" width="10" height="8"/>
+        <image name="ico_more" width="20" height="6"/>
         <image name="ico_myself" width="120" height="120"/>
-        <image name="ico_share" width="32" height="21"/>
+        <image name="ico_timer" width="16" height="16"/>
     </resources>
 </document>

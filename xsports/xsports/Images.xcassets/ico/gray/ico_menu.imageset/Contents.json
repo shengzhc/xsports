@@ -3,16 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "ico_empty_heart_purple.png"
+      "filename" : "ico_menu.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "ico_empty_heart_purple@2x.png"
+      "filename" : "ico_menu@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "ico_menu@3x.png"
     }
   ],
   "info" : {

@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor cDarkGrayColor];
     [self load];
     [self showFlowCollectionViewController];
 }

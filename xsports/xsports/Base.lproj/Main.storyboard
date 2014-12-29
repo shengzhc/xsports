@@ -447,13 +447,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_blur_02" translatesAutoresizingMaskIntoConstraints="NO" id="0SI-Rm-t2d" userLabel="background">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAS-Nx-SO0" userLabel="bg">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T7C-if-kJ5" userLabel="contentView">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -464,18 +457,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="0SI-Rm-t2d" secondAttribute="trailing" id="1Ha-lY-Udf"/>
-                            <constraint firstAttribute="bottom" secondItem="0SI-Rm-t2d" secondAttribute="bottom" id="2Fp-4U-tzf"/>
                             <constraint firstItem="T7C-if-kJ5" firstAttribute="leading" secondItem="ciG-eU-fpa" secondAttribute="leading" id="2kt-Xc-s9H"/>
-                            <constraint firstItem="UAS-Nx-SO0" firstAttribute="leading" secondItem="ciG-eU-fpa" secondAttribute="leading" id="9P0-th-35I"/>
                             <constraint firstItem="T7C-if-kJ5" firstAttribute="top" secondItem="ciG-eU-fpa" secondAttribute="top" constant="64" id="TKR-cK-NOT"/>
-                            <constraint firstItem="0SI-Rm-t2d" firstAttribute="top" secondItem="ciG-eU-fpa" secondAttribute="top" id="WuN-ph-pzp"/>
-                            <constraint firstItem="0SI-Rm-t2d" firstAttribute="leading" secondItem="ciG-eU-fpa" secondAttribute="leading" id="Z8B-5o-USk"/>
                             <constraint firstAttribute="trailing" secondItem="T7C-if-kJ5" secondAttribute="trailing" id="ZsH-n7-IA1"/>
                             <constraint firstAttribute="bottom" secondItem="T7C-if-kJ5" secondAttribute="bottom" id="cXm-MR-O0O"/>
-                            <constraint firstAttribute="bottom" secondItem="UAS-Nx-SO0" secondAttribute="bottom" id="fgh-e2-ci3"/>
-                            <constraint firstAttribute="trailing" secondItem="UAS-Nx-SO0" secondAttribute="trailing" id="iAl-IL-LMC"/>
-                            <constraint firstItem="UAS-Nx-SO0" firstAttribute="top" secondItem="ciG-eU-fpa" secondAttribute="top" id="zH8-5D-2GY"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -485,14 +470,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="sOA-Yj-FfS">
                         <barButtonItem key="leftBarButtonItem" image="ico_menu" id="0yT-9e-2NJ">
-                            <inset key="imageInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="menuBarItemClicked:" destination="kUd-DW-rt9" id="Fve-iF-7vS"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="ico_layout_grid" id="PGc-uH-43T">
-                            <inset key="imageInsets" minX="0.0" minY="10" maxX="10" maxY="0.0"/>
+                        <barButtonItem key="rightBarButtonItem" image="ico_camera" id="PGc-uH-43T">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="didLayoutBarButtonItemClicked:" destination="kUd-DW-rt9" id="NQt-eh-Are"/>
@@ -1238,7 +1222,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDh-XS-fD8" userLabel="create label">
-                                <rect key="frame" x="50" y="274" width="220" height="20.5"/>
+                                <rect key="frame" x="50" y="274" width="220" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1287,7 +1271,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg_blur_02" width="621" height="1104"/>
         <image name="bg_blur_03" width="621" height="1104"/>
         <image name="bg_blur_06" width="540" height="960"/>
         <image name="bg_blur_sign" width="334" height="591"/>
@@ -1298,13 +1281,13 @@
         <image name="ico_cam_grid_white" width="40" height="40"/>
         <image name="ico_cam_rotate_green" width="40" height="40"/>
         <image name="ico_cam_rotate_white" width="40" height="40"/>
+        <image name="ico_camera" width="24" height="24"/>
         <image name="ico_close" width="44" height="44"/>
         <image name="ico_email" width="22" height="14"/>
         <image name="ico_flash_green" width="40" height="40"/>
         <image name="ico_flash_white" width="40" height="40"/>
-        <image name="ico_layout_grid" width="44" height="44"/>
         <image name="ico_logo" width="172" height="120"/>
-        <image name="ico_menu" width="44" height="44"/>
+        <image name="ico_menu" width="24" height="24"/>
         <image name="ico_myself" width="120" height="120"/>
         <image name="ico_password" width="24" height="22"/>
         <image name="ico_power_00" width="128" height="128"/>
