@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="176"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4JA-NP-TLP">
-                        <rect key="frame" x="4" y="4" width="406" height="168"/>
+                        <rect key="frame" x="1" y="1" width="412" height="174"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="4JA-NP-TLP" secondAttribute="height" multiplier="207:88" id="1IV-ns-6tC"/>
@@ -40,11 +40,11 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="4JA-NP-TLP" secondAttribute="trailing" constant="4" id="7xd-CT-pEz"/>
+                <constraint firstAttribute="trailing" secondItem="4JA-NP-TLP" secondAttribute="trailing" constant="1" id="7xd-CT-pEz"/>
                 <constraint firstItem="V1H-OI-SFc" firstAttribute="top" secondItem="r5m-g5-X1r" secondAttribute="top" constant="4" id="ayN-jv-wRb"/>
-                <constraint firstItem="4JA-NP-TLP" firstAttribute="top" secondItem="r5m-g5-X1r" secondAttribute="top" constant="4" id="g1C-BY-5q7"/>
-                <constraint firstItem="4JA-NP-TLP" firstAttribute="leading" secondItem="r5m-g5-X1r" secondAttribute="leading" constant="4" id="nff-Mn-Pac"/>
-                <constraint firstAttribute="bottom" secondItem="4JA-NP-TLP" secondAttribute="bottom" constant="4" id="pbE-tC-D6v"/>
+                <constraint firstItem="4JA-NP-TLP" firstAttribute="top" secondItem="r5m-g5-X1r" secondAttribute="top" constant="1" id="g1C-BY-5q7"/>
+                <constraint firstItem="4JA-NP-TLP" firstAttribute="leading" secondItem="r5m-g5-X1r" secondAttribute="leading" constant="1" id="nff-Mn-Pac"/>
+                <constraint firstAttribute="bottom" secondItem="4JA-NP-TLP" secondAttribute="bottom" constant="1" id="pbE-tC-D6v"/>
                 <constraint firstAttribute="trailing" secondItem="V1H-OI-SFc" secondAttribute="trailing" constant="4" id="z9G-nz-ufQ"/>
             </constraints>
             <size key="customSize" width="250" height="176"/>

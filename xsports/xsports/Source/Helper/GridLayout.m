@@ -29,7 +29,7 @@
 
 - (void)commonInit
 {
-    self.padding = 4.0;
+    self.padding = 0;
 }
 
 - (CGFloat)oneColumnWidth

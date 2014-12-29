@@ -13,9 +13,7 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.layer.cornerRadius = 4.0;
-    self.layer.masksToBounds = YES;
-    self.backgroundColor = [UIColor semiWaveColor];
+    self.backgroundColor = [UIColor cYellowColor];
 }
 
 - (void)setMedia:(Media *)media
