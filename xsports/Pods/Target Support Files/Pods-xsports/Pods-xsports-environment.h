@@ -162,3 +162,9 @@
 #define COCOAPODS_VERSION_MINOR_VCTransitionsLibrary 5
 #define COCOAPODS_VERSION_PATCH_VCTransitionsLibrary 0
 
+// WEPopover
+#define COCOAPODS_POD_AVAILABLE_WEPopover
+#define COCOAPODS_VERSION_MAJOR_WEPopover 1
+#define COCOAPODS_VERSION_MINOR_WEPopover 0
+#define COCOAPODS_VERSION_PATCH_WEPopover 0
+

@@ -103,7 +103,7 @@
 
 - (IBAction)didSignoutButtonClicked:(id)sender
 {
-    UINavigationController *camViewController = (UINavigationController *)[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavAVCamViewControllerIdentifier];
+    UINavigationController *camViewController = (UINavigationController *)[[UIStoryboard storyboardWithName:@"Cam" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavAVCamViewControllerIdentifier];
     [self presentViewController:camViewController animated:YES completion:nil];
 }
 

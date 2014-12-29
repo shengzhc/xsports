@@ -51,7 +51,7 @@
 - (LoginViewController *)loginViewController
 {
     if (_loginViewController == nil) {
-        _loginViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:LoginViewControllerIdentifier];
+        _loginViewController = [[UIStoryboard storyboardWithName:@"Login" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:LoginViewControllerIdentifier];
         _loginViewController.delegate = self;
     }
     return _loginViewController;

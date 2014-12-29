@@ -10,7 +10,6 @@
 #import "FeedFlowCollectionViewController.h"
 #import "FeedGridCollectionViewController.h"
 
-
 @interface FeedViewController () < UINavigationControllerDelegate >
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *layoutBarButtonItem;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
@@ -26,11 +25,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor cDarkGrayColor];
-    self.title = GET_STRING(@"feed_title");
-    
+    [self setupViews];
     [self load];
     [self showFlowCollectionViewController];
+}
+
+- (void)setupViews
+{
+    self.view.backgroundColor = [UIColor cDarkGrayColor];
+    self.headerActionButton.titleLabel.font = [UIFont chnRegularFont];
+    [self.headerActionButton setTitle:[NSString stringWithFormat:@"%@\u25BC", GET_STRING(@"feed_title")] forState:UIControlStateNormal];
+    [self.headerActionButton setTitle:[NSString stringWithFormat:@"%@\u25B2", GET_STRING(@"feed_title")] forState:UIControlStateSelected];
+    [self.headerActionButton setTitleColor:[UIColor cLightGrayColor] forState:UIControlStateNormal];
+    [self.headerActionButton setTitleColor:[UIColor cYellowColor] forState:UIControlStateSelected];
+    self.headerActionButton.layer.cornerRadius = 2.0;
+    self.headerActionButton.layer.masksToBounds = YES;
+    [self.headerActionButton setBackgroundColor:[UIColor clearColor]];
 }
 
 - (FeedGridCollectionViewController *)gridCollectionViewController
@@ -133,6 +143,18 @@
     }
 }
 
+- (IBAction)didHeaderActionButtonClicked:(id)sender
+{
+    [self.headerActionButton setSelected:!self.headerActionButton.selected];
+    if (self.headerActionButton.selected) {
+        [self.headerActionButton setBackgroundColor:[UIColor grayColor]];
+    } else {
+        [self.headerActionButton setBackgroundColor:[UIColor clearColor]];
+    }
+    
+    
+}
+
 - (void)setupFlowCollectionViewPullAndInfinite
 {
     __weak FeedViewController *weakSelf = (FeedViewController *)self;
@@ -184,5 +206,4 @@
 {
     return nil;
 }
-
 @end

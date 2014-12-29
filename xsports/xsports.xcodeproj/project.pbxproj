@@ -54,6 +54,9 @@
 		9C7ED1261A3B8AD0007AB927 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7ED1251A3B8AD0007AB927 /* MenuViewController.m */; };
 		9C7ED1291A3BA13C007AB927 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7ED1281A3BA13C007AB927 /* FeedViewController.m */; };
 		9C835CDB1A3AC47100A75B91 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C835CDA1A3AC47100A75B91 /* QuartzCore.framework */; };
+		9C96E4991A521EBE00C5701D /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C96E4981A521EBE00C5701D /* Popover.storyboard */; };
+		9C96E49B1A521EE200C5701D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C96E49A1A521EE200C5701D /* Login.storyboard */; };
+		9C96E49D1A521F2900C5701D /* Cam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C96E49C1A521F2900C5701D /* Cam.storyboard */; };
 		9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9862F91A39753F003D5F86 /* UIColor+XS.m */; };
 		9CBC8AB91A47777E006F00A3 /* AVCamPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC8AB81A47777E006F00A3 /* AVCamPreviewView.m */; };
 		9CBC8ABC1A477793006F00A3 /* CamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC8ABB1A477793006F00A3 /* CamViewController.m */; };
@@ -186,6 +189,9 @@
 		9C7ED1271A3BA13C007AB927 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
 		9C7ED1281A3BA13C007AB927 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		9C835CDA1A3AC47100A75B91 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9C96E4981A521EBE00C5701D /* Popover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popover.storyboard; sourceTree = "<group>"; };
+		9C96E49A1A521EE200C5701D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		9C96E49C1A521F2900C5701D /* Cam.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cam.storyboard; sourceTree = "<group>"; };
 		9C9862F81A39753F003D5F86 /* UIColor+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XS.h"; sourceTree = "<group>"; };
 		9C9862F91A39753F003D5F86 /* UIColor+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XS.m"; sourceTree = "<group>"; };
 		9CBC8AB71A47777E006F00A3 /* AVCamPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamPreviewView.h; sourceTree = "<group>"; };
@@ -437,7 +443,6 @@
 			children = (
 				9CBC8ABA1A477793006F00A3 /* CamViewController.h */,
 				9CBC8ABB1A477793006F00A3 /* CamViewController.m */,
-				9C7DEBB91A396E6B00A0436E /* Main.storyboard */,
 				9C54EF3A1A39EECA00D16EEE /* LoginViewController.h */,
 				9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */,
 				9C02EA0A1A3A706F00FA1631 /* LoadingViewController.h */,
@@ -470,6 +475,10 @@
 				9CDDDE3C1A493DFC00144DB8 /* AssetsPickerViewController.m */,
 				9C1EE3471A4B268F007372BD /* SignUpViewController.h */,
 				9C1EE3481A4B268F007372BD /* SignUpViewController.m */,
+				9C7DEBB91A396E6B00A0436E /* Main.storyboard */,
+				9C96E4981A521EBE00C5701D /* Popover.storyboard */,
+				9C96E49A1A521EE200C5701D /* Login.storyboard */,
+				9C96E49C1A521F2900C5701D /* Cam.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -672,11 +681,14 @@
 				9C4B94F91A425FFC00DFCC7F /* FeedViewGridVideoCell.xib in Resources */,
 				9CBCE7581A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf in Resources */,
 				9CBCE7501A3ECD9000C9BD35 /* SourceSansPro-Bold.otf in Resources */,
+				9C96E49B1A521EE200C5701D /* Login.storyboard in Resources */,
+				9C96E49D1A521F2900C5701D /* Cam.storyboard in Resources */,
 				9CBCE7571A3ECD9000C9BD35 /* SourceSansPro-Regular.otf in Resources */,
 				9C6B21E91A397BB100FE8B43 /* Images.xcassets in Resources */,
 				9CBCE7551A3ECD9000C9BD35 /* SourceSansPro-Light.otf in Resources */,
 				9C7DEBBB1A396E6B00A0436E /* Main.storyboard in Resources */,
 				9CBCE7371A3E381B00C9BD35 /* instagram.txt in Resources */,
+				9C96E4991A521EBE00C5701D /* Popover.storyboard in Resources */,
 				9CCF5AC01A4BE487001B9029 /* Localizable.strings in Resources */,
 				9C11A4641A45F08400A9E4CD /* CommentsCell.xib in Resources */,
 				9CBCE74E1A3ECD9000C9BD35 /* SourceSansPro-Black.otf in Resources */,

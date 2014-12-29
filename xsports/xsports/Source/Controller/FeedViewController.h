@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface FeedViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UIButton *headerActionButton;
+- (IBAction)didHeaderActionButtonClicked:(id)sender;
 @end

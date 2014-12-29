@@ -44,6 +44,7 @@ PODS:
   - SlackTextViewController/Additions (1.4)
   - SVPullToRefresh (0.4.1)
   - VCTransitionsLibrary (1.5.0)
+  - WEPopover (1.0.0)
 
 DEPENDENCIES:
   - AFNetworking
@@ -61,6 +62,7 @@ DEPENDENCIES:
   - SlackTextViewController
   - SVPullToRefresh
   - VCTransitionsLibrary
+  - WEPopover
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
@@ -78,5 +80,6 @@ SPEC CHECKSUMS:
   SlackTextViewController: e3f5998407ef7442aa9d311c65e3430146f1779a
   SVPullToRefresh: d5161ebc833a38b465364412e5e307ca80bbb190
   VCTransitionsLibrary: 3c33ef649f7380bdb5bff5212f01c8f3f9eb5492
+  WEPopover: 1d707d5d2fc8f27c2515d4a7c05214a0c239cc6f
 
 COCOAPODS: 0.35.0
