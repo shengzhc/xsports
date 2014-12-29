@@ -28,6 +28,7 @@
 		9C3428591A455F940021AB2B /* LikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3428581A455F940021AB2B /* LikesViewController.m */; };
 		9C34285C1A4560800021AB2B /* LikesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C34285B1A4560800021AB2B /* LikesCell.m */; };
 		9C3C481C1A4EFA9600BABAED /* AVPlayer+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C481B1A4EFA9600BABAED /* AVPlayer+XS.m */; };
+		9C3C48201A50715600BABAED /* AVPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C481F1A50715600BABAED /* AVPlayerManager.m */; };
 		9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C44C6291A3C2041002CB86B /* MenuViewCell.m */; };
 		9C4B94F01A41697900DFCC7F /* FeedViewGridPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B94EE1A41697900DFCC7F /* FeedViewGridPhotoCell.m */; };
 		9C4B94F11A41697900DFCC7F /* FeedViewGridPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C4B94EF1A41697900DFCC7F /* FeedViewGridPhotoCell.xib */; };
@@ -137,6 +138,8 @@
 		9C34285B1A4560800021AB2B /* LikesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesCell.m; sourceTree = "<group>"; };
 		9C3C481A1A4EFA9600BABAED /* AVPlayer+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVPlayer+XS.h"; sourceTree = "<group>"; };
 		9C3C481B1A4EFA9600BABAED /* AVPlayer+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVPlayer+XS.m"; sourceTree = "<group>"; };
+		9C3C481E1A50715600BABAED /* AVPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPlayerManager.h; sourceTree = "<group>"; };
+		9C3C481F1A50715600BABAED /* AVPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPlayerManager.m; sourceTree = "<group>"; };
 		9C44C6281A3C2041002CB86B /* MenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewCell.h; sourceTree = "<group>"; };
 		9C44C6291A3C2041002CB86B /* MenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewCell.m; sourceTree = "<group>"; };
 		9C4B94ED1A41697900DFCC7F /* FeedViewGridPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewGridPhotoCell.h; sourceTree = "<group>"; };
@@ -310,6 +313,15 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		9C3C481D1A50714B00BABAED /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9C3C481E1A50715600BABAED /* AVPlayerManager.h */,
+				9C3C481F1A50715600BABAED /* AVPlayerManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		9C54EF3D1A39EF0B00D16EEE /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +403,7 @@
 		9C9862EF1A3974A8003D5F86 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				9C3C481D1A50714B00BABAED /* Manager */,
 				9CBCE7291A3E29EB00C9BD35 /* Server */,
 				9C02EA131A3AB54300FA1631 /* Helper */,
 				9C9862F11A3974D6003D5F86 /* Controller */,
@@ -741,6 +754,7 @@
 				9CCF5AA61A4BDF12001B9029 /* SCLocalizable.m in Sources */,
 				9CBCE7281A3D7B9B00C9BD35 /* FeedViewPhotoCell.m in Sources */,
 				9CCC75781A45488F00F9EE3D /* SlidingAndFadingAnimator.m in Sources */,
+				9C3C48201A50715600BABAED /* AVPlayerManager.m in Sources */,
 				9CBCE71F1A3CC56200C9BD35 /* MEZoomAnimationController.m in Sources */,
 				9CF88D441A3FC3F300D4E72E /* JSONValueTransformer+XS.m in Sources */,
 				9C3428561A455D9D0021AB2B /* PageNavigationController.m in Sources */,
