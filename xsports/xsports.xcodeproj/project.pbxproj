@@ -57,6 +57,7 @@
 		9C96E4991A521EBE00C5701D /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C96E4981A521EBE00C5701D /* Popover.storyboard */; };
 		9C96E49B1A521EE200C5701D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C96E49A1A521EE200C5701D /* Login.storyboard */; };
 		9C96E49D1A521F2900C5701D /* Cam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C96E49C1A521F2900C5701D /* Cam.storyboard */; };
+		9C96E4A01A52204300C5701D /* FeedPopoverContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C96E49F1A52204300C5701D /* FeedPopoverContentViewController.m */; };
 		9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9862F91A39753F003D5F86 /* UIColor+XS.m */; };
 		9CBC8AB91A47777E006F00A3 /* AVCamPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC8AB81A47777E006F00A3 /* AVCamPreviewView.m */; };
 		9CBC8ABC1A477793006F00A3 /* CamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC8ABB1A477793006F00A3 /* CamViewController.m */; };
@@ -192,6 +193,8 @@
 		9C96E4981A521EBE00C5701D /* Popover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popover.storyboard; sourceTree = "<group>"; };
 		9C96E49A1A521EE200C5701D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		9C96E49C1A521F2900C5701D /* Cam.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cam.storyboard; sourceTree = "<group>"; };
+		9C96E49E1A52204300C5701D /* FeedPopoverContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPopoverContentViewController.h; sourceTree = "<group>"; };
+		9C96E49F1A52204300C5701D /* FeedPopoverContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPopoverContentViewController.m; sourceTree = "<group>"; };
 		9C9862F81A39753F003D5F86 /* UIColor+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XS.h"; sourceTree = "<group>"; };
 		9C9862F91A39753F003D5F86 /* UIColor+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XS.m"; sourceTree = "<group>"; };
 		9CBC8AB71A47777E006F00A3 /* AVCamPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamPreviewView.h; sourceTree = "<group>"; };
@@ -394,6 +397,102 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9C96E4A11A52204F00C5701D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9C7DEBB91A396E6B00A0436E /* Main.storyboard */,
+				9C96E4981A521EBE00C5701D /* Popover.storyboard */,
+				9C96E49A1A521EE200C5701D /* Login.storyboard */,
+				9C96E49C1A521F2900C5701D /* Cam.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		9C96E4A21A52205F00C5701D /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				9C96E49E1A52204300C5701D /* FeedPopoverContentViewController.h */,
+				9C96E49F1A52204300C5701D /* FeedPopoverContentViewController.m */,
+				9C7ED1271A3BA13C007AB927 /* FeedViewController.h */,
+				9C7ED1281A3BA13C007AB927 /* FeedViewController.m */,
+				9C4B94FA1A4292DD00DFCC7F /* FeedFlowCollectionViewController.h */,
+				9C4B94FB1A4292DD00DFCC7F /* FeedFlowCollectionViewController.m */,
+				9C4B94FD1A4292EE00DFCC7F /* FeedGridCollectionViewController.h */,
+				9C4B94FE1A4292EE00DFCC7F /* FeedGridCollectionViewController.m */,
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
+		9C96E4A31A52206600C5701D /* Cam */ = {
+			isa = PBXGroup;
+			children = (
+				9CDDDE381A49373C00144DB8 /* CamFilterViewController.h */,
+				9CDDDE391A49373C00144DB8 /* CamFilterViewController.m */,
+				9CDDDE3B1A493DFC00144DB8 /* AssetsPickerViewController.h */,
+				9CDDDE3C1A493DFC00144DB8 /* AssetsPickerViewController.m */,
+				9CBC8ABA1A477793006F00A3 /* CamViewController.h */,
+				9CBC8ABB1A477793006F00A3 /* CamViewController.m */,
+			);
+			name = Cam;
+			sourceTree = "<group>";
+		};
+		9C96E4A41A52207300C5701D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9C1EE3471A4B268F007372BD /* SignUpViewController.h */,
+				9C1EE3481A4B268F007372BD /* SignUpViewController.m */,
+				9C54EF3A1A39EECA00D16EEE /* LoginViewController.h */,
+				9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		9C96E4A51A52209600C5701D /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				9CBC8ABD1A47C32C006F00A3 /* StatusHiddenNavigationController.h */,
+				9CBC8ABE1A47C32C006F00A3 /* StatusHiddenNavigationController.m */,
+				9C3428541A455D9D0021AB2B /* PageNavigationController.h */,
+				9C3428551A455D9D0021AB2B /* PageNavigationController.m */,
+				9C02EA0A1A3A706F00FA1631 /* LoadingViewController.h */,
+				9C02EA0B1A3A706F00FA1631 /* LoadingViewController.m */,
+				9C7ED1211A3B89B4007AB927 /* SlidingViewController.h */,
+				9C7ED1221A3B89B4007AB927 /* SlidingViewController.m */,
+				9C7ED1241A3B8AD0007AB927 /* MenuViewController.h */,
+				9C7ED1251A3B8AD0007AB927 /* MenuViewController.m */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
+		9C96E4A61A5220AD00C5701D /* Likes */ = {
+			isa = PBXGroup;
+			children = (
+				9C3428571A455F940021AB2B /* LikesViewController.h */,
+				9C3428581A455F940021AB2B /* LikesViewController.m */,
+			);
+			name = Likes;
+			sourceTree = "<group>";
+		};
+		9C96E4A71A5220B700C5701D /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				9C11A45D1A45E50200A9E4CD /* CommentsViewController.h */,
+				9C11A45E1A45E50200A9E4CD /* CommentsViewController.m */,
+				9CE4F08E1A46987E005EB73C /* CommentsTextViewController.h */,
+				9CE4F08F1A46987E005EB73C /* CommentsTextViewController.m */,
+			);
+			name = Comments;
+			sourceTree = "<group>";
+		};
+		9C96E4A81A5220C500C5701D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9CBCE7201A3CCFF700C9BD35 /* SettingViewController.h */,
+				9CBCE7211A3CCFF700C9BD35 /* SettingViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		9C9862EF1A3974A8003D5F86 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,44 +540,14 @@
 		9C9862F11A3974D6003D5F86 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9CBC8ABA1A477793006F00A3 /* CamViewController.h */,
-				9CBC8ABB1A477793006F00A3 /* CamViewController.m */,
-				9C54EF3A1A39EECA00D16EEE /* LoginViewController.h */,
-				9C54EF3B1A39EECA00D16EEE /* LoginViewController.m */,
-				9C02EA0A1A3A706F00FA1631 /* LoadingViewController.h */,
-				9C02EA0B1A3A706F00FA1631 /* LoadingViewController.m */,
-				9C7ED1211A3B89B4007AB927 /* SlidingViewController.h */,
-				9C7ED1221A3B89B4007AB927 /* SlidingViewController.m */,
-				9C7ED1241A3B8AD0007AB927 /* MenuViewController.h */,
-				9C7ED1251A3B8AD0007AB927 /* MenuViewController.m */,
-				9C7ED1271A3BA13C007AB927 /* FeedViewController.h */,
-				9C7ED1281A3BA13C007AB927 /* FeedViewController.m */,
-				9CBCE7201A3CCFF700C9BD35 /* SettingViewController.h */,
-				9CBCE7211A3CCFF700C9BD35 /* SettingViewController.m */,
-				9C4B94FA1A4292DD00DFCC7F /* FeedFlowCollectionViewController.h */,
-				9C4B94FB1A4292DD00DFCC7F /* FeedFlowCollectionViewController.m */,
-				9C4B94FD1A4292EE00DFCC7F /* FeedGridCollectionViewController.h */,
-				9C4B94FE1A4292EE00DFCC7F /* FeedGridCollectionViewController.m */,
-				9C3428541A455D9D0021AB2B /* PageNavigationController.h */,
-				9C3428551A455D9D0021AB2B /* PageNavigationController.m */,
-				9C3428571A455F940021AB2B /* LikesViewController.h */,
-				9C3428581A455F940021AB2B /* LikesViewController.m */,
-				9C11A45D1A45E50200A9E4CD /* CommentsViewController.h */,
-				9C11A45E1A45E50200A9E4CD /* CommentsViewController.m */,
-				9CE4F08E1A46987E005EB73C /* CommentsTextViewController.h */,
-				9CE4F08F1A46987E005EB73C /* CommentsTextViewController.m */,
-				9CBC8ABD1A47C32C006F00A3 /* StatusHiddenNavigationController.h */,
-				9CBC8ABE1A47C32C006F00A3 /* StatusHiddenNavigationController.m */,
-				9CDDDE381A49373C00144DB8 /* CamFilterViewController.h */,
-				9CDDDE391A49373C00144DB8 /* CamFilterViewController.m */,
-				9CDDDE3B1A493DFC00144DB8 /* AssetsPickerViewController.h */,
-				9CDDDE3C1A493DFC00144DB8 /* AssetsPickerViewController.m */,
-				9C1EE3471A4B268F007372BD /* SignUpViewController.h */,
-				9C1EE3481A4B268F007372BD /* SignUpViewController.m */,
-				9C7DEBB91A396E6B00A0436E /* Main.storyboard */,
-				9C96E4981A521EBE00C5701D /* Popover.storyboard */,
-				9C96E49A1A521EE200C5701D /* Login.storyboard */,
-				9C96E49C1A521F2900C5701D /* Cam.storyboard */,
+				9C96E4A81A5220C500C5701D /* Settings */,
+				9C96E4A71A5220B700C5701D /* Comments */,
+				9C96E4A61A5220AD00C5701D /* Likes */,
+				9C96E4A51A52209600C5701D /* Others */,
+				9C96E4A41A52207300C5701D /* Login */,
+				9C96E4A31A52206600C5701D /* Cam */,
+				9C96E4A21A52205F00C5701D /* Feed */,
+				9C96E4A11A52204F00C5701D /* Storyboards */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -788,6 +857,7 @@
 				9C02EA0C1A3A706F00FA1631 /* LoadingViewController.m in Sources */,
 				9C54EF491A39F11A00D16EEE /* XSConstants.m in Sources */,
 				9CCC75771A45488F00F9EE3D /* LoadingAnimator.m in Sources */,
+				9C96E4A01A52204300C5701D /* FeedPopoverContentViewController.m in Sources */,
 				9C7ED1231A3B89B4007AB927 /* SlidingViewController.m in Sources */,
 				9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */,
 				9CDDDE3D1A493DFC00144DB8 /* AssetsPickerViewController.m in Sources */,
