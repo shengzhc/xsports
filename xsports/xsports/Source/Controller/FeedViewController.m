@@ -12,7 +12,6 @@
 #import "FeedPopoverContentViewController.h"
 
 @interface FeedViewController () < UINavigationControllerDelegate, FeedPopoverContentViewControllerDelegate, WEPopoverControllerDelegate >
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *layoutBarButtonItem;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @property (strong, nonatomic) FeedFlowCollectionViewController *flowCollectionViewController;
@@ -170,13 +169,10 @@
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
 }
 
-- (IBAction)didLayoutBarButtonItemClicked:(id)sender
+- (IBAction)didCameraBarButtonItemClicked:(id)sender
 {
-    if (self.flowCollectionViewController.parentViewController) {
-        [self showGridCollectionViewController];
-    } else {
-        [self showFlowCollectionViewController];
-    }
+    UINavigationController *camViewController = (UINavigationController *)[[UIStoryboard storyboardWithName:@"Cam" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavAVCamViewControllerIdentifier];
+    [self presentViewController:camViewController animated:YES completion:nil];
 }
 
 - (IBAction)didHeaderActionButtonClicked:(id)sender

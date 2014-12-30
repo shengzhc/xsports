@@ -281,14 +281,13 @@
                         <barButtonItem key="rightBarButtonItem" image="ico_camera" id="PGc-uH-43T">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="didLayoutBarButtonItemClicked:" destination="kUd-DW-rt9" id="NQt-eh-Are"/>
+                                <action selector="didCameraBarButtonItemClicked:" destination="kUd-DW-rt9" id="NsL-bB-V5s"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="contentView" destination="T7C-if-kJ5" id="NA5-6r-i75"/>
                         <outlet property="headerActionButton" destination="vE3-iL-c88" id="l5c-Np-l13"/>
-                        <outlet property="layoutBarButtonItem" destination="PGc-uH-43T" id="Ncw-Ca-fFO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWK-jZ-Lth" userLabel="First Responder" sceneMemberID="firstResponder"/>

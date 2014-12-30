@@ -7,13 +7,10 @@
 //
 
 #import "SlidingViewController.h"
-#import "LoginViewController.h"
-
 #import "MEZoomAnimationController.h"
 
-@interface SlidingViewController () < LoginViewControllerDelegate >
+@interface SlidingViewController ()
 @property (strong, nonatomic) SinkingAndSlidingAnimator *animator;
-@property (strong, nonatomic) LoginViewController *loginViewController;
 @property (strong, nonatomic) MEZoomAnimationController *zoomAnimator;
 @end
 
@@ -27,16 +24,12 @@
     self.delegate = self.animator;
     self.animator.anchorRightRevealingAmount = self.anchorRightRevealAmount;
 
-//    self.zoomAnimator = [[MEZoomAnimationController alloc] init];
-//    self.delegate = self.zoomAnimator;
-    
     self.topViewAnchoredGesture = ECSlidingViewControllerAnchoredGestureTapping;
-
     self.menuViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:MenuViewControllerIdentifier];
     self.underLeftViewController = self.menuViewController;
     
-    if (/* DISABLES CODE */ (NO)) {
-        self.topViewController = self.loginViewController;
+    if (/* DISABLES CODE */ (YES)) {
+        [self.menuViewController select:kMenuItemLogin animated:NO];
     } else {
         [self.menuViewController select:kMenuItemNew animated:NO];
     }
@@ -46,21 +39,6 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightPebbleColor];
-}
-
-- (LoginViewController *)loginViewController
-{
-    if (_loginViewController == nil) {
-        _loginViewController = [[UIStoryboard storyboardWithName:@"Login" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:LoginViewControllerIdentifier];
-        _loginViewController.delegate = self;
-    }
-    return _loginViewController;
-}
-
-#pragma mark LoginViewControllerDelegate
-- (void)loginViewController:(LoginViewController *)viewController didSignIn:(id)sender
-{
-    [self.menuViewController select:kMenuItemNew animated:YES];
 }
 
 @end

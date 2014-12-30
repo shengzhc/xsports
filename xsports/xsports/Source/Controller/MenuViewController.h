@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoginViewController.h"
 #import "FeedViewController.h"
 #import "SettingViewController.h"
 
 typedef enum : NSInteger {
+    kMenuItemLogin,
     kMenuItemNew,
     kMenuItemChat,
     kMenuItemFavorite,
@@ -18,7 +20,7 @@ typedef enum : NSInteger {
     kMenuItemSetting
 } MenuItem;
 
-@interface MenuViewController : UIViewController < UITableViewDataSource, UITableViewDelegate >
+@interface MenuViewController : UIViewController < UITableViewDataSource, UITableViewDelegate, LoginViewControllerDelegate >
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -27,6 +29,7 @@ typedef enum : NSInteger {
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (assign, nonatomic) MenuItem selectedRow;
 
+@property (strong, nonatomic) LoginViewController *loginViewController;
 @property (strong, nonatomic) UINavigationController *navFeedViewController;
 @property (strong, nonatomic) FeedViewController *feedViewController;
 @property (strong, nonatomic) UINavigationController *navSettingViewController;

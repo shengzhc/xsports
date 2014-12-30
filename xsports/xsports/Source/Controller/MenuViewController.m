@@ -7,7 +7,6 @@
 //
 
 #import "MenuViewController.h"
-#import "CamViewController.h"
 #import "MenuViewCell.h"
 
 @implementation MenuViewController
@@ -64,6 +63,11 @@
     self.selectedRow = -1;
     
     {
+        self.loginViewController = [[UIStoryboard storyboardWithName:@"Login" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:LoginViewControllerIdentifier];
+        self.loginViewController.delegate = self;
+    }
+    
+    {
         self.navFeedViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavFeedViewControllerIdentifier];
         self.feedViewController = (FeedViewController *)self.navFeedViewController.topViewController;
     }
@@ -73,6 +77,7 @@
         self.settingViewController = (SettingViewController *)self.navSettingViewController.topViewController;
         [self.navSettingViewController clearBackground];
     }
+    
 }
 
 #pragma mark Action
@@ -81,6 +86,9 @@
     if (menuItem != self.selectedRow) {
         self.selectedRow = menuItem;
         switch (self.selectedRow) {
+            case kMenuItemLogin:
+                self.slidingViewController.topViewController = self.loginViewController;
+                break;
             case kMenuItemNew:
                 self.slidingViewController.topViewController = self.navFeedViewController;
                 break;
@@ -103,8 +111,18 @@
 
 - (IBAction)didSignoutButtonClicked:(id)sender
 {
-    UINavigationController *camViewController = (UINavigationController *)[[UIStoryboard storyboardWithName:@"Cam" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavAVCamViewControllerIdentifier];
-    [self presentViewController:camViewController animated:YES completion:nil];
+    self.loginViewController = nil;
+    self.loginViewController = [[UIStoryboard storyboardWithName:@"Login" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:LoginViewControllerIdentifier];
+    self.loginViewController.delegate = self;
+    [[self slidingViewController] resetTopViewAnimated:YES onComplete:^{
+        [self select:kMenuItemLogin animated:YES];
+    }];
+}
+
+#pragma mark LoginViewControllerDelegate
+- (void)loginViewController:(LoginViewController *)viewController didSignIn:(id)sender
+{
+    [self select:kMenuItemNew animated:YES];
 }
 
 #pragma mark UITableViewDelegate & UITableViewDataSource
