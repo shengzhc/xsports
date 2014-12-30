@@ -24,3 +24,5 @@
 "btn_like" = "喜欢";
 "btn_comment" = "评论";
 "feed_title" = "Editors Picks";
+"layout_list" = "列表排布";
+"layout_grid" = "网格排布";

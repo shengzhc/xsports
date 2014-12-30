@@ -9,13 +9,15 @@
 #import "FeedViewController.h"
 #import "FeedFlowCollectionViewController.h"
 #import "FeedGridCollectionViewController.h"
+#import "FeedPopoverContentViewController.h"
 
-@interface FeedViewController () < UINavigationControllerDelegate >
+@interface FeedViewController () < UINavigationControllerDelegate, FeedPopoverContentViewControllerDelegate >
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *layoutBarButtonItem;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @property (strong, nonatomic) FeedFlowCollectionViewController *flowCollectionViewController;
 @property (strong, nonatomic) FeedGridCollectionViewController *gridCollectionViewController;
+@property (strong, nonatomic) WEPopoverController *popController;
 
 @property (strong, nonatomic) NSArray *feeds;
 @end
@@ -30,6 +32,7 @@
     [self showFlowCollectionViewController];
 }
 
+#pragma mark Setup
 - (void)setupViews
 {
     self.view.backgroundColor = [UIColor cDarkGrayColor];
@@ -41,6 +44,40 @@
     self.headerActionButton.layer.cornerRadius = 2.0;
     self.headerActionButton.layer.masksToBounds = YES;
     [self.headerActionButton setBackgroundColor:[UIColor clearColor]];
+}
+
+- (void)setupFlowCollectionViewPullAndInfinite
+{
+    __weak FeedViewController *weakSelf = (FeedViewController *)self;
+    [self.flowCollectionViewController.collectionView addPullToRefreshWithActionHandler:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf load];
+            [weakSelf.flowCollectionViewController.collectionView.pullToRefreshView stopAnimating];
+        });
+    }];
+    
+    [self.flowCollectionViewController.collectionView addInfiniteScrollingWithActionHandler:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf.flowCollectionViewController.collectionView.infiniteScrollingView stopAnimating];
+        });
+    }];
+}
+
+- (void)setupGridCollectionViewPullAndInfinite
+{
+    __weak FeedViewController *weakSelf = (FeedViewController *)self;
+    [self.gridCollectionViewController.collectionView addPullToRefreshWithActionHandler:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf load];
+            [weakSelf.gridCollectionViewController.collectionView.pullToRefreshView stopAnimating];
+        });
+    }];
+    
+    [self.gridCollectionViewController.collectionView addInfiniteScrollingWithActionHandler:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf.gridCollectionViewController.collectionView.infiniteScrollingView stopAnimating];
+        });
+    }];
 }
 
 - (FeedGridCollectionViewController *)gridCollectionViewController
@@ -64,6 +101,7 @@
     }
 }
 
+#pragma mark Logic
 - (void)load
 {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"instagram" ofType:@"txt"];
@@ -152,41 +190,16 @@
         [self.headerActionButton setBackgroundColor:[UIColor clearColor]];
     }
     
+    if (self.popController) {
+        [self.popController dismissPopoverAnimated:NO];
+    }
     
-}
-
-- (void)setupFlowCollectionViewPullAndInfinite
-{
-    __weak FeedViewController *weakSelf = (FeedViewController *)self;
-    [self.flowCollectionViewController.collectionView addPullToRefreshWithActionHandler:^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [weakSelf load];
-            [weakSelf.flowCollectionViewController.collectionView.pullToRefreshView stopAnimating];
-        });
-    }];
-    
-    [self.flowCollectionViewController.collectionView addInfiniteScrollingWithActionHandler:^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [weakSelf.flowCollectionViewController.collectionView.infiniteScrollingView stopAnimating];
-        });
-    }];
-}
-
-- (void)setupGridCollectionViewPullAndInfinite
-{
-    __weak FeedViewController *weakSelf = (FeedViewController *)self;
-    [self.gridCollectionViewController.collectionView addPullToRefreshWithActionHandler:^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [weakSelf load];
-            [weakSelf.gridCollectionViewController.collectionView.pullToRefreshView stopAnimating];
-        });
-    }];
-    
-    [self.gridCollectionViewController.collectionView addInfiniteScrollingWithActionHandler:^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [weakSelf.gridCollectionViewController.collectionView.infiniteScrollingView stopAnimating];
-        });
-    }];
+    FeedPopoverContentViewController *contentViewController = [[UIStoryboard storyboardWithName:@"Popover" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:FeedPopoverContentViewControllerIdentifier];
+    contentViewController.delegate = self;
+    contentViewController.selectedIndexPath = [NSIndexPath indexPathForRow:(self.flowCollectionViewController.parentViewController ? 0 : 1) inSection:0];
+    self.popController = [[WEPopoverController alloc] initWithContentViewController:contentViewController];
+    self.popController.popoverContentSize = CGSizeMake(144, 88);
+    [self.popController presentPopoverFromRect:self.headerActionButton.frame inView:self.navigationController.navigationBar permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -196,6 +209,19 @@
         self.flowCollectionViewController = (FeedFlowCollectionViewController *)segue.destinationViewController;
         [self setupFlowCollectionViewPullAndInfinite];
     }
+}
+
+#pragma mark FeedPopoverContentViewControllerDelegate
+- (void)feedPopoverContentViewController:(FeedPopoverContentViewController *)controller didSelectIndexPath:(NSIndexPath *)indexPath
+{
+    BOOL isGridLayout = [controller.tableView indexPathForSelectedRow].row == 1;
+    if (isGridLayout) {
+        [self showGridCollectionViewController];
+    } else {
+        [self showFlowCollectionViewController];
+    }
+    
+    [self.popController dismissPopoverAnimated:YES];
 }
 
 #pragma mark UINavigationControllerDelegate

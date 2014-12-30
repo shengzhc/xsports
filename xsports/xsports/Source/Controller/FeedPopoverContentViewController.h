@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeedPopoverContentViewController : UITableViewController
+@class FeedPopoverContentViewController;
 
+@protocol FeedPopoverContentViewControllerDelegate <NSObject>
+@optional
+- (void)feedPopoverContentViewController:(FeedPopoverContentViewController *)controller didSelectIndexPath:(NSIndexPath *)indexPath;
+@end
+
+@interface FeedPopoverContentViewController : UITableViewController
+@property (strong, nonatomic) NSIndexPath *selectedIndexPath;
+@property (weak, nonatomic) id <FeedPopoverContentViewControllerDelegate> delegate;
 @end
