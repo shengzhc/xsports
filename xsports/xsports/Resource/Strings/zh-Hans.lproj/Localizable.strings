@@ -18,3 +18,11 @@
 "signup_create_account" = "创建账户";
 "login_email_password_error_msg" = "邮箱或密码不正确";
 "signup_error_msg" = "邮箱, 密码或用户名不正确";
+
+//Feed Page
+"btn_great" = "赞";
+"btn_like" = "喜欢";
+"btn_comment" = "评论";
+"feed_title" = "Editors Picks";
+"layout_list" = "列表排布";
+"layout_grid" = "网格排布";

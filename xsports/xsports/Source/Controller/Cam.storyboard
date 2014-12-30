@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--Cam View Controller-->
+        <scene sceneID="RAK-PD-Jnz">
+            <objects>
+                <viewController storyboardIdentifier="CamViewController" id="kHK-oS-ctS" customClass="CamViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PKA-1m-Lkc"/>
+                        <viewControllerLayoutGuide type="bottom" id="hFK-J7-zPR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IoD-RX-0Gn">
+                        <rect key="frame" x="0.0" y="44" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Btx-FQ-sfw" customClass="AVCamPreviewView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="420"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCg-mM-09X" userLabel="top curtain">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="210"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vpf-3D-qXs" userLabel="bottom curtain">
+                                <rect key="frame" x="0.0" y="210" width="320" height="210"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4G-z1-XUv" userLabel="toolContainer">
+                                <rect key="frame" x="0.0" y="364" width="320" height="56"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kc-uU-HQh" userLabel="flashButton">
+                                        <rect key="frame" x="228" y="8" width="40" height="40"/>
+                                        <state key="normal" image="ico_flash_white">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" image="ico_flash_green"/>
+                                        <state key="highlighted" image="ico_flash_green"/>
+                                        <connections>
+                                            <action selector="didFlashButtonClicked:" destination="kHK-oS-ctS" eventType="touchUpInside" id="eKi-Dc-zas"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofq-ul-lmb" userLabel="flipButton">
+                                        <rect key="frame" x="140" y="8" width="40" height="40"/>
+                                        <state key="normal" image="ico_cam_rotate_white">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" image="ico_cam_rotate_green"/>
+                                        <connections>
+                                            <action selector="didFlipButtonClicked:" destination="kHK-oS-ctS" eventType="touchUpInside" id="faS-tv-85H"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZhG-lb-P6r" userLabel="gridButton">
+                                        <rect key="frame" x="46" y="8" width="40" height="40"/>
+                                        <state key="normal" image="ico_cam_grid_white">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" image="ico_cam_grid_green"/>
+                                        <connections>
+                                            <action selector="didGridButtonClicked:" destination="kHK-oS-ctS" eventType="touchUpInside" id="6tv-KH-MjH"/>
+                                        </connections>
+                                    </button>
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0B5-6E-tbF" userLabel="progress view" customClass="ProgressView">
+                                        <rect key="frame" x="0.0" y="50" width="320" height="6"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="6" id="TMV-gE-VJA"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="ZhG-lb-P6r" secondAttribute="centerY" id="Lig-up-2aZ"/>
+                                    <constraint firstAttribute="centerY" secondItem="5kc-uU-HQh" secondAttribute="centerY" id="MYw-8P-G8b"/>
+                                    <constraint firstAttribute="centerY" secondItem="Ofq-ul-lmb" secondAttribute="centerY" id="Q0k-Dg-dLw"/>
+                                    <constraint firstItem="0B5-6E-tbF" firstAttribute="leading" secondItem="h4G-z1-XUv" secondAttribute="leading" id="WGR-G2-8sQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="0B5-6E-tbF" secondAttribute="bottom" id="dN5-m3-2Eg"/>
+                                    <constraint firstItem="ZhG-lb-P6r" firstAttribute="leading" secondItem="h4G-z1-XUv" secondAttribute="leading" constant="46" id="euh-Vf-7Df"/>
+                                    <constraint firstAttribute="trailing" secondItem="0B5-6E-tbF" secondAttribute="trailing" id="j6a-Cr-eQR"/>
+                                    <constraint firstAttribute="trailing" secondItem="5kc-uU-HQh" secondAttribute="trailing" constant="52" id="mrm-13-O1G"/>
+                                    <constraint firstAttribute="height" constant="56" id="ooO-Ug-xc6"/>
+                                    <constraint firstAttribute="centerX" secondItem="Ofq-ul-lmb" secondAttribute="centerX" id="t59-w4-ejD"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z6c-eT-iI3" userLabel="BottomContainer">
+                                <rect key="frame" x="0.0" y="420" width="320" height="148"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="962-T8-7zY" customClass="CamScrollView">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="148"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="962-T8-7zY" secondAttribute="trailing" id="4wQ-oe-mMG"/>
+                                    <constraint firstItem="962-T8-7zY" firstAttribute="top" secondItem="z6c-eT-iI3" secondAttribute="top" id="94I-no-0jt"/>
+                                    <constraint firstItem="962-T8-7zY" firstAttribute="leading" secondItem="z6c-eT-iI3" secondAttribute="leading" id="WqI-Mg-bxO"/>
+                                    <constraint firstAttribute="bottom" secondItem="962-T8-7zY" secondAttribute="bottom" id="u1K-bP-Dep"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="z6c-eT-iI3" secondAttribute="trailing" id="5Xy-m9-gh4"/>
+                            <constraint firstAttribute="trailing" secondItem="Btx-FQ-sfw" secondAttribute="trailing" id="65X-wa-ANy"/>
+                            <constraint firstItem="h4G-z1-XUv" firstAttribute="bottom" secondItem="Btx-FQ-sfw" secondAttribute="bottom" id="67H-Cc-S9q"/>
+                            <constraint firstItem="wCg-mM-09X" firstAttribute="top" secondItem="IoD-RX-0Gn" secondAttribute="top" id="6m9-D5-7DV"/>
+                            <constraint firstItem="z6c-eT-iI3" firstAttribute="leading" secondItem="IoD-RX-0Gn" secondAttribute="leading" id="DKn-JR-CfN"/>
+                            <constraint firstItem="Vpf-3D-qXs" firstAttribute="leading" secondItem="IoD-RX-0Gn" secondAttribute="leading" id="DrT-zd-uCx"/>
+                            <constraint firstItem="wCg-mM-09X" firstAttribute="height" secondItem="Vpf-3D-qXs" secondAttribute="height" id="FQi-FC-s9K"/>
+                            <constraint firstAttribute="trailing" secondItem="h4G-z1-XUv" secondAttribute="trailing" id="HtX-K7-0e4"/>
+                            <constraint firstItem="Vpf-3D-qXs" firstAttribute="top" secondItem="wCg-mM-09X" secondAttribute="bottom" id="J2F-tp-fUU"/>
+                            <constraint firstItem="Btx-FQ-sfw" firstAttribute="top" secondItem="IoD-RX-0Gn" secondAttribute="top" id="JyU-4Q-HAH"/>
+                            <constraint firstItem="h4G-z1-XUv" firstAttribute="leading" secondItem="IoD-RX-0Gn" secondAttribute="leading" id="NKT-ll-fFP"/>
+                            <constraint firstItem="h4G-z1-XUv" firstAttribute="bottom" secondItem="Vpf-3D-qXs" secondAttribute="bottom" id="OGT-Bw-3Rb"/>
+                            <constraint firstItem="Btx-FQ-sfw" firstAttribute="leading" secondItem="IoD-RX-0Gn" secondAttribute="leading" id="OgZ-M5-Dfm"/>
+                            <constraint firstItem="z6c-eT-iI3" firstAttribute="top" secondItem="h4G-z1-XUv" secondAttribute="bottom" id="PTD-2I-bNF"/>
+                            <constraint firstAttribute="trailing" secondItem="Vpf-3D-qXs" secondAttribute="trailing" id="S8c-aW-kW5"/>
+                            <constraint firstAttribute="trailing" secondItem="wCg-mM-09X" secondAttribute="trailing" id="UWF-NH-840"/>
+                            <constraint firstItem="wCg-mM-09X" firstAttribute="leading" secondItem="IoD-RX-0Gn" secondAttribute="leading" id="hNU-nM-oPK"/>
+                            <constraint firstItem="h4G-z1-XUv" firstAttribute="top" secondItem="IoD-RX-0Gn" secondAttribute="top" constant="364" id="hpb-OW-n5w"/>
+                            <constraint firstAttribute="bottom" secondItem="z6c-eT-iI3" secondAttribute="bottom" id="vLf-3t-Vua"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="86b-Jj-kkS">
+                        <barButtonItem key="leftBarButtonItem" image="ico_close" id="k8A-b3-e5z">
+                            <inset key="imageInsets" minX="-16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="didCloseBarButtonItemClicked:" destination="kHK-oS-ctS" id="MCX-zg-Lwh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="camScrollView" destination="962-T8-7zY" id="1yd-ZM-P0x"/>
+                        <outlet property="curtainVerticalConstraint" destination="J2F-tp-fUU" id="rBt-nn-dt7"/>
+                        <outlet property="flashButton" destination="5kc-uU-HQh" id="SBh-Z7-goF"/>
+                        <outlet property="flashButtonTrailConstraint" destination="mrm-13-O1G" id="Br6-9H-8YC"/>
+                        <outlet property="flipButton" destination="Ofq-ul-lmb" id="She-xp-whJ"/>
+                        <outlet property="gridButton" destination="ZhG-lb-P6r" id="M7j-ZN-rcM"/>
+                        <outlet property="gridButtonLeadingConstraint" destination="euh-Vf-7Df" id="bAe-RM-fbB"/>
+                        <outlet property="previewView" destination="Btx-FQ-sfw" id="G9r-PW-Im6"/>
+                        <outlet property="progressView" destination="0B5-6E-tbF" id="bfh-IS-vif"/>
+                        <outlet property="toolBarTopConstraint" destination="hpb-OW-n5w" id="Azr-UT-veL"/>
+                        <outlet property="toolContainer" destination="h4G-z1-XUv" id="FhI-Te-nZb"/>
+                        <segue destination="NL5-Xh-Cpk" kind="push" identifier="CamFilterViewControllerSegue" id="2nV-dw-TE1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zbS-JR-Dww" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="54" y="-3266"/>
+        </scene>
+        <!--Cam Filter View Controller-->
+        <scene sceneID="HL0-vJ-Q2x">
+            <objects>
+                <viewController storyboardIdentifier="CamFilterViewController" id="NL5-Xh-Cpk" customClass="CamFilterViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kf0-Np-VAJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="0jD-ig-R76"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cab-AO-AXd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sqk-ZF-pAK">
+                        <barButtonItem key="leftBarButtonItem" image="ico_back" id="Akh-Ic-vWl">
+                            <inset key="imageInsets" minX="-16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <connections>
+                                <action selector="didBackBarButtonItemClicked:" destination="NL5-Xh-Cpk" id="HqT-di-rAU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6to-xg-YEj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="484" y="-3268"/>
+        </scene>
+        <!--Assets Picker View Controller-->
+        <scene sceneID="ELj-Kw-ode">
+            <objects>
+                <viewController storyboardIdentifier="AssetsPickerViewController" id="3uH-QL-Cat" customClass="AssetsPickerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SJm-uX-uxU"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gb7-hk-d2e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yha-YW-pPs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ur1-i4-rST" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-367" y="-3944"/>
+        </scene>
+        <!--Status Hidden Navigation Controller-->
+        <scene sceneID="8ho-vj-0DS">
+            <objects>
+                <navigationController storyboardIdentifier="Nav_AVCamViewController" automaticallyAdjustsScrollViewInsets="NO" id="7FQ-xI-dOY" customClass="StatusHiddenNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <navigationBar key="navigationBar" alpha="0.10000000149011612" contentMode="scaleToFill" id="XqA-iv-2Sp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="0.01" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kHK-oS-ctS" kind="relationship" relationship="rootViewController" id="D2d-Dy-ZVI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="46y-FE-9NU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-367" y="-3266"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ico_back" width="44" height="44"/>
+        <image name="ico_cam_grid_green" width="40" height="40"/>
+        <image name="ico_cam_grid_white" width="40" height="40"/>
+        <image name="ico_cam_rotate_green" width="40" height="40"/>
+        <image name="ico_cam_rotate_white" width="40" height="40"/>
+        <image name="ico_close" width="44" height="44"/>
+        <image name="ico_flash_green" width="40" height="40"/>
+        <image name="ico_flash_white" width="40" height="40"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

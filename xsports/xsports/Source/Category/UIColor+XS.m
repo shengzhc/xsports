@@ -139,9 +139,21 @@
     return [self lightPebbleColor];
 }
 
+
+#pragma mark Color for new design
++ (UIColor *)cLightYellowColor
+{
+    return [UIColor colorWithRed:1.0 green:246.0/255.0 blue:158.0/255.0 alpha:1.0];
+}
+
 + (UIColor *)cYellowColor
 {
     return [UIColor colorWithRed:1.0 green:252.0/255.0 blue:0 alpha:1];
+}
+
++ (UIColor *)cDarkYellowColor
+{
+    return [UIColor colorWithRed:194.0/255.0 green:176.0/255.0 blue:38.0/255.0 alpha:1.0];
 }
 
 + (UIColor *)cGrayColor
@@ -149,9 +161,19 @@
     return [UIColor colorWithRed:69.0/255.0 green:69.0/255.0 blue:69.0/255.0 alpha:1.0];
 }
 
++ (UIColor *)cDarkGrayColor
+{
+    return [UIColor colorWithRed:58.0/255.0 green:58.0/255.0 blue:58.0/255.0 alpha:1.0];
+}
+
 + (UIColor *)cLightGrayColor
 {
     return [UIColor colorWithRed:211.0/255.0 green:211.0/255.0 blue:211.0/255.0 alpha:1.0];
+}
+
++ (UIColor *)cDarkBlackHeaderColor
+{
+    return [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1.0];
 }
 
 @end

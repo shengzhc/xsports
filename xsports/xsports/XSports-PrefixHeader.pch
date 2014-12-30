@@ -27,6 +27,7 @@
 #import "JSONModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "SVPullToRefresh.h"
+#import <WEPopover/WEPopoverController.h>
 
 #import "XSConstants.h"
 #import "UIColor+XS.h"

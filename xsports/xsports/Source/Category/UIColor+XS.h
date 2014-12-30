@@ -50,8 +50,15 @@
 
 
 #pragma mark Color for new design
++ (UIColor *)cLightYellowColor;
 + (UIColor *)cYellowColor;
++ (UIColor *)cDarkYellowColor;
+
++ (UIColor *)cDarkGrayColor;
 + (UIColor *)cGrayColor;
 + (UIColor *)cLightGrayColor;
+
++ (UIColor *)cDarkBlackHeaderColor;
+
 
 @end
