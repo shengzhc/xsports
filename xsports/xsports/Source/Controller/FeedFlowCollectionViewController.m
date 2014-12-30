@@ -13,7 +13,7 @@
 #import "FeedViewVideoCell.h"
 
 
-@interface FeedFlowCollectionViewController () < UICollectionViewDelegateFlowLayout, FeedViewVideoCellDelegate, FeedViewPhotoCellDelegate, UIScrollViewDelegate >
+@interface FeedFlowCollectionViewController () < UICollectionViewDelegateFlowLayout, FeedViewPhotoCellDelegate, UIScrollViewDelegate >
 {
     NSIndexPath *_lastVideoIndexPath;
     CGPoint _lastContentOffset;
@@ -53,12 +53,7 @@
     self.prototypes = prototypes;
 }
 
-#pragma mark FeedViewVideoCellDelegate
-- (void)feedViewVideoCell:(FeedViewVideoCell *)cell didVideoButtonClicked:(id)sender
-{
-
-}
-
+#pragma mark FeedViewPhotoCellDelegate
 - (void)feedViewPhotoCell:(FeedViewPhotoCell *)cell didLikeAmountButtonClicked:(id)sender
 {
     LikesViewController *likesViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:LikesViewControllerIdentifier];
@@ -130,7 +125,8 @@
 {
     Media *media = self.feeds[indexPath.item];
     if ([media isVideo]) {
-
+        FeedViewVideoCell *cell = (FeedViewVideoCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        [cell didVideoButtonClicked:cell.videoButton];
     }
 }
 

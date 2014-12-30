@@ -15,6 +15,8 @@ static void *AVPlayerLayerReadyForDisplayObservationContext = &AVPlayerLayerRead
 @interface FeedViewVideoCell ()
 @property (strong, nonatomic) AVPlayerItem *playerItem;
 @property (weak, nonatomic) AVPlayer *player;
+@property (strong, nonatomic) id playerTimeObserver;
+@property (assign, nonatomic) VideoStatus status;
 @end
 
 @implementation FeedViewVideoCell
@@ -40,16 +42,9 @@ static void *AVPlayerLayerReadyForDisplayObservationContext = &AVPlayerLayerRead
             }
         }
     } else if (context == AVPlayerLayerReadyForDisplayObservationContext) {
-        CGFloat fromAlpha = ((AVPlayerLayer *)self.playerView.layer).readyForDisplay ? 0 : 1.0;
-        CGFloat toAlpha = 1.0 - fromAlpha;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.playerView.alpha = fromAlpha;
-            [UIView animateWithDuration:0.5 animations:^{
-                self.playerView.alpha = toAlpha;
-            } completion:^(BOOL finished) {
-                self.playerView.alpha = toAlpha;
-            }];
-        });
+        if (!((AVPlayerLayer *)self.playerView.layer).readyForDisplay) {
+            self.playerView.alpha = 0;
+        }
     } else if (context == AVPlayerItemStatusObservationContext) {
         if (object == self.playerItem && [keyPath isEqualToString:@"status"]) {
             AVPlayerItemStatus status = [[change objectForKey:NSKeyValueChangeNewKey] integerValue];
@@ -72,6 +67,42 @@ static void *AVPlayerLayerReadyForDisplayObservationContext = &AVPlayerLayerRead
     }
 }
 
+- (void)setStatus:(VideoStatus)status
+{
+    _status = status;
+    switch (status) {
+        case kVideoStatusLoading:
+        {
+            [self.videoButton.layer removeAllAnimations];
+            [self.videoButton setBackgroundImage:[UIImage imageNamed:@"ico_video_loading"] forState:UIControlStateNormal];
+            self.videoButton.alpha = 1.0;
+            [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse animations:^{
+                self.videoButton.alpha = 0;
+            } completion:nil];
+        }
+            break;
+        case kVideoStatusPause:
+        {
+            [self.videoButton.layer removeAllAnimations];
+            [self.videoButton setBackgroundImage:[UIImage imageNamed:@"ico_video_play"] forState:UIControlStateNormal];
+            self.videoButton.alpha = 1.0;
+        }
+            break;
+        case kVideoStatusPlaying:
+        {
+            [self.videoButton.layer removeAllAnimations];
+            [self.videoButton setBackgroundImage:[UIImage imageNamed:@"ico_video_pause"] forState:UIControlStateNormal];
+            self.videoButton.alpha = 1.0;
+            [UIView animateWithDuration:1.0 animations:^{
+                self.videoButton.alpha = 0;
+            }];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 - (void)start
 {
     if ([AVPlayerManager sharedInstance].currentPlayingItem == self) {
@@ -85,6 +116,8 @@ static void *AVPlayerLayerReadyForDisplayObservationContext = &AVPlayerLayerRead
     NSAssert(self.player == nil, @"Player should be nil when start");
     
     self.playerView.alpha = 0;
+    self.status = kVideoStatusLoading;
+    
     AVPlayer *player = [[AVPlayerManager sharedInstance] borrowAVPlayer];
     self.player = player;
     [self.playerView setPlayer:self.player];
@@ -92,6 +125,11 @@ static void *AVPlayerLayerReadyForDisplayObservationContext = &AVPlayerLayerRead
     self.playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:self.media.videos.standard.url]];
     [self.playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:AVPlayerItemStatusObservationContext];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
+    self.playerTimeObserver = [self.player addBoundaryTimeObserverForTimes:@[[NSValue valueWithCMTime:CMTimeMakeWithSeconds(0.1, 10)]] queue:nil usingBlock:^{
+        [UIView animateWithDuration:0.5 animations:^{
+            self.playerView.alpha = 1.0;
+        }];
+    }];
 }
 
 - (void)stop
@@ -103,10 +141,9 @@ static void *AVPlayerLayerReadyForDisplayObservationContext = &AVPlayerLayerRead
     NSAssert(self.player != nil, @"Player should not be empty");
     NSAssert(self.playerItem != nil, @"Player Item should not be empty");
     [self stopPlaying];
-    [UIView animateWithDuration:.25 animations:^{
-        self.playerView.alpha = 0;
-    }];
+    self.playerView.alpha = 0;
     [self.player removeObserver:self forKeyPath:@"currentItem"];
+    [self.player removeTimeObserver:self.playerTimeObserver];
     [self.playerItem removeObserver:self forKeyPath:@"status"];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
     [self.playerView setPlayer:nil];
@@ -129,52 +166,25 @@ static void *AVPlayerLayerReadyForDisplayObservationContext = &AVPlayerLayerRead
 - (void)startPlaying
 {
     [self.player play];
+    self.status = kVideoStatusPlaying;
 }
 
 - (void)stopPlaying
 {
     [self.player pause];
+    self.status = kVideoStatusPause;
 }
-
-//- (void)syncWithStatus:(VideoStatus)status
-//{
-//    switch (status) {
-//        case kVideoStatusLoading:
-//        {
-//            [self.videoButton.layer removeAllAnimations];
-//            [self.videoButton setBackgroundImage:[UIImage imageNamed:@"ico_video_loading"] forState:UIControlStateNormal];
-//            self.videoButton.alpha = 1.0;
-//            [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse animations:^{
-//                self.videoButton.alpha = 0;
-//            } completion:nil];
-//        }
-//            break;
-//        case kVideoStatusPause:
-//        {
-//            [self.videoButton.layer removeAllAnimations];
-//            [self.videoButton setBackgroundImage:[UIImage imageNamed:@"ico_video_play"] forState:UIControlStateNormal];
-//            self.videoButton.alpha = 1.0;
-//        }
-//            break;
-//        case kVideoStatusPlaying:
-//        {
-//            [self.videoButton.layer removeAllAnimations];
-//            [self.videoButton setBackgroundImage:[UIImage imageNamed:@"ico_video_pause"] forState:UIControlStateNormal];
-//            self.videoButton.alpha = 1.0;
-//            [UIView animateWithDuration:1.0 animations:^{
-//                self.videoButton.alpha = 0;
-//            }];
-//        }
-//            break;
-//        default:
-//            break;
-//    }
-//}
 
 - (IBAction)didVideoButtonClicked:(id)sender
 {
-    if ([self.delegate respondsToSelector:@selector(feedViewVideoCell:didVideoButtonClicked:)]) {
-        [self.delegate feedViewVideoCell:self didVideoButtonClicked:sender];
+    if ([AVPlayerManager sharedInstance].currentPlayingItem == self) {
+        if (self.player.rate > 0) {
+            [self stopPlaying];
+        } else {
+            [self startPlaying];
+        }
+    } else {
+        [self start];
     }
 }
 

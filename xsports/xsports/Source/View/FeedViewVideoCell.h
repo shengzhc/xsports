@@ -15,16 +15,9 @@ typedef enum : NSUInteger {
     kVideoStatusPlaying
 } VideoStatus;
 
-@class FeedViewVideoCell;
-@protocol FeedViewVideoCellDelegate <NSObject>
-@optional
-- (void)feedViewVideoCell:(FeedViewVideoCell *)cell didVideoButtonClicked:(id)sender;
-@end
-
 @interface FeedViewVideoCell : FeedViewPhotoCell < AVPlayerPresentationItemProtocol >
 @property (weak, nonatomic) IBOutlet UIButton *videoButton;
 @property (weak, nonatomic) IBOutlet AVPlayerView *playerView;
-@property (weak, nonatomic) id <FeedViewVideoCellDelegate, FeedViewPhotoCellDelegate> delegate;
 
 - (IBAction)didVideoButtonClicked:(id)sender;
 @end
