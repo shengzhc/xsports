@@ -11,7 +11,6 @@
 		9C02EA0C1A3A706F00FA1631 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA0B1A3A706F00FA1631 /* LoadingViewController.m */; };
 		9C02EA0F1A3A793500FA1631 /* UIImage+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA0E1A3A793500FA1631 /* UIImage+XS.m */; };
 		9C02EA121A3A7A0300FA1631 /* UIView+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA111A3A7A0300FA1631 /* UIView+XS.m */; };
-		9C06BEE91A4D2B14008430B9 /* MPMoviePlayerController+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C06BEE81A4D2B14008430B9 /* MPMoviePlayerController+XS.m */; };
 		9C06BEEB1A4D2B32008430B9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C06BEEA1A4D2B32008430B9 /* MediaPlayer.framework */; };
 		9C09285F1A3FFEE5001340F2 /* FeedViewPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CF88D401A3FBCE400D4E72E /* FeedViewPhotoCell.xib */; };
 		9C0928611A4000E5001340F2 /* FeedViewVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C0928601A4000E5001340F2 /* FeedViewVideoCell.xib */; };
@@ -27,7 +26,6 @@
 		9C3428561A455D9D0021AB2B /* PageNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3428551A455D9D0021AB2B /* PageNavigationController.m */; };
 		9C3428591A455F940021AB2B /* LikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3428581A455F940021AB2B /* LikesViewController.m */; };
 		9C34285C1A4560800021AB2B /* LikesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C34285B1A4560800021AB2B /* LikesCell.m */; };
-		9C3C481C1A4EFA9600BABAED /* AVPlayer+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C481B1A4EFA9600BABAED /* AVPlayer+XS.m */; };
 		9C3C48201A50715600BABAED /* AVPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C481F1A50715600BABAED /* AVPlayerManager.m */; };
 		9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C44C6291A3C2041002CB86B /* MenuViewCell.m */; };
 		9C4B94F01A41697900DFCC7F /* FeedViewGridPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B94EE1A41697900DFCC7F /* FeedViewGridPhotoCell.m */; };
@@ -117,8 +115,6 @@
 		9C02EA0E1A3A793500FA1631 /* UIImage+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XS.m"; sourceTree = "<group>"; };
 		9C02EA101A3A7A0300FA1631 /* UIView+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XS.h"; sourceTree = "<group>"; };
 		9C02EA111A3A7A0300FA1631 /* UIView+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XS.m"; sourceTree = "<group>"; };
-		9C06BEE71A4D2B14008430B9 /* MPMoviePlayerController+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPMoviePlayerController+XS.h"; sourceTree = "<group>"; };
-		9C06BEE81A4D2B14008430B9 /* MPMoviePlayerController+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MPMoviePlayerController+XS.m"; sourceTree = "<group>"; };
 		9C06BEEA1A4D2B32008430B9 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		9C0928601A4000E5001340F2 /* FeedViewVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewVideoCell.xib; sourceTree = "<group>"; };
 		9C0928621A400C8C001340F2 /* FeedViewVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewVideoCell.h; sourceTree = "<group>"; };
@@ -141,8 +137,6 @@
 		9C3428581A455F940021AB2B /* LikesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesViewController.m; sourceTree = "<group>"; };
 		9C34285A1A4560800021AB2B /* LikesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesCell.h; sourceTree = "<group>"; };
 		9C34285B1A4560800021AB2B /* LikesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesCell.m; sourceTree = "<group>"; };
-		9C3C481A1A4EFA9600BABAED /* AVPlayer+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVPlayer+XS.h"; sourceTree = "<group>"; };
-		9C3C481B1A4EFA9600BABAED /* AVPlayer+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVPlayer+XS.m"; sourceTree = "<group>"; };
 		9C3C481E1A50715600BABAED /* AVPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPlayerManager.h; sourceTree = "<group>"; };
 		9C3C481F1A50715600BABAED /* AVPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPlayerManager.m; sourceTree = "<group>"; };
 		9C44C6281A3C2041002CB86B /* MenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewCell.h; sourceTree = "<group>"; };
@@ -608,10 +602,6 @@
 				9CF88D431A3FC3F300D4E72E /* JSONValueTransformer+XS.m */,
 				9CF88D471A3FE6A300D4E72E /* NSDate+XS.h */,
 				9CF88D481A3FE6A300D4E72E /* NSDate+XS.m */,
-				9C06BEE71A4D2B14008430B9 /* MPMoviePlayerController+XS.h */,
-				9C06BEE81A4D2B14008430B9 /* MPMoviePlayerController+XS.m */,
-				9C3C481A1A4EFA9600BABAED /* AVPlayer+XS.h */,
-				9C3C481B1A4EFA9600BABAED /* AVPlayer+XS.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -881,7 +871,6 @@
 				9C34285C1A4560800021AB2B /* LikesCell.m in Sources */,
 				9C4B94F01A41697900DFCC7F /* FeedViewGridPhotoCell.m in Sources */,
 				9CBCE72C1A3E2A0200C9BD35 /* InstagramServices.m in Sources */,
-				9C3C481C1A4EFA9600BABAED /* AVPlayer+XS.m in Sources */,
 				9CCF5AA31A4BD5F7001B9029 /* FadingInOutAnimiator.m in Sources */,
 				9C4B94FC1A4292DD00DFCC7F /* FeedFlowCollectionViewController.m in Sources */,
 				9C0928671A40173B001340F2 /* AVPlayerView.m in Sources */,
@@ -896,7 +885,6 @@
 				9CBCE7221A3CCFF700C9BD35 /* SettingViewController.m in Sources */,
 				9C4B94FF1A4292EE00DFCC7F /* FeedGridCollectionViewController.m in Sources */,
 				9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */,
-				9C06BEE91A4D2B14008430B9 /* MPMoviePlayerController+XS.m in Sources */,
 				9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */,
 				9C54EF531A3A3B6000D16EEE /* UIScreen+XS.m in Sources */,
 				9C11A45F1A45E50200A9E4CD /* CommentsViewController.m in Sources */,
