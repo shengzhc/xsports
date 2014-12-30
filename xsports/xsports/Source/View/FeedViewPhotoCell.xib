@@ -124,7 +124,7 @@
                                     <action selector="didCommentButtonClicked:" destination="8FX-vD-r8u" eventType="touchUpInside" id="4Xr-jD-xHi"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_like" translatesAutoresizingMaskIntoConstraints="NO" id="37e-SW-Mlu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_like_y" translatesAutoresizingMaskIntoConstraints="NO" id="37e-SW-Mlu">
                                 <rect key="frame" x="8" y="15" width="10" height="8"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="Gcv-Nm-DbS"/>
@@ -137,7 +137,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" image="ico_comment" translatesAutoresizingMaskIntoConstraints="NO" id="fax-uJ-ykh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" image="ico_comment_y" translatesAutoresizingMaskIntoConstraints="NO" id="fax-uJ-ykh">
                                 <rect key="frame" x="8" y="38" width="10" height="8"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="12" id="1eR-AZ-zRI"/>
@@ -227,7 +227,9 @@
     </objects>
     <resources>
         <image name="ico_comment" width="10" height="8"/>
+        <image name="ico_comment_y" width="10" height="8"/>
         <image name="ico_like" width="10" height="8"/>
+        <image name="ico_like_y" width="10" height="8"/>
         <image name="ico_liked" width="10" height="8"/>
         <image name="ico_more" width="20" height="6"/>
         <image name="ico_myself" width="120" height="120"/>
