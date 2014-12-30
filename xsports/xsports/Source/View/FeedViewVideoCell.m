@@ -12,7 +12,6 @@ static void *AVPlayerItemStatusObservationContext = &AVPlayerItemStatusObservati
 static void *AVPlayerCurrentItemObservationContext = &AVPlayerCurrentItemObservationContext;
 static void *AVPlayerLayerReadyForDisplayObservationContext = &AVPlayerLayerReadyForDisplayObservationContext;
 
-
 @interface FeedViewVideoCell ()
 @property (strong, nonatomic) AVPlayerItem *playerItem;
 @property (weak, nonatomic) AVPlayer *player;
@@ -59,7 +58,9 @@ static void *AVPlayerLayerReadyForDisplayObservationContext = &AVPlayerLayerRead
                 case AVPlayerItemStatusUnknown:
                 case AVPlayerItemStatusReadyToPlay:
                 {
-                    [self.player replaceCurrentItemWithPlayerItem:self.playerItem];
+                    if (self.player.currentItem != self.playerItem) {
+                        [self.player replaceCurrentItemWithPlayerItem:self.playerItem];
+                    }
                 }
                     break;
                 default:
@@ -101,14 +102,17 @@ static void *AVPlayerLayerReadyForDisplayObservationContext = &AVPlayerLayerRead
     
     NSAssert(self.player != nil, @"Player should not be empty");
     NSAssert(self.playerItem != nil, @"Player Item should not be empty");
+    [self stopPlaying];
+    [UIView animateWithDuration:.25 animations:^{
+        self.playerView.alpha = 0;
+    }];
     [self.player removeObserver:self forKeyPath:@"currentItem"];
-    [self.player seekToTime:kCMTimeZero];
-    [self.player replaceCurrentItemWithPlayerItem:nil];
-    [[AVPlayerManager sharedInstance] returnAVPlayer:self.player];
-    [self.playerView setPlayer:nil];
-    self.player = nil;
     [self.playerItem removeObserver:self forKeyPath:@"status"];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
+    [self.playerView setPlayer:nil];
+    [self.player replaceCurrentItemWithPlayerItem:nil];
+    [[AVPlayerManager sharedInstance] returnAVPlayer:self.player];
+    self.player = nil;
     self.playerItem = nil;
 }
 

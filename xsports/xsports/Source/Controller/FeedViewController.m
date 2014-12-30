@@ -31,6 +31,12 @@
     [self showFlowCollectionViewController];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[[AVPlayerManager sharedInstance] currentPlayingItem] stop];
+}
+
 #pragma mark Setup
 - (void)setupViews
 {
