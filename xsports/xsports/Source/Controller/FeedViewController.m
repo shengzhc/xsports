@@ -11,7 +11,7 @@
 #import "FeedGridCollectionViewController.h"
 #import "FeedPopoverContentViewController.h"
 
-@interface FeedViewController () < UINavigationControllerDelegate, FeedPopoverContentViewControllerDelegate >
+@interface FeedViewController () < UINavigationControllerDelegate, FeedPopoverContentViewControllerDelegate, WEPopoverControllerDelegate >
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *layoutBarButtonItem;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
@@ -127,7 +127,6 @@
     
     if (self.gridCollectionViewController.parentViewController) {
         [self animateTransitionBetweenFromViewController:self.gridCollectionViewController toViewController:self.flowCollectionViewController goingRight:NO];
-        [self.layoutBarButtonItem setImage:[UIImage imageNamed:@"ico_layout_grid"]];
     }
 }
 
@@ -143,7 +142,6 @@
     
     if (self.flowCollectionViewController.parentViewController) {
         [self animateTransitionBetweenFromViewController:self.flowCollectionViewController toViewController:self.gridCollectionViewController goingRight:YES];
-        [self.layoutBarButtonItem setImage:[UIImage imageNamed:@"ico_layout_list"]];
     }
 }
 
@@ -190,16 +188,25 @@
         [self.headerActionButton setBackgroundColor:[UIColor clearColor]];
     }
     
-    if (self.popController) {
-        [self.popController dismissPopoverAnimated:NO];
+    if (self.headerActionButton.selected) {
+        if (self.popController) {
+            [self.popController dismissPopoverAnimated:NO];
+        }
+        
+        FeedPopoverContentViewController *contentViewController = [[UIStoryboard storyboardWithName:@"Popover" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:FeedPopoverContentViewControllerIdentifier];
+        contentViewController.delegate = self;
+        [contentViewController view];
+        [contentViewController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:(self.flowCollectionViewController.parentViewController ? 0 : 1) inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+        self.popController = [[WEPopoverController alloc] initWithContentViewController:contentViewController];
+        self.popController.delegate = self;
+        self.popController.popoverContentSize = CGSizeMake(144, 88);
+        [self.popController presentPopoverFromRect:self.headerActionButton.frame inView:self.navigationController.navigationBar permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    } else {
+        if (self.popController) {
+            [self.popController dismissPopoverAnimated:YES];
+            self.popController = nil;
+        }
     }
-    
-    FeedPopoverContentViewController *contentViewController = [[UIStoryboard storyboardWithName:@"Popover" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:FeedPopoverContentViewControllerIdentifier];
-    contentViewController.delegate = self;
-    contentViewController.selectedIndexPath = [NSIndexPath indexPathForRow:(self.flowCollectionViewController.parentViewController ? 0 : 1) inSection:0];
-    self.popController = [[WEPopoverController alloc] initWithContentViewController:contentViewController];
-    self.popController.popoverContentSize = CGSizeMake(144, 88);
-    [self.popController presentPopoverFromRect:self.headerActionButton.frame inView:self.navigationController.navigationBar permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -220,8 +227,13 @@
     } else {
         [self showFlowCollectionViewController];
     }
-    
-    [self.popController dismissPopoverAnimated:YES];
+    [self didHeaderActionButtonClicked:self.headerActionButton];
+}
+
+#pragma mark WEPopoverControllerDelegate
+- (void)popoverControllerDidDismissPopover:(WEPopoverController *)popoverController
+{
+    [self didHeaderActionButtonClicked:self.headerActionButton];
 }
 
 #pragma mark UINavigationControllerDelegate

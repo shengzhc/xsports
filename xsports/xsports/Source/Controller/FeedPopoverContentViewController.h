@@ -16,6 +16,5 @@
 @end
 
 @interface FeedPopoverContentViewController : UITableViewController
-@property (strong, nonatomic) NSIndexPath *selectedIndexPath;
 @property (weak, nonatomic) id <FeedPopoverContentViewControllerDelegate> delegate;
 @end

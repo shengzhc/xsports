@@ -47,12 +47,6 @@
             break;
     }
     
-    if (self.selectedIndexPath.row == indexPath.row) {
-        [cell setSelected:YES];
-    } else {
-        [cell setSelected:NO];
-    }
-    
     return cell;
 }
 
