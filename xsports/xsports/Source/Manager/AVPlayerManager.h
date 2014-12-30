@@ -17,6 +17,6 @@
 @interface AVPlayerManager : NSObject
 @property (weak, nonatomic) id < AVPlayerPresentationItemProtocol > currentPlayingItem;
 + (AVPlayerManager *)sharedInstance;
-- (AVPlayer *)availableAVPlayer;
+- (AVPlayer *)borrowAVPlayer;
+- (void)returnAVPlayer:(AVPlayer *)player;
 @end
-

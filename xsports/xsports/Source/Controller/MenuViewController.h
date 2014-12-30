@@ -12,12 +12,12 @@
 #import "SettingViewController.h"
 
 typedef enum : NSInteger {
-    kMenuItemLogin,
     kMenuItemNew,
     kMenuItemChat,
     kMenuItemFavorite,
     kMenuItemContact,
-    kMenuItemSetting
+    kMenuItemSetting,
+    kMenuItemLogin
 } MenuItem;
 
 @interface MenuViewController : UIViewController < UITableViewDataSource, UITableViewDelegate, LoginViewControllerDelegate >

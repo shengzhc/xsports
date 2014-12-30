@@ -23,6 +23,10 @@
 - (void)setPlayer:(AVPlayer*)player
 {
     [(AVPlayerLayer*)[self layer] setPlayer:player];
+    if (player == nil) {
+        [[self layer] setNeedsDisplay];
+        [[self layer] displayIfNeeded];
+    }
 }
 
 - (void)setVideoFillMode:(NSString *)fillMode

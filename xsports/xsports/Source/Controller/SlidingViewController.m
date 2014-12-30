@@ -28,7 +28,7 @@
     self.menuViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:MenuViewControllerIdentifier];
     self.underLeftViewController = self.menuViewController;
     
-    if (/* DISABLES CODE */ (YES)) {
+    if (/* DISABLES CODE */ (NO)) {
         [self.menuViewController select:kMenuItemLogin animated:NO];
     } else {
         [self.menuViewController select:kMenuItemNew animated:NO];

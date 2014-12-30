@@ -93,12 +93,12 @@
         FeedViewVideoCell *nextCell = isUp ? validCells.lastObject : validCells.firstObject;
         if (_lastVideoIndexPath.item != [self.collectionView indexPathForCell:nextCell].item) {
             _lastVideoIndexPath = [self.collectionView indexPathForCell:nextCell];
-//            [nextCell start];
+            [nextCell start];
         }
     } else {
         if (_lastVideoIndexPath != nil) {
             FeedViewVideoCell *nextCell = (FeedViewVideoCell *)[self.collectionView cellForItemAtIndexPath:_lastVideoIndexPath];
-//            [nextCell stop];
+            [nextCell stop];
             _lastVideoIndexPath = nil;
         }
     }

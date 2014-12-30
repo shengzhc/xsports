@@ -9,9 +9,11 @@
 #import "AVPlayerManager.h"
 #import "AVPlayerView.h"
 
+#define MAX_PLAYERS 2
+
 @interface AVPlayerManager ()
-@property (strong, nonatomic) NSArray *players;
-@property (strong, nonatomic) AVPlayer *currentPlayer;
+@property (strong, nonatomic) NSMutableArray *pendingPlayers;
+@property (strong, nonatomic) NSMutableArray *activePlayers;
 @end
 
 @implementation AVPlayerManager
@@ -29,24 +31,35 @@
 - (id)init
 {
     if (self = [super init]) {
-        AVPlayer *player1 = [[AVPlayer alloc] init];
-        AVPlayer *player2 = [[AVPlayer alloc] init];
-        self.players = @[player1, player2];
-        self.currentPlayer = nil;
+        self.pendingPlayers = [NSMutableArray new];
+        self.activePlayers = [NSMutableArray new];
+        for (NSUInteger i=0; i<MAX_PLAYERS; i++) {
+            [self.pendingPlayers addObject:[[AVPlayer alloc] init]];
+        }
     }
     return self;
 }
 
-- (AVPlayer *)availableAVPlayer
+- (AVPlayer *)borrowAVPlayer
 {
-    id player = nil;
-    for (AVPlayer *item in self.players) {
-        if (item != self.currentPlayer) {
-            player = item;
-        }
+    if (self.pendingPlayers.count > 0) {
+        AVPlayer *player = [self.pendingPlayers firstObject];
+        [self.pendingPlayers removeObject:player];
+        [self.activePlayers addObject:player];
+        return player;
+    } else {
+        AVPlayer *player = [[AVPlayer alloc] init];
+        [self.activePlayers addObject:player];
+        return player;
     }
-    self.currentPlayer = player;
-    return player;
+}
+
+- (void)returnAVPlayer:(AVPlayer *)player
+{
+    if ([self.activePlayers containsObject:player]) {
+        [self.activePlayers removeObject:player];
+        [self.pendingPlayers addObject:player];
+    }
 }
 
 @end
