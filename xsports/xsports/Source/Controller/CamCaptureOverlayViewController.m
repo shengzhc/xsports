@@ -64,6 +64,14 @@
     }
 }
 
+- (void)enableButtons:(BOOL)enable
+{
+    self.gridButton.enabled = enable;
+    self.flashButton.enabled = enable;
+    self.rotateButton.enabled = enable;
+    self.nextButton.enabled = enable;
+}
+
 - (IBAction)didCloseButtonClicked:(id)sender
 {
     if ([self.delegate respondsToSelector:@selector(camCaptureOverlayViewController:didCloseButtonClicked:)]) {
@@ -81,8 +89,6 @@
 - (IBAction)didGridButtonClicked:(id)sender
 {
     self.isGridEnabled = !self.isGridEnabled;
-    
-    
     if ([self.delegate respondsToSelector:@selector(camCaptureOverlayViewController:didGridButtonClicked:)]) {
         [self.delegate camCaptureOverlayViewController:self didGridButtonClicked:sender];
     }

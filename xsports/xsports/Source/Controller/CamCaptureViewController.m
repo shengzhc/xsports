@@ -172,7 +172,20 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 
 - (void)camCaptureOverlayViewController:(CamCaptureOverlayViewController *)controller didFlashButtonClicked:(id)sender
 {
-    
+    [controller enableButtons:NO];
+    [self.curtainViewController closeCurtainWithCompletionHandler:^{
+        dispatch_async([self sessionQueue], ^{
+            [[self session] beginConfiguration];
+            AVCaptureDevice *currentVideoDevice = [[self videoDeviceInput] device];
+            [self setFlashMode:self.overlayViewController.flashMode forDevice:currentVideoDevice];
+            [[self session] commitConfiguration];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.curtainViewController openCurtainWithCompletionHandler:^{
+                    [controller enableButtons:YES];
+                }];
+            });
+        });
+    }];
 }
 
 - (void)camCaptureOverlayViewController:(CamCaptureOverlayViewController *)controller didGridButtonClicked:(id)sender
@@ -182,7 +195,44 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 
 - (void)camCaptureOverlayViewController:(CamCaptureOverlayViewController *)controller didRotateButtonClicked:(id)sender
 {
-    
+    [controller enableButtons:NO];
+    [self.curtainViewController closeCurtainWithCompletionHandler:^{
+        dispatch_async([self sessionQueue], ^{
+            AVCaptureDevice *currentVideoDevice = [[self videoDeviceInput] device];
+            AVCaptureDevicePosition preferredPosition = AVCaptureDevicePositionUnspecified;
+            AVCaptureDevicePosition currentPosition = [currentVideoDevice position];
+            switch (currentPosition)
+            {
+                case AVCaptureDevicePositionUnspecified:
+                    preferredPosition = AVCaptureDevicePositionBack;
+                    break;
+                case AVCaptureDevicePositionBack:
+                    preferredPosition = AVCaptureDevicePositionFront;
+                    break;
+                case AVCaptureDevicePositionFront:
+                    preferredPosition = AVCaptureDevicePositionBack;
+                    break;
+            }
+            AVCaptureDevice *videoDevice = [self deviceWithMediaType:AVMediaTypeVideo preferringPosition:preferredPosition];
+            AVCaptureDeviceInput *videoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:nil];
+            [[self session] beginConfiguration];
+            [[self session] removeInput:[self videoDeviceInput]];
+            if ([[self session] canAddInput:videoDeviceInput]) {
+                [self setFlashMode:self.overlayViewController.flashMode forDevice:videoDevice];
+                [[self session] addInput:videoDeviceInput];
+                [self setVideoDeviceInput:videoDeviceInput];
+            } else {
+                [[self session] addInput:[self videoDeviceInput]];
+            }
+            
+            [[self session] commitConfiguration];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.curtainViewController openCurtainWithCompletionHandler:^{
+                    [controller enableButtons:YES];
+                }];
+            });
+        });
+    }];
 }
 
 #pragma mark CamCaptureModeViewControllerDelegate

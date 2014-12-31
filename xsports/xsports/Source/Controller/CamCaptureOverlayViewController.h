@@ -28,4 +28,6 @@
 - (void)transitionWithPercent:(CGFloat)percent toPageIndex:(NSUInteger)pageIndex;
 - (void)didEndTransitionToPageIndex:(NSUInteger)pageIndex;
 
+- (void)enableButtons:(BOOL)enable;
+
 @end
