@@ -232,6 +232,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ic6-7T-RJU" userLabel="campreview" customClass="AVCamPreviewView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="414"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dfh-EF-wAO" userLabel="curtain">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="414"/>
+                                <connections>
+                                    <segue destination="V1Y-f1-7pf" kind="embed" identifier="CamCurtainViewControllerSegue" id="n6J-hF-v7X"/>
+                                </connections>
+                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4w-Ye-vWy" userLabel="overlay">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="414"/>
                                 <constraints>
@@ -239,16 +249,6 @@
                                 </constraints>
                                 <connections>
                                     <segue destination="CiI-yr-tP2" kind="embed" identifier="CamCaptureOverlayViewControllerSegue" id="ez9-DE-OFi"/>
-                                </connections>
-                            </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ic6-7T-RJU" userLabel="campreview" customClass="AVCamPreviewView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="414"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dfh-EF-wAO" userLabel="curtain">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="414"/>
-                                <connections>
-                                    <segue destination="V1Y-f1-7pf" kind="embed" identifier="CamCurtainViewControllerSegue" id="n6J-hF-v7X"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cuc-VS-apj" userLabel="bottomcontainer">

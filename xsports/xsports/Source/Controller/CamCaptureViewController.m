@@ -8,7 +8,7 @@
 
 #import "CamCaptureViewController.h"
 
-@interface CamCaptureViewController ()
+@interface CamCaptureViewController () < CamCaptureModeViewControllerDelegate >
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topHeightConstraint;
 @end
 
@@ -20,23 +20,46 @@
     [self setup];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
+    [self.curtainViewController openCurtainWithCompletionHandler:nil];
 }
 
 - (void)setup
 {
     self.topHeightConstraint.constant = [UIScreen width] + 44 + 56;
+    self.modeViewController.delegate = self;
 }
+
+#pragma mark CamCaptureModeViewControllerDelegate
+- (void)camCaptureModeViewController:(CamCaptureModeViewController *)controller didEndDisplayingPageAtIndex:(NSInteger)pageIndex
+{
+    [self.curtainViewController openCurtainWithCompletionHandler:^{
+        if (pageIndex == 1) {
+            [self.overlayViewController.progressView startAnimation];
+        }
+    }];
+}
+
+- (void)camCaptureModeViewController:(CamCaptureModeViewController *)controller didScrollWithPercentage:(CGFloat)percentage
+{
+    CGFloat h = percentage * self.curtainViewController.view.bounds.size.height;
+    self.curtainViewController.openLayoutConstraint.constant = h;
+
+    [self.overlayViewController.progressView stopAnimation];
+//    CGFloat f = 1 - (c - self.camScrollView.contentOffset.x)/c;
+//    self.progressView.alpha = MAX(MIN(f, 1.0), 0);;
+}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:CamCaptureOverlayViewControllerSegueIdentifier]) {
         self.overlayViewController = segue.destinationViewController;
     } else if ([segue.identifier isEqualToString:CamCaptureModeViewControllerSegueIdentifier]) {
-        self.curtainViewController = segue.destinationViewController;
-    } else if ([segue.identifier isEqualToString:CamCurtainViewControllerIdentifier]) {
+        self.modeViewController = segue.destinationViewController;
+    } else if ([segue.identifier isEqualToString:CamCurtainViewControllerSegueIdentifier]) {
         self.curtainViewController = segue.destinationViewController;
     } else {
         [super prepareForSegue:segue sender:sender];

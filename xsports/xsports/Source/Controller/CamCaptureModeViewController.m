@@ -8,30 +8,75 @@
 
 #import "CamCaptureModeViewController.h"
 
-@interface CamCaptureModeViewController ()
-
+@interface CamCaptureModeViewController () < UIScrollViewDelegate >
+@property (assign, nonatomic) NSInteger lastPageIndex;
+@property (strong, nonatomic) NSTimer *recordingTimer;
 @end
 
 @implementation CamCaptureModeViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.scrollView.delegate = self;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark CamScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat c = self.scrollView.stillCaptureButton.frame.origin.x;
+    CGFloat factor = 0;
+    if (self.lastPageIndex == 0) {
+        factor = (self.scrollView.contentOffset.x - 0)/c;
+        factor = MAX(MIN(factor, 1.0), 0);
+        factor = 1.0 - factor;
+        self.scrollView.stillCaptureButton.alpha = 0.1 + factor*0.9;
+        self.scrollView.recordCaptureButton.alpha = 0.1 + (1-factor)*0.9;
+    } else {
+        factor = 1 - (c - self.scrollView.contentOffset.x)/c;
+        factor = MAX(MIN(factor, 1.0), 0);
+        self.scrollView.recordCaptureButton.alpha = 0.1 + factor*0.9;
+        self.scrollView.stillCaptureButton.alpha = 0.1 + (1-factor)* 0.9;
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(camCaptureModeViewController:didScrollWithPercentage:)]) {
+        [self.delegate camCaptureModeViewController:self didScrollWithPercentage:factor];
+    }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate) {
+        NSInteger pageIndex = [self.scrollView pageOfContentOffset:scrollView.contentOffset];
+        [self didScrollEndAtPageIndex:pageIndex];
+    }
 }
-*/
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    NSInteger pageIndex = [self.scrollView pageOfContentOffset:scrollView.contentOffset];
+    [self didScrollEndAtPageIndex:pageIndex];
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    NSInteger pageIndex = [self.scrollView pageOfContentOffset:scrollView.contentOffset];
+    [self didScrollEndAtPageIndex:pageIndex];
+}
+
+- (void)didScrollEndAtPageIndex:(NSInteger)pageIndex
+{
+    self.lastPageIndex = pageIndex;
+    if (pageIndex == 0) {
+        [self.scrollView.mediaSwitchButton setImage:[UIImage imageNamed:@"ico_media_video"] forState:UIControlStateNormal];
+    } else {
+        [self.scrollView.mediaSwitchButton setImage:[UIImage imageNamed:@"ico_media_photo"] forState:UIControlStateNormal];
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(camCaptureModeViewController:didEndDisplayingPageAtIndex:)]) {
+        [self.delegate camCaptureModeViewController:self didEndDisplayingPageAtIndex:pageIndex];
+    }
+}
+
 
 @end

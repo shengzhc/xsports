@@ -51,4 +51,17 @@
     NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
+
+- (void)updateProgressView
+{
+//    if (self.movieFileOutput.isRecording) {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            double recordedDuration = self.movieFileOutput.recordedDuration.value*1.0/self.movieFileOutput.recordedDuration.timescale;
+//            double maxDuration = self.movieFileOutput.maxRecordedDuration.value*1.0/self.movieFileOutput.maxRecordedDuration.timescale;
+//            self.progressView.progress = recordedDuration/maxDuration;
+//        });
+//    }
+}
+
+
 @end
