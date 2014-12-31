@@ -334,7 +334,6 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 #pragma CamScrollBottom Action
 - (void)didPicGalleryButtonClicked:(id)sender
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
 - (void)didVideoGalleryButtonClicked:(id)sender
@@ -362,12 +361,10 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 
 - (void)didRecordCaptureButtonClicked:(id)sender
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
 - (void)didRecordCaptureButtonReleased:(id)sender
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
 - (IBAction)focusAndExposeTap:(UIGestureRecognizer *)gestureRecognizer

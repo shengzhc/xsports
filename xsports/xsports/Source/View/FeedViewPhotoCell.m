@@ -84,7 +84,6 @@
 
 - (IBAction)didShareButtonClicked:(id)sender
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
 - (IBAction)didLikeAmountButtonClicked:(id)sender
