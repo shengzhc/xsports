@@ -159,6 +159,39 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     });
 }
 
+#pragma CamScrollBottom Action
+- (void)didPicGalleryButtonClicked:(id)sender
+{
+}
+
+- (void)didVideoGalleryButtonClicked:(id)sender
+{
+}
+
+- (void)didStillCaptureButtonClicked:(id)sender
+{
+    [self.overlayViewController enableButtons:NO];
+    [self.curtainViewController closeCurtainWithCompletionHandler:^{
+        dispatch_async([self sessionQueue], ^{
+            [[[self stillImageOutput] connectionWithMediaType:AVMediaTypeVideo] setVideoOrientation:[[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] videoOrientation]];
+            [self setFlashMode:self.overlayViewController.flashMode forDevice:[[self videoDeviceInput] device]];
+            [[self stillImageOutput] captureStillImageAsynchronouslyFromConnection:[[self stillImageOutput] connectionWithMediaType:AVMediaTypeVideo] completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+                if (imageDataSampleBuffer) {
+                    NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+                    UIImage *image = [[UIImage alloc] initWithData:imageData];
+                    NSLog(@"%@", NSStringFromCGSize(image.size));
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.curtainViewController openCurtainWithCompletionHandler:^{
+                            [self.overlayViewController enableButtons:YES];
+                        }];
+                    });
+                }
+            }];
+        });
+    }];
+}
+
+
 #pragma mark CamCaptureOverlayViewController
 - (void)camCaptureOverlayViewController:(CamCaptureOverlayViewController *)controller didCloseButtonClicked:(id)sender
 {
