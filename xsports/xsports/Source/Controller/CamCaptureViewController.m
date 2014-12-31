@@ -194,6 +194,8 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 
 - (void)startRecording
 {
+    [NSThread detachNewThreadSelector:nil toTarget:nil withObject:nil];
+    [NSThread exit];
     [self.overlayViewController enableButtons:NO];
 //    self.recordingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/60 target:self selector:@selector(updateProgressView) userInfo:nil repeats:YES];
     dispatch_async([self sessionQueue], ^{
