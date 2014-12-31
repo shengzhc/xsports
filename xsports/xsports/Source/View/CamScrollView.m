@@ -152,6 +152,7 @@
 {
     NSInteger pageIndex = [self pageOfContentOffset:self.contentOffset] == 0 ? 1 : 0;
     [self scrollRectToVisible:[self rectAtPage:pageIndex] animated:YES];
+    NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
 @end

@@ -83,12 +83,14 @@
 {
     NSInteger pageIndex = [self.scrollView pageOfContentOffset:scrollView.contentOffset];
     [self didScrollEndAtPageIndex:pageIndex];
+
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
     NSInteger pageIndex = [self.scrollView pageOfContentOffset:scrollView.contentOffset];
     [self didScrollEndAtPageIndex:pageIndex];
+
 }
 
 - (void)didScrollEndAtPageIndex:(NSInteger)pageIndex

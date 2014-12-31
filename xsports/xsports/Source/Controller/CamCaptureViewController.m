@@ -32,6 +32,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 @property (nonatomic, getter = isDeviceAuthorized) BOOL deviceAuthorized;
 @property (nonatomic, readonly, getter = isSessionRunningAndDeviceAuthorized) BOOL sessionRunningAndDeviceAuthorized;
 @property (nonatomic) id runtimeErrorHandlingObserver;
+@property (assign, nonatomic) NSUInteger currentPageIndex;
 
 @end
 
@@ -144,20 +145,40 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
             [self.session addInput:audioDeviceInput];
         }
         
-        AVCaptureStillImageOutput *stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
-        if ([self.session canAddOutput:stillImageOutput]) {
-            [stillImageOutput setOutputSettings:@{AVVideoCodecKey : AVVideoCodecJPEG}];
-            [self.session addOutput:stillImageOutput];
-            [self setStillImageOutput:stillImageOutput];
-        }
-        
-        AVCaptureMovieFileOutput *movieFileOutput = [[AVCaptureMovieFileOutput alloc] init];
-        movieFileOutput.maxRecordedDuration = CMTimeMake(10, 1);
-        if ([self.session canAddOutput:movieFileOutput]) {
-            [self.session addOutput:movieFileOutput];
-            [self setMovieFileOutput:movieFileOutput];
-        }
+        [self setupStillFileOutput];
     });
+}
+
+- (void)setupMovieFileOutput
+{
+    [self.session beginConfiguration];
+    if (self.movieFileOutput) {
+        [self.session removeOutput:self.movieFileOutput];
+        [self setMovieFileOutput:nil];
+    }
+    AVCaptureMovieFileOutput *movieFileOutput = [[AVCaptureMovieFileOutput alloc] init];
+    if ([self.session canAddOutput:movieFileOutput]) {
+        [self.session addOutput:movieFileOutput];
+        [self setMovieFileOutput:movieFileOutput];
+    }
+    [self.session commitConfiguration];
+}
+
+- (void)setupStillFileOutput
+{
+    [self.session beginConfiguration];
+    if (self.stillImageOutput) {
+        [self.session removeOutput:self.stillImageOutput];
+        [self setStillImageOutput:nil];
+    }
+
+    AVCaptureStillImageOutput *stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
+    if ([self.session canAddOutput:stillImageOutput]) {
+        [stillImageOutput setOutputSettings:@{AVVideoCodecKey : AVVideoCodecJPEG}];
+        [self.session addOutput:stillImageOutput];
+        [self setStillImageOutput:stillImageOutput];
+    }
+    [self.session commitConfiguration];
 }
 
 #pragma CamScrollView Action
@@ -305,9 +326,31 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 #pragma mark CamCaptureModeViewControllerDelegate
 - (void)camCaptureModeViewController:(CamCaptureModeViewController *)controller didEndDisplayingPageAtIndex:(NSInteger)pageIndex
 {
-    [self.curtainViewController openCurtainWithCompletionHandler:^{
-        [self.overlayViewController didEndTransitionToPageIndex:pageIndex];
-    }];
+    if (self.currentPageIndex == pageIndex) {
+        return;
+    }
+    
+    self.currentPageIndex = pageIndex;
+    
+    if (pageIndex == 1) {
+        dispatch_async(self.sessionQueue, ^{
+            [self setupMovieFileOutput];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.curtainViewController openCurtainWithCompletionHandler:^{
+                    [self.overlayViewController didEndTransitionToPageIndex:pageIndex];
+                }];
+            });
+        });
+    } else {
+        dispatch_async(self.sessionQueue, ^{
+            [self setupStillFileOutput];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.curtainViewController openCurtainWithCompletionHandler:^{
+                    [self.overlayViewController didEndTransitionToPageIndex:pageIndex];
+                }];
+            });
+        });
+    }
 }
 
 - (void)camCaptureModeViewController:(CamCaptureModeViewController *)controller didScrollWithPercentage:(CGFloat)percentage toPage:(NSUInteger)pageIndex

@@ -51,6 +51,8 @@
 
 - (void)didEndTransitionToPageIndex:(NSUInteger)pageIndex
 {
+    NSLog(@"%@: %@", NSStringFromSelector(_cmd), @(pageIndex));
+
     if (pageIndex == 0) {
         self.nextButton.alpha = 0;
         self.progressView.alpha = 0;
