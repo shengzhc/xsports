@@ -41,8 +41,12 @@
 #define CamFilterViewControllerIdentifier @"CamFilterViewController"
 #define NavAVCamViewControllerIdentifier @"Nav_AVCamViewController"
 #define AssetsPickerViewControllerIdentifier @"AssetsPickerViewController"
+#define CamCaptureOverlayViewControllerIdentifier @"CamCaptureOverlayViewController"
+#define CamCaptureViewControllerIdentifier @"CamCaptureViewController"
+#define CamCurtainViewControllerIdentifier @"CamCurtainViewController"
 
 #define CamFilterViewControllerSegueIdentifier @"CamFilterViewControllerSegue"
+#define CamCaptureOverlayViewControllerSegueIdentifier @"CamCaptureOverlayViewControllerSegue"
 
 
 #pragma mark Other

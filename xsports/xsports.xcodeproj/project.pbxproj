@@ -91,6 +91,8 @@
 		9CDDDE3D1A493DFC00144DB8 /* AssetsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDDE3C1A493DFC00144DB8 /* AssetsPickerViewController.m */; };
 		9CE4F0901A46987E005EB73C /* CommentsTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4F08F1A46987E005EB73C /* CommentsTextViewController.m */; };
 		9CF19E681A53A2D300908553 /* CamCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF19E671A53A2D300908553 /* CamCaptureViewController.m */; };
+		9CF19E6E1A53BF1800908553 /* CamCaptureOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF19E6D1A53BF1800908553 /* CamCaptureOverlayViewController.m */; };
+		9CF19E711A53CC5D00908553 /* CamCurtainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF19E701A53CC5D00908553 /* CamCurtainViewController.m */; };
 		9CF88D441A3FC3F300D4E72E /* JSONValueTransformer+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF88D431A3FC3F300D4E72E /* JSONValueTransformer+XS.m */; };
 		9CF88D461A3FE5ED00D4E72E /* Tasks in Resources */ = {isa = PBXBuildFile; fileRef = 9CF88D451A3FE5ED00D4E72E /* Tasks */; };
 		9CF88D491A3FE6A300D4E72E /* NSDate+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF88D481A3FE6A300D4E72E /* NSDate+XS.m */; };
@@ -257,6 +259,10 @@
 		9CE4F08F1A46987E005EB73C /* CommentsTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsTextViewController.m; sourceTree = "<group>"; };
 		9CF19E661A53A2D300908553 /* CamCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamCaptureViewController.h; sourceTree = "<group>"; };
 		9CF19E671A53A2D300908553 /* CamCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamCaptureViewController.m; sourceTree = "<group>"; };
+		9CF19E6C1A53BF1800908553 /* CamCaptureOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamCaptureOverlayViewController.h; sourceTree = "<group>"; };
+		9CF19E6D1A53BF1800908553 /* CamCaptureOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamCaptureOverlayViewController.m; sourceTree = "<group>"; };
+		9CF19E6F1A53CC5D00908553 /* CamCurtainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamCurtainViewController.h; sourceTree = "<group>"; };
+		9CF19E701A53CC5D00908553 /* CamCurtainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamCurtainViewController.m; sourceTree = "<group>"; };
 		9CF88D401A3FBCE400D4E72E /* FeedViewPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewPhotoCell.xib; sourceTree = "<group>"; };
 		9CF88D421A3FC3F300D4E72E /* JSONValueTransformer+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONValueTransformer+XS.h"; sourceTree = "<group>"; };
 		9CF88D431A3FC3F300D4E72E /* JSONValueTransformer+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+XS.m"; sourceTree = "<group>"; };
@@ -446,6 +452,10 @@
 				9CBC8ABB1A477793006F00A3 /* CamViewController.m */,
 				9CF19E661A53A2D300908553 /* CamCaptureViewController.h */,
 				9CF19E671A53A2D300908553 /* CamCaptureViewController.m */,
+				9CF19E6C1A53BF1800908553 /* CamCaptureOverlayViewController.h */,
+				9CF19E6D1A53BF1800908553 /* CamCaptureOverlayViewController.m */,
+				9CF19E6F1A53CC5D00908553 /* CamCurtainViewController.h */,
+				9CF19E701A53CC5D00908553 /* CamCurtainViewController.m */,
 			);
 			name = Cam;
 			sourceTree = "<group>";
@@ -912,6 +922,7 @@
 				9CBCE71D1A3CC56200C9BD35 /* MEFoldAnimationController.m in Sources */,
 				9CF88D491A3FE6A300D4E72E /* NSDate+XS.m in Sources */,
 				9C02EA0F1A3A793500FA1631 /* UIImage+XS.m in Sources */,
+				9CF19E711A53CC5D00908553 /* CamCurtainViewController.m in Sources */,
 				9CCF5AC81A4BE99E001B9029 /* SinkingAndSlidingAnimator.m in Sources */,
 				9C7DEBB21A396E6B00A0436E /* main.m in Sources */,
 				9C7ED1291A3BA13C007AB927 /* FeedViewController.m in Sources */,
@@ -919,6 +930,7 @@
 				9C1EE3491A4B268F007372BD /* SignUpViewController.m in Sources */,
 				9C5BD0D91A4B281800B7B426 /* SignupAccountCell.m in Sources */,
 				9C6B21EC1A39812D00FE8B43 /* UIFont+XS.m in Sources */,
+				9CF19E6E1A53BF1800908553 /* CamCaptureOverlayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
