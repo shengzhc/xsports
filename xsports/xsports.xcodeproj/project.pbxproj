@@ -93,6 +93,7 @@
 		9CF19E681A53A2D300908553 /* CamCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF19E671A53A2D300908553 /* CamCaptureViewController.m */; };
 		9CF19E6E1A53BF1800908553 /* CamCaptureOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF19E6D1A53BF1800908553 /* CamCaptureOverlayViewController.m */; };
 		9CF19E711A53CC5D00908553 /* CamCurtainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF19E701A53CC5D00908553 /* CamCurtainViewController.m */; };
+		9CF19E741A53D3E500908553 /* CamCaptureModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF19E731A53D3E500908553 /* CamCaptureModeViewController.m */; };
 		9CF88D441A3FC3F300D4E72E /* JSONValueTransformer+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF88D431A3FC3F300D4E72E /* JSONValueTransformer+XS.m */; };
 		9CF88D461A3FE5ED00D4E72E /* Tasks in Resources */ = {isa = PBXBuildFile; fileRef = 9CF88D451A3FE5ED00D4E72E /* Tasks */; };
 		9CF88D491A3FE6A300D4E72E /* NSDate+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF88D481A3FE6A300D4E72E /* NSDate+XS.m */; };
@@ -263,6 +264,8 @@
 		9CF19E6D1A53BF1800908553 /* CamCaptureOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamCaptureOverlayViewController.m; sourceTree = "<group>"; };
 		9CF19E6F1A53CC5D00908553 /* CamCurtainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamCurtainViewController.h; sourceTree = "<group>"; };
 		9CF19E701A53CC5D00908553 /* CamCurtainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamCurtainViewController.m; sourceTree = "<group>"; };
+		9CF19E721A53D3E500908553 /* CamCaptureModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamCaptureModeViewController.h; sourceTree = "<group>"; };
+		9CF19E731A53D3E500908553 /* CamCaptureModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamCaptureModeViewController.m; sourceTree = "<group>"; };
 		9CF88D401A3FBCE400D4E72E /* FeedViewPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewPhotoCell.xib; sourceTree = "<group>"; };
 		9CF88D421A3FC3F300D4E72E /* JSONValueTransformer+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONValueTransformer+XS.h"; sourceTree = "<group>"; };
 		9CF88D431A3FC3F300D4E72E /* JSONValueTransformer+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+XS.m"; sourceTree = "<group>"; };
@@ -456,6 +459,8 @@
 				9CF19E6D1A53BF1800908553 /* CamCaptureOverlayViewController.m */,
 				9CF19E6F1A53CC5D00908553 /* CamCurtainViewController.h */,
 				9CF19E701A53CC5D00908553 /* CamCurtainViewController.m */,
+				9CF19E721A53D3E500908553 /* CamCaptureModeViewController.h */,
+				9CF19E731A53D3E500908553 /* CamCaptureModeViewController.m */,
 			);
 			name = Cam;
 			sourceTree = "<group>";
@@ -869,6 +874,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF19E741A53D3E500908553 /* CamCaptureModeViewController.m in Sources */,
 				9C7DEBB51A396E6B00A0436E /* AppDelegate.m in Sources */,
 				9C7ED1261A3B8AD0007AB927 /* MenuViewController.m in Sources */,
 				9CBCE72F1A3E2EF100C9BD35 /* User.m in Sources */,

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CamCurtainViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UIView *topCurtain;
+@property (weak, nonatomic) IBOutlet UIView *bottomCurtain;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *openLayoutConstraint;
 @end

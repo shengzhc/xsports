@@ -20,15 +20,24 @@
     [self setup];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 - (void)setup
 {
-    self.topHeightConstraint.constant = 50;
+    self.topHeightConstraint.constant = [UIScreen width] + 44 + 56;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:CamCaptureOverlayViewControllerSegueIdentifier]) {
         self.overlayViewController = segue.destinationViewController;
+    } else if ([segue.identifier isEqualToString:CamCaptureModeViewControllerSegueIdentifier]) {
+        self.curtainViewController = segue.destinationViewController;
+    } else if ([segue.identifier isEqualToString:CamCurtainViewControllerIdentifier]) {
+        self.curtainViewController = segue.destinationViewController;
     } else {
         [super prepareForSegue:segue sender:sender];
     }

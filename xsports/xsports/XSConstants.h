@@ -44,9 +44,12 @@
 #define CamCaptureOverlayViewControllerIdentifier @"CamCaptureOverlayViewController"
 #define CamCaptureViewControllerIdentifier @"CamCaptureViewController"
 #define CamCurtainViewControllerIdentifier @"CamCurtainViewController"
+#define CamCaptureModeViewControllerIdentifier @"CamCaptureModeViewController"
 
 #define CamFilterViewControllerSegueIdentifier @"CamFilterViewControllerSegue"
 #define CamCaptureOverlayViewControllerSegueIdentifier @"CamCaptureOverlayViewControllerSegue"
+#define CamCurtainViewControllerSegueIdentifier @"CamCurtainViewControllerSegue"
+#define CamCaptureModeViewControllerSegueIdentifier @"CamCaptureModeViewControllerSegue"
 
 
 #pragma mark Other

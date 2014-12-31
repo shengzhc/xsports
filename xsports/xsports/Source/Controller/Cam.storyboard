@@ -248,7 +248,13 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dfh-EF-wAO" userLabel="curtain">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="414"/>
                                 <connections>
-                                    <segue destination="V1Y-f1-7pf" kind="embed" id="n6J-hF-v7X"/>
+                                    <segue destination="V1Y-f1-7pf" kind="embed" identifier="CamCurtainViewControllerSegue" id="n6J-hF-v7X"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cuc-VS-apj" userLabel="bottomcontainer">
+                                <rect key="frame" x="0.0" y="414" width="320" height="154"/>
+                                <connections>
+                                    <segue destination="LLf-eg-h6L" kind="embed" identifier="CamCaptureModeViewControllerSegue" id="JQc-eh-Nqa"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -258,10 +264,14 @@
                             <constraint firstItem="f4w-Ye-vWy" firstAttribute="leading" secondItem="Ic6-7T-RJU" secondAttribute="leading" id="3vK-RF-aFg"/>
                             <constraint firstItem="f4w-Ye-vWy" firstAttribute="trailing" secondItem="Dfh-EF-wAO" secondAttribute="trailing" id="56L-YK-PJ8"/>
                             <constraint firstItem="f4w-Ye-vWy" firstAttribute="top" secondItem="Dfh-EF-wAO" secondAttribute="top" id="7y5-2M-KNV"/>
+                            <constraint firstAttribute="bottom" secondItem="Cuc-VS-apj" secondAttribute="bottom" id="End-Fq-uin"/>
+                            <constraint firstItem="Cuc-VS-apj" firstAttribute="leading" secondItem="jHj-Qi-ujy" secondAttribute="leading" id="I6Y-Ek-UEh"/>
                             <constraint firstItem="f4w-Ye-vWy" firstAttribute="trailing" secondItem="Ic6-7T-RJU" secondAttribute="trailing" id="OHs-ZT-KaC"/>
                             <constraint firstItem="f4w-Ye-vWy" firstAttribute="top" secondItem="Ic6-7T-RJU" secondAttribute="top" id="RMD-aL-ce0"/>
                             <constraint firstItem="f4w-Ye-vWy" firstAttribute="leading" secondItem="Dfh-EF-wAO" secondAttribute="leading" id="Y3G-CX-0k5"/>
                             <constraint firstItem="f4w-Ye-vWy" firstAttribute="top" secondItem="jHj-Qi-ujy" secondAttribute="top" id="ftW-5F-yyO"/>
+                            <constraint firstItem="Cuc-VS-apj" firstAttribute="top" secondItem="f4w-Ye-vWy" secondAttribute="bottom" id="jXe-Lx-czB"/>
+                            <constraint firstAttribute="trailing" secondItem="Cuc-VS-apj" secondAttribute="trailing" id="rUp-aN-uRl"/>
                             <constraint firstAttribute="trailing" secondItem="f4w-Ye-vWy" secondAttribute="trailing" id="vUd-pi-Qfl"/>
                             <constraint firstItem="f4w-Ye-vWy" firstAttribute="leading" secondItem="jHj-Qi-ujy" secondAttribute="leading" id="wAt-Gb-tfo"/>
                             <constraint firstItem="f4w-Ye-vWy" firstAttribute="bottom" secondItem="Ic6-7T-RJU" secondAttribute="bottom" id="yny-qB-Pg8"/>
@@ -270,6 +280,9 @@
                     <navigationItem key="navigationItem" id="H0X-Vf-M4J"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="curtainContainer" destination="Dfh-EF-wAO" id="B7o-hv-esO"/>
+                        <outlet property="modeContainer" destination="Cuc-VS-apj" id="gUS-Vx-D9L"/>
+                        <outlet property="overlayContainer" destination="f4w-Ye-vWy" id="9mf-HH-MI0"/>
                         <outlet property="previewView" destination="Ic6-7T-RJU" id="uar-cl-Zto"/>
                         <outlet property="topHeightConstraint" destination="1lS-r1-fZh" id="GoM-rQ-qKs"/>
                     </connections>
@@ -470,10 +483,49 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="bottomCurtain" destination="LbR-eF-hh1" id="06U-UH-syH"/>
+                        <outlet property="openLayoutConstraint" destination="fPn-yf-8VR" id="ao4-sy-Ppf"/>
+                        <outlet property="topCurtain" destination="nlY-Ab-Sbt" id="6fs-Av-8Tp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhr-bB-htS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="54" y="-2206"/>
+        </scene>
+        <!--Cam Capture Mode View Controller-->
+        <scene sceneID="4MQ-we-fwR">
+            <objects>
+                <viewController storyboardIdentifier="CamCaptureModeViewController" automaticallyAdjustsScrollViewInsets="NO" id="LLf-eg-h6L" customClass="CamCaptureModeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xLg-u8-UJ5"/>
+                        <viewControllerLayoutGuide type="bottom" id="xvk-mo-Ks8"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6gz-pG-Mf3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bxj-sg-c2i" customClass="CamScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Bxj-sg-c2i" secondAttribute="bottom" id="0kg-5z-OGM"/>
+                            <constraint firstItem="Bxj-sg-c2i" firstAttribute="leading" secondItem="6gz-pG-Mf3" secondAttribute="leading" id="Ehx-Az-uam"/>
+                            <constraint firstAttribute="trailing" secondItem="Bxj-sg-c2i" secondAttribute="trailing" id="YcA-wd-vHl"/>
+                            <constraint firstItem="Bxj-sg-c2i" firstAttribute="top" secondItem="6gz-pG-Mf3" secondAttribute="top" id="yU5-Rq-lng"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="scrollView" destination="Bxj-sg-c2i" id="n3O-uP-Txo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="072-mU-hPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="54" y="-1768"/>
         </scene>
     </scenes>
     <resources>
