@@ -18,6 +18,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupScrollView];
+}
+
+- (void)setupScrollView
+{
+    self.scrollView.backgroundColor = [[UIColor cSuperDarkBlackColor] colorWithAlphaComponent:0.9];
     self.scrollView.delegate = self;
 }
 

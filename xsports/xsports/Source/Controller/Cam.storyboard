@@ -336,16 +336,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kv4-Uw-2oK" userLabel="tool bar">
-                                <rect key="frame" x="0.0" y="358" width="320" height="56"/>
+                                <rect key="frame" x="0.0" y="364" width="320" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ct-rq-0Yx" userLabel="top">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="la8-1D-K70" userLabel="left">
-                                                <rect key="frame" x="0.0" y="0.0" width="140" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="44"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjT-qB-0lI" userLabel="grid">
-                                                        <rect key="frame" x="50" y="5" width="40" height="40"/>
+                                                        <rect key="frame" x="50" y="2" width="40" height="40"/>
                                                         <state key="normal" backgroundImage="ico_cam_grid_white">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
@@ -362,10 +362,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dzp-E7-I4U" userLabel="right">
-                                                <rect key="frame" x="180" y="0.0" width="140" height="50"/>
+                                                <rect key="frame" x="180" y="0.0" width="140" height="44"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neW-6C-e3o" userLabel="flip">
-                                                        <rect key="frame" x="50" y="5" width="40" height="40"/>
+                                                        <rect key="frame" x="50" y="2" width="40" height="40"/>
                                                         <state key="normal" backgroundImage="ico_flash_white">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
@@ -382,7 +382,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPj-ft-nMo" userLabel="rotate">
-                                                <rect key="frame" x="140" y="5" width="40" height="40"/>
+                                                <rect key="frame" x="140" y="2" width="40" height="40"/>
                                                 <state key="normal" backgroundImage="ico_cam_rotate_white">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -407,7 +407,7 @@
                                         </constraints>
                                     </view>
                                     <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWZ-Ig-C44" userLabel="progress view" customClass="ProgressView">
-                                        <rect key="frame" x="0.0" y="50" width="320" height="6"/>
+                                        <rect key="frame" x="0.0" y="44" width="320" height="6"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="6" id="Dg9-t8-g2t"/>
@@ -422,7 +422,7 @@
                                     <constraint firstAttribute="bottom" secondItem="eWZ-Ig-C44" secondAttribute="bottom" id="Qcp-My-GS8"/>
                                     <constraint firstItem="2Ct-rq-0Yx" firstAttribute="top" secondItem="Kv4-Uw-2oK" secondAttribute="top" id="QrZ-hD-PR3"/>
                                     <constraint firstItem="eWZ-Ig-C44" firstAttribute="leading" secondItem="Kv4-Uw-2oK" secondAttribute="leading" id="aaH-eZ-kYR"/>
-                                    <constraint firstAttribute="height" constant="56" id="oQW-As-ItR"/>
+                                    <constraint firstAttribute="height" constant="50" id="oQW-As-ItR"/>
                                     <constraint firstAttribute="trailing" secondItem="2Ct-rq-0Yx" secondAttribute="trailing" id="qgC-VU-whV"/>
                                 </constraints>
                             </view>
