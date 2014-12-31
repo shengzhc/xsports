@@ -23,4 +23,6 @@
 - (IBAction)didRotateButtonClicked:(id)sender;
 - (IBAction)didFlashButtonClicked:(id)sender;
 
+- (void)transitionWithPercent:(CGFloat)percent toPageIndex:(NSUInteger)pageIndex;
+
 @end

@@ -19,6 +19,7 @@
     [super viewDidLoad];
 }
 
+#pragma mark Close Curtain
 - (void)closeCurtainWithCompletionHandler:(void (^)(void))completionHandler
 {
     dispatch_async(dispatch_get_main_queue(), ^{

@@ -45,6 +45,8 @@
 - (void)camCaptureModeViewController:(CamCaptureModeViewController *)controller didScrollWithPercentage:(CGFloat)percentage toPage:(NSUInteger)pageIndex
 {
     [self.curtainViewController openCurtainWithPercent:percentage];
+    [self.overlayViewController transitionWithPercent:percentage toPageIndex:pageIndex];
+    
     [self.overlayViewController.progressView stopAnimation];
 }
 

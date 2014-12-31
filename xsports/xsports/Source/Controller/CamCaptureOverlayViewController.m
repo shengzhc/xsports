@@ -26,6 +26,12 @@
     self.nextButton.titleLabel.font = [UIFont chnRegularFont];
 }
 
+- (void)transitionWithPercent:(CGFloat)percent toPageIndex:(NSUInteger)pageIndex
+{
+    self.nextButton.alpha = pageIndex == 0 ? percent : (1 - percent);
+    self.gridButton.alpha = self.flashButton.alpha = 1 - self.nextButton.alpha;
+}
+
 - (IBAction)didCloseButtonClicked:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
