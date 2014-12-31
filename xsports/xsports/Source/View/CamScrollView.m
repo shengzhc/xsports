@@ -10,6 +10,7 @@
 
 @interface CamScrollView () < UIScrollViewDelegate, UIGestureRecognizerDelegate >
 @property (strong, nonatomic) UIPanGestureRecognizer *restrictionPanGestureRecognizer;
+@property (strong, nonatomic) NSTimer *recordingTimer;
 @property (assign, nonatomic) CGRect lastFrame;
 @property (assign, nonatomic) CGRect swipeArea;
 @end

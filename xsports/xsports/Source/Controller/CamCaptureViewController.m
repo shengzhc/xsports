@@ -7,12 +7,13 @@
 //
 
 #import "CamCaptureViewController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 static void *CapturingStillImageContext = &CapturingStillImageContext;
 static void *RecordingContext = &RecordingContext;
 static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthorizedContext;
 
-@interface CamCaptureViewController () < CamCaptureModeViewControllerDelegate, CamCaptureOverlayViewControllerDelegate >
+@interface CamCaptureViewController () < AVCaptureFileOutputRecordingDelegate, CamCaptureModeViewControllerDelegate, CamCaptureOverlayViewControllerDelegate >
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIView *overlayContainer;
 @property (weak, nonatomic) IBOutlet AVCamPreviewView *previewView;
@@ -159,7 +160,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     });
 }
 
-#pragma CamScrollBottom Action
+#pragma CamScrollView Action
 - (void)didPicGalleryButtonClicked:(id)sender
 {
 }
@@ -191,7 +192,38 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     }];
 }
 
+- (void)startRecording
+{
+    [self.overlayViewController enableButtons:NO];
+//    self.recordingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/60 target:self selector:@selector(updateProgressView) userInfo:nil repeats:YES];
+    dispatch_async([self sessionQueue], ^{
+        if (![[self movieFileOutput] isRecording]) {
+            if ([[UIDevice currentDevice] isMultitaskingSupported]) {
+                [self setBackgroundRecordingId:[[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil]];
+            }
+            [[[self movieFileOutput] connectionWithMediaType:AVMediaTypeVideo] setVideoOrientation:[[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] videoOrientation]];
+            [self setFlashMode:AVCaptureFlashModeOff forDevice:[[self videoDeviceInput] device]];
+            NSString *outputFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:[@"movie" stringByAppendingPathExtension:@"mov"]];
+            [[self movieFileOutput] startRecordingToOutputFileURL:[NSURL fileURLWithPath:outputFilePath] recordingDelegate:self];
+        }
+    });
+}
 
+- (void)stopRecording
+{
+    [self.overlayViewController enableButtons:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.recordingTimer invalidate];
+//        self.recordingTimer = nil;
+//        [self.progressView startAnimation];
+    });
+    
+    dispatch_async([self sessionQueue], ^{
+        if ([[self movieFileOutput] isRecording]) {
+            [[self movieFileOutput] stopRecording];
+        }
+    });
+}
 #pragma mark CamCaptureOverlayViewController
 - (void)camCaptureOverlayViewController:(CamCaptureOverlayViewController *)controller didCloseButtonClicked:(id)sender
 {
@@ -347,6 +379,35 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     
     return captureDevice;
 }
+
+#pragma mark File Output Delegate
+- (void)captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error
+{
+    if (error) {
+        NSLog(@"%@", error);
+    }
+    
+    [self.overlayViewController enableButtons:NO];
+    [self.curtainViewController closeCurtainWithCompletionHandler:^{
+        UIBackgroundTaskIdentifier backgroundRecordingID = [self backgroundRecordingId];
+        [self setBackgroundRecordingId:UIBackgroundTaskInvalid];
+        [[[ALAssetsLibrary alloc] init] writeVideoAtPathToSavedPhotosAlbum:outputFileURL completionBlock:^(NSURL *assetURL, NSError *error) {
+            if (error) {
+                NSLog(@"%@", error);
+            }
+            [[NSFileManager defaultManager] removeItemAtURL:outputFileURL error:nil];
+            if (backgroundRecordingID != UIBackgroundTaskInvalid) {
+                [[UIApplication sharedApplication] endBackgroundTask:backgroundRecordingID];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.curtainViewController openCurtainWithCompletionHandler:^{
+                    [self.overlayViewController enableButtons:YES];
+                }];
+            });
+        }];
+    }];
+}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

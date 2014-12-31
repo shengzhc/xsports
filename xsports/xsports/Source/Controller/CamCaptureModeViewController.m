@@ -25,6 +25,27 @@
 {
     self.scrollView.backgroundColor = [[UIColor cSuperDarkBlackColor] colorWithAlphaComponent:0.9];
     self.scrollView.delegate = self;
+    
+    UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleRecordLongPress:)];
+    longPressGestureRecognizer.minimumPressDuration = 0;
+    [self.scrollView.recordCaptureButton addGestureRecognizer:longPressGestureRecognizer];
+}
+
+- (void)handleRecordLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        [self.scrollView.recordCaptureButton setHighlighted:YES];
+        if ([self.parentViewController respondsToSelector:@selector(startRecording)]) {
+            [self.parentViewController performSelector:@selector(startRecording) withObject:nil afterDelay:0];
+        }
+    } else if (gestureRecognizer.state == UIGestureRecognizerStateChanged || gestureRecognizer.state == UIGestureRecognizerStatePossible) {
+        
+    } else {
+        [self.scrollView.recordCaptureButton setHighlighted:NO];
+        if ([self.parentViewController respondsToSelector:@selector(stopRecording)]) {
+            [self.parentViewController performSelector:@selector(stopRecording) withObject:nil afterDelay:0];
+        }
+    }
 }
 
 #pragma mark CamScrollViewDelegate

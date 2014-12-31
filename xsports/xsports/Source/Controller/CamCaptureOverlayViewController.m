@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *flashButton;
 @property (weak, nonatomic) IBOutlet UIView *topBarView;
 @property (weak, nonatomic) IBOutlet UIView *toolBarView;
+@property (assign, nonatomic) BOOL wasAnimatingProgress;
 @end
 
 @implementation CamCaptureOverlayViewController
@@ -55,12 +56,15 @@
         self.progressView.alpha = 0;
         self.gridButton.alpha = 1;
         self.flashButton.alpha = 1;
+        [self.progressView stopAnimation];
+        _wasAnimatingProgress = NO;
     } else {
         self.nextButton.alpha = 1.0;
         self.progressView.alpha = 1.0;
         self.gridButton.alpha = 0.0;
         self.flashButton.alpha = 0.0;
         [self.progressView startAnimation];
+        _wasAnimatingProgress = YES;
     }
 }
 
@@ -70,6 +74,11 @@
     self.flashButton.enabled = enable;
     self.rotateButton.enabled = enable;
     self.nextButton.enabled = enable;
+    if (enable && _wasAnimatingProgress) {
+        [self.progressView startAnimation];
+    } else {
+        [self.progressView stopAnimation];
+    }
 }
 
 - (IBAction)didCloseButtonClicked:(id)sender
