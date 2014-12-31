@@ -9,21 +9,22 @@
 #import <UIKit/UIKit.h>
 #import "ProgressView.h"
 
+@class CamCaptureOverlayViewController;
+@protocol CamCaptureOverlayViewControllerDelegate <NSObject>
+@optional
+- (void)camCaptureOverlayViewController:(CamCaptureOverlayViewController *)controller didCloseButtonClicked:(id)sender;
+- (void)camCaptureOverlayViewController:(CamCaptureOverlayViewController *)controller didNextButtonClicked:(id)sender;
+- (void)camCaptureOverlayViewController:(CamCaptureOverlayViewController *)controller didGridButtonClicked:(id)sender;
+- (void)camCaptureOverlayViewController:(CamCaptureOverlayViewController *)controller didRotateButtonClicked:(id)sender;
+- (void)camCaptureOverlayViewController:(CamCaptureOverlayViewController *)controller didFlashButtonClicked:(id)sender;
+@end
+
 @interface CamCaptureOverlayViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIButton *closeButton;
-@property (weak, nonatomic) IBOutlet UIButton *nextButton;
-@property (weak, nonatomic) IBOutlet UIButton *gridButton;
-@property (weak, nonatomic) IBOutlet UIButton *rotateButton;
-@property (weak, nonatomic) IBOutlet UIButton *flashButton;
-@property (weak, nonatomic) IBOutlet UIView *topBarView;
-@property (weak, nonatomic) IBOutlet UIView *toolBarView;
 
-- (IBAction)didCloseButtonClicked:(id)sender;
-- (IBAction)didNextButtonClicked:(id)sender;
-- (IBAction)didGridButtonClicked:(id)sender;
-- (IBAction)didRotateButtonClicked:(id)sender;
-- (IBAction)didFlashButtonClicked:(id)sender;
+@property (assign, nonatomic) AVCaptureFlashMode flashMode;
+@property (assign, nonatomic) BOOL isGridEnabled;
 
+@property (weak, nonatomic) id < CamCaptureOverlayViewControllerDelegate > delegate;
 - (void)transitionWithPercent:(CGFloat)percent toPageIndex:(NSUInteger)pageIndex;
 - (void)didEndTransitionToPageIndex:(NSUInteger)pageIndex;
 

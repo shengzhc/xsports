@@ -10,6 +10,13 @@
 
 @interface CamCaptureOverlayViewController ()
 @property (weak, nonatomic) IBOutlet ProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet UIButton *gridButton;
+@property (weak, nonatomic) IBOutlet UIButton *rotateButton;
+@property (weak, nonatomic) IBOutlet UIButton *flashButton;
+@property (weak, nonatomic) IBOutlet UIView *topBarView;
+@property (weak, nonatomic) IBOutlet UIView *toolBarView;
 @end
 
 @implementation CamCaptureOverlayViewController
@@ -59,29 +66,42 @@
 
 - (IBAction)didCloseButtonClicked:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([self.delegate respondsToSelector:@selector(camCaptureOverlayViewController:didCloseButtonClicked:)]) {
+        [self.delegate camCaptureOverlayViewController:self didCloseButtonClicked:sender];
+    }
 }
 
 - (IBAction)didNextButtonClicked:(id)sender
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    if ([self.delegate respondsToSelector:@selector(camCaptureOverlayViewController:didNextButtonClicked:)]) {
+        [self.delegate camCaptureOverlayViewController:self didNextButtonClicked:sender];
+    }
 }
 
 - (IBAction)didGridButtonClicked:(id)sender
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    self.isGridEnabled = !self.isGridEnabled;
+    
+    
+    if ([self.delegate respondsToSelector:@selector(camCaptureOverlayViewController:didGridButtonClicked:)]) {
+        [self.delegate camCaptureOverlayViewController:self didGridButtonClicked:sender];
+    }
 }
 
 - (IBAction)didRotateButtonClicked:(id)sender
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    if ([self.delegate respondsToSelector:@selector(camCaptureOverlayViewController:didRotateButtonClicked:)]) {
+        [self.delegate camCaptureOverlayViewController:self didRotateButtonClicked:sender];
+    }
 }
 
 - (IBAction)didFlashButtonClicked:(id)sender
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    self.flashMode = (self.flashMode == AVCaptureFlashModeOff ? AVCaptureFlashModeOn : (self.flashMode == AVCaptureFlashModeOn ? AVCaptureFlashModeAuto : AVCaptureFlashModeOff));
+    if ([self.delegate respondsToSelector:@selector(camCaptureOverlayViewController:didFlashButtonClicked:)]) {
+        [self.delegate camCaptureOverlayViewController:self didFlashButtonClicked:sender];
+    }
 }
-
 
 - (void)updateProgressView
 {

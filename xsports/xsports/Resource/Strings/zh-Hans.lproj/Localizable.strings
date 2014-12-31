@@ -8,6 +8,7 @@
 
 "error" = "错误";
 "close" = "关闭";
+"ok" = "好的";
 
 //Sign In/Up
 "signin" = "登陆";
@@ -26,3 +27,7 @@
 "feed_title" = "Editors Picks";
 "layout_list" = "列表排布";
 "layout_grid" = "网格排布";
+
+//Cam
+"cam_auth_title" = "极度";
+"cam_auth_msg" = "请为极度开启相机使用权限";

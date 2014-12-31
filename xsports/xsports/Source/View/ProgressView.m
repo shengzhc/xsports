@@ -44,24 +44,24 @@
 - (void)commonInit
 {
     self.translatesAutoresizingMaskIntoConstraints = NO;
-    self.cursorWidth = 8.0;
-    self.seperatorWidth = 2.0;
+    self.cursorWidth = 6.0;
+    self.seperatorWidth = 1.0;
     _progress = 0.6;
     _seperator = 0.4;
     
     self.seperatorView = [[UIView alloc] init];
     self.seperatorView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.seperatorView.backgroundColor = [UIColor lightCoralColor];
+    self.seperatorView.backgroundColor = [UIColor cLightGrayColor];
     [self addSubview:self.seperatorView];
     
     self.cursorView = [[UIView alloc] init];
     self.cursorView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.cursorView.backgroundColor = [UIColor textFieldCursorColor];
+    self.cursorView.backgroundColor = [UIColor cYellowColor];
     [self addSubview:self.cursorView];
     
     self.progressView = [[UIView alloc] init];
     self.progressView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.progressView.backgroundColor = [[UIColor lightWaveColor] colorWithAlphaComponent:0.5];
+    self.progressView.backgroundColor = [UIColor cLightYellowColor];
     [self addSubview:self.progressView];
     
     [self setupConstraints];
