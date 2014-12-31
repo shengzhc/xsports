@@ -39,8 +39,8 @@
         self.scrollView.stillCaptureButton.alpha = 0.1 + (1-factor)* 0.9;
     }
     
-    if ([self.delegate respondsToSelector:@selector(camCaptureModeViewController:didScrollWithPercentage:)]) {
-        [self.delegate camCaptureModeViewController:self didScrollWithPercentage:factor];
+    if ([self.delegate respondsToSelector:@selector(camCaptureModeViewController:didScrollWithPercentage:toPage:)]) {
+        [self.delegate camCaptureModeViewController:self didScrollWithPercentage:factor toPage:self.lastPageIndex == 0 ? 1 : 0];
     }
 }
 

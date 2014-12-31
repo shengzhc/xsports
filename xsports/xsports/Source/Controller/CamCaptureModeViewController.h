@@ -12,7 +12,7 @@
 @class CamCaptureModeViewController;
 @protocol CamCaptureModeViewControllerDelegate <NSObject>
 @optional
-- (void)camCaptureModeViewController:(CamCaptureModeViewController *)controller didScrollWithPercentage:(CGFloat)percentage;
+- (void)camCaptureModeViewController:(CamCaptureModeViewController *)controller didScrollWithPercentage:(CGFloat)percentage toPage:(NSUInteger)pageIndex;
 - (void)camCaptureModeViewController:(CamCaptureModeViewController *)controller didEndDisplayingPageAtIndex:(NSInteger)pageIndex;
 @end
 

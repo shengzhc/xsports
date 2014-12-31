@@ -9,7 +9,7 @@
 #import "CamCurtainViewController.h"
 
 @interface CamCurtainViewController ()
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *openLayoutConstraint;
 @end
 
 @implementation CamCurtainViewController
@@ -34,6 +34,8 @@
     });
 }
 
+
+#pragma mark Open Curtain
 - (void)openCurtainWithCompletionHandler:(void (^)(void))completionHandler
 {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -48,6 +50,12 @@
             }
         }];
     });
+}
+
+- (void)openCurtainWithPercent:(CGFloat)percent
+{
+    CGFloat h = percent * self.view.bounds.size.height;
+    self.openLayoutConstraint.constant = h;
 }
 
 @end

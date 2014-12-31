@@ -42,12 +42,15 @@
     }];
 }
 
+- (void)camCaptureModeViewController:(CamCaptureModeViewController *)controller didScrollWithPercentage:(CGFloat)percentage toPage:(NSUInteger)pageIndex
+{
+    [self.curtainViewController openCurtainWithPercent:percentage];
+    [self.overlayViewController.progressView stopAnimation];
+}
+
 - (void)camCaptureModeViewController:(CamCaptureModeViewController *)controller didScrollWithPercentage:(CGFloat)percentage
 {
-    CGFloat h = percentage * self.curtainViewController.view.bounds.size.height;
-    self.curtainViewController.openLayoutConstraint.constant = h;
 
-    [self.overlayViewController.progressView stopAnimation];
 //    CGFloat f = 1 - (c - self.camScrollView.contentOffset.x)/c;
 //    self.progressView.alpha = MAX(MIN(f, 1.0), 0);;
 }

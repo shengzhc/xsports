@@ -11,9 +11,11 @@
 @interface CamCurtainViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIView *topCurtain;
 @property (weak, nonatomic) IBOutlet UIView *bottomCurtain;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *openLayoutConstraint;
 
 - (void)closeCurtainWithCompletionHandler:(void (^)(void))completionHandler;
+
+
 - (void)openCurtainWithCompletionHandler:(void (^)(void))completionHandler;
+- (void)openCurtainWithPercent:(CGFloat)percent;
 
 @end
