@@ -36,9 +36,7 @@
 - (void)camCaptureModeViewController:(CamCaptureModeViewController *)controller didEndDisplayingPageAtIndex:(NSInteger)pageIndex
 {
     [self.curtainViewController openCurtainWithCompletionHandler:^{
-        if (pageIndex == 1) {
-            [self.overlayViewController.progressView startAnimation];
-        }
+        [self.overlayViewController didEndTransitionToPageIndex:pageIndex];
     }];
 }
 
@@ -46,13 +44,10 @@
 {
     [self.curtainViewController openCurtainWithPercent:percentage];
     [self.overlayViewController transitionWithPercent:percentage toPageIndex:pageIndex];
-    
-    [self.overlayViewController.progressView stopAnimation];
 }
 
 - (void)camCaptureModeViewController:(CamCaptureModeViewController *)controller didScrollWithPercentage:(CGFloat)percentage
 {
-
 //    CGFloat f = 1 - (c - self.camScrollView.contentOffset.x)/c;
 //    self.progressView.alpha = MAX(MIN(f, 1.0), 0);;
 }

@@ -171,9 +171,14 @@
     return [UIColor colorWithRed:211.0/255.0 green:211.0/255.0 blue:211.0/255.0 alpha:1.0];
 }
 
-+ (UIColor *)cDarkBlackHeaderColor
++ (UIColor *)cDarkBlackColor
 {
     return [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1.0];
+}
+
++ (UIColor *)cSuperDarkBlackColor
+{
+    return [UIColor colorWithRed:32.0/255.0 green:32.0/255.0 blue:32.0/255.0 alpha:1.0];
 }
 
 @end

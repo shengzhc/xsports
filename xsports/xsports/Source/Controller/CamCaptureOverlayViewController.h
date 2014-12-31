@@ -15,7 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *gridButton;
 @property (weak, nonatomic) IBOutlet UIButton *rotateButton;
 @property (weak, nonatomic) IBOutlet UIButton *flashButton;
-@property (weak, nonatomic) IBOutlet ProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UIView *topBarView;
+@property (weak, nonatomic) IBOutlet UIView *toolBarView;
 
 - (IBAction)didCloseButtonClicked:(id)sender;
 - (IBAction)didNextButtonClicked:(id)sender;
@@ -24,5 +25,6 @@
 - (IBAction)didFlashButtonClicked:(id)sender;
 
 - (void)transitionWithPercent:(CGFloat)percent toPageIndex:(NSUInteger)pageIndex;
+- (void)didEndTransitionToPageIndex:(NSUInteger)pageIndex;
 
 @end

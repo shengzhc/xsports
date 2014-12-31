@@ -9,7 +9,7 @@
 #import "CamCaptureOverlayViewController.h"
 
 @interface CamCaptureOverlayViewController ()
-
+@property (weak, nonatomic) IBOutlet ProgressView *progressView;
 @end
 
 @implementation CamCaptureOverlayViewController
@@ -18,6 +18,14 @@
 {
     [super viewDidLoad];
     [self setupButtons];
+    [self setupViews];
+}
+
+- (void)setupViews
+{
+    self.progressView.backgroundColor = [UIColor blackColor];
+    self.topBarView.backgroundColor = [[UIColor cSuperDarkBlackColor] colorWithAlphaComponent:0.9];
+    self.toolBarView.backgroundColor = [[UIColor cSuperDarkBlackColor] colorWithAlphaComponent:0.9];
 }
 
 - (void)setupButtons
@@ -28,8 +36,25 @@
 
 - (void)transitionWithPercent:(CGFloat)percent toPageIndex:(NSUInteger)pageIndex
 {
-    self.nextButton.alpha = pageIndex == 0 ? percent : (1 - percent);
+    self.nextButton.alpha = self.progressView.alpha = pageIndex == 0 ? percent : (1 - percent);
     self.gridButton.alpha = self.flashButton.alpha = 1 - self.nextButton.alpha;
+    [self.progressView stopAnimation];
+}
+
+- (void)didEndTransitionToPageIndex:(NSUInteger)pageIndex
+{
+    if (pageIndex == 0) {
+        self.nextButton.alpha = 0;
+        self.progressView.alpha = 0;
+        self.gridButton.alpha = 1;
+        self.flashButton.alpha = 1;
+    } else {
+        self.nextButton.alpha = 1.0;
+        self.progressView.alpha = 1.0;
+        self.gridButton.alpha = 0.0;
+        self.flashButton.alpha = 0.0;
+        [self.progressView startAnimation];
+    }
 }
 
 - (IBAction)didCloseButtonClicked:(id)sender

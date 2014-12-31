@@ -253,12 +253,13 @@
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cuc-VS-apj" userLabel="bottomcontainer">
                                 <rect key="frame" x="0.0" y="414" width="320" height="154"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.70000000000000007" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="LLf-eg-h6L" kind="embed" identifier="CamCaptureModeViewControllerSegue" id="JQc-eh-Nqa"/>
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="f4w-Ye-vWy" firstAttribute="bottom" secondItem="Dfh-EF-wAO" secondAttribute="bottom" id="2Tt-Pd-iaf"/>
                             <constraint firstItem="f4w-Ye-vWy" firstAttribute="leading" secondItem="Ic6-7T-RJU" secondAttribute="leading" id="3vK-RF-aFg"/>
@@ -405,9 +406,9 @@
                                             <constraint firstAttribute="centerY" secondItem="QPj-ft-nMo" secondAttribute="centerY" id="j8H-QL-UAt"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWZ-Ig-C44" userLabel="progress view" customClass="ProgressView">
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWZ-Ig-C44" userLabel="progress view" customClass="ProgressView">
                                         <rect key="frame" x="0.0" y="50" width="320" height="6"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="6" id="Dg9-t8-g2t"/>
                                         </constraints>
@@ -443,6 +444,8 @@
                         <outlet property="nextButton" destination="jMs-5i-JSh" id="VWA-ln-kMJ"/>
                         <outlet property="progressView" destination="eWZ-Ig-C44" id="Vkz-vr-Dby"/>
                         <outlet property="rotateButton" destination="QPj-ft-nMo" id="FM0-hE-pfj"/>
+                        <outlet property="toolBarView" destination="Kv4-Uw-2oK" id="x6X-dq-U34"/>
+                        <outlet property="topBarView" destination="Czv-GV-32c" id="Jml-CJ-M9t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wku-wg-ifp" userLabel="First Responder" sceneMemberID="firstResponder"/>

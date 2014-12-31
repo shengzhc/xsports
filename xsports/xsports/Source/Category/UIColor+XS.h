@@ -58,7 +58,7 @@
 + (UIColor *)cGrayColor;
 + (UIColor *)cLightGrayColor;
 
-+ (UIColor *)cDarkBlackHeaderColor;
-
++ (UIColor *)cDarkBlackColor;
++ (UIColor *)cSuperDarkBlackColor;
 
 @end
