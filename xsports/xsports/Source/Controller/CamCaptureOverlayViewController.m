@@ -81,6 +81,11 @@
     }
 }
 
+- (void)updateProgress:(CGFloat)progress
+{
+    [self.progressView setProgress:progress];
+}
+
 - (IBAction)didCloseButtonClicked:(id)sender
 {
     if ([self.delegate respondsToSelector:@selector(camCaptureOverlayViewController:didCloseButtonClicked:)]) {

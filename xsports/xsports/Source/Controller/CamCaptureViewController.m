@@ -9,6 +9,7 @@
 #import "CamCaptureViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 
+#define Max_Record_Duration 10.0f
 static void *CapturingStillImageContext = &CapturingStillImageContext;
 static void *RecordingContext = &RecordingContext;
 static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthorizedContext;
@@ -33,7 +34,8 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 @property (nonatomic, readonly, getter = isSessionRunningAndDeviceAuthorized) BOOL sessionRunningAndDeviceAuthorized;
 @property (nonatomic) id runtimeErrorHandlingObserver;
 @property (assign, nonatomic) NSUInteger currentPageIndex;
-
+@property (strong, nonatomic) NSCondition *condition;
+@property (strong, nonatomic) NSThread *recordThread;
 @end
 
 @implementation CamCaptureViewController
@@ -43,6 +45,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     [super viewDidLoad];
     [self setupViews];
     [self setupCaptureSession];
+    [self setupRecordThread];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -68,10 +71,10 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    [self.recordThread cancel];
     [self.curtainViewController openCurtainWithCompletionHandler:^{
         dispatch_async([self sessionQueue], ^{
             [[self session] beginConfiguration];
-            
             if (self.stillImageOutput) {
                 [[self session] removeOutput:self.stillImageOutput];
                 [self setStillImageOutput:nil];
@@ -98,26 +101,11 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     self.overlayViewController.delegate = self;
 }
 
-- (BOOL)isSessionRunningAndDeviceAuthorized
+- (void)setupRecordThread
 {
-    return [[self session] isRunning] && [self isDeviceAuthorized];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if (context == SessionRunningAndDeviceAuthorizedContext) {
-        BOOL isRunning = [change[NSKeyValueChangeNewKey] boolValue];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (isRunning) {
-            } else {
-            }
-        });
-    } else if (context == RecordingContext) {
-        BOOL isRecording = [change[NSKeyValueChangeNewKey] boolValue];
-        NSLog(@"%@", @(isRecording));
-    } else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
+    self.condition = [[NSCondition alloc] init];
+    self.recordThread = [[NSThread alloc] initWithTarget:self selector:@selector(recordThreadRoutine) object:nil];
+    [self.recordThread start];
 }
 
 - (void)setupCaptureSession
@@ -199,6 +187,52 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
         [self setStillImageOutput:stillImageOutput];
     }
     [self.session commitConfiguration];
+}
+
+- (BOOL)isSessionRunningAndDeviceAuthorized
+{
+    return [[self session] isRunning] && [self isDeviceAuthorized];
+}
+
+- (void)recordThreadRoutine
+{
+    NSAssert([NSThread currentThread] != [NSThread mainThread], @"Should not be main thread");
+    while ([NSThread currentThread].isCancelled == NO) {
+        [self.condition lock];
+        while ([[self movieFileOutput] isRecording]) {
+            double duration = CMTimeGetSeconds([[self movieFileOutput] recordedDuration]);
+            double time = Max_Record_Duration;
+            CGFloat progress = (CGFloat) (duration / time);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.overlayViewController updateProgress:progress];
+            });
+        }
+        [self.condition wait];
+        [self.condition unlock];
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == SessionRunningAndDeviceAuthorizedContext) {
+        BOOL isRunning = [change[NSKeyValueChangeNewKey] boolValue];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (isRunning) {
+            } else {
+            }
+        });
+    } else if (context == RecordingContext) {
+        BOOL isRecording = [change[NSKeyValueChangeNewKey] boolValue];
+        if (isRecording) {
+            [self.condition lock];
+            [self.condition signal];
+            [self.condition unlock];
+        } else {
+            
+        }
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 #pragma CamScrollView Action
@@ -458,10 +492,13 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
             if (backgroundRecordingID != UIBackgroundTaskInvalid) {
                 [[UIApplication sharedApplication] endBackgroundTask:backgroundRecordingID];
             }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.curtainViewController openCurtainWithCompletionHandler:^{
-                    [self.overlayViewController enableButtons:YES];
-                }];
+            dispatch_async([self sessionQueue], ^{
+                [self setupMovieFileOutput];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.curtainViewController openCurtainWithCompletionHandler:^{
+                        [self.overlayViewController enableButtons:YES];
+                    }];
+                });
             });
         }];
     }];

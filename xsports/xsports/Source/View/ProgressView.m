@@ -61,7 +61,7 @@
     
     self.progressView = [[UIView alloc] init];
     self.progressView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.progressView.backgroundColor = [UIColor cLightYellowColor];
+    self.progressView.backgroundColor = [UIColor lightWaveColor];
     [self addSubview:self.progressView];
     
     [self setupConstraints];

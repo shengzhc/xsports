@@ -27,7 +27,6 @@
 @property (weak, nonatomic) id < CamCaptureOverlayViewControllerDelegate > delegate;
 - (void)transitionWithPercent:(CGFloat)percent toPageIndex:(NSUInteger)pageIndex;
 - (void)didEndTransitionToPageIndex:(NSUInteger)pageIndex;
-
 - (void)enableButtons:(BOOL)enable;
-
+- (void)updateProgress:(CGFloat)progress;
 @end
