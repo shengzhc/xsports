@@ -58,6 +58,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
             });
         }]];
         [[self session] startRunning];
+        self.currentPageIndex == 0 ? [self setupStillFileOutput] : [self setupMovieFileOutput];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.curtainViewController openCurtainWithCompletionHandler:nil];
         });
@@ -69,6 +70,20 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     [super viewDidDisappear:animated];
     [self.curtainViewController openCurtainWithCompletionHandler:^{
         dispatch_async([self sessionQueue], ^{
+            [[self session] beginConfiguration];
+            
+            if (self.stillImageOutput) {
+                [[self session] removeOutput:self.stillImageOutput];
+                [self setStillImageOutput:nil];
+            }
+            
+            if (self.movieFileOutput) {
+                [[self session] removeOutput:self.movieFileOutput];
+                [self removeObserver:self forKeyPath:@"movieFileOutput.recording"];
+                [self setMovieFileOutput:nil];
+            }
+            
+            [[self session] commitConfiguration];
             [[self session] stopRunning];
             [[NSNotificationCenter defaultCenter] removeObserver:[self runtimeErrorHandlingObserver]];
             [self removeObserver:self forKeyPath:@"sessionRunningAndDeviceAuthorized" context:SessionRunningAndDeviceAuthorizedContext];
@@ -97,6 +112,9 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
             } else {
             }
         });
+    } else if (context == RecordingContext) {
+        BOOL isRecording = [change[NSKeyValueChangeNewKey] boolValue];
+        NSLog(@"%@", @(isRecording));
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
@@ -154,12 +172,14 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     [self.session beginConfiguration];
     if (self.movieFileOutput) {
         [self.session removeOutput:self.movieFileOutput];
+        [self removeObserver:self forKeyPath:@"movieFileOutput.recording"];
         [self setMovieFileOutput:nil];
     }
     AVCaptureMovieFileOutput *movieFileOutput = [[AVCaptureMovieFileOutput alloc] init];
     if ([self.session canAddOutput:movieFileOutput]) {
         [self.session addOutput:movieFileOutput];
         [self setMovieFileOutput:movieFileOutput];
+        [self addObserver:self forKeyPath:@"movieFileOutput.recording" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:RecordingContext];
     }
     [self.session commitConfiguration];
 }
@@ -215,10 +235,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 
 - (void)startRecording
 {
-    [NSThread detachNewThreadSelector:nil toTarget:nil withObject:nil];
-    [NSThread exit];
     [self.overlayViewController enableButtons:NO];
-//    self.recordingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/60 target:self selector:@selector(updateProgressView) userInfo:nil repeats:YES];
     dispatch_async([self sessionQueue], ^{
         if (![[self movieFileOutput] isRecording]) {
             if ([[UIDevice currentDevice] isMultitaskingSupported]) {
@@ -236,9 +253,6 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 {
     [self.overlayViewController enableButtons:YES];
     dispatch_async(dispatch_get_main_queue(), ^{
-//        [self.recordingTimer invalidate];
-//        self.recordingTimer = nil;
-//        [self.progressView startAnimation];
     });
     
     dispatch_async([self sessionQueue], ^{
@@ -452,7 +466,6 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
         }];
     }];
 }
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
