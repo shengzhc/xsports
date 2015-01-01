@@ -164,12 +164,17 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
         [self setMovieFileOutput:nil];
     }
     AVCaptureMovieFileOutput *movieFileOutput = [[AVCaptureMovieFileOutput alloc] init];
+    movieFileOutput.maxRecordedDuration = CMTimeMakeWithSeconds(10.0, 1);
     if ([self.session canAddOutput:movieFileOutput]) {
         [self.session addOutput:movieFileOutput];
         [self setMovieFileOutput:movieFileOutput];
         [self addObserver:self forKeyPath:@"movieFileOutput.recording" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:RecordingContext];
     }
     [self.session commitConfiguration];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.overlayViewController updateProgress:0];
+    });
 }
 
 - (void)setupStillFileOutput
@@ -303,7 +308,8 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 
 - (void)camCaptureOverlayViewController:(CamCaptureOverlayViewController *)controller didNextButtonClicked:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    UIViewController *assetsPickerViewController = [[UIStoryboard storyboardWithName:@"Cam" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:AssetsPickerViewControllerIdentifier];
+    [self.navigationController pushViewController:assetsPickerViewController animated:YES];
 }
 
 - (void)camCaptureOverlayViewController:(CamCaptureOverlayViewController *)controller didFlashButtonClicked:(id)sender
@@ -476,10 +482,6 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 #pragma mark File Output Delegate
 - (void)captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error
 {
-    if (error) {
-        NSLog(@"%@", error);
-    }
-    
     [self.overlayViewController enableButtons:NO];
     [self.curtainViewController closeCurtainWithCompletionHandler:^{
         UIBackgroundTaskIdentifier backgroundRecordingID = [self backgroundRecordingId];

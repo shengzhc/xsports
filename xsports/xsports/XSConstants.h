@@ -45,11 +45,16 @@
 #define CamCaptureViewControllerIdentifier @"CamCaptureViewController"
 #define CamCurtainViewControllerIdentifier @"CamCurtainViewController"
 #define CamCaptureModeViewControllerIdentifier @"CamCaptureModeViewController"
+#define AssetsPickerOverlayViewControllerIdentifier @"AssetsPickerOverlayViewController"
+#define ELCAlbumPickerControllerIdentifier @"ELCAlbumPickerController"
+
+#define ELCAlbumCellIdentifier @"ELCAlbumCell"
 
 #define CamFilterViewControllerSegueIdentifier @"CamFilterViewControllerSegue"
 #define CamCaptureOverlayViewControllerSegueIdentifier @"CamCaptureOverlayViewControllerSegue"
 #define CamCurtainViewControllerSegueIdentifier @"CamCurtainViewControllerSegue"
 #define CamCaptureModeViewControllerSegueIdentifier @"CamCaptureModeViewControllerSegue"
+#define Nav_AssetsGalleryViewControllerSegueIdentifier @"Nav_AssetsGalleryViewControllerSegueIdentifier"
 
 
 #pragma mark Other
