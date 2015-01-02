@@ -11,6 +11,7 @@
 
 @interface AssetsPickerViewController () < AssetsPickerOverlayViewControllerDelegate >
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @end
 
 @implementation AssetsPickerViewController
@@ -39,7 +40,14 @@
 
 - (void)assetsPickerOverlayViewControlelr:(AssetsPickerOverlayViewController *)controller didSlidupButtonClicked:(id)sender
 {
-    
+    CGFloat constant = self.topConstraint.constant == 0 ? (0 - self.topHeightConstraint.constant + 24 + 50) : 0;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.topConstraint.constant = constant;
+        [self.view setNeedsLayout];
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        self.topConstraint.constant = constant;
+    }];
 }
 
 
