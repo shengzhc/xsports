@@ -23,10 +23,9 @@
 {
     self.assetImageView.image = [UIImage imageWithCGImage:asset.asset.thumbnail];
     self.assetOverlayView.alpha = asset.selected ? 1.0 : 0.0;
-    long duration = [[asset.asset valueForProperty:ALAssetPropertyDuration] longValue];
-
-    if (duration > 0) {
-        self.timeLabel.text = [NSDate shortshortFormatFromSeconds:duration];
+    id duration = [asset.asset valueForProperty:ALAssetPropertyDuration];
+    if (duration != ALErrorInvalidProperty && [duration longValue] > 0) {
+        self.timeLabel.text = [NSDate shortshortFormatFromSeconds:[duration longValue]];
     } else {
         self.timeLabel.text = nil;
     }
