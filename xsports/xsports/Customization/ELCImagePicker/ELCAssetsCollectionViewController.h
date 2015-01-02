@@ -9,11 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "ELCAsset.h"
-#import "ELCAssetSelectionDelegate.h"
-#import "ELCAssetPickerFilterDelegate.h"
 
 @interface ELCAssetsCollectionViewController : UICollectionViewController < ELCAssetDelegate >
-@property (nonatomic, weak) id <ELCAssetSelectionDelegate> parent;
 @property (nonatomic, strong) ALAssetsGroup *assetGroup;
 @property (nonatomic, strong) NSMutableArray *elcAssets;
 @end

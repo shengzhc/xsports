@@ -266,8 +266,6 @@
 		9CDC978D1A55C8D00021F9A6 /* ELCAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAlbumPickerController.m; sourceTree = "<group>"; };
 		9CDC978E1A55C8D00021F9A6 /* ELCAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAsset.h; sourceTree = "<group>"; };
 		9CDC978F1A55C8D00021F9A6 /* ELCAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAsset.m; sourceTree = "<group>"; };
-		9CDC97921A55C8D00021F9A6 /* ELCAssetPickerFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetPickerFilterDelegate.h; sourceTree = "<group>"; };
-		9CDC97931A55C8D00021F9A6 /* ELCAssetSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetSelectionDelegate.h; sourceTree = "<group>"; };
 		9CDC97A11A55C8D00021F9A6 /* Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Overlay.png; sourceTree = "<group>"; };
 		9CDC97A21A55C8D00021F9A6 /* Overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Overlay@2x.png"; sourceTree = "<group>"; };
 		9CDC97B21A55CD880021F9A6 /* ELCAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAlbumCell.h; sourceTree = "<group>"; };
@@ -762,8 +760,6 @@
 				9CDC978D1A55C8D00021F9A6 /* ELCAlbumPickerController.m */,
 				9CDC978E1A55C8D00021F9A6 /* ELCAsset.h */,
 				9CDC978F1A55C8D00021F9A6 /* ELCAsset.m */,
-				9CDC97921A55C8D00021F9A6 /* ELCAssetPickerFilterDelegate.h */,
-				9CDC97931A55C8D00021F9A6 /* ELCAssetSelectionDelegate.h */,
 				9CDC97B51A562C410021F9A6 /* ELCAssetsCollectionViewController.h */,
 				9CDC97B61A562C410021F9A6 /* ELCAssetsCollectionViewController.m */,
 				9CDC97BB1A562C9F0021F9A6 /* ELCAssetsCollectionCell.h */,

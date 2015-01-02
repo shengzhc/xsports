@@ -7,8 +7,6 @@
 
 #import <UIKit/UIKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
-#import "ELCAssetSelectionDelegate.h"
-#import "ELCAssetPickerFilterDelegate.h"
 
 @interface ELCAlbumPickerController : UITableViewController
 @property (nonatomic, strong) NSMutableArray *assetGroups;
