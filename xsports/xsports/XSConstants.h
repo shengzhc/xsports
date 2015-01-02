@@ -51,6 +51,7 @@
 
 #define ELCAlbumCellIdentifier @"ELCAlbumCell"
 #define ELCAssetsCollectionCellIdentifier @"ELCAssetsCollectionCell"
+#define ELCAssetsCollectionHeaderCellIdentifier @"ELCAssetsCollectionHeaderCell"
 
 #define CamFilterViewControllerSegueIdentifier @"CamFilterViewControllerSegue"
 #define CamCaptureOverlayViewControllerSegueIdentifier @"CamCaptureOverlayViewControllerSegue"

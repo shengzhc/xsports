@@ -12,6 +12,7 @@
 		9C02EA0F1A3A793500FA1631 /* UIImage+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA0E1A3A793500FA1631 /* UIImage+XS.m */; };
 		9C02EA121A3A7A0300FA1631 /* UIView+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02EA111A3A7A0300FA1631 /* UIView+XS.m */; };
 		9C06BEEB1A4D2B32008430B9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C06BEEA1A4D2B32008430B9 /* MediaPlayer.framework */; };
+		9C0774501A564D0300723971 /* ELCAssetsCollectionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C07744F1A564D0300723971 /* ELCAssetsCollectionHeaderCell.m */; };
 		9C09285F1A3FFEE5001340F2 /* FeedViewPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CF88D401A3FBCE400D4E72E /* FeedViewPhotoCell.xib */; };
 		9C0928611A4000E5001340F2 /* FeedViewVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C0928601A4000E5001340F2 /* FeedViewVideoCell.xib */; };
 		9C0928641A400C8C001340F2 /* FeedViewVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0928631A400C8C001340F2 /* FeedViewVideoCell.m */; };
@@ -128,6 +129,8 @@
 		9C02EA101A3A7A0300FA1631 /* UIView+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XS.h"; sourceTree = "<group>"; };
 		9C02EA111A3A7A0300FA1631 /* UIView+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XS.m"; sourceTree = "<group>"; };
 		9C06BEEA1A4D2B32008430B9 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		9C07744E1A564D0300723971 /* ELCAssetsCollectionHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetsCollectionHeaderCell.h; sourceTree = "<group>"; };
+		9C07744F1A564D0300723971 /* ELCAssetsCollectionHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetsCollectionHeaderCell.m; sourceTree = "<group>"; };
 		9C0928601A4000E5001340F2 /* FeedViewVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewVideoCell.xib; sourceTree = "<group>"; };
 		9C0928621A400C8C001340F2 /* FeedViewVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewVideoCell.h; sourceTree = "<group>"; };
 		9C0928631A400C8C001340F2 /* FeedViewVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewVideoCell.m; sourceTree = "<group>"; };
@@ -764,6 +767,8 @@
 				9CDC97B61A562C410021F9A6 /* ELCAssetsCollectionViewController.m */,
 				9CDC97BB1A562C9F0021F9A6 /* ELCAssetsCollectionCell.h */,
 				9CDC97BC1A562C9F0021F9A6 /* ELCAssetsCollectionCell.m */,
+				9C07744E1A564D0300723971 /* ELCAssetsCollectionHeaderCell.h */,
+				9C07744F1A564D0300723971 /* ELCAssetsCollectionHeaderCell.m */,
 				9CDC979D1A55C8D00021F9A6 /* Resources */,
 			);
 			path = ELCImagePicker;
@@ -974,6 +979,7 @@
 				9C54EF4D1A3A255C00D16EEE /* LoginEmailCell.m in Sources */,
 				9C54EF531A3A3B6000D16EEE /* UIScreen+XS.m in Sources */,
 				9C11A45F1A45E50200A9E4CD /* CommentsViewController.m in Sources */,
+				9C0774501A564D0300723971 /* ELCAssetsCollectionHeaderCell.m in Sources */,
 				9C4B94F81A425FFC00DFCC7F /* FeedViewGridVideoCell.m in Sources */,
 				9CBC8ABC1A477793006F00A3 /* CamViewController.m in Sources */,
 				9CDC97A41A55C8D00021F9A6 /* ELCAsset.m in Sources */,

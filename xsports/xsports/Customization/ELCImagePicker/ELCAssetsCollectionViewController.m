@@ -8,6 +8,7 @@
 
 #import "ELCAssetsCollectionViewController.h"
 #import "ELCAssetsCollectionCell.h"
+#import "ELCAssetsCollectionHeaderCell.h"
 
 @interface ELCAssetsCollectionViewController () < UICollectionViewDelegateFlowLayout >
 @property (weak, nonatomic) NSIndexPath *lastSelectedIndexPath;
@@ -68,13 +69,34 @@
 }
 
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 2;
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    if (section == 0) {
+        return 1;
+    }
+    
     return self.elcAssets.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 0) {
+        
+        ELCAssetsCollectionHeaderCell *cell = (ELCAssetsCollectionHeaderCell *)[collectionView dequeueReusableCellWithReuseIdentifier:ELCAssetsCollectionHeaderCellIdentifier forIndexPath:indexPath];
+        cell.titleLabel.text = [[self.assetGroup valueForProperty:ALAssetsGroupPropertyName] uppercaseString];
+        cell.backBlock = ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.navigationController popViewControllerAnimated:YES];
+            });
+        };
+        return cell;
+    }
+
     ELCAssetsCollectionCell *cell = (ELCAssetsCollectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:ELCAssetsCollectionCellIdentifier forIndexPath:indexPath];
     cell.asset = self.elcAssets[indexPath.item];
     return cell;
@@ -82,9 +104,13 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 0) {
+        return;
+    }
+    
     ELCAssetsCollectionCell *cell = (ELCAssetsCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
     ELCAsset *asset = (ELCAsset *)self.elcAssets[indexPath.item];
-    asset.selected = !asset.selected;
+    asset.selected = YES;
     [cell setOverlayEnabled:asset.selected];
     
     if (asset.selected) {
@@ -101,6 +127,10 @@
 #pragma mark UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 0) {
+        return CGSizeMake(collectionView.bounds.size.width, 44);
+    }
+    
     CGFloat length = floorf(collectionView.bounds.size.width/4.0);
     return CGSizeMake(length, length);
 }
