@@ -9,12 +9,10 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 
 #import "ELCAlbumPickerController.h"
-#import "ELCAssetsCollectionViewController.h"
 #import "ELCAlbumCell.h"
 
 @interface ELCAlbumPickerController ()
 @property (nonatomic, strong) ALAssetsLibrary *library;
-@property (strong, nonatomic) ELCAssetsCollectionViewController *assetsCollectionViewController;
 @end
 
 @implementation ELCAlbumPickerController
@@ -47,6 +45,7 @@
 {
     if (!_assetsCollectionViewController) {
         _assetsCollectionViewController = [[UIStoryboard storyboardWithName:@"Cam" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:ELCAssetsCollectionViewControllerIdentifier];
+        [_assetsCollectionViewController view];
     }
     return _assetsCollectionViewController;
 }

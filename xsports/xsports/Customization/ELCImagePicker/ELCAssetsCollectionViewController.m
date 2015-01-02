@@ -19,7 +19,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self load];
+    self.elcAssets = [NSMutableArray new];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preparePhotos) name:ALAssetsLibraryChangedNotification object:nil];
 }
 
@@ -62,7 +67,7 @@
             NSInteger section = [self.collectionView numberOfSections] - 1;
             NSInteger item = [self.collectionView numberOfItemsInSection:section] - 1;
             if (section >= 0 && item >= 0) {
-                [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:item inSection:section] atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
+                [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:section] atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
             }
         });
     }

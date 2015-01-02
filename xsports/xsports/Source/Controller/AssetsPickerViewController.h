@@ -19,4 +19,7 @@ typedef enum : NSUInteger {
 @property (assign, nonatomic) kAssetsPickerMode mode;
 @property (strong, nonatomic) ELCAlbumPickerController *albumPickerController;
 @property (strong, nonatomic) AssetsPickerOverlayViewController *overlayViewController;
+
+- (void)prepareWithCompletionHandler:(void (^)(void))completionHandler;
+
 @end

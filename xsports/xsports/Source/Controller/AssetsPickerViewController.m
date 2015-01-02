@@ -27,6 +27,15 @@
     self.topHeightConstraint.constant = [UIScreen width] + 44 + 56;
 }
 
+- (void)prepareWithCompletionHandler:(void (^)(void))completionHandler
+{
+    [self.albumPickerController view];
+    [self.albumPickerController.navigationController pushViewController:self.albumPickerController.assetsCollectionViewController animated:NO];
+    if (completionHandler) {
+        completionHandler();
+    }
+}
+
 #pragma mark AssetsPickerOverlayViewControllerDelegate
 - (void)assetsPickerOverlayViewControlelr:(AssetsPickerOverlayViewController *)controller didBackButtonClicked:(id)sender
 {
