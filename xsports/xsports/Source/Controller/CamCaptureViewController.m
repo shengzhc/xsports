@@ -260,7 +260,13 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 {
     AssetsPickerViewController *assetsPickerViewController = (AssetsPickerViewController *)[[UIStoryboard storyboardWithName:@"Cam" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:AssetsPickerViewControllerIdentifier];
     assetsPickerViewController.mode = kAssetsPickerModeVideo;
-    [self.navigationController pushViewController:assetsPickerViewController animated:YES];
+    [assetsPickerViewController view];
+    [self.curtainViewController closeCurtainWithCompletionHandler:^{
+        [assetsPickerViewController prepareWithCompletionHandler:^{
+            [self.navigationController pushViewController:assetsPickerViewController animated:YES];
+            [self.curtainViewController openCurtainWithCompletionHandler:nil];
+        }];
+    }];
 }
 
 - (void)didStillCaptureButtonClicked:(id)sender

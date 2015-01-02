@@ -65,9 +65,9 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.collectionView reloadData];
             NSInteger section = [self.collectionView numberOfSections] - 1;
-            NSInteger item = [self.collectionView numberOfItemsInSection:section] - 1;
+            NSInteger item = [self.collectionView numberOfItemsInSection:0] - 1;
             if (section >= 0 && item >= 0) {
-                [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:section] atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
+                [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
             }
         });
     }
