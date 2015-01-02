@@ -199,14 +199,14 @@
                                     <constraint firstAttribute="height" constant="414" id="4sq-Pd-s3a"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="UsA-6r-I4f" kind="embed" id="1A4-aZ-ujL"/>
+                                    <segue destination="UsA-6r-I4f" kind="embed" identifier="AssetsPickerOverlayViewControllerSegue" id="1A4-aZ-ujL"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBK-rm-ei0" userLabel="gallery">
                                 <rect key="frame" x="0.0" y="414" width="320" height="154"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="AXF-Bp-Xa6" kind="embed" id="skv-pA-gA1"/>
+                                    <segue destination="AXF-Bp-Xa6" kind="embed" identifier="Nav_ELCAssetsCollectionViewControllerSegue" id="skv-pA-gA1"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -577,15 +577,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJB-kx-6MY" userLabel="top bar">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cW9-9C-fdO" userLabel="close">
-                                        <rect key="frame" x="4" y="0.0" width="44" height="44"/>
-                                        <state key="normal" backgroundImage="ico_back">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didBackButtonClicked:" destination="UsA-6r-I4f" eventType="touchUpInside" id="6Qh-ym-fsv"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8z-nf-nVg" userLabel="next">
                                         <rect key="frame" x="265" y="7" width="39" height="30"/>
                                         <state key="normal" title="NEXT">
@@ -601,12 +592,21 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUa-w5-Ui9" userLabel="back">
+                                        <rect key="frame" x="8" y="0.0" width="44" height="44"/>
+                                        <state key="normal" backgroundImage="ico_back">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didBackButtonClicked:" destination="UsA-6r-I4f" eventType="touchUpInside" id="rqT-Mp-T0v"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="c8z-nf-nVg" secondAttribute="trailing" constant="16" id="21A-Hc-syV"/>
-                                    <constraint firstAttribute="centerY" secondItem="cW9-9C-fdO" secondAttribute="centerY" id="8QG-N6-At0"/>
-                                    <constraint firstItem="cW9-9C-fdO" firstAttribute="leading" secondItem="EJB-kx-6MY" secondAttribute="leading" constant="4" id="VJl-9v-lF0"/>
+                                    <constraint firstItem="XUa-w5-Ui9" firstAttribute="leading" secondItem="EJB-kx-6MY" secondAttribute="leading" constant="8" id="PjN-Yf-sM0"/>
+                                    <constraint firstAttribute="centerY" secondItem="XUa-w5-Ui9" secondAttribute="centerY" id="Srm-Zy-7KV"/>
                                     <constraint firstAttribute="height" constant="44" id="cMt-6e-3vT"/>
                                     <constraint firstAttribute="centerY" secondItem="c8z-nf-nVg" secondAttribute="centerY" id="g8J-hU-YlV"/>
                                     <constraint firstAttribute="centerY" secondItem="XyU-gb-p9p" secondAttribute="centerY" id="tTR-ay-SEL"/>
@@ -645,7 +645,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="cW9-9C-fdO" id="HIR-N6-sQk"/>
+                        <outlet property="backButton" destination="XUa-w5-Ui9" id="7an-hO-A7R"/>
                         <outlet property="nextButton" destination="c8z-nf-nVg" id="Wrd-sq-MdM"/>
                         <outlet property="slideupButton" destination="5G7-WC-sib" id="j0a-96-0TF"/>
                         <outlet property="titleLabel" destination="XyU-gb-p9p" id="N2U-TE-ANt"/>
@@ -730,7 +730,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ede-Pv-JGm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-440" y="-1345"/>
+            <point key="canvasLocation" x="-426" y="-1345"/>
         </scene>
         <!--Assets Collection View Controller-->
         <scene sceneID="FAJ-Dp-EhX">

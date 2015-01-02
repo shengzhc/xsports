@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ELCAlbumPickerController.h"
+#import "AssetsPickerOverlayViewController.h"
+
+typedef enum : NSUInteger {
+    kAssetsPickerModePhoto,
+    kAssetsPickerModeVideo
+} kAssetsPickerMode;
 
 @interface AssetsPickerViewController : UIViewController
-
+@property (assign, nonatomic) kAssetsPickerMode mode;
+@property (strong, nonatomic) ELCAlbumPickerController *albumPickerController;
+@property (strong, nonatomic) AssetsPickerOverlayViewController *overlayViewController;
 @end

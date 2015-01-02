@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 Shengzhe Chen. All rights reserved.
 //
 
-#import "CamCaptureViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "CamCaptureViewController.h"
+#import "AssetsPickerViewController.h"
 
 #define Max_Record_Duration 10.0f
 static void *CapturingStillImageContext = &CapturingStillImageContext;
@@ -243,10 +244,16 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 #pragma CamScrollView Action
 - (void)didPicGalleryButtonClicked:(id)sender
 {
+    AssetsPickerViewController *assetsPickerViewController = (AssetsPickerViewController *)[[UIStoryboard storyboardWithName:@"Cam" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:AssetsPickerViewControllerIdentifier];
+    assetsPickerViewController.mode = kAssetsPickerModePhoto;
+    [self.navigationController pushViewController:assetsPickerViewController animated:YES];
 }
 
 - (void)didVideoGalleryButtonClicked:(id)sender
 {
+    AssetsPickerViewController *assetsPickerViewController = (AssetsPickerViewController *)[[UIStoryboard storyboardWithName:@"Cam" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:AssetsPickerViewControllerIdentifier];
+    assetsPickerViewController.mode = kAssetsPickerModeVideo;
+    [self.navigationController pushViewController:assetsPickerViewController animated:YES];
 }
 
 - (void)didStillCaptureButtonClicked:(id)sender
@@ -308,8 +315,6 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 
 - (void)camCaptureOverlayViewController:(CamCaptureOverlayViewController *)controller didNextButtonClicked:(id)sender
 {
-    UIViewController *assetsPickerViewController = [[UIStoryboard storyboardWithName:@"Cam" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:AssetsPickerViewControllerIdentifier];
-    [self.navigationController pushViewController:assetsPickerViewController animated:YES];
 }
 
 - (void)camCaptureOverlayViewController:(CamCaptureOverlayViewController *)controller didFlashButtonClicked:(id)sender

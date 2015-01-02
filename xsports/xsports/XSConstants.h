@@ -57,7 +57,8 @@
 #define CamCaptureOverlayViewControllerSegueIdentifier @"CamCaptureOverlayViewControllerSegue"
 #define CamCurtainViewControllerSegueIdentifier @"CamCurtainViewControllerSegue"
 #define CamCaptureModeViewControllerSegueIdentifier @"CamCaptureModeViewControllerSegue"
-
+#define AssetsPickerOverlayViewControllerSegueIdentifier @"AssetsPickerOverlayViewControllerSegue"
+#define Nav_ELCAssetsCollectionViewControllerSegueIdentifier @"Nav_ELCAssetsCollectionViewControllerSegue"
 
 #pragma mark Other
 #define LoadingViewControllerIdentifier @"LoadingViewController"

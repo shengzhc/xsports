@@ -33,14 +33,23 @@
 #pragma mark Action
 - (IBAction)didBackButtonClicked:(id)sender
 {
+    if ([self.delegate respondsToSelector:@selector(assetsPickerOverlayViewControlelr:didBackButtonClicked:)]) {
+        [self.delegate assetsPickerOverlayViewControlelr:self didBackButtonClicked:sender];
+    }
 }
 
 - (IBAction)didNextButtonClicked:(id)sender
 {
+    if ([self.delegate respondsToSelector:@selector(assetsPickerOverlayViewControlelr:didNextButtonClicked:)]) {
+        [self.delegate assetsPickerOverlayViewControlelr:self didNextButtonClicked:sender];
+    }
 }
 
 - (IBAction)didSlideUpButtonClicked:(id)sender
 {
+    if ([self.delegate respondsToSelector:@selector(assetsPickerOverlayViewControlelr:didSlidupButtonClicked:)]) {
+        [self.delegate assetsPickerOverlayViewControlelr:self didSlidupButtonClicked:sender];
+    }
 }
 
 @end
