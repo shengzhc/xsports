@@ -769,6 +769,11 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vWN-Cj-NCg" userLabel="assets">
                                             <rect key="frame" x="1" y="1" width="78" height="78"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvY-6k-hB8" userLabel="time">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X2k-On-sTv" userLabel="overlay">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -783,12 +788,15 @@
                                     <constraint firstAttribute="bottom" secondItem="vWN-Cj-NCg" secondAttribute="bottom" constant="1" id="Gkn-xd-w2A"/>
                                     <constraint firstItem="X2k-On-sTv" firstAttribute="top" secondItem="3gl-cs-GZo" secondAttribute="top" id="K2J-Lj-ZrN"/>
                                     <constraint firstAttribute="bottom" secondItem="X2k-On-sTv" secondAttribute="bottom" id="Rg4-Jw-7pS"/>
+                                    <constraint firstAttribute="trailing" secondItem="hvY-6k-hB8" secondAttribute="trailing" constant="4" id="YGc-hR-iHd"/>
                                     <constraint firstAttribute="trailing" secondItem="X2k-On-sTv" secondAttribute="trailing" id="aS2-H7-hkp"/>
                                     <constraint firstItem="vWN-Cj-NCg" firstAttribute="top" secondItem="3gl-cs-GZo" secondAttribute="top" constant="1" id="yMh-Nd-r1j"/>
+                                    <constraint firstAttribute="bottom" secondItem="hvY-6k-hB8" secondAttribute="bottom" constant="4" id="zt3-ib-a3K"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="assetImageView" destination="vWN-Cj-NCg" id="NeG-Da-yPX"/>
                                     <outlet property="assetOverlayView" destination="X2k-On-sTv" id="oSp-9I-pk3"/>
+                                    <outlet property="timeLabel" destination="hvY-6k-hB8" id="ark-90-qzi"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ELCAssetsCollectionHeaderCell" id="2lK-Mw-Tqd" customClass="ELCAssetsCollectionHeaderCell">

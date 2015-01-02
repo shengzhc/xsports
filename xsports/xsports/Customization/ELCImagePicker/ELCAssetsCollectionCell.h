@@ -12,6 +12,7 @@
 @interface ELCAssetsCollectionCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *assetImageView;
 @property (weak, nonatomic) IBOutlet UIView *assetOverlayView;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 - (void)setAsset:(ELCAsset *)asset;
 - (void)setOverlayEnabled:(BOOL)isOverlayEnabled;

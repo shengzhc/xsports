@@ -10,6 +10,23 @@
 
 @implementation NSDate (XS)
 
++ (NSString *)shortshortFormatFromSeconds:(long)seconds
+{
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    [components setYear:0];
+    [components setMonth:0];
+    [components setDay:0];
+    [components setHour:0];
+    [components setMinute:0];
+    [components setSecond:90];
+    
+    NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:components];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"mm:ss"];
+    return [dateFormatter stringFromDate:date];
+}
+
+
 - (NSString *)dateOffset
 {
     NSDate *today = [NSDate date];

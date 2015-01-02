@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDate (XS)
-
++ (NSString *)shortshortFormatFromSeconds:(long)seconds;
 - (NSString *)dateOffset;
-
 @end
