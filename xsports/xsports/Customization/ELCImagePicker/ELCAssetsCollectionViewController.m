@@ -14,6 +14,7 @@
 @end
 
 @implementation ELCAssetsCollectionViewController
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -25,6 +26,16 @@
 {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:ALAssetsLibraryChangedNotification object:nil];
+}
+
+- (void)setAssetGroup:(ALAssetsGroup *)assetGroup
+{
+    if (_assetGroup == assetGroup) {
+        return;
+    }
+    
+    _assetGroup = assetGroup;
+    [self preparePhotos];
 }
 
 - (void)load
@@ -45,7 +56,7 @@
             ELCAsset *elcAsset = [[ELCAsset alloc] initWithAsset:result];
             [self.elcAssets addObject:elcAsset];
         }];
-        dispatch_sync(dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             [self.collectionView reloadData];
             NSInteger section = [self.collectionView numberOfSections] - 1;
             NSInteger item = [self.collectionView numberOfItemsInSection:section] - 1;

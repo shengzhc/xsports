@@ -472,8 +472,6 @@
 			children = (
 				9CDDDE381A49373C00144DB8 /* CamFilterViewController.h */,
 				9CDDDE391A49373C00144DB8 /* CamFilterViewController.m */,
-				9CDDDE3B1A493DFC00144DB8 /* AssetsPickerViewController.h */,
-				9CDDDE3C1A493DFC00144DB8 /* AssetsPickerViewController.m */,
 				9CBC8ABA1A477793006F00A3 /* CamViewController.h */,
 				9CBC8ABB1A477793006F00A3 /* CamViewController.m */,
 				9CF19E661A53A2D300908553 /* CamCaptureViewController.h */,
@@ -484,6 +482,8 @@
 				9CF19E701A53CC5D00908553 /* CamCurtainViewController.m */,
 				9CF19E721A53D3E500908553 /* CamCaptureModeViewController.h */,
 				9CF19E731A53D3E500908553 /* CamCaptureModeViewController.m */,
+				9CDDDE3B1A493DFC00144DB8 /* AssetsPickerViewController.h */,
+				9CDDDE3C1A493DFC00144DB8 /* AssetsPickerViewController.m */,
 				9CDC97811A55BDCC0021F9A6 /* AssetsPickerOverlayViewController.h */,
 				9CDC97821A55BDCC0021F9A6 /* AssetsPickerOverlayViewController.m */,
 			);
