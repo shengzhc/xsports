@@ -20,6 +20,9 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) ELCAlbumPickerController *albumPickerController;
 @property (strong, nonatomic) AssetsPickerOverlayViewController *overlayViewController;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *overlayLeadingConstraint;
+
+
 - (void)prepareWithCompletionHandler:(void (^)(void))completionHandler;
 
 @end

@@ -9,13 +9,14 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "CamCaptureViewController.h"
 #import "AssetsPickerViewController.h"
+#import "CamCapturePushAnimator.h"
 
 #define Max_Record_Duration 10.0f
 static void *CapturingStillImageContext = &CapturingStillImageContext;
 static void *RecordingContext = &RecordingContext;
 static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthorizedContext;
 
-@interface CamCaptureViewController () < AVCaptureFileOutputRecordingDelegate, CamCaptureModeViewControllerDelegate, CamCaptureOverlayViewControllerDelegate >
+@interface CamCaptureViewController () < AVCaptureFileOutputRecordingDelegate, CamCaptureModeViewControllerDelegate, CamCaptureOverlayViewControllerDelegate, UINavigationControllerDelegate >
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIView *overlayContainer;
 @property (weak, nonatomic) IBOutlet AVCamPreviewView *previewView;
@@ -37,6 +38,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 @property (assign, nonatomic) NSUInteger currentPageIndex;
 @property (strong, nonatomic) NSCondition *condition;
 @property (strong, nonatomic) NSThread *recordThread;
+
 @end
 
 @implementation CamCaptureViewController
@@ -47,6 +49,8 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     [self setupViews];
     [self setupCaptureSession];
     [self setupRecordThread];
+    
+    self.navigationController.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -251,7 +255,6 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     [self.curtainViewController closeCurtainWithCompletionHandler:^{
         [assetsPickerViewController prepareWithCompletionHandler:^{
             [self.navigationController pushViewController:assetsPickerViewController animated:YES];
-            [self.curtainViewController openCurtainWithCompletionHandler:nil];
         }];
     }];
 }
@@ -264,7 +267,6 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     [self.curtainViewController closeCurtainWithCompletionHandler:^{
         [assetsPickerViewController prepareWithCompletionHandler:^{
             [self.navigationController pushViewController:assetsPickerViewController animated:YES];
-            [self.curtainViewController openCurtainWithCompletionHandler:nil];
         }];
     }];
 }
@@ -522,6 +524,20 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
             });
         }];
     }];
+}
+
+#pragma mark UINavigationControllerDelegate
+- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                   animationControllerForOperation:(UINavigationControllerOperation)operation
+                                                fromViewController:(UIViewController *)fromVC
+                                                  toViewController:(UIViewController *)toVC
+{
+//    if (fromVC == self && [toVC isKindOfClass:[AssetsPickerViewController class]]) {
+//        CamCapturePushAnimator *animator = [[CamCapturePushAnimator alloc] init];
+//        return animator;
+//    }
+    
+    return nil;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

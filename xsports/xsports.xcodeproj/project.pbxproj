@@ -45,6 +45,7 @@
 		9C5BD0D91A4B281800B7B426 /* SignupAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5BD0D81A4B281800B7B426 /* SignupAccountCell.m */; };
 		9C6B21E91A397BB100FE8B43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C6B21E81A397BB100FE8B43 /* Images.xcassets */; };
 		9C6B21EC1A39812D00FE8B43 /* UIFont+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6B21EB1A39812D00FE8B43 /* UIFont+XS.m */; };
+		9C7375FC1A566B0E00FC57B6 /* CamCapturePushAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7375FB1A566B0E00FC57B6 /* CamCapturePushAnimator.m */; };
 		9C7DEBB21A396E6B00A0436E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DEBB11A396E6B00A0436E /* main.m */; };
 		9C7DEBB51A396E6B00A0436E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DEBB41A396E6B00A0436E /* AppDelegate.m */; };
 		9C7DEBBB1A396E6B00A0436E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C7DEBB91A396E6B00A0436E /* Main.storyboard */; };
@@ -184,6 +185,8 @@
 		9C6B21E81A397BB100FE8B43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9C6B21EA1A39812D00FE8B43 /* UIFont+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+XS.h"; sourceTree = "<group>"; };
 		9C6B21EB1A39812D00FE8B43 /* UIFont+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+XS.m"; sourceTree = "<group>"; };
+		9C7375FA1A566B0E00FC57B6 /* CamCapturePushAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamCapturePushAnimator.h; sourceTree = "<group>"; };
+		9C7375FB1A566B0E00FC57B6 /* CamCapturePushAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamCapturePushAnimator.m; sourceTree = "<group>"; };
 		9C7DEBAC1A396E6B00A0436E /* xsports.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xsports.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7DEBB01A396E6B00A0436E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C7DEBB11A396E6B00A0436E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -730,6 +733,8 @@
 				9CCF5AA21A4BD5F7001B9029 /* FadingInOutAnimiator.m */,
 				9CCF5AC61A4BE99E001B9029 /* SinkingAndSlidingAnimator.h */,
 				9CCF5AC71A4BE99E001B9029 /* SinkingAndSlidingAnimator.m */,
+				9C7375FA1A566B0E00FC57B6 /* CamCapturePushAnimator.h */,
+				9C7375FB1A566B0E00FC57B6 /* CamCapturePushAnimator.m */,
 			);
 			path = AnimationControllers;
 			sourceTree = "<group>";
@@ -928,6 +933,7 @@
 				9CF19E741A53D3E500908553 /* CamCaptureModeViewController.m in Sources */,
 				9C7DEBB51A396E6B00A0436E /* AppDelegate.m in Sources */,
 				9C7ED1261A3B8AD0007AB927 /* MenuViewController.m in Sources */,
+				9C7375FC1A566B0E00FC57B6 /* CamCapturePushAnimator.m in Sources */,
 				9CBCE72F1A3E2EF100C9BD35 /* User.m in Sources */,
 				9C0928641A400C8C001340F2 /* FeedViewVideoCell.m in Sources */,
 				9CBC8ABF1A47C32C006F00A3 /* StatusHiddenNavigationController.m in Sources */,

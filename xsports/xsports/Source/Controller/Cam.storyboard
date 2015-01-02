@@ -234,6 +234,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="uXu-Rr-hcf"/>
                     <connections>
+                        <outlet property="overlayLeadingConstraint" destination="xwQ-Mo-Cyi" id="bm6-jm-vte"/>
                         <outlet property="topConstraint" destination="ra9-kY-n2R" id="9kN-Xl-an1"/>
                         <outlet property="topHeightConstraint" destination="4sq-Pd-s3a" id="RxD-gI-qOD"/>
                     </connections>
@@ -328,6 +329,7 @@
                         <outlet property="curtainContainer" destination="Dfh-EF-wAO" id="B7o-hv-esO"/>
                         <outlet property="modeContainer" destination="Cuc-VS-apj" id="gUS-Vx-D9L"/>
                         <outlet property="overlayContainer" destination="f4w-Ye-vWy" id="9mf-HH-MI0"/>
+                        <outlet property="overlayLeadingConstraint" destination="wAt-Gb-tfo" id="ExV-FM-3zI"/>
                         <outlet property="previewView" destination="Ic6-7T-RJU" id="uar-cl-Zto"/>
                         <outlet property="topHeightConstraint" destination="1lS-r1-fZh" id="GoM-rQ-qKs"/>
                     </connections>
