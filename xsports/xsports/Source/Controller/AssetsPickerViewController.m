@@ -9,29 +9,20 @@
 #import "AssetsPickerViewController.h"
 
 @interface AssetsPickerViewController ()
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topHeightConstraint;
 @end
 
 @implementation AssetsPickerViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setupViews];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupViews
+{
+    self.topHeightConstraint.constant = [UIScreen width] + 44 + 56;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

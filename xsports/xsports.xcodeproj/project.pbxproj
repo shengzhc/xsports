@@ -98,6 +98,8 @@
 		9CDC97AD1A55C8D00021F9A6 /* Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDC97A11A55C8D00021F9A6 /* Overlay.png */; };
 		9CDC97AE1A55C8D00021F9A6 /* Overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDC97A21A55C8D00021F9A6 /* Overlay@2x.png */; };
 		9CDC97B41A55CD880021F9A6 /* ELCAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDC97B31A55CD880021F9A6 /* ELCAlbumCell.m */; };
+		9CDC97B71A562C410021F9A6 /* ELCAssetsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDC97B61A562C410021F9A6 /* ELCAssetsCollectionViewController.m */; };
+		9CDC97BD1A562C9F0021F9A6 /* ELCAssetsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDC97BC1A562C9F0021F9A6 /* ELCAssetsCollectionCell.m */; };
 		9CDDDE3A1A49373C00144DB8 /* CamFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDDE391A49373C00144DB8 /* CamFilterViewController.m */; };
 		9CDDDE3D1A493DFC00144DB8 /* AssetsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDDE3C1A493DFC00144DB8 /* AssetsPickerViewController.m */; };
 		9CE4F0901A46987E005EB73C /* CommentsTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4F08F1A46987E005EB73C /* CommentsTextViewController.m */; };
@@ -286,6 +288,10 @@
 		9CDC97A21A55C8D00021F9A6 /* Overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Overlay@2x.png"; sourceTree = "<group>"; };
 		9CDC97B21A55CD880021F9A6 /* ELCAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAlbumCell.h; sourceTree = "<group>"; };
 		9CDC97B31A55CD880021F9A6 /* ELCAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAlbumCell.m; sourceTree = "<group>"; };
+		9CDC97B51A562C410021F9A6 /* ELCAssetsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetsCollectionViewController.h; sourceTree = "<group>"; };
+		9CDC97B61A562C410021F9A6 /* ELCAssetsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetsCollectionViewController.m; sourceTree = "<group>"; };
+		9CDC97BB1A562C9F0021F9A6 /* ELCAssetsCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetsCollectionCell.h; sourceTree = "<group>"; };
+		9CDC97BC1A562C9F0021F9A6 /* ELCAssetsCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetsCollectionCell.m; sourceTree = "<group>"; };
 		9CDDDE381A49373C00144DB8 /* CamFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamFilterViewController.h; sourceTree = "<group>"; };
 		9CDDDE391A49373C00144DB8 /* CamFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamFilterViewController.m; sourceTree = "<group>"; };
 		9CDDDE3B1A493DFC00144DB8 /* AssetsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsPickerViewController.h; sourceTree = "<group>"; };
@@ -785,6 +791,10 @@
 				9CDC979A1A55C8D00021F9A6 /* ELCImagePickerHeader.h */,
 				9CDC979B1A55C8D00021F9A6 /* ELCOverlayImageView.h */,
 				9CDC979C1A55C8D00021F9A6 /* ELCOverlayImageView.m */,
+				9CDC97B51A562C410021F9A6 /* ELCAssetsCollectionViewController.h */,
+				9CDC97B61A562C410021F9A6 /* ELCAssetsCollectionViewController.m */,
+				9CDC97BB1A562C9F0021F9A6 /* ELCAssetsCollectionCell.h */,
+				9CDC97BC1A562C9F0021F9A6 /* ELCAssetsCollectionCell.m */,
 				9CDC979D1A55C8D00021F9A6 /* Resources */,
 			);
 			path = ELCImagePicker;
@@ -970,6 +980,7 @@
 				9CCC75781A45488F00F9EE3D /* SlidingAndFadingAnimator.m in Sources */,
 				9C3C48201A50715600BABAED /* AVPlayerManager.m in Sources */,
 				9CBCE71F1A3CC56200C9BD35 /* MEZoomAnimationController.m in Sources */,
+				9CDC97BD1A562C9F0021F9A6 /* ELCAssetsCollectionCell.m in Sources */,
 				9CF88D441A3FC3F300D4E72E /* JSONValueTransformer+XS.m in Sources */,
 				9CDC97B41A55CD880021F9A6 /* ELCAlbumCell.m in Sources */,
 				9C3428561A455D9D0021AB2B /* PageNavigationController.m in Sources */,
@@ -979,6 +990,7 @@
 				9CBCE72C1A3E2A0200C9BD35 /* InstagramServices.m in Sources */,
 				9CCF5AA31A4BD5F7001B9029 /* FadingInOutAnimiator.m in Sources */,
 				9C4B94FC1A4292DD00DFCC7F /* FeedFlowCollectionViewController.m in Sources */,
+				9CDC97B71A562C410021F9A6 /* ELCAssetsCollectionViewController.m in Sources */,
 				9C0928671A40173B001340F2 /* AVPlayerView.m in Sources */,
 				9CBCE71C1A3CC56200C9BD35 /* MEDynamicTransition.m in Sources */,
 				9C54EF561A3A457000D16EEE /* NSPredicate+XS.m in Sources */,

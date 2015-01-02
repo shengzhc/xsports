@@ -6,8 +6,7 @@
 //
 
 #import "ELCAlbumPickerController.h"
-#import "ELCImagePickerController.h"
-#import "ELCAssetTablePicker.h"
+#import "ELCAssetsCollectionViewController.h"
 #import "ELCAlbumCell.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 
@@ -155,12 +154,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	ELCAssetTablePicker *picker = [[ELCAssetTablePicker alloc] initWithNibName: nil bundle: nil];
-	picker.parent = self;
-    picker.assetGroup = [self.assetGroups objectAtIndex:indexPath.row];
-    [picker.assetGroup setAssetsFilter:[self assetFilter]];
-	picker.assetPickerFilterDelegate = self.assetPickerFilterDelegate;
-	[self.navigationController pushViewController:picker animated:YES];
+    [self performSegueWithIdentifier:ELCAssetsCollectionSegueIdentifier sender:indexPath];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:ELCAssetsCollectionSegueIdentifier]) {
+        NSIndexPath *indexPath = (NSIndexPath *)sender;
+        ELCAssetsCollectionViewController *picker = (ELCAssetsCollectionViewController *)segue.destinationViewController;
+        picker.parent = self;
+        picker.assetGroup = [self.assetGroups objectAtIndex:indexPath.row];
+        [picker.assetGroup setAssetsFilter:[self assetFilter]];
+        picker.assetPickerFilterDelegate = self.assetPickerFilterDelegate;
+    } else {
+        [super prepareForSegue:segue sender:sender];
+    }
 }
 
 @end
