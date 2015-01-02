@@ -11,7 +11,6 @@
 @class ELCAsset;
 
 @protocol ELCAssetDelegate <NSObject>
-
 @optional
 - (void)assetSelected:(ELCAsset *)asset;
 - (BOOL)shouldSelectAsset:(ELCAsset *)asset;

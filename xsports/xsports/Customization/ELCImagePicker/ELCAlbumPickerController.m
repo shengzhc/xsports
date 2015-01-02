@@ -16,7 +16,6 @@
 
 @implementation ELCAlbumPickerController
 
-#pragma mark View lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -37,51 +36,46 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:ALAssetsLibraryChangedNotification object:nil];
 }
 
+#pragma mark Setup
 - (void)load
 {
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
     self.assetGroups = tempArray;
-    
     ALAssetsLibrary *assetLibrary = [[ALAssetsLibrary alloc] init];
     self.library = assetLibrary;
     
-    dispatch_async(dispatch_get_main_queue(), ^
-                   {
-                       @autoreleasepool {
-                           void (^assetGroupEnumerator)(ALAssetsGroup *, BOOL *) = ^(ALAssetsGroup *group, BOOL *stop)
-                           {
-                               if (group == nil) {
-                                   return;
-                               }
-                               NSString *sGroupPropertyName = (NSString *)[group valueForProperty:ALAssetsGroupPropertyName];
-                               NSUInteger nType = [[group valueForProperty:ALAssetsGroupPropertyType] intValue];
-                               if ([[sGroupPropertyName lowercaseString] isEqualToString:@"camera roll"] && nType == ALAssetsGroupSavedPhotos) {
-                                   [self.assetGroups insertObject:group atIndex:0];
-                               } else {
-                                   [self.assetGroups addObject:group];
-                               }
-                               [self performSelectorOnMainThread:@selector(reloadTableView) withObject:nil waitUntilDone:YES];
-                           };
-                           
-                           void (^assetGroupEnumberatorFailure)(NSError *) = ^(NSError *error) {
-                               if ([ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusDenied) {
-                                   NSString *errorMessage = NSLocalizedString(@"This app does not have access to your photos or videos. You can enable access in Privacy Settings.", nil);
-                                   [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Access Denied", nil) message:errorMessage delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil] show];
-                               } else {
-                                   NSString *errorMessage = [NSString stringWithFormat:@"Album Error: %@ - %@", [error localizedDescription], [error localizedRecoverySuggestion]];
-                                   [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:errorMessage delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil] show];
-                               }
-                               
-                               [self.navigationItem setTitle:nil];
-                               NSLog(@"A problem occured %@", [error description]);	                                 
-                           };	
-                           
-                           [self.library enumerateGroupsWithTypes:ALAssetsGroupAll
-                                                       usingBlock:assetGroupEnumerator 
-                                                     failureBlock:assetGroupEnumberatorFailure];
-                           
-                       }
-                   });
+    dispatch_async(dispatch_get_main_queue(), ^ {
+        @autoreleasepool {
+            void (^assetGroupEnumerator)(ALAssetsGroup *, BOOL *) = ^(ALAssetsGroup *group, BOOL *stop) {
+                if (group == nil) {
+                    return;
+                }
+                NSString *sGroupPropertyName = (NSString *)[group valueForProperty:ALAssetsGroupPropertyName];
+                NSUInteger nType = [[group valueForProperty:ALAssetsGroupPropertyType] intValue];
+                if ([[sGroupPropertyName lowercaseString] isEqualToString:@"camera roll"] && nType == ALAssetsGroupSavedPhotos) {
+                    [self.assetGroups insertObject:group atIndex:0];
+                } else {
+                    [self.assetGroups addObject:group];
+                }
+                [self performSelectorOnMainThread:@selector(reloadTableView) withObject:nil waitUntilDone:YES];
+            };
+            
+            void (^assetGroupEnumberatorFailure)(NSError *) = ^(NSError *error) {
+                if ([ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusDenied) {
+                    NSString *errorMessage = NSLocalizedString(@"This app does not have access to your photos or videos. You can enable access in Privacy Settings.", nil);
+                    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Access Denied", nil) message:errorMessage delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil] show];
+                } else {
+                    NSString *errorMessage = [NSString stringWithFormat:@"Album Error: %@ - %@", [error localizedDescription], [error localizedRecoverySuggestion]];
+                    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:errorMessage delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil] show];
+                }
+                
+                [self.navigationItem setTitle:nil];
+                NSLog(@"A problem occured %@", [error description]);
+            };
+            
+            [self.library enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:assetGroupEnumerator failureBlock:assetGroupEnumberatorFailure];
+        }
+    });
 }
 
 - (void)reloadTableView
@@ -89,33 +83,13 @@
 	[self.tableView reloadData];
 }
 
-- (BOOL)shouldSelectAsset:(ELCAsset *)asset previousCount:(NSUInteger)previousCount
-{
-    return [self.parent shouldSelectAsset:asset previousCount:previousCount];
-}
-
-- (BOOL)shouldDeselectAsset:(ELCAsset *)asset previousCount:(NSUInteger)previousCount
-{
-    return [self.parent shouldDeselectAsset:asset previousCount:previousCount];
-}
-
-- (void)selectedAssets:(NSArray*)assets
-{
-	[_parent selectedAssets:assets];
-}
-
 - (ALAssetsFilter *)assetFilter
 {
-    if([self.mediaTypes containsObject:(NSString *)kUTTypeImage] && [self.mediaTypes containsObject:(NSString *)kUTTypeMovie])
-    {
+    if([self.mediaTypes containsObject:(NSString *)kUTTypeImage] && [self.mediaTypes containsObject:(NSString *)kUTTypeMovie]) {
         return [ALAssetsFilter allAssets];
-    }
-    else if([self.mediaTypes containsObject:(NSString *)kUTTypeMovie])
-    {
+    } else if([self.mediaTypes containsObject:(NSString *)kUTTypeMovie]) {
         return [ALAssetsFilter allVideos];
-    }
-    else
-    {
+    } else {
         return [ALAssetsFilter allPhotos];
     }
 }
@@ -162,10 +136,8 @@
     if ([segue.identifier isEqualToString:ELCAssetsCollectionSegueIdentifier]) {
         NSIndexPath *indexPath = (NSIndexPath *)sender;
         ELCAssetsCollectionViewController *picker = (ELCAssetsCollectionViewController *)segue.destinationViewController;
-        picker.parent = self;
         picker.assetGroup = [self.assetGroups objectAtIndex:indexPath.row];
         [picker.assetGroup setAssetsFilter:[self assetFilter]];
-        picker.assetPickerFilterDelegate = self.assetPickerFilterDelegate;
     } else {
         [super prepareForSegue:segue sender:sender];
     }

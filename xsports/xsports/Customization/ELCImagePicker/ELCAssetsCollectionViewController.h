@@ -13,15 +13,7 @@
 #import "ELCAssetPickerFilterDelegate.h"
 
 @interface ELCAssetsCollectionViewController : UICollectionViewController < ELCAssetDelegate >
-
 @property (nonatomic, weak) id <ELCAssetSelectionDelegate> parent;
 @property (nonatomic, strong) ALAssetsGroup *assetGroup;
 @property (nonatomic, strong) NSMutableArray *elcAssets;
-@property (nonatomic, assign) BOOL singleSelection;
-@property (nonatomic, assign) BOOL immediateReturn;
-@property(nonatomic, weak) id<ELCAssetPickerFilterDelegate> assetPickerFilterDelegate;
-
-- (NSUInteger)totalSelectedAssets;
-- (void)preparePhotos;
-
 @end

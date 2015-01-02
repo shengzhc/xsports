@@ -90,11 +90,6 @@
 		9CDC97831A55BDCC0021F9A6 /* AssetsPickerOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDC97821A55BDCC0021F9A6 /* AssetsPickerOverlayViewController.m */; };
 		9CDC97A31A55C8D00021F9A6 /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDC978D1A55C8D00021F9A6 /* ELCAlbumPickerController.m */; };
 		9CDC97A41A55C8D00021F9A6 /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDC978F1A55C8D00021F9A6 /* ELCAsset.m */; };
-		9CDC97A51A55C8D00021F9A6 /* ELCAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDC97911A55C8D00021F9A6 /* ELCAssetCell.m */; };
-		9CDC97A61A55C8D00021F9A6 /* ELCAssetTablePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDC97951A55C8D00021F9A6 /* ELCAssetTablePicker.m */; };
-		9CDC97A71A55C8D00021F9A6 /* ELCConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDC97971A55C8D00021F9A6 /* ELCConsole.m */; };
-		9CDC97A81A55C8D00021F9A6 /* ELCImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDC97991A55C8D00021F9A6 /* ELCImagePickerController.m */; };
-		9CDC97A91A55C8D00021F9A6 /* ELCOverlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDC979C1A55C8D00021F9A6 /* ELCOverlayImageView.m */; };
 		9CDC97AD1A55C8D00021F9A6 /* Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDC97A11A55C8D00021F9A6 /* Overlay.png */; };
 		9CDC97AE1A55C8D00021F9A6 /* Overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CDC97A21A55C8D00021F9A6 /* Overlay@2x.png */; };
 		9CDC97B41A55CD880021F9A6 /* ELCAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDC97B31A55CD880021F9A6 /* ELCAlbumCell.m */; };
@@ -271,19 +266,8 @@
 		9CDC978D1A55C8D00021F9A6 /* ELCAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAlbumPickerController.m; sourceTree = "<group>"; };
 		9CDC978E1A55C8D00021F9A6 /* ELCAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAsset.h; sourceTree = "<group>"; };
 		9CDC978F1A55C8D00021F9A6 /* ELCAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAsset.m; sourceTree = "<group>"; };
-		9CDC97901A55C8D00021F9A6 /* ELCAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetCell.h; sourceTree = "<group>"; };
-		9CDC97911A55C8D00021F9A6 /* ELCAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetCell.m; sourceTree = "<group>"; };
 		9CDC97921A55C8D00021F9A6 /* ELCAssetPickerFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetPickerFilterDelegate.h; sourceTree = "<group>"; };
 		9CDC97931A55C8D00021F9A6 /* ELCAssetSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetSelectionDelegate.h; sourceTree = "<group>"; };
-		9CDC97941A55C8D00021F9A6 /* ELCAssetTablePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetTablePicker.h; sourceTree = "<group>"; };
-		9CDC97951A55C8D00021F9A6 /* ELCAssetTablePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetTablePicker.m; sourceTree = "<group>"; };
-		9CDC97961A55C8D00021F9A6 /* ELCConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCConsole.h; sourceTree = "<group>"; };
-		9CDC97971A55C8D00021F9A6 /* ELCConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCConsole.m; sourceTree = "<group>"; };
-		9CDC97981A55C8D00021F9A6 /* ELCImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerController.h; sourceTree = "<group>"; };
-		9CDC97991A55C8D00021F9A6 /* ELCImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCImagePickerController.m; sourceTree = "<group>"; };
-		9CDC979A1A55C8D00021F9A6 /* ELCImagePickerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerHeader.h; sourceTree = "<group>"; };
-		9CDC979B1A55C8D00021F9A6 /* ELCOverlayImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCOverlayImageView.h; sourceTree = "<group>"; };
-		9CDC979C1A55C8D00021F9A6 /* ELCOverlayImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCOverlayImageView.m; sourceTree = "<group>"; };
 		9CDC97A11A55C8D00021F9A6 /* Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Overlay.png; sourceTree = "<group>"; };
 		9CDC97A21A55C8D00021F9A6 /* Overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Overlay@2x.png"; sourceTree = "<group>"; };
 		9CDC97B21A55CD880021F9A6 /* ELCAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAlbumCell.h; sourceTree = "<group>"; };
@@ -778,19 +762,8 @@
 				9CDC978D1A55C8D00021F9A6 /* ELCAlbumPickerController.m */,
 				9CDC978E1A55C8D00021F9A6 /* ELCAsset.h */,
 				9CDC978F1A55C8D00021F9A6 /* ELCAsset.m */,
-				9CDC97901A55C8D00021F9A6 /* ELCAssetCell.h */,
-				9CDC97911A55C8D00021F9A6 /* ELCAssetCell.m */,
 				9CDC97921A55C8D00021F9A6 /* ELCAssetPickerFilterDelegate.h */,
 				9CDC97931A55C8D00021F9A6 /* ELCAssetSelectionDelegate.h */,
-				9CDC97941A55C8D00021F9A6 /* ELCAssetTablePicker.h */,
-				9CDC97951A55C8D00021F9A6 /* ELCAssetTablePicker.m */,
-				9CDC97961A55C8D00021F9A6 /* ELCConsole.h */,
-				9CDC97971A55C8D00021F9A6 /* ELCConsole.m */,
-				9CDC97981A55C8D00021F9A6 /* ELCImagePickerController.h */,
-				9CDC97991A55C8D00021F9A6 /* ELCImagePickerController.m */,
-				9CDC979A1A55C8D00021F9A6 /* ELCImagePickerHeader.h */,
-				9CDC979B1A55C8D00021F9A6 /* ELCOverlayImageView.h */,
-				9CDC979C1A55C8D00021F9A6 /* ELCOverlayImageView.m */,
 				9CDC97B51A562C410021F9A6 /* ELCAssetsCollectionViewController.h */,
 				9CDC97B61A562C410021F9A6 /* ELCAssetsCollectionViewController.m */,
 				9CDC97BB1A562C9F0021F9A6 /* ELCAssetsCollectionCell.h */,
@@ -968,7 +941,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CF19E741A53D3E500908553 /* CamCaptureModeViewController.m in Sources */,
-				9CDC97A51A55C8D00021F9A6 /* ELCAssetCell.m in Sources */,
 				9C7DEBB51A396E6B00A0436E /* AppDelegate.m in Sources */,
 				9C7ED1261A3B8AD0007AB927 /* MenuViewController.m in Sources */,
 				9CBCE72F1A3E2EF100C9BD35 /* User.m in Sources */,
@@ -1021,23 +993,19 @@
 				9C96E4A01A52204300C5701D /* FeedPopoverContentViewController.m in Sources */,
 				9C96E4B21A5221A700C5701D /* FeedPopoverContentCell.m in Sources */,
 				9C7ED1231A3B89B4007AB927 /* SlidingViewController.m in Sources */,
-				9CDC97A91A55C8D00021F9A6 /* ELCOverlayImageView.m in Sources */,
 				9CDC97831A55BDCC0021F9A6 /* AssetsPickerOverlayViewController.m in Sources */,
 				9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */,
 				9CDDDE3D1A493DFC00144DB8 /* AssetsPickerViewController.m in Sources */,
 				9CBCE7321A3E2F5000C9BD35 /* Media.m in Sources */,
 				9CBCE71D1A3CC56200C9BD35 /* MEFoldAnimationController.m in Sources */,
 				9CF88D491A3FE6A300D4E72E /* NSDate+XS.m in Sources */,
-				9CDC97A71A55C8D00021F9A6 /* ELCConsole.m in Sources */,
 				9C02EA0F1A3A793500FA1631 /* UIImage+XS.m in Sources */,
 				9CF19E711A53CC5D00908553 /* CamCurtainViewController.m in Sources */,
 				9CCF5AC81A4BE99E001B9029 /* SinkingAndSlidingAnimator.m in Sources */,
 				9C7DEBB21A396E6B00A0436E /* main.m in Sources */,
 				9C7ED1291A3BA13C007AB927 /* FeedViewController.m in Sources */,
 				9CDDDE3A1A49373C00144DB8 /* CamFilterViewController.m in Sources */,
-				9CDC97A61A55C8D00021F9A6 /* ELCAssetTablePicker.m in Sources */,
 				9C1EE3491A4B268F007372BD /* SignUpViewController.m in Sources */,
-				9CDC97A81A55C8D00021F9A6 /* ELCImagePickerController.m in Sources */,
 				9C5BD0D91A4B281800B7B426 /* SignupAccountCell.m in Sources */,
 				9C6B21EC1A39812D00FE8B43 /* UIFont+XS.m in Sources */,
 				9CF19E6E1A53BF1800908553 /* CamCaptureOverlayViewController.m in Sources */,

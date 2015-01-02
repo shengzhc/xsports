@@ -10,6 +10,7 @@
 #import "ELCAssetsCollectionCell.h"
 
 @interface ELCAssetsCollectionViewController () < UICollectionViewDelegateFlowLayout >
+@property (weak, nonatomic) NSIndexPath *lastSelectedIndexPath;
 @end
 
 @implementation ELCAssetsCollectionViewController
@@ -42,17 +43,7 @@
                 return;
             }
             ELCAsset *elcAsset = [[ELCAsset alloc] initWithAsset:result];
-            [elcAsset setParent:self];
-            BOOL isAssetFiltered = NO;
-//            if (self.assetPickerFilterDelegate &&
-//                [self.assetPickerFilterDelegate respondsToSelector:@selector(assetTablePicker:isAssetFilteredOut:)])
-//            {
-//                isAssetFiltered = [self.assetPickerFilterDelegate assetTablePicker:self isAssetFilteredOut:(ELCAsset*)elcAsset];
-//            }
-            
-            if (!isAssetFiltered) {
-                [self.elcAssets addObject:elcAsset];
-            }
+            [self.elcAssets addObject:elcAsset];
         }];
         dispatch_sync(dispatch_get_main_queue(), ^{
             [self.collectionView reloadData];
@@ -63,17 +54,6 @@
             }
         });
     }
-}
-
-- (NSUInteger)totalSelectedAssets
-{
-    NSUInteger count = 0;
-    for (ELCAsset *asset in self.elcAssets) {
-        if (asset.selected) {
-            count++;
-        }
-    }
-    return count;
 }
 
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
@@ -95,6 +75,16 @@
     ELCAsset *asset = (ELCAsset *)self.elcAssets[indexPath.item];
     asset.selected = !asset.selected;
     [cell setOverlayEnabled:asset.selected];
+    
+    if (asset.selected) {
+        if (self.lastSelectedIndexPath && self.lastSelectedIndexPath.item != indexPath.item) {
+            ((ELCAsset *)self.elcAssets[self.lastSelectedIndexPath.item]).selected = NO;
+            [((ELCAssetsCollectionCell *)[self.collectionView cellForItemAtIndexPath:self.lastSelectedIndexPath]) setOverlayEnabled:NO];
+        }
+        self.lastSelectedIndexPath = indexPath;
+    } else {
+        self.lastSelectedIndexPath = nil;
+    }
 }
 
 #pragma mark UICollectionViewDelegateFlowLayout
