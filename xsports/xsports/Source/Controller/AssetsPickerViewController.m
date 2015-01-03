@@ -22,6 +22,18 @@
     [self setupViews];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.camCurtainViewController openCurtainWithCompletionHandler:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.camCurtainViewController closeCurtainWithCompletionHandler:nil];
+}
+
 - (void)setupViews
 {
     self.topHeightConstraint.constant = [UIScreen width] + 44 + 56;
@@ -69,6 +81,8 @@
         UINavigationController *nav = segue.destinationViewController;
         self.albumPickerController = [nav.viewControllers objectAtIndex:0];
         self.albumPickerController.mediaTypes = self.mode == kAssetsPickerModeVideo ? @[(NSString *)kUTTypeMovie] : @[];
+    } else if ([segue.identifier isEqual:CamCurtainViewControllerSegueIdentifier]) {
+        self.camCurtainViewController = segue.destinationViewController;
     } else {
         [super prepareForSegue:segue sender:sender];
     }

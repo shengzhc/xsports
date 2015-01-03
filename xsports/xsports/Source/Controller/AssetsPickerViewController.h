@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ELCAlbumPickerController.h"
 #import "AssetsPickerOverlayViewController.h"
+#import "CamCurtainViewController.h"
 
 typedef enum : NSUInteger {
     kAssetsPickerModePhoto,
@@ -19,10 +20,12 @@ typedef enum : NSUInteger {
 @property (assign, nonatomic) kAssetsPickerMode mode;
 @property (strong, nonatomic) ELCAlbumPickerController *albumPickerController;
 @property (strong, nonatomic) AssetsPickerOverlayViewController *overlayViewController;
+@property (strong, nonatomic) CamCurtainViewController *camCurtainViewController;
 
 @property (weak, nonatomic) IBOutlet UIView *overlayContainer;
 @property (weak, nonatomic) IBOutlet UIView *bottomContainer;
 @property (weak, nonatomic) IBOutlet UIView *contentContainer;
+@property (weak, nonatomic) IBOutlet UIView *curtainContainer;
 
 - (void)prepareWithCompletionHandler:(void (^)(void))completionHandler;
 
