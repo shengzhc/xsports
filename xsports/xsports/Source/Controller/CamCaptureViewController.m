@@ -9,19 +9,14 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "CamCaptureViewController.h"
 #import "AssetsPickerViewController.h"
-#import "CamCapturePushAnimator.h"
 
 #define Max_Record_Duration 10.0f
 static void *CapturingStillImageContext = &CapturingStillImageContext;
 static void *RecordingContext = &RecordingContext;
 static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthorizedContext;
 
-@interface CamCaptureViewController () < AVCaptureFileOutputRecordingDelegate, CamCaptureModeViewControllerDelegate, CamCaptureOverlayViewControllerDelegate, UINavigationControllerDelegate >
+@interface CamCaptureViewController () < AVCaptureFileOutputRecordingDelegate, CamCaptureModeViewControllerDelegate, CamCaptureOverlayViewControllerDelegate >
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topHeightConstraint;
-@property (weak, nonatomic) IBOutlet UIView *overlayContainer;
-@property (weak, nonatomic) IBOutlet AVCamPreviewView *previewView;
-@property (weak, nonatomic) IBOutlet UIView *curtainContainer;
-@property (weak, nonatomic) IBOutlet UIView *modeContainer;
 
 // Session management.
 @property (nonatomic) dispatch_queue_t sessionQueue;
@@ -49,8 +44,6 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     [self setupViews];
     [self setupCaptureSession];
     [self setupRecordThread];
-    
-    self.navigationController.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -524,20 +517,6 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
             });
         }];
     }];
-}
-
-#pragma mark UINavigationControllerDelegate
-- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
-                                   animationControllerForOperation:(UINavigationControllerOperation)operation
-                                                fromViewController:(UIViewController *)fromVC
-                                                  toViewController:(UIViewController *)toVC
-{
-//    if (fromVC == self && [toVC isKindOfClass:[AssetsPickerViewController class]]) {
-//        CamCapturePushAnimator *animator = [[CamCapturePushAnimator alloc] init];
-//        return animator;
-//    }
-    
-    return nil;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CamCapturePushAnimator : NSObject < UIViewControllerAnimatedTransitioning >
-
+@interface CamCaptureAssetsAnimator : NSObject < UIViewControllerAnimatedTransitioning >
+@property (assign, nonatomic) UINavigationControllerOperation operation;
 @end

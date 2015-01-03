@@ -45,7 +45,7 @@
 		9C5BD0D91A4B281800B7B426 /* SignupAccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5BD0D81A4B281800B7B426 /* SignupAccountCell.m */; };
 		9C6B21E91A397BB100FE8B43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C6B21E81A397BB100FE8B43 /* Images.xcassets */; };
 		9C6B21EC1A39812D00FE8B43 /* UIFont+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6B21EB1A39812D00FE8B43 /* UIFont+XS.m */; };
-		9C7375FC1A566B0E00FC57B6 /* CamCapturePushAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7375FB1A566B0E00FC57B6 /* CamCapturePushAnimator.m */; };
+		9C7375FC1A566B0E00FC57B6 /* CamCaptureAssetsAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7375FB1A566B0E00FC57B6 /* CamCaptureAssetsAnimator.m */; };
 		9C7DEBB21A396E6B00A0436E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DEBB11A396E6B00A0436E /* main.m */; };
 		9C7DEBB51A396E6B00A0436E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DEBB41A396E6B00A0436E /* AppDelegate.m */; };
 		9C7DEBBB1A396E6B00A0436E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C7DEBB91A396E6B00A0436E /* Main.storyboard */; };
@@ -63,7 +63,7 @@
 		9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9862F91A39753F003D5F86 /* UIColor+XS.m */; };
 		9CBC8AB91A47777E006F00A3 /* AVCamPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC8AB81A47777E006F00A3 /* AVCamPreviewView.m */; };
 		9CBC8ABC1A477793006F00A3 /* CamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC8ABB1A477793006F00A3 /* CamViewController.m */; };
-		9CBC8ABF1A47C32C006F00A3 /* StatusHiddenNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC8ABE1A47C32C006F00A3 /* StatusHiddenNavigationController.m */; };
+		9CBC8ABF1A47C32C006F00A3 /* CamNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC8ABE1A47C32C006F00A3 /* CamNavigationController.m */; };
 		9CBC8AC21A48077B006F00A3 /* CamScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBC8AC11A48077B006F00A3 /* CamScrollView.m */; };
 		9CBCE71C1A3CC56200C9BD35 /* MEDynamicTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE7151A3CC56200C9BD35 /* MEDynamicTransition.m */; };
 		9CBCE71D1A3CC56200C9BD35 /* MEFoldAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCE7171A3CC56200C9BD35 /* MEFoldAnimationController.m */; };
@@ -185,8 +185,8 @@
 		9C6B21E81A397BB100FE8B43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9C6B21EA1A39812D00FE8B43 /* UIFont+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+XS.h"; sourceTree = "<group>"; };
 		9C6B21EB1A39812D00FE8B43 /* UIFont+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+XS.m"; sourceTree = "<group>"; };
-		9C7375FA1A566B0E00FC57B6 /* CamCapturePushAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamCapturePushAnimator.h; sourceTree = "<group>"; };
-		9C7375FB1A566B0E00FC57B6 /* CamCapturePushAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamCapturePushAnimator.m; sourceTree = "<group>"; };
+		9C7375FA1A566B0E00FC57B6 /* CamCaptureAssetsAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamCaptureAssetsAnimator.h; sourceTree = "<group>"; };
+		9C7375FB1A566B0E00FC57B6 /* CamCaptureAssetsAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamCaptureAssetsAnimator.m; sourceTree = "<group>"; };
 		9C7DEBAC1A396E6B00A0436E /* xsports.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xsports.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C7DEBB01A396E6B00A0436E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C7DEBB11A396E6B00A0436E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -217,8 +217,8 @@
 		9CBC8AB81A47777E006F00A3 /* AVCamPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamPreviewView.m; sourceTree = "<group>"; };
 		9CBC8ABA1A477793006F00A3 /* CamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamViewController.h; sourceTree = "<group>"; };
 		9CBC8ABB1A477793006F00A3 /* CamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamViewController.m; sourceTree = "<group>"; };
-		9CBC8ABD1A47C32C006F00A3 /* StatusHiddenNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusHiddenNavigationController.h; sourceTree = "<group>"; };
-		9CBC8ABE1A47C32C006F00A3 /* StatusHiddenNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusHiddenNavigationController.m; sourceTree = "<group>"; };
+		9CBC8ABD1A47C32C006F00A3 /* CamNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamNavigationController.h; sourceTree = "<group>"; };
+		9CBC8ABE1A47C32C006F00A3 /* CamNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamNavigationController.m; sourceTree = "<group>"; };
 		9CBC8AC01A48077B006F00A3 /* CamScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamScrollView.h; sourceTree = "<group>"; };
 		9CBC8AC11A48077B006F00A3 /* CamScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamScrollView.m; sourceTree = "<group>"; };
 		9CBCE7141A3CC56200C9BD35 /* MEDynamicTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDynamicTransition.h; sourceTree = "<group>"; };
@@ -506,8 +506,8 @@
 		9C96E4A51A52209600C5701D /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				9CBC8ABD1A47C32C006F00A3 /* StatusHiddenNavigationController.h */,
-				9CBC8ABE1A47C32C006F00A3 /* StatusHiddenNavigationController.m */,
+				9CBC8ABD1A47C32C006F00A3 /* CamNavigationController.h */,
+				9CBC8ABE1A47C32C006F00A3 /* CamNavigationController.m */,
 				9C3428541A455D9D0021AB2B /* PageNavigationController.h */,
 				9C3428551A455D9D0021AB2B /* PageNavigationController.m */,
 				9C02EA0A1A3A706F00FA1631 /* LoadingViewController.h */,
@@ -733,8 +733,8 @@
 				9CCF5AA21A4BD5F7001B9029 /* FadingInOutAnimiator.m */,
 				9CCF5AC61A4BE99E001B9029 /* SinkingAndSlidingAnimator.h */,
 				9CCF5AC71A4BE99E001B9029 /* SinkingAndSlidingAnimator.m */,
-				9C7375FA1A566B0E00FC57B6 /* CamCapturePushAnimator.h */,
-				9C7375FB1A566B0E00FC57B6 /* CamCapturePushAnimator.m */,
+				9C7375FA1A566B0E00FC57B6 /* CamCaptureAssetsAnimator.h */,
+				9C7375FB1A566B0E00FC57B6 /* CamCaptureAssetsAnimator.m */,
 			);
 			path = AnimationControllers;
 			sourceTree = "<group>";
@@ -933,10 +933,10 @@
 				9CF19E741A53D3E500908553 /* CamCaptureModeViewController.m in Sources */,
 				9C7DEBB51A396E6B00A0436E /* AppDelegate.m in Sources */,
 				9C7ED1261A3B8AD0007AB927 /* MenuViewController.m in Sources */,
-				9C7375FC1A566B0E00FC57B6 /* CamCapturePushAnimator.m in Sources */,
+				9C7375FC1A566B0E00FC57B6 /* CamCaptureAssetsAnimator.m in Sources */,
 				9CBCE72F1A3E2EF100C9BD35 /* User.m in Sources */,
 				9C0928641A400C8C001340F2 /* FeedViewVideoCell.m in Sources */,
-				9CBC8ABF1A47C32C006F00A3 /* StatusHiddenNavigationController.m in Sources */,
+				9CBC8ABF1A47C32C006F00A3 /* CamNavigationController.m in Sources */,
 				9CBC8AC21A48077B006F00A3 /* CamScrollView.m in Sources */,
 				9CCF5AA61A4BDF12001B9029 /* SCLocalizable.m in Sources */,
 				9CBCE7281A3D7B9B00C9BD35 /* FeedViewPhotoCell.m in Sources */,

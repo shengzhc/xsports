@@ -209,7 +209,7 @@
                                     <segue destination="UsA-6r-I4f" kind="embed" identifier="AssetsPickerOverlayViewControllerSegue" id="1A4-aZ-ujL"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBK-rm-ei0" userLabel="gallery">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBK-rm-ei0" userLabel="bottom">
                                 <rect key="frame" x="0.0" y="414" width="320" height="154"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -234,7 +234,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="uXu-Rr-hcf"/>
                     <connections>
-                        <outlet property="overlayLeadingConstraint" destination="xwQ-Mo-Cyi" id="bm6-jm-vte"/>
+                        <outlet property="bottomContainer" destination="qBK-rm-ei0" id="4Mg-ya-Bzi"/>
+                        <outlet property="contentContainer" destination="LAb-ZQ-vwN" id="GfI-d5-d8U"/>
+                        <outlet property="overlayContainer" destination="VKC-6v-cDC" id="uY3-JT-7H5"/>
                         <outlet property="topConstraint" destination="ra9-kY-n2R" id="9kN-Xl-an1"/>
                         <outlet property="topHeightConstraint" destination="4sq-Pd-s3a" id="RxD-gI-qOD"/>
                     </connections>
@@ -243,10 +245,10 @@
             </objects>
             <point key="canvasLocation" x="-1273" y="-1662"/>
         </scene>
-        <!--Status Hidden Navigation Controller-->
+        <!--Cam Navigation Controller-->
         <scene sceneID="8ho-vj-0DS">
             <objects>
-                <navigationController storyboardIdentifier="Nav_AVCamViewController" automaticallyAdjustsScrollViewInsets="NO" id="7FQ-xI-dOY" customClass="StatusHiddenNavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Nav_AVCamViewController" automaticallyAdjustsScrollViewInsets="NO" id="7FQ-xI-dOY" customClass="CamNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" hidden="YES" alpha="0.10000000149011612" contentMode="scaleToFill" id="XqA-iv-2Sp">
@@ -279,7 +281,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ic6-7T-RJU" userLabel="campreview" customClass="AVCamPreviewView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="414"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dfh-EF-wAO" userLabel="curtain">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="414"/>
@@ -304,7 +306,7 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="f4w-Ye-vWy" firstAttribute="bottom" secondItem="Dfh-EF-wAO" secondAttribute="bottom" id="2Tt-Pd-iaf"/>
                             <constraint firstItem="f4w-Ye-vWy" firstAttribute="leading" secondItem="Ic6-7T-RJU" secondAttribute="leading" id="3vK-RF-aFg"/>
@@ -326,10 +328,9 @@
                     <navigationItem key="navigationItem" id="H0X-Vf-M4J"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="bottomContainer" destination="Cuc-VS-apj" id="pId-Os-ce8"/>
                         <outlet property="curtainContainer" destination="Dfh-EF-wAO" id="B7o-hv-esO"/>
-                        <outlet property="modeContainer" destination="Cuc-VS-apj" id="gUS-Vx-D9L"/>
                         <outlet property="overlayContainer" destination="f4w-Ye-vWy" id="9mf-HH-MI0"/>
-                        <outlet property="overlayLeadingConstraint" destination="wAt-Gb-tfo" id="ExV-FM-3zI"/>
                         <outlet property="previewView" destination="Ic6-7T-RJU" id="uar-cl-Zto"/>
                         <outlet property="topHeightConstraint" destination="1lS-r1-fZh" id="GoM-rQ-qKs"/>
                     </connections>
@@ -601,7 +602,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyU-gb-p9p">
-                                        <rect key="frame" x="136" y="11" width="48" height="20.5"/>
+                                        <rect key="frame" x="136" y="11" width="48" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -693,19 +694,19 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZK-iD-XHq" userLabel="title">
-                                            <rect key="frame" x="60" y="20" width="196.5" height="20.5"/>
+                                            <rect key="frame" x="60" y="20" width="197" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(35) &gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWD-C9-9Zd" userLabel="count">
-                                            <rect key="frame" x="264" y="20" width="43.5" height="20.5"/>
+                                            <rect key="frame" x="264" y="20" width="44" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Brf-OY-a8D" userLabel="seperator">
-                                            <rect key="frame" x="0.0" y="59" width="320" height="0.5"/>
+                                            <rect key="frame" x="0.0" y="59" width="320" height="1"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="0.5" id="6py-LI-CcG"/>
@@ -771,7 +772,8 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vWN-Cj-NCg" userLabel="assets">
                                             <rect key="frame" x="1" y="1" width="78" height="78"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvY-6k-hB8" userLabel="time">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvY-6k-hB8" userLabel="time">
+                                            <rect key="frame" x="42.5" y="55.5" width="33.5" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -809,7 +811,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BL-mm-NWA">
-                                            <rect key="frame" x="144" y="29.5" width="32.5" height="20.5"/>
+                                            <rect key="frame" x="144" y="30" width="33" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>

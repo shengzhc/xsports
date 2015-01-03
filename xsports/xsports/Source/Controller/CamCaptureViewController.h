@@ -17,6 +17,9 @@
 @property (strong, nonatomic) CamCaptureModeViewController *modeViewController;
 @property (strong, nonatomic) CamCurtainViewController *curtainViewController;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *overlayLeadingConstraint;
+@property (weak, nonatomic) IBOutlet UIView *overlayContainer;
+@property (weak, nonatomic) IBOutlet UIView *bottomContainer;
+@property (weak, nonatomic) IBOutlet AVCamPreviewView *previewView;
+@property (weak, nonatomic) IBOutlet UIView *curtainContainer;
 
 @end

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StatusHiddenNavigationController : UINavigationController
+@interface CamNavigationController : UINavigationController
 
 @end
