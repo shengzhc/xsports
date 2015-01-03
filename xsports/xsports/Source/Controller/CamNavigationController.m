@@ -10,10 +10,35 @@
 #import "CamCaptureViewController.h"
 #import "AssetsPickerViewController.h"
 
+#import "CECardsAnimationController.h"
 #import "CamCaptureAssetsAnimator.h"
+
+@interface CamNavigationControllerTransitioningDelegate : NSObject  < UIViewControllerTransitioningDelegate >
+@end
+
+@implementation CamNavigationControllerTransitioningDelegate
+
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+{
+    CECardsAnimationController *animator = [[CECardsAnimationController alloc] init];
+    animator.duration = 0.5;
+    return animator;
+}
+
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    CECardsAnimationController *animator = [[CECardsAnimationController alloc] init];
+    animator.duration = 0.5;
+    animator.reverse = YES;
+    return animator;
+}
+
+@end
+
 
 @interface CamNavigationController () < UINavigationControllerDelegate >
 @property (assign, nonatomic) BOOL isStatusBarHidden;
+@property (strong, nonatomic) CamNavigationControllerTransitioningDelegate *navTransitioningDelegate;
 @end
 
 @implementation CamNavigationController
@@ -22,12 +47,21 @@
 {
     [super viewDidLoad];
     self.delegate = self;
+    
+    self.modalPresentationStyle = UIModalPresentationCustom;
+    self.navTransitioningDelegate = [[CamNavigationControllerTransitioningDelegate alloc] init];
+    self.transitioningDelegate = self.navTransitioningDelegate;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.isStatusBarHidden = [UIApplication sharedApplication].statusBarHidden;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
 
