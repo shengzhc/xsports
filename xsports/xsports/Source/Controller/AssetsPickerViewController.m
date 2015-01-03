@@ -51,7 +51,11 @@
 #pragma mark AssetsPickerOverlayViewControllerDelegate
 - (void)assetsPickerOverlayViewControlelr:(AssetsPickerOverlayViewController *)controller didBackButtonClicked:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.camCurtainViewController closeCurtainWithCompletionHandler:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.navigationController popViewControllerAnimated:YES];
+        });
+    }];
 }
 
 - (void)assetsPickerOverlayViewControlelr:(AssetsPickerOverlayViewController *)controller didNextButtonClicked:(id)sender
