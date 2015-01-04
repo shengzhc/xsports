@@ -63,8 +63,12 @@
 #pragma mark User
 #define UserProfileViewControllerIdentifier @"UserProfileViewController"
 #define NavUserProfileViewControllerIdentifier @"NavUserProfileViewController"
+#define UserInfoViewControllerIdentifier @"UserInfoViewController"
 
 #define UserProfileToolSectionHeaderIdentifier @"UserProfileToolSectionHeader"
+
+#define UserProfileInfoViewControllerSegueIdentifier @"UserProfileInfoViewControllerSegue"
+#define UserFeedFlowCollectionViewControllerSegueIdentifier @"UserFeedFlowCollectionViewControllerSegue"
 
 #pragma mark Other
 #define LoadingViewControllerIdentifier @"LoadingViewController"

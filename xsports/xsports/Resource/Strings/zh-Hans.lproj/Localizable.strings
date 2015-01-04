@@ -36,3 +36,7 @@
 "cam_auth_msg" = "请为极度开启相机使用权限";
 
 //User
+"user_edit" = "编辑内容";
+"user_follow" = "关注";
+"user_follower" = "粉丝";
+"user_post" = "发布";

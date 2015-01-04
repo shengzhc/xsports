@@ -71,6 +71,7 @@
 - (void)feedViewPhotoCell:(FeedViewPhotoCell *)cell didNameButtonClicked:(id)sender
 {
     UserProfileViewController *userProfileViewController = [[UIStoryboard storyboardWithName:@"User" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:UserProfileViewControllerIdentifier];
+    userProfileViewController.userId = cell.media.creator.uid;
     [self.navigationController pushViewController:userProfileViewController animated:YES];
 }
 

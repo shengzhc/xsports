@@ -18,4 +18,7 @@
 @property (strong, nonatomic) NSString *totalMedias;
 @property (strong, nonatomic) NSString *totalFollows;
 @property (strong, nonatomic) NSString *totalFollowers;
+
+- (BOOL)isCurrentUser;
+
 @end

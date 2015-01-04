@@ -28,4 +28,10 @@
                                                        @"counts.followed_by": @"totalFollowers"}];
 }
 
+- (BOOL)isCurrentUser
+{
+    return NO;
+}
+
+
 @end

@@ -7,10 +7,19 @@
 //
 
 #import "UserProfileViewController.h"
+#import "UserInfoViewController.h"
+#import "FeedFlowCollectionViewController.h"
 
 #import "UserProfileToolSectionHeader.h"
-@interface UserProfileViewController () < UICollectionViewDelegateFlowLayout >
+#import "FeedViewPhotoCell.h"
+#import "FeedViewVideoCell.h"
+#import "FeedViewGridPhotoCell.h"
+#import "FeedViewGridVideoCell.h"
 
+@interface UserProfileViewController () < UICollectionViewDelegateFlowLayout >
+@property (strong, nonatomic) UserInfoViewController *userInfoViewController;
+@property (strong, nonatomic) FeedFlowCollectionViewController *flowCollectionViewController;
+@property (strong, nonatomic) User *user;
 @end
 
 @implementation UserProfileViewController
@@ -19,39 +28,35 @@
 {
     [super viewDidLoad];
     [self setupViews];
+    [self loadUser];
+    [self loadFeed];
+}
+
+- (void)setUser:(User *)user
+{
+    _user = user;
+    self.userInfoViewController.user = user;
 }
 
 - (void)setupViews
 {
-    self.collectionView.backgroundColor = [UIColor cGrayColor];
+    [self.navigationController clearBackground];
+    self.view.backgroundColor = [UIColor cGrayColor];
 }
 
-#pragma mark UICollectionViewDataSource & UICollectionViewDelegate
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+- (void)loadUser
 {
-    return 0;
+    NSAssert(self.userId != nil, @"User Id should not be empty");
+    [[InstagramServices sharedInstance] getUserInfoWithUserId:self.userId successBlock:^(NSError *error, id response) {
+        self.user = response;
+    } failBlock:^(NSError *error, id response) {
+        self.user = nil;
+    }];
 }
 
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+- (void)loadFeed
 {
-    if (kind == UICollectionElementKindSectionHeader) {
-        UserProfileToolSectionHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:UserProfileToolSectionHeaderIdentifier forIndexPath:indexPath];
-        return header;
-    }
-    
-    return nil;
-}
-
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return nil;
-}
-
-#pragma mark UICollectionViewDelegateFlowLayout
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
-{
-    return CGSizeMake(collectionView.bounds.size.width, 40.0);
+    NSAssert(self.userId != nil, @"User Id should not be empty");
 }
 
 #pragma mark Action
@@ -70,5 +75,17 @@
 
 - (IBAction)didEditUserBarButtonClicked:(id)sender
 {
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:UserProfileInfoViewControllerSegueIdentifier]) {
+        self.userInfoViewController = segue.destinationViewController;
+    } else if ([segue.identifier isEqualToString:UserFeedFlowCollectionViewControllerSegueIdentifier]) {
+        self.flowCollectionViewController = segue.destinationViewController;
+    } else {
+        [super prepareForSegue:segue sender:sender];
+    }
 }
 @end
