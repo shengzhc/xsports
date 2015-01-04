@@ -124,6 +124,7 @@
                         <outlet property="backBarButtonItem" destination="N0p-hm-KzE" id="dO9-61-DxX"/>
                         <outlet property="contentContainer" destination="Uxb-2S-SuE" id="NAJ-bC-inh"/>
                         <outlet property="editUserBarButtonItem" destination="5cx-mi-chY" id="hEa-uM-NgZ"/>
+                        <outlet property="toolBar" destination="vO9-Xc-JkP" id="ZWe-xi-FyV"/>
                         <outlet property="topContainer" destination="MIg-Ke-AHr" id="1qt-7f-mlk"/>
                         <outlet property="topLayoutConstraint" destination="XmD-Ft-j4m" id="Zrf-US-2xo"/>
                     </connections>

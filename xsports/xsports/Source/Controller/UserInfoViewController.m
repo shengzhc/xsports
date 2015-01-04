@@ -22,7 +22,6 @@
     [self update];
 }
 
-
 - (void)setupButtons
 {
     [self.followingAmountButton setTitleColor:[UIColor cYellowColor] forState:UIControlStateNormal];

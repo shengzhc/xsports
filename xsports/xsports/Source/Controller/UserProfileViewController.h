@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface UserProfileViewController : UIViewController
-
 @property (copy, nonatomic) NSString *userId;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backBarButtonItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editUserBarButtonItem;
 @property (weak, nonatomic) IBOutlet UIView *topContainer;

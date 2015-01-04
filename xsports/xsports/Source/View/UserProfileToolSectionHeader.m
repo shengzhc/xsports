@@ -9,8 +9,6 @@
 #import "UserProfileToolSectionHeader.h"
 
 @interface UserProfileToolSectionHeader ()
-@property (weak, nonatomic) IBOutlet UIButton *gridButton;
-@property (weak, nonatomic) IBOutlet UIButton *listButton;
 @property (weak, nonatomic) IBOutlet UIView *seperator;
 @end
 
@@ -45,12 +43,16 @@
 #pragma mark Action
 - (IBAction)didGridButtonClicked:(id)sender
 {
-    self.gridButton.selected = !self.gridButton.selected;
+    if ([self.delegate respondsToSelector:@selector(userProfileToolSectionHeader:didGridButtonClicked:)]) {
+        [self.delegate userProfileToolSectionHeader:self didGridButtonClicked:sender];
+    }
 }
 
 - (IBAction)didListButtonClicked:(id)sender
 {
-    self.listButton.selected = !self.listButton.selected;
+    if ([self.delegate respondsToSelector:@selector(userProfileToolSectionHeader:didListButtonClicked:)]) {
+        [self.delegate userProfileToolSectionHeader:self didListButtonClicked:sender];
+    }
 }
 
 @end

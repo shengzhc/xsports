@@ -17,7 +17,8 @@ static void *FeedLayoutContext = &FeedLayoutContext;
 //static void *RecordingContext = &RecordingContext;
 //static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthorizedContext;
 
-@interface UserProfileViewController () < UICollectionViewDelegateFlowLayout >
+@interface UserProfileViewController () < UICollectionViewDelegateFlowLayout, UserProfileToolSectionHeaderDelegate >
+@property (weak, nonatomic) IBOutlet UserProfileToolSectionHeader *toolBar;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLayoutConstraint;
 @property (strong, nonatomic) UserInfoViewController *userInfoViewController;
 @property (strong, nonatomic) FeedFlowCollectionViewController *flowCollectionViewController;
@@ -44,6 +45,14 @@ static void *FeedLayoutContext = &FeedLayoutContext;
     [self removeObserver:self forKeyPath:@"isFlowLayout"];
 }
 
+- (FeedGridCollectionViewController *)gridCollectionViewController
+{
+    if (_gridCollectionViewController == nil) {
+        _gridCollectionViewController = [[UIStoryboard storyboardWithName:@"User" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:UserGridCollectionViewControllerIdentifier];
+    }
+    return _gridCollectionViewController;
+}
+
 - (void)setUser:(User *)user
 {
     _user = user;
@@ -54,6 +63,7 @@ static void *FeedLayoutContext = &FeedLayoutContext;
 {
     _feeds = feeds;
     self.flowCollectionViewController.feeds = feeds;
+    self.gridCollectionViewController.feeds = feeds;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -61,7 +71,7 @@ static void *FeedLayoutContext = &FeedLayoutContext;
     if (context == FeedLayoutContext) {
         __block BOOL isFlowLayout = [change[NSKeyValueChangeNewKey] boolValue];
         dispatch_async(dispatch_get_main_queue(), ^{
-            isFlowLayout ? [self showFeedFlowLayout] : [self showFeedGridLayout];
+            isFlowLayout ? [self userProfileToolSectionHeader:self.toolBar didListButtonClicked:nil] : [self userProfileToolSectionHeader:self.toolBar didGridButtonClicked:nil];
         });
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
@@ -73,6 +83,7 @@ static void *FeedLayoutContext = &FeedLayoutContext;
 {
     [self.navigationController clearBackground];
     self.view.backgroundColor = [UIColor cGrayColor];
+    self.toolBar.delegate = self;
 }
 
 - (void)loadUser
@@ -149,20 +160,6 @@ static void *FeedLayoutContext = &FeedLayoutContext;
     [animator animateTransition:transitionContext];
 }
 
-
-
-- (void)showFeedFlowLayout
-{
-    if (self.flowCollectionViewController.parentViewController) {
-        return;
-    }
-}
-
-- (void)showFeedGridLayout
-{
-
-}
-
 #pragma mark Action
 - (IBAction)didBackBarButtonItemClicked:(id)sender
 {
@@ -179,7 +176,23 @@ static void *FeedLayoutContext = &FeedLayoutContext;
 
 - (IBAction)didEditUserBarButtonClicked:(id)sender
 {
+}
+
+#pragma mark UserProfileToolSectionHeaderDelegate
+- (void)userProfileToolSectionHeader:(UserProfileToolSectionHeader *)header didListButtonClicked:(id)sender
+{
+    header.listButton.selected = YES;
+    header.gridButton.selected = NO;
     
+    [self showFlowCollectionViewController];
+}
+
+- (void)userProfileToolSectionHeader:(UserProfileToolSectionHeader *)header didGridButtonClicked:(id)sender
+{
+    header.listButton.selected = NO;
+    header.gridButton.selected = YES;
+    
+    [self showGridCollectionViewController];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

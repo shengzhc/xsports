@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class UserInfoViewController;
+@protocol UserInfoViewControllerDelegate <NSObject>
+@optional
+@end
+
 @interface UserInfoViewController : UIViewController
 @property (weak, nonatomic) User *user;
 
