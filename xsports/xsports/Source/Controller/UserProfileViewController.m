@@ -8,18 +8,22 @@
 
 #import "UserProfileViewController.h"
 
-@interface UserProfileViewController ()
+#import "UserProfileToolSectionHeader.h"
+@interface UserProfileViewController () < UICollectionViewDelegateFlowLayout >
 
 @end
 
 @implementation UserProfileViewController
 
-static NSString * const reuseIdentifier = @"Cell";
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self setupViews];
+}
+
+- (void)setupViews
+{
+    self.collectionView.backgroundColor = [UIColor cGrayColor];
 }
 
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
@@ -28,15 +32,43 @@ static NSString * const reuseIdentifier = @"Cell";
     return 0;
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if (kind == UICollectionElementKindSectionHeader) {
+        UserProfileToolSectionHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:UserProfileToolSectionHeaderIdentifier forIndexPath:indexPath];
+        return header;
+    }
+    
+    return nil;
+}
+
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    return cell;
+    return nil;
 }
 
-- (IBAction)didBackBarButtonItemClicked:(id)sender {
+#pragma mark UICollectionViewDelegateFlowLayout
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    return CGSizeMake(collectionView.bounds.size.width, 40.0);
 }
 
-- (IBAction)didEditUserBarButtonClicked:(id)sender {
+#pragma mark Action
+- (IBAction)didBackBarButtonItemClicked:(id)sender
+{
+    if (self.navigationController) {
+        if (self.navigationController.viewControllers[0] == self) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+- (IBAction)didEditUserBarButtonClicked:(id)sender
+{
 }
 @end

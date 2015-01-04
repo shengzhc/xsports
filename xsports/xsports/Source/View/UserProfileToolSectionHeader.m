@@ -26,10 +26,12 @@
 - (void)setupButtons
 {
     [self.gridButton setTitleColor:[UIColor cGrayColor] forState:UIControlStateSelected | UIControlStateHighlighted];
+    self.gridButton.titleLabel.font = [UIFont chnRegularFont];
     [self.gridButton setTitleColor:[UIColor cDarkYellowColor] forState:UIControlStateNormal];
     [self.gridButton setTitle:GET_STRING(@"grid") forState:UIControlStateNormal];
     
     [self.listButton setTitleColor:[UIColor cGrayColor] forState:UIControlStateSelected | UIControlStateHighlighted];
+    self.listButton.titleLabel.font = [UIFont chnRegularFont];
     [self.listButton setTitle:GET_STRING(@"list") forState:UIControlStateNormal];
     [self.listButton setTitleColor:[UIColor cDarkYellowColor] forState:UIControlStateNormal];
 }
@@ -37,7 +39,7 @@
 - (void)setupViews
 {
     self.backgroundColor = [UIColor cYellowColor];
-    self.seperator.backgroundColor = [UIColor cLightGrayColor];
+    self.seperator.backgroundColor = [[UIColor cLightGrayColor] colorWithAlphaComponent:0.7];
 }
 
 #pragma mark Action
