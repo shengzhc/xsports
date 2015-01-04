@@ -37,7 +37,8 @@ static void *FeedLayoutContext = &FeedLayoutContext;
     [self loadUser];
     [self loadMedia];
 
-    [self addObserver:self forKeyPath:@"isFlowLayout" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:FeedLayoutContext];
+    [self addObserver:self forKeyPath:@"isFlowLayout" options:NSKeyValueObservingOptionNew context:FeedLayoutContext];
+    [self userProfileToolSectionHeader:self.toolBar didListButtonClicked:nil];
 }
 
 - (void)dealloc
@@ -71,7 +72,7 @@ static void *FeedLayoutContext = &FeedLayoutContext;
     if (context == FeedLayoutContext) {
         __block BOOL isFlowLayout = [change[NSKeyValueChangeNewKey] boolValue];
         dispatch_async(dispatch_get_main_queue(), ^{
-            isFlowLayout ? [self userProfileToolSectionHeader:self.toolBar didListButtonClicked:nil] : [self userProfileToolSectionHeader:self.toolBar didGridButtonClicked:nil];
+            isFlowLayout ? [self showFlowCollectionViewController] : [self showGridCollectionViewController];
         });
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
@@ -91,6 +92,7 @@ static void *FeedLayoutContext = &FeedLayoutContext;
     NSAssert(self.userId != nil, @"User Id should not be empty");
     [[InstagramServices sharedInstance] getUserInfoWithUserId:self.userId successBlock:^(NSError *error, id response) {
         self.user = response;
+        self.isFlowLayout = YES;
     } failBlock:^(NSError *error, id response) {
         self.user = nil;
     }];
@@ -183,16 +185,14 @@ static void *FeedLayoutContext = &FeedLayoutContext;
 {
     header.listButton.selected = YES;
     header.gridButton.selected = NO;
-    
-    [self showFlowCollectionViewController];
+    self.isFlowLayout = YES;
 }
 
 - (void)userProfileToolSectionHeader:(UserProfileToolSectionHeader *)header didGridButtonClicked:(id)sender
 {
     header.listButton.selected = NO;
     header.gridButton.selected = YES;
-    
-    [self showGridCollectionViewController];
+    self.isFlowLayout = NO;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
