@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeedFlowCollectionViewController : UICollectionViewController
+@interface FeedFlowCollectionViewController : UICollectionViewController  < UICollectionViewDelegateFlowLayout, UIScrollViewDelegate >
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 @property (strong, nonatomic) NSArray *feeds;
+- (void)setupCollectionView;
 @end

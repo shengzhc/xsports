@@ -58,8 +58,8 @@
 		9C8A449A1A59170C002C8CA2 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8A44991A59170C002C8CA2 /* User.storyboard */; };
 		9C8A449E1A591B7F002C8CA2 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A449D1A591B7F002C8CA2 /* UserProfileViewController.m */; };
 		9C8A44A21A591EA6002C8CA2 /* UserProfileToolSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A44A11A591EA6002C8CA2 /* UserProfileToolSectionHeader.m */; };
-		9C8A44A41A593570002C8CA2 /* UserProfileToolSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C8A44A31A593570002C8CA2 /* UserProfileToolSectionHeader.xib */; };
 		9C8A44A71A5938D8002C8CA2 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A44A61A5938D8002C8CA2 /* UserInfoViewController.m */; };
+		9C8A44AD1A59DB48002C8CA2 /* UserGridCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A44AC1A59DB48002C8CA2 /* UserGridCollectionViewController.m */; };
 		9C96E4991A521EBE00C5701D /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C96E4981A521EBE00C5701D /* Popover.storyboard */; };
 		9C96E49B1A521EE200C5701D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C96E49A1A521EE200C5701D /* Login.storyboard */; };
 		9C96E49D1A521F2900C5701D /* Cam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C96E49C1A521F2900C5701D /* Cam.storyboard */; };
@@ -214,9 +214,10 @@
 		9C8A449D1A591B7F002C8CA2 /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
 		9C8A44A01A591EA6002C8CA2 /* UserProfileToolSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileToolSectionHeader.h; sourceTree = "<group>"; };
 		9C8A44A11A591EA6002C8CA2 /* UserProfileToolSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileToolSectionHeader.m; sourceTree = "<group>"; };
-		9C8A44A31A593570002C8CA2 /* UserProfileToolSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileToolSectionHeader.xib; sourceTree = "<group>"; };
 		9C8A44A51A5938D8002C8CA2 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		9C8A44A61A5938D8002C8CA2 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		9C8A44AB1A59DB48002C8CA2 /* UserGridCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserGridCollectionViewController.h; sourceTree = "<group>"; };
+		9C8A44AC1A59DB48002C8CA2 /* UserGridCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserGridCollectionViewController.m; sourceTree = "<group>"; };
 		9C96E4981A521EBE00C5701D /* Popover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popover.storyboard; sourceTree = "<group>"; };
 		9C96E49A1A521EE200C5701D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		9C96E49C1A521F2900C5701D /* Cam.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cam.storyboard; sourceTree = "<group>"; };
@@ -463,6 +464,8 @@
 				9C8A449D1A591B7F002C8CA2 /* UserProfileViewController.m */,
 				9C8A44A51A5938D8002C8CA2 /* UserInfoViewController.h */,
 				9C8A44A61A5938D8002C8CA2 /* UserInfoViewController.m */,
+				9C8A44AB1A59DB48002C8CA2 /* UserGridCollectionViewController.h */,
+				9C8A44AC1A59DB48002C8CA2 /* UserGridCollectionViewController.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -472,7 +475,6 @@
 			children = (
 				9C8A44A01A591EA6002C8CA2 /* UserProfileToolSectionHeader.h */,
 				9C8A44A11A591EA6002C8CA2 /* UserProfileToolSectionHeader.m */,
-				9C8A44A31A593570002C8CA2 /* UserProfileToolSectionHeader.xib */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -898,7 +900,6 @@
 			files = (
 				9C09285F1A3FFEE5001340F2 /* FeedViewPhotoCell.xib in Resources */,
 				9C4B94F11A41697900DFCC7F /* FeedViewGridPhotoCell.xib in Resources */,
-				9C8A44A41A593570002C8CA2 /* UserProfileToolSectionHeader.xib in Resources */,
 				9CF88D461A3FE5ED00D4E72E /* Tasks in Resources */,
 				9CBCE7521A3ECD9000C9BD35 /* SourceSansPro-ExtraLight.otf in Resources */,
 				9C1EE3461A4B2085007372BD /* Microsoft-YaHei.ttf in Resources */,
@@ -1030,6 +1031,7 @@
 				9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */,
 				9CDDDE3D1A493DFC00144DB8 /* AssetsPickerViewController.m in Sources */,
 				9C8A44A21A591EA6002C8CA2 /* UserProfileToolSectionHeader.m in Sources */,
+				9C8A44AD1A59DB48002C8CA2 /* UserGridCollectionViewController.m in Sources */,
 				9CBCE7321A3E2F5000C9BD35 /* Media.m in Sources */,
 				9CBCE71D1A3CC56200C9BD35 /* MEFoldAnimationController.m in Sources */,
 				9CF88D491A3FE6A300D4E72E /* NSDate+XS.m in Sources */,

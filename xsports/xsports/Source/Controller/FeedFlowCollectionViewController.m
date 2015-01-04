@@ -10,10 +10,11 @@
 #import "LikesViewController.h"
 #import "CommentsViewController.h"
 #import "UserProfileViewController.h"
+
 #import "FeedViewPhotoCell.h"
 #import "FeedViewVideoCell.h"
 
-@interface FeedFlowCollectionViewController () < UICollectionViewDelegateFlowLayout, FeedViewPhotoCellDelegate, UIScrollViewDelegate >
+@interface FeedFlowCollectionViewController () < FeedViewPhotoCellDelegate >
 {
     NSIndexPath *_lastVideoIndexPath;
     CGPoint _lastContentOffset;

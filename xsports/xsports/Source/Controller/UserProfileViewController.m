@@ -9,17 +9,22 @@
 #import "UserProfileViewController.h"
 #import "UserInfoViewController.h"
 #import "FeedFlowCollectionViewController.h"
+#import "UserGridCollectionViewController.h"
 
 #import "UserProfileToolSectionHeader.h"
-#import "FeedViewPhotoCell.h"
-#import "FeedViewVideoCell.h"
-#import "FeedViewGridPhotoCell.h"
-#import "FeedViewGridVideoCell.h"
+
+static void *FeedLayoutContext = &FeedLayoutContext;
+//static void *RecordingContext = &RecordingContext;
+//static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthorizedContext;
 
 @interface UserProfileViewController () < UICollectionViewDelegateFlowLayout >
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLayoutConstraint;
 @property (strong, nonatomic) UserInfoViewController *userInfoViewController;
 @property (strong, nonatomic) FeedFlowCollectionViewController *flowCollectionViewController;
+@property (strong, nonatomic) UserGridCollectionViewController *gridCollectionViewController;
 @property (strong, nonatomic) User *user;
+@property (strong, nonatomic) NSArray *feeds;
+@property (assign, nonatomic) BOOL isFlowLayout;
 @end
 
 @implementation UserProfileViewController
@@ -29,7 +34,14 @@
     [super viewDidLoad];
     [self setupViews];
     [self loadUser];
-    [self loadFeed];
+    [self loadMedia];
+
+    [self addObserver:self forKeyPath:@"isFlowLayout" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:FeedLayoutContext];
+}
+
+- (void)dealloc
+{
+    [self removeObserver:self forKeyPath:@"isFlowLayout"];
 }
 
 - (void)setUser:(User *)user
@@ -38,6 +50,25 @@
     self.userInfoViewController.user = user;
 }
 
+- (void)setFeeds:(NSArray *)feeds
+{
+    _feeds = feeds;
+    self.flowCollectionViewController.feeds = feeds;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == FeedLayoutContext) {
+        __block BOOL isFlowLayout = [change[NSKeyValueChangeNewKey] boolValue];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            isFlowLayout ? [self showFeedFlowLayout] : [self showFeedGridLayout];
+        });
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
+#pragma mark Setup
 - (void)setupViews
 {
     [self.navigationController clearBackground];
@@ -54,9 +85,82 @@
     }];
 }
 
-- (void)loadFeed
+- (void)loadMedia
 {
     NSAssert(self.userId != nil, @"User Id should not be empty");
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"instagram" ofType:@"txt"];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    NSArray *medias = json[@"data"];
+    NSMutableArray *feeds = [NSMutableArray new];
+    for (NSDictionary *media in medias) {
+        [feeds addObject:[[Media alloc] initWithDictionary:media error:nil]];
+    }
+    self.feeds = feeds;
+}
+
+#pragma mark Logic
+- (void)showFlowCollectionViewController
+{
+    if (self.flowCollectionViewController.feeds != self.feeds) {
+        self.flowCollectionViewController.feeds = self.feeds;
+    }
+    
+    if (self.flowCollectionViewController.parentViewController) {
+        return;
+    }
+    
+    if (self.gridCollectionViewController.parentViewController) {
+        [self animateTransitionBetweenFromViewController:self.gridCollectionViewController toViewController:self.flowCollectionViewController goingRight:NO];
+    }
+}
+
+- (void)showGridCollectionViewController
+{
+    if (self.gridCollectionViewController.feeds != self.feeds) {
+        self.gridCollectionViewController.feeds = self.feeds;
+    }
+    
+    if (self.gridCollectionViewController.isViewLoaded && self.gridCollectionViewController.view.window) {
+        return;
+    }
+    
+    if (self.flowCollectionViewController.parentViewController) {
+        [self animateTransitionBetweenFromViewController:self.flowCollectionViewController toViewController:self.gridCollectionViewController goingRight:YES];
+    }
+}
+
+- (void)animateTransitionBetweenFromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController goingRight:(BOOL)goingRight
+{
+    [fromViewController willMoveToParentViewController:nil];
+    [toViewController willMoveToParentViewController:self];
+    [self addChildViewController:toViewController];
+    
+    SlidingAndFadingAnimator *animator = [[SlidingAndFadingAnimator alloc] init];
+    SlidingAndFadingTransitionContext *transitionContext = [[SlidingAndFadingTransitionContext alloc] initWithFromViewController:fromViewController toViewController:toViewController goingRight:goingRight];
+    transitionContext.completionBlock = ^(BOOL didComplete) {
+        [fromViewController.view removeFromSuperview];
+        [fromViewController removeFromParentViewController];
+        [toViewController didMoveToParentViewController:self];
+        if ([animator respondsToSelector:@selector (animationEnded:)]) {
+            [animator animationEnded:didComplete];
+        }
+    };
+    [animator animateTransition:transitionContext];
+}
+
+
+
+- (void)showFeedFlowLayout
+{
+    if (self.flowCollectionViewController.parentViewController) {
+        return;
+    }
+}
+
+- (void)showFeedGridLayout
+{
+
 }
 
 #pragma mark Action

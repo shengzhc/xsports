@@ -8,6 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserProfileToolSectionHeader : UICollectionReusableView
-
+@interface UserProfileToolSectionHeader : UIView
 @end

@@ -64,6 +64,7 @@
 #define UserProfileViewControllerIdentifier @"UserProfileViewController"
 #define NavUserProfileViewControllerIdentifier @"NavUserProfileViewController"
 #define UserInfoViewControllerIdentifier @"UserInfoViewController"
+#define UserGridCollectionViewControllerIdentifier @"UserGridCollectionViewController"
 
 #define UserProfileToolSectionHeaderIdentifier @"UserProfileToolSectionHeader"
 
