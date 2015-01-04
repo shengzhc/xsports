@@ -21,6 +21,7 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
 @interface UserProfileViewController () < UICollectionViewDelegateFlowLayout, UserProfileToolSectionHeaderDelegate >
 @property (weak, nonatomic) IBOutlet UserProfileToolSectionHeader *toolBar;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLayoutConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *userNameTitle;
 @property (strong, nonatomic) UserInfoViewController *userInfoViewController;
 @property (strong, nonatomic) FeedFlowCollectionViewController *flowCollectionViewController;
 @property (strong, nonatomic) UserGridCollectionViewController *gridCollectionViewController;
@@ -45,6 +46,11 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
 - (void)dealloc
 {
     [self removeObserver:self forKeyPath:@"isFlowLayout"];
+    if (self.flowCollectionViewController.parentViewController) {
+        [self.flowCollectionViewController removeObserver:self forKeyPath:@"collectionView.contentOffset" context:ScrollViewContentOffsetContext];
+    } else {
+        [self.gridCollectionViewController removeObserver:self forKeyPath:@"collectionView.contentOffset" context:ScrollViewContentOffsetContext];
+    }
 }
 
 - (FeedGridCollectionViewController *)gridCollectionViewController
@@ -61,6 +67,7 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
 {
     _user = user;
     self.userInfoViewController.user = user;
+    [self.userNameTitle setTitle:user.fullName forState:UIControlStateNormal];
 }
 
 - (void)setFeeds:(NSArray *)feeds
@@ -77,6 +84,12 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
         dispatch_async(dispatch_get_main_queue(), ^{
             isFlowLayout ? [self showFlowCollectionViewController] : [self showGridCollectionViewController];
         });
+    } else if (context == ScrollViewContentOffsetContext) {
+        CGPoint contentOffset = ((NSValue *)change[NSKeyValueChangeNewKey]).CGPointValue;
+        CGFloat height = self.userInfoViewController.view.bounds.size.height + self.toolBar.bounds.size.height;
+        CGFloat offset = contentOffset.y + height;
+        offset = MAX(0, MIN(offset, self.userInfoViewController.view.bounds.size.height - 64));
+        self.topLayoutConstraint.constant = -offset;
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
@@ -90,9 +103,11 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
     self.toolBar.delegate = self;
     
     CGFloat height = [UIScreen width]/8.0*7.0 + 44;
-    NSLog(@"%@", @(height));
     self.flowCollectionViewController.collectionView.contentInset = UIEdgeInsetsMake(height, 0, 0, 0);
     self.gridCollectionViewController.collectionView.contentInset = UIEdgeInsetsMake(height, 0, 0, 0);
+    
+    [self.userNameTitle setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.userNameTitle.titleLabel.font = [UIFont chnRegularFontWithSize:16.0];
 }
 
 - (void)loadUser
@@ -147,15 +162,18 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
     }
     
     if (self.flowCollectionViewController.parentViewController) {
+
         [self animateTransitionBetweenFromViewController:self.flowCollectionViewController toViewController:self.gridCollectionViewController goingRight:YES];
     }
 }
 
 - (void)animateTransitionBetweenFromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController goingRight:(BOOL)goingRight
 {
+    [fromViewController removeObserver:self forKeyPath:@"collectionView.contentOffset" context:ScrollViewContentOffsetContext];
     [fromViewController willMoveToParentViewController:nil];
     [toViewController willMoveToParentViewController:self];
     [self addChildViewController:toViewController];
+    [toViewController addObserver:self forKeyPath:@"collectionView.contentOffset" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:ScrollViewContentOffsetContext];
     
     SlidingAndFadingAnimator *animator = [[SlidingAndFadingAnimator alloc] init];
     SlidingAndFadingTransitionContext *transitionContext = [[SlidingAndFadingTransitionContext alloc] initWithFromViewController:fromViewController toViewController:toViewController goingRight:goingRight];
@@ -209,6 +227,7 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
         self.userInfoViewController = segue.destinationViewController;
     } else if ([segue.identifier isEqualToString:UserFeedFlowCollectionViewControllerSegueIdentifier]) {
         self.flowCollectionViewController = segue.destinationViewController;
+        [self.flowCollectionViewController addObserver:self forKeyPath:@"collectionView.contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:ScrollViewContentOffsetContext];
     } else {
         [super prepareForSegue:segue sender:sender];
     }
