@@ -12,6 +12,7 @@
 @optional
 - (void)feedViewPhotoCell:(FeedViewPhotoCell *)cell didLikeAmountButtonClicked:(id)sender;
 - (void)feedViewPhotoCell:(FeedViewPhotoCell *)cell didCommentButtonClicked:(id)sender;
+- (void)feedViewPhotoCell:(FeedViewPhotoCell *)cell didNameButtonClicked:(id)sender;
 @end
 
 @interface FeedViewPhotoCell : UICollectionViewCell

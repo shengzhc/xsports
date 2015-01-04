@@ -18,6 +18,15 @@
                     <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWD-jm-p6p" userLabel="top">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJz-qZ-IuD" userLabel="nameButton">
+                                <rect key="frame" x="0.0" y="0.0" width="91.5" height="46"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didNameButtonClicked:" destination="TPy-9b-5PZ" eventType="touchUpInside" id="6I5-VD-7tL"/>
+                                </connections>
+                            </button>
                             <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_myself" translatesAutoresizingMaskIntoConstraints="NO" id="gse-9F-EcQ" userLabel="profileImageView">
                                 <rect key="frame" x="8" y="8" width="30" height="30"/>
                                 <constraints>
@@ -60,14 +69,18 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="l3e-qA-o0X" secondAttribute="bottom" id="1YF-gg-6af"/>
+                            <constraint firstAttribute="bottom" secondItem="PJz-qZ-IuD" secondAttribute="bottom" id="4Sh-s9-ryy"/>
                             <constraint firstItem="gse-9F-EcQ" firstAttribute="top" secondItem="rWD-jm-p6p" secondAttribute="top" constant="8" id="AqM-kn-yTo"/>
                             <constraint firstItem="gse-9F-EcQ" firstAttribute="leading" secondItem="rWD-jm-p6p" secondAttribute="leading" constant="8" id="EGv-Pk-yoL"/>
                             <constraint firstAttribute="trailing" secondItem="mDr-hi-mAM" secondAttribute="trailing" constant="8" id="KmX-uP-sVU"/>
                             <constraint firstItem="mDr-hi-mAM" firstAttribute="leading" secondItem="tb1-HO-kWn" secondAttribute="trailing" constant="4" id="LKh-XD-yed"/>
                             <constraint firstItem="l3e-qA-o0X" firstAttribute="leading" secondItem="rWD-jm-p6p" secondAttribute="leading" id="NJa-Io-OVY"/>
+                            <constraint firstItem="PJz-qZ-IuD" firstAttribute="top" secondItem="rWD-jm-p6p" secondAttribute="top" id="Qhw-gL-xIN"/>
                             <constraint firstAttribute="trailing" secondItem="l3e-qA-o0X" secondAttribute="trailing" id="ZQe-EP-nXM"/>
                             <constraint firstItem="Y28-5r-i1t" firstAttribute="leading" secondItem="gse-9F-EcQ" secondAttribute="trailing" constant="8" id="bCC-wR-X0I"/>
                             <constraint firstItem="gse-9F-EcQ" firstAttribute="centerY" secondItem="mDr-hi-mAM" secondAttribute="centerY" id="eaz-tp-Y8k"/>
+                            <constraint firstItem="PJz-qZ-IuD" firstAttribute="leading" secondItem="rWD-jm-p6p" secondAttribute="leading" id="mzY-9V-Uxm"/>
+                            <constraint firstItem="PJz-qZ-IuD" firstAttribute="trailing" secondItem="Y28-5r-i1t" secondAttribute="trailing" id="nj8-K2-Nj6"/>
                             <constraint firstItem="gse-9F-EcQ" firstAttribute="centerY" secondItem="Y28-5r-i1t" secondAttribute="centerY" id="t2h-a1-JKt"/>
                             <constraint firstItem="gse-9F-EcQ" firstAttribute="centerY" secondItem="tb1-HO-kWn" secondAttribute="centerY" id="tRa-Ft-sJ7"/>
                             <constraint firstAttribute="bottom" secondItem="gse-9F-EcQ" secondAttribute="bottom" constant="8" id="tiS-Lg-PFv"/>

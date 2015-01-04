@@ -342,10 +342,10 @@
             </objects>
             <point key="canvasLocation" x="828" y="-1867"/>
         </scene>
-        <!--Page Navigation Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="Pi7-Gv-aEP">
             <objects>
-                <navigationController storyboardIdentifier="Nav_FeedViewController" automaticallyAdjustsScrollViewInsets="NO" id="CJo-5p-brM" customClass="PageNavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Nav_FeedViewController" automaticallyAdjustsScrollViewInsets="NO" id="CJo-5p-brM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NJW-Co-cpg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

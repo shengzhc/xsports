@@ -9,9 +9,9 @@
 #import "FeedFlowCollectionViewController.h"
 #import "LikesViewController.h"
 #import "CommentsViewController.h"
+#import "UserProfileViewController.h"
 #import "FeedViewPhotoCell.h"
 #import "FeedViewVideoCell.h"
-
 
 @interface FeedFlowCollectionViewController () < UICollectionViewDelegateFlowLayout, FeedViewPhotoCellDelegate, UIScrollViewDelegate >
 {
@@ -66,6 +66,12 @@
     CommentsViewController *commentsViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:CommentsViewControllerIdentifier];
     commentsViewController.mediaId = cell.media.mid;
     [self.navigationController pushViewController:commentsViewController animated:YES];
+}
+
+- (void)feedViewPhotoCell:(FeedViewPhotoCell *)cell didNameButtonClicked:(id)sender
+{
+    UserProfileViewController *userProfileViewController = [[UIStoryboard storyboardWithName:@"User" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:UserProfileViewControllerIdentifier];
+    [self.navigationController pushViewController:userProfileViewController animated:YES];
 }
 
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate

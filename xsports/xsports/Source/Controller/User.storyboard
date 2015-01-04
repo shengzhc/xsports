@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ecG-Tp-nYb">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--User Profile View Controller-->
+        <scene sceneID="c6a-Yo-CpY">
+            <objects>
+                <collectionViewController storyboardIdentifier="UserProfileViewController" id="5uZ-Gs-9IS" customClass="UserProfileViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="otL-M9-cPZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AcX-IW-rJS">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserProfileToolSectionHeader" id="FPa-mH-xHQ" customClass="UserProfileToolSectionHeader">
+                            <rect key="frame" x="0.0" y="44" width="320" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVZ-Wt-5YQ" userLabel="grid">
+                                    <rect key="frame" x="0.0" y="0.0" width="159.5" height="50"/>
+                                    <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="imageEdgeInsets" minX="-16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" title="Grid" image="ico_grid_yellow">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="selected" image="ico_grid_black"/>
+                                    <connections>
+                                        <action selector="didGridButtonClicked:" destination="FPa-mH-xHQ" eventType="touchUpInside" id="H3f-Sw-TXQ"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1x-Yk-s01" userLabel="list">
+                                    <rect key="frame" x="160" y="0.0" width="159.5" height="50"/>
+                                    <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="imageEdgeInsets" minX="-16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" title="List" image="ico_list_yellow">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="selected" image="ico_list_black"/>
+                                    <connections>
+                                        <action selector="didListButtonClicked:" destination="FPa-mH-xHQ" eventType="touchUpInside" id="hVD-mc-iN7"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqS-bo-aIG" userLabel="seperator">
+                                    <rect key="frame" x="159" y="4" width="1" height="42"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="1" id="Koi-Gh-XcL"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="centerX" secondItem="fqS-bo-aIG" secondAttribute="centerX" id="37h-xH-nPN"/>
+                                <constraint firstItem="I1x-Yk-s01" firstAttribute="leading" secondItem="fqS-bo-aIG" secondAttribute="trailing" id="7gm-12-Fsc"/>
+                                <constraint firstAttribute="trailing" secondItem="I1x-Yk-s01" secondAttribute="trailing" id="DXC-TB-tji"/>
+                                <constraint firstItem="YVZ-Wt-5YQ" firstAttribute="leading" secondItem="FPa-mH-xHQ" secondAttribute="leading" id="Dle-NW-y5U"/>
+                                <constraint firstAttribute="centerY" secondItem="YVZ-Wt-5YQ" secondAttribute="centerY" id="OF2-2V-2Og"/>
+                                <constraint firstAttribute="bottom" secondItem="I1x-Yk-s01" secondAttribute="bottom" id="SRF-YQ-Ij5"/>
+                                <constraint firstAttribute="bottom" secondItem="YVZ-Wt-5YQ" secondAttribute="bottom" id="XtQ-dU-Iug"/>
+                                <constraint firstItem="I1x-Yk-s01" firstAttribute="top" secondItem="FPa-mH-xHQ" secondAttribute="top" id="bLE-ad-cPm"/>
+                                <constraint firstItem="YVZ-Wt-5YQ" firstAttribute="top" secondItem="FPa-mH-xHQ" secondAttribute="top" id="e0i-et-i5I"/>
+                                <constraint firstAttribute="bottom" secondItem="fqS-bo-aIG" secondAttribute="bottom" constant="4" id="haW-NX-wJ9"/>
+                                <constraint firstAttribute="centerY" secondItem="I1x-Yk-s01" secondAttribute="centerY" id="lPp-84-DmF"/>
+                                <constraint firstItem="fqS-bo-aIG" firstAttribute="top" secondItem="FPa-mH-xHQ" secondAttribute="top" constant="4" id="oIF-QJ-xnL"/>
+                                <constraint firstItem="fqS-bo-aIG" firstAttribute="leading" secondItem="YVZ-Wt-5YQ" secondAttribute="trailing" id="zQ7-lh-kQf"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="gridButton" destination="YVZ-Wt-5YQ" id="0GS-6J-WVv"/>
+                                <outlet property="listButton" destination="I1x-Yk-s01" id="EUr-SQ-mKD"/>
+                                <outlet property="seperator" destination="fqS-bo-aIG" id="KQd-ZS-w3r"/>
+                            </connections>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="5uZ-Gs-9IS" id="nLU-gQ-CaT"/>
+                            <outlet property="delegate" destination="5uZ-Gs-9IS" id="y4d-8D-WKQ"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="eH4-uq-hMF">
+                        <barButtonItem key="leftBarButtonItem" image="ico_back" id="7Oj-cC-YFn" userLabel="back">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="didBackBarButtonItemClicked:" destination="5uZ-Gs-9IS" id="w3E-Ua-j0b"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="ico_userEdit" id="fGY-W2-VUK" userLabel="user edit">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="didEditUserBarButtonClicked:" destination="5uZ-Gs-9IS" id="6BS-5T-YWb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backBarButtonItem" destination="7Oj-cC-YFn" id="e3W-ZD-SsH"/>
+                        <outlet property="editUserBarButtonItem" destination="fGY-W2-VUK" id="MvL-pW-iJS"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OGR-l4-vw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="372" y="374"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wxK-Io-8xK">
+            <objects>
+                <navigationController storyboardIdentifier="NavUserProfileViewController" automaticallyAdjustsScrollViewInsets="NO" id="ecG-Tp-nYb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gx7-lC-bpo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5uZ-Gs-9IS" kind="relationship" relationship="rootViewController" id="60l-ps-bll"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Wa-f0-Wkx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-106" y="374"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ico_back" width="34" height="22"/>
+        <image name="ico_grid_black" width="22" height="22"/>
+        <image name="ico_grid_yellow" width="22" height="22"/>
+        <image name="ico_list_black" width="24" height="20"/>
+        <image name="ico_list_yellow" width="24" height="20"/>
+        <image name="ico_userEdit" width="30" height="30"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -60,6 +60,12 @@
 #define AssetsPickerOverlayViewControllerSegueIdentifier @"AssetsPickerOverlayViewControllerSegue"
 #define Nav_ELCAssetsCollectionViewControllerSegueIdentifier @"Nav_ELCAssetsCollectionViewControllerSegue"
 
+#pragma mark User
+#define UserProfileViewControllerIdentifier @"UserProfileViewController"
+#define NavUserProfileViewControllerIdentifier @"NavUserProfileViewController"
+
+#define UserProfileToolSectionHeaderIdentifier @"UserProfileToolSectionHeader"
+
 #pragma mark Other
 #define LoadingViewControllerIdentifier @"LoadingViewController"
 #define SlidingViewControllerIdentifier @"SlidingViewController"

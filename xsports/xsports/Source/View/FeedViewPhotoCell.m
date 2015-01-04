@@ -93,4 +93,11 @@
     }
 }
 
+- (IBAction)didNameButtonClicked:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(feedViewPhotoCell:didNameButtonClicked:)]) {
+        [self.delegate feedViewPhotoCell:self didNameButtonClicked:sender];
+    }
+}
+
 @end

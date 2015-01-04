@@ -55,6 +55,9 @@
 		9C7ED1261A3B8AD0007AB927 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7ED1251A3B8AD0007AB927 /* MenuViewController.m */; };
 		9C7ED1291A3BA13C007AB927 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7ED1281A3BA13C007AB927 /* FeedViewController.m */; };
 		9C835CDB1A3AC47100A75B91 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C835CDA1A3AC47100A75B91 /* QuartzCore.framework */; };
+		9C8A449A1A59170C002C8CA2 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8A44991A59170C002C8CA2 /* User.storyboard */; };
+		9C8A449E1A591B7F002C8CA2 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A449D1A591B7F002C8CA2 /* UserProfileViewController.m */; };
+		9C8A44A21A591EA6002C8CA2 /* UserProfileToolSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A44A11A591EA6002C8CA2 /* UserProfileToolSectionHeader.m */; };
 		9C96E4991A521EBE00C5701D /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C96E4981A521EBE00C5701D /* Popover.storyboard */; };
 		9C96E49B1A521EE200C5701D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C96E49A1A521EE200C5701D /* Login.storyboard */; };
 		9C96E49D1A521F2900C5701D /* Cam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C96E49C1A521F2900C5701D /* Cam.storyboard */; };
@@ -204,6 +207,11 @@
 		9C7ED1271A3BA13C007AB927 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
 		9C7ED1281A3BA13C007AB927 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		9C835CDA1A3AC47100A75B91 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9C8A44991A59170C002C8CA2 /* User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		9C8A449C1A591B7F002C8CA2 /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
+		9C8A449D1A591B7F002C8CA2 /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
+		9C8A44A01A591EA6002C8CA2 /* UserProfileToolSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileToolSectionHeader.h; sourceTree = "<group>"; };
+		9C8A44A11A591EA6002C8CA2 /* UserProfileToolSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileToolSectionHeader.m; sourceTree = "<group>"; };
 		9C96E4981A521EBE00C5701D /* Popover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popover.storyboard; sourceTree = "<group>"; };
 		9C96E49A1A521EE200C5701D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		9C96E49C1A521F2900C5701D /* Cam.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cam.storyboard; sourceTree = "<group>"; };
@@ -443,6 +451,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9C8A449B1A591B6A002C8CA2 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				9C8A449C1A591B7F002C8CA2 /* UserProfileViewController.h */,
+				9C8A449D1A591B7F002C8CA2 /* UserProfileViewController.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		9C8A449F1A591E91002C8CA2 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				9C8A44A01A591EA6002C8CA2 /* UserProfileToolSectionHeader.h */,
+				9C8A44A11A591EA6002C8CA2 /* UserProfileToolSectionHeader.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
 		9C96E4A11A52204F00C5701D /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +476,7 @@
 				9C96E4981A521EBE00C5701D /* Popover.storyboard */,
 				9C96E49A1A521EE200C5701D /* Login.storyboard */,
 				9C96E49C1A521F2900C5701D /* Cam.storyboard */,
+				9C8A44991A59170C002C8CA2 /* User.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -656,6 +683,7 @@
 		9C9862F11A3974D6003D5F86 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9C8A449B1A591B6A002C8CA2 /* User */,
 				9C96E4A81A5220C500C5701D /* Settings */,
 				9C96E4A71A5220B700C5701D /* Comments */,
 				9C96E4A61A5220AD00C5701D /* Likes */,
@@ -683,6 +711,7 @@
 		9C9862F31A3974D6003D5F86 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9C8A449F1A591E91002C8CA2 /* User */,
 				9C96E4AC1A52215A00C5701D /* Other */,
 				9C96E4AB1A52211F00C5701D /* Feed */,
 				9C96E4AA1A52211A00C5701D /* Login */,
@@ -868,6 +897,7 @@
 				9CBCE7581A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf in Resources */,
 				9CBCE7501A3ECD9000C9BD35 /* SourceSansPro-Bold.otf in Resources */,
 				9C96E49B1A521EE200C5701D /* Login.storyboard in Resources */,
+				9C8A449A1A59170C002C8CA2 /* User.storyboard in Resources */,
 				9C96E49D1A521F2900C5701D /* Cam.storyboard in Resources */,
 				9CBCE7571A3ECD9000C9BD35 /* SourceSansPro-Regular.otf in Resources */,
 				9C6B21E91A397BB100FE8B43 /* Images.xcassets in Resources */,
@@ -975,6 +1005,7 @@
 				9CDC97A41A55C8D00021F9A6 /* ELCAsset.m in Sources */,
 				9CBC8AB91A47777E006F00A3 /* AVCamPreviewView.m in Sources */,
 				9CF19E681A53A2D300908553 /* CamCaptureViewController.m in Sources */,
+				9C8A449E1A591B7F002C8CA2 /* UserProfileViewController.m in Sources */,
 				9C11A4621A45E54D00A9E4CD /* CommentsCell.m in Sources */,
 				9CBCE7251A3CD0B900C9BD35 /* UINavigationController+XS.m in Sources */,
 				9C4B94F41A416D1B00DFCC7F /* GridLayout.m in Sources */,
@@ -988,6 +1019,7 @@
 				9CDC97831A55BDCC0021F9A6 /* AssetsPickerOverlayViewController.m in Sources */,
 				9C9862FA1A39753F003D5F86 /* UIColor+XS.m in Sources */,
 				9CDDDE3D1A493DFC00144DB8 /* AssetsPickerViewController.m in Sources */,
+				9C8A44A21A591EA6002C8CA2 /* UserProfileToolSectionHeader.m in Sources */,
 				9CBCE7321A3E2F5000C9BD35 /* Media.m in Sources */,
 				9CBCE71D1A3CC56200C9BD35 /* MEFoldAnimationController.m in Sources */,
 				9CF88D491A3FE6A300D4E72E /* NSDate+XS.m in Sources */,

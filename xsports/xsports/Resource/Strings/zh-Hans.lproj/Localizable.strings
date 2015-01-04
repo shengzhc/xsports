@@ -10,6 +10,9 @@
 "close" = "关闭";
 "ok" = "好的";
 
+"grid" = "网格";
+"list" = "列表";
+
 //Sign In/Up
 "signin" = "登陆";
 "signup" = "注册";
@@ -31,3 +34,5 @@
 //Cam
 "cam_auth_title" = "极度";
 "cam_auth_msg" = "请为极度开启相机使用权限";
+
+//User
