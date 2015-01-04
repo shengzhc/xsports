@@ -14,6 +14,7 @@
 #import "UserProfileToolSectionHeader.h"
 
 static void *FeedLayoutContext = &FeedLayoutContext;
+static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
 //static void *RecordingContext = &RecordingContext;
 //static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthorizedContext;
 
@@ -50,6 +51,8 @@ static void *FeedLayoutContext = &FeedLayoutContext;
 {
     if (_gridCollectionViewController == nil) {
         _gridCollectionViewController = [[UIStoryboard storyboardWithName:@"User" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:UserGridCollectionViewControllerIdentifier];
+        _gridCollectionViewController.collectionView.showsVerticalScrollIndicator = NO;
+        _gridCollectionViewController.collectionView.showsHorizontalScrollIndicator = NO;
     }
     return _gridCollectionViewController;
 }
@@ -85,6 +88,11 @@ static void *FeedLayoutContext = &FeedLayoutContext;
     [self.navigationController clearBackground];
     self.view.backgroundColor = [UIColor cGrayColor];
     self.toolBar.delegate = self;
+    
+    CGFloat height = [UIScreen width]/8.0*7.0 + 44;
+    NSLog(@"%@", @(height));
+    self.flowCollectionViewController.collectionView.contentInset = UIEdgeInsetsMake(height, 0, 0, 0);
+    self.gridCollectionViewController.collectionView.contentInset = UIEdgeInsetsMake(height, 0, 0, 0);
 }
 
 - (void)loadUser

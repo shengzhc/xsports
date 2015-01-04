@@ -10,7 +10,7 @@
         <!--User Profile View Controller-->
         <scene sceneID="muR-yv-8qs">
             <objects>
-                <viewController storyboardIdentifier="UserProfileViewController" id="aI5-8W-OLa" customClass="UserProfileViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfileViewController" automaticallyAdjustsScrollViewInsets="NO" id="aI5-8W-OLa" customClass="UserProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Rb-XS-DJA"/>
                         <viewControllerLayoutGuide type="bottom" id="dNZ-Jo-2rP"/>
@@ -155,7 +155,7 @@
         <!--Feed Flow Collection View Controller-->
         <scene sceneID="Haf-g0-pba">
             <objects>
-                <collectionViewController storyboardIdentifier="FeedFlowCollectionViewController" id="E2e-9f-OBb" customClass="FeedFlowCollectionViewController" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="FeedFlowCollectionViewController" automaticallyAdjustsScrollViewInsets="NO" id="E2e-9f-OBb" customClass="FeedFlowCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Mua-ME-Hqm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -394,7 +394,7 @@
         <!--User Grid Collection View Controller-->
         <scene sceneID="fN8-q3-NEM">
             <objects>
-                <collectionViewController storyboardIdentifier="UserGridCollectionViewController" id="Gft-UI-hbd" customClass="UserGridCollectionViewController" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="UserGridCollectionViewController" automaticallyAdjustsScrollViewInsets="NO" id="Gft-UI-hbd" customClass="UserGridCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="jfh-pS-V73">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
