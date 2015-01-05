@@ -135,15 +135,20 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
 - (void)loadMedia
 {
     NSAssert(self.userId != nil, @"User Id should not be empty");
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"instagram" ofType:@"txt"];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-    NSArray *medias = json[@"data"];
-    NSMutableArray *feeds = [NSMutableArray new];
-    for (NSDictionary *media in medias) {
-        [feeds addObject:[[Media alloc] initWithDictionary:media error:nil]];
-    }
-    self.feeds = feeds;
+    
+    [[InstagramServices sharedInstance] getUserRecentMediaWithUserId:self.userId successBlock:^(NSError *error, NSArray *medias) {
+        self.feeds = medias;
+    } failBlock:^(NSError *error, id response) {
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"instagram" ofType:@"txt"];
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        NSArray *medias = json[@"data"];
+        NSMutableArray *feeds = [NSMutableArray new];
+        for (NSDictionary *media in medias) {
+            [feeds addObject:[[Media alloc] initWithDictionary:media error:nil]];
+        }
+        self.feeds = feeds;
+    }];
 }
 
 #pragma mark Logic

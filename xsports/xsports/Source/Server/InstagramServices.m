@@ -128,5 +128,31 @@ static const NSString *instagramSecretId = @"9c939511d38346649600ba65658ebfc4";
     return operation;
 }
 
+- (AFHTTPRequestOperation *)getUserRecentMediaWithUserId:(NSString *)userId successBlock:(void (^)(NSError *error, NSArray *medias))success failBlock:(void (^)(NSError *error, id response))failure
+{
+    AFHTTPRequestOperation *operation = [self.manager GET:[NSString stringWithFormat:@"/v1/users/%@/media/recent/?", userId]
+                                               parameters:@{@"client_id": instagramClientId, @"secret_id": instagramSecretId}
+                                                  success:^(AFHTTPRequestOperation *operation, id responseObject)
+                                         {
+                                             NSArray *data = [responseObject objectForKey:@"data"];
+                                             NSMutableArray *medias = [NSMutableArray new];
+                                             for (NSDictionary *dict in data) {
+                                                 Media *media = [[Media alloc] initWithDictionary:dict error:nil];
+                                                 [medias addObject:media];
+                                             }
+                                             if (success) {
+                                                 success(nil, medias);
+                                             }
+                                             
+                                         } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+                                         {
+                                             if (failure) {
+                                                 failure(error, nil);
+                                             }
+                                         }];
+    return operation;
+}
+
+
 
 @end
