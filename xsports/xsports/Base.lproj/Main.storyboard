@@ -251,11 +251,6 @@
                             <constraint firstAttribute="trailing" secondItem="T7C-if-kJ5" secondAttribute="trailing" id="ZsH-n7-IA1"/>
                             <constraint firstAttribute="bottom" secondItem="T7C-if-kJ5" secondAttribute="bottom" id="cXm-MR-O0O"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="5"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="sOA-Yj-FfS">
                         <nil key="title"/>

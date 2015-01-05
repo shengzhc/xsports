@@ -107,7 +107,6 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
 #pragma mark Setup
 - (void)setupViews
 {
-    [self.navigationController clearBackground];
     self.view.backgroundColor = [UIColor cGrayColor];
     self.toolBar.delegate = self;
     self.overlay.backgroundColor = [UIColor cGrayColor];

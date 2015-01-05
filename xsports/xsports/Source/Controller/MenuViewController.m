@@ -70,6 +70,9 @@
     {
         self.navFeedViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavFeedViewControllerIdentifier];
         self.feedViewController = (FeedViewController *)self.navFeedViewController.topViewController;
+        self.navFeedViewController.view.layer.cornerRadius = 5.0;
+        self.navFeedViewController.view.layer.masksToBounds = YES;
+        [self.navFeedViewController clearBackground];
     }
     
     {
