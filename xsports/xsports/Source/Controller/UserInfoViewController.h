@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *followerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *feedAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *feedLabel;
+@property (weak, nonatomic) IBOutlet UIView *overlay;
 
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *toolSeperators;
 

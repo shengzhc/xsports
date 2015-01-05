@@ -71,6 +71,9 @@
     self.feedLabel.textColor = [UIColor cYellowColor];
     self.feedLabel.text = GET_STRING(@"user_post");
     
+    self.overlay.backgroundColor = [UIColor cGrayColor];
+    self.overlay.alpha = 0.0;
+    
     for (UIView *seperator in self.toolSeperators) {
         seperator.backgroundColor = [UIColor cYellowColor];
     }

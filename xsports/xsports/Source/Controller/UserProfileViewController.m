@@ -90,6 +90,7 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
         CGFloat offset = contentOffset.y + height;
         offset = MAX(0, MIN(offset, self.userInfoViewController.view.bounds.size.height - 64));
         self.topLayoutConstraint.constant = -offset;
+        self.userInfoViewController.overlay.alpha = offset*1.5/height;
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }

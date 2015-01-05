@@ -355,6 +355,10 @@
                                     <action selector="didEditOrFollowButtonClicked:" destination="1g2-d1-gMi" eventType="touchUpInside" id="gGE-G9-xub"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UdY-av-MkL" userLabel="overlay">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -367,10 +371,14 @@
                             <constraint firstItem="tnC-Pn-h2M" firstAttribute="trailing" secondItem="erJ-kE-Ash" secondAttribute="trailing" constant="40" id="QH3-cf-xfD"/>
                             <constraint firstItem="erJ-kE-Ash" firstAttribute="bottom" secondItem="4Tz-th-uwA" secondAttribute="centerY" constant="-4" id="TAX-wt-TlW"/>
                             <constraint firstAttribute="centerX" secondItem="erJ-kE-Ash" secondAttribute="centerX" id="WVC-Tk-kKb"/>
+                            <constraint firstItem="UdY-av-MkL" firstAttribute="top" secondItem="4Tz-th-uwA" secondAttribute="top" id="XWg-CB-H3p"/>
                             <constraint firstItem="q7G-h7-YsB" firstAttribute="top" secondItem="4Tz-th-uwA" secondAttribute="top" id="ZY5-fy-MCU"/>
                             <constraint firstAttribute="bottom" secondItem="Ch3-dY-MBq" secondAttribute="bottom" constant="16" id="eNf-mB-ccc"/>
+                            <constraint firstAttribute="trailing" secondItem="UdY-av-MkL" secondAttribute="trailing" id="fPf-zr-ZAZ"/>
+                            <constraint firstAttribute="bottom" secondItem="UdY-av-MkL" secondAttribute="bottom" id="kFu-hG-7I7"/>
                             <constraint firstAttribute="trailing" secondItem="q7G-h7-YsB" secondAttribute="trailing" id="mNY-uM-2lY"/>
                             <constraint firstItem="tnC-Pn-h2M" firstAttribute="top" secondItem="TXq-jx-1M6" secondAttribute="bottom" constant="8" id="nEu-ch-YWA"/>
+                            <constraint firstItem="UdY-av-MkL" firstAttribute="leading" secondItem="4Tz-th-uwA" secondAttribute="leading" id="rKR-Cw-YLP"/>
                             <constraint firstItem="tnC-Pn-h2M" firstAttribute="leading" secondItem="erJ-kE-Ash" secondAttribute="leading" constant="-40" id="raY-H6-p7D"/>
                             <constraint firstItem="q7G-h7-YsB" firstAttribute="leading" secondItem="4Tz-th-uwA" secondAttribute="leading" id="vuZ-RK-qbV"/>
                             <constraint firstItem="TXq-jx-1M6" firstAttribute="top" secondItem="q7G-h7-YsB" secondAttribute="centerY" constant="4" id="zjK-tk-aE9"/>
@@ -391,6 +399,7 @@
                         <outlet property="followingAmountLabel" destination="Faj-ES-1V7" id="act-W6-aY3"/>
                         <outlet property="followingLabel" destination="13h-gm-3yP" id="Hcl-QZ-sJl"/>
                         <outlet property="nameLabel" destination="TXq-jx-1M6" id="v1d-zt-w0c"/>
+                        <outlet property="overlay" destination="UdY-av-MkL" id="Mlg-jX-A6l"/>
                         <outlet property="profileImageView" destination="erJ-kE-Ash" id="632-YL-14r"/>
                         <outletCollection property="toolSeperators" destination="Cmm-Tf-G6v" id="7Is-nP-DhQ"/>
                         <outletCollection property="toolSeperators" destination="5Ft-OF-44I" id="DdG-D5-3T5"/>
