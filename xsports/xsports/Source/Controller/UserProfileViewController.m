@@ -19,12 +19,14 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
 //static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthorizedContext;
 
 @interface UserProfileViewController () < UICollectionViewDelegateFlowLayout, UserProfileToolSectionHeaderDelegate >
+@property (weak, nonatomic) IBOutlet UIView *overlay;
 @property (weak, nonatomic) IBOutlet UserProfileToolSectionHeader *toolBar;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLayoutConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *userNameTitle;
 @property (strong, nonatomic) UserInfoViewController *userInfoViewController;
 @property (strong, nonatomic) FeedFlowCollectionViewController *flowCollectionViewController;
 @property (strong, nonatomic) UserGridCollectionViewController *gridCollectionViewController;
+
 @property (strong, nonatomic) User *user;
 @property (strong, nonatomic) NSArray *feeds;
 @property (assign, nonatomic) BOOL isFlowLayout;
@@ -101,7 +103,7 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
         CGFloat offset = contentOffset.y + height;
         offset = MAX(0, MIN(offset, self.userInfoViewController.view.bounds.size.height - 64));
         self.topLayoutConstraint.constant = -offset;
-        self.userInfoViewController.overlay.alpha = offset*1.5/height;
+        self.overlay.alpha = offset*1.5/height;
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
@@ -112,6 +114,8 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
 {
     self.view.backgroundColor = [UIColor cGrayColor];
     self.toolBar.delegate = self;
+    self.overlay.backgroundColor = [UIColor cGrayColor];
+    self.overlay.alpha = 0;
     
     CGFloat height = [UIScreen width]/8.0*7.0 + 44;
     self.flowCollectionViewController.collectionView.contentInset = UIEdgeInsetsMake(height, 0, 0, 0);
@@ -178,25 +182,31 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
     }
 }
 
-- (void)animateTransitionBetweenFromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController goingRight:(BOOL)goingRight
+- (void)animateTransitionBetweenFromViewController:(UICollectionViewController *)fromViewController toViewController:(UICollectionViewController *)toViewController goingRight:(BOOL)goingRight
 {
-    [fromViewController removeObserver:self forKeyPath:@"collectionView.contentOffset" context:ScrollViewContentOffsetContext];
-    [fromViewController willMoveToParentViewController:nil];
-    [toViewController willMoveToParentViewController:self];
-    [self addChildViewController:toViewController];
-    [toViewController addObserver:self forKeyPath:@"collectionView.contentOffset" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:ScrollViewContentOffsetContext];
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    [fromViewController.collectionView scrollRectToVisible:CGRectMake(0, -fromViewController.collectionView.contentInset.top, fromViewController.collectionView.bounds.size.width, fromViewController.collectionView.bounds.size.height) animated:YES];
     
-    SlidingAndFadingAnimator *animator = [[SlidingAndFadingAnimator alloc] init];
-    SlidingAndFadingTransitionContext *transitionContext = [[SlidingAndFadingTransitionContext alloc] initWithFromViewController:fromViewController toViewController:toViewController goingRight:goingRight];
-    transitionContext.completionBlock = ^(BOOL didComplete) {
-        [fromViewController.view removeFromSuperview];
-        [fromViewController removeFromParentViewController];
-        [toViewController didMoveToParentViewController:self];
-        if ([animator respondsToSelector:@selector (animationEnded:)]) {
-            [animator animationEnded:didComplete];
-        }
-    };
-    [animator animateTransition:transitionContext];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+        [fromViewController removeObserver:self forKeyPath:@"collectionView.contentOffset" context:ScrollViewContentOffsetContext];
+        [fromViewController willMoveToParentViewController:nil];
+        [toViewController willMoveToParentViewController:self];
+        [self addChildViewController:toViewController];
+        [toViewController addObserver:self forKeyPath:@"collectionView.contentOffset" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:ScrollViewContentOffsetContext];
+        
+        SlidingAndFadingAnimator *animator = [[SlidingAndFadingAnimator alloc] init];
+        SlidingAndFadingTransitionContext *transitionContext = [[SlidingAndFadingTransitionContext alloc] initWithFromViewController:fromViewController toViewController:toViewController goingRight:goingRight];
+        transitionContext.completionBlock = ^(BOOL didComplete) {
+            [fromViewController.view removeFromSuperview];
+            [fromViewController removeFromParentViewController];
+            [toViewController didMoveToParentViewController:self];
+            if ([animator respondsToSelector:@selector (animationEnded:)]) {
+                [animator animationEnded:didComplete];
+            }
+        };
+        [animator animateTransition:transitionContext];
+    });
 }
 
 #pragma mark Action

@@ -34,6 +34,10 @@
                                     <segue destination="1g2-d1-gMi" kind="embed" identifier="UserProfileInfoViewControllerSegue" id="tuN-gA-gSx"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="97f-cI-97Z" userLabel="overlay">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vO9-Xc-JkP" userLabel="toolbar" customClass="UserProfileToolSectionHeader">
                                 <rect key="frame" x="0.0" y="280" width="320" height="40"/>
                                 <subviews>
@@ -93,6 +97,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="MIg-Ke-AHr" firstAttribute="trailing" secondItem="97f-cI-97Z" secondAttribute="trailing" id="50h-mD-OQz"/>
                             <constraint firstAttribute="trailing" secondItem="MIg-Ke-AHr" secondAttribute="trailing" id="DyS-c9-VJA"/>
                             <constraint firstItem="vO9-Xc-JkP" firstAttribute="top" secondItem="MIg-Ke-AHr" secondAttribute="bottom" id="FxL-Oa-A9G"/>
                             <constraint firstItem="Uxb-2S-SuE" firstAttribute="top" secondItem="sf7-4u-IDJ" secondAttribute="top" id="Qv8-Cz-vUk"/>
@@ -101,7 +106,10 @@
                             <constraint firstAttribute="bottom" secondItem="Uxb-2S-SuE" secondAttribute="bottom" id="WrF-kg-1Xq"/>
                             <constraint firstItem="Uxb-2S-SuE" firstAttribute="leading" secondItem="sf7-4u-IDJ" secondAttribute="leading" id="Xjr-b9-Uus"/>
                             <constraint firstItem="MIg-Ke-AHr" firstAttribute="top" secondItem="sf7-4u-IDJ" secondAttribute="top" id="XmD-Ft-j4m"/>
+                            <constraint firstItem="MIg-Ke-AHr" firstAttribute="top" secondItem="97f-cI-97Z" secondAttribute="top" id="Y3l-qr-XkK"/>
+                            <constraint firstItem="MIg-Ke-AHr" firstAttribute="bottom" secondItem="97f-cI-97Z" secondAttribute="bottom" id="ZrX-CO-vgD"/>
                             <constraint firstItem="vO9-Xc-JkP" firstAttribute="leading" secondItem="sf7-4u-IDJ" secondAttribute="leading" id="apf-Ln-m0B"/>
+                            <constraint firstItem="MIg-Ke-AHr" firstAttribute="leading" secondItem="97f-cI-97Z" secondAttribute="leading" id="idM-Bv-gbF"/>
                             <constraint firstItem="MIg-Ke-AHr" firstAttribute="leading" secondItem="sf7-4u-IDJ" secondAttribute="leading" id="sqs-zc-GkY"/>
                         </constraints>
                     </view>
@@ -132,6 +140,7 @@
                         <outlet property="backBarButtonItem" destination="N0p-hm-KzE" id="dO9-61-DxX"/>
                         <outlet property="contentContainer" destination="Uxb-2S-SuE" id="NAJ-bC-inh"/>
                         <outlet property="editUserBarButtonItem" destination="5cx-mi-chY" id="hEa-uM-NgZ"/>
+                        <outlet property="overlay" destination="97f-cI-97Z" id="v2R-kT-KON"/>
                         <outlet property="toolBar" destination="vO9-Xc-JkP" id="ZWe-xi-FyV"/>
                         <outlet property="topContainer" destination="MIg-Ke-AHr" id="1qt-7f-mlk"/>
                         <outlet property="topLayoutConstraint" destination="XmD-Ft-j4m" id="Zrf-US-2xo"/>
@@ -201,6 +210,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q7G-h7-YsB" userLabel="bg">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UdY-av-MkL" userLabel="overlay">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ch3-dY-MBq" userLabel="tool">
                                 <rect key="frame" x="0.0" y="221" width="120" height="42.5"/>
                                 <subviews>
@@ -321,11 +334,11 @@
                                     <constraint firstItem="Cmm-Tf-G6v" firstAttribute="top" secondItem="Ch3-dY-MBq" secondAttribute="top" id="zcW-ms-Huh"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="erJ-kE-Ash" userLabel="profile">
-                                <rect key="frame" x="120" y="56" width="80" height="80"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="erJ-kE-Ash" userLabel="profile">
+                                <rect key="frame" x="110" y="36" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="IgT-9Y-suW"/>
-                                    <constraint firstAttribute="width" constant="80" id="Pm4-QK-gly"/>
+                                    <constraint firstAttribute="height" constant="100" id="IgT-9Y-suW"/>
+                                    <constraint firstAttribute="width" constant="100" id="Pm4-QK-gly"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXq-jx-1M6">
@@ -335,7 +348,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="desc" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnC-Pn-h2M" userLabel="desc">
-                                <rect key="frame" x="80" y="172" width="160" height="20.5"/>
+                                <rect key="frame" x="70" y="172" width="180" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -355,10 +368,6 @@
                                     <action selector="didEditOrFollowButtonClicked:" destination="1g2-d1-gMi" eventType="touchUpInside" id="gGE-G9-xub"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UdY-av-MkL" userLabel="overlay">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
