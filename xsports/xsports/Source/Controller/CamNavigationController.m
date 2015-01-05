@@ -10,6 +10,7 @@
 #import "CamCaptureViewController.h"
 #import "AssetsPickerViewController.h"
 
+#import "SinkingAndPoppingAnimator.h"
 #import "CECardsAnimationController.h"
 #import "CamCaptureAssetsAnimator.h"
 
@@ -20,15 +21,13 @@
 
 - (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
-    CECardsAnimationController *animator = [[CECardsAnimationController alloc] init];
-    animator.duration = 0.5;
+    SinkingAndPoppingAnimator *animator = [[SinkingAndPoppingAnimator alloc] init];
     return animator;
 }
 
 - (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
 {
-    CECardsAnimationController *animator = [[CECardsAnimationController alloc] init];
-    animator.duration = 0.5;
+    SinkingAndPoppingAnimator *animator = [[SinkingAndPoppingAnimator alloc] init];
     animator.reverse = YES;
     return animator;
 }

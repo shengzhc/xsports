@@ -60,6 +60,7 @@
 		9C8A44A21A591EA6002C8CA2 /* UserProfileToolSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A44A11A591EA6002C8CA2 /* UserProfileToolSectionHeader.m */; };
 		9C8A44A71A5938D8002C8CA2 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A44A61A5938D8002C8CA2 /* UserInfoViewController.m */; };
 		9C8A44AD1A59DB48002C8CA2 /* UserGridCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A44AC1A59DB48002C8CA2 /* UserGridCollectionViewController.m */; };
+		9C8A44B41A5A5050002C8CA2 /* SinkingAndPoppingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A44B31A5A5050002C8CA2 /* SinkingAndPoppingAnimator.m */; };
 		9C96E4991A521EBE00C5701D /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C96E4981A521EBE00C5701D /* Popover.storyboard */; };
 		9C96E49B1A521EE200C5701D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C96E49A1A521EE200C5701D /* Login.storyboard */; };
 		9C96E49D1A521F2900C5701D /* Cam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C96E49C1A521F2900C5701D /* Cam.storyboard */; };
@@ -218,6 +219,8 @@
 		9C8A44A61A5938D8002C8CA2 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		9C8A44AB1A59DB48002C8CA2 /* UserGridCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserGridCollectionViewController.h; sourceTree = "<group>"; };
 		9C8A44AC1A59DB48002C8CA2 /* UserGridCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserGridCollectionViewController.m; sourceTree = "<group>"; };
+		9C8A44B21A5A5050002C8CA2 /* SinkingAndPoppingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinkingAndPoppingAnimator.h; sourceTree = "<group>"; };
+		9C8A44B31A5A5050002C8CA2 /* SinkingAndPoppingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinkingAndPoppingAnimator.m; sourceTree = "<group>"; };
 		9C96E4981A521EBE00C5701D /* Popover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popover.storyboard; sourceTree = "<group>"; };
 		9C96E49A1A521EE200C5701D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		9C96E49C1A521F2900C5701D /* Cam.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cam.storyboard; sourceTree = "<group>"; };
@@ -774,6 +777,8 @@
 				9CCF5AC71A4BE99E001B9029 /* SinkingAndSlidingAnimator.m */,
 				9C7375FA1A566B0E00FC57B6 /* CamCaptureAssetsAnimator.h */,
 				9C7375FB1A566B0E00FC57B6 /* CamCaptureAssetsAnimator.m */,
+				9C8A44B21A5A5050002C8CA2 /* SinkingAndPoppingAnimator.h */,
+				9C8A44B31A5A5050002C8CA2 /* SinkingAndPoppingAnimator.m */,
 			);
 			path = AnimationControllers;
 			sourceTree = "<group>";
@@ -998,6 +1003,7 @@
 				9C0928671A40173B001340F2 /* AVPlayerView.m in Sources */,
 				9CBCE71C1A3CC56200C9BD35 /* MEDynamicTransition.m in Sources */,
 				9C54EF561A3A457000D16EEE /* NSPredicate+XS.m in Sources */,
+				9C8A44B41A5A5050002C8CA2 /* SinkingAndPoppingAnimator.m in Sources */,
 				9C3428591A455F940021AB2B /* LikesViewController.m in Sources */,
 				9CCF45DC1A3A5A2300FB1A94 /* UIViewController+XS.m in Sources */,
 				9C02EA121A3A7A0300FA1631 /* UIView+XS.m in Sources */,
