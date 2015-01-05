@@ -36,9 +36,24 @@
 
 - (UIImage *)blur
 {
+    GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:self];
     GPUImageiOSBlurFilter *blurFilter = [[GPUImageiOSBlurFilter alloc] init];
-    blurFilter.blurRadiusInPixels = 30.0;
-    return [blurFilter imageByFilteringImage: self];
+    [stillImageSource addTarget:blurFilter];
+    [blurFilter useNextFrameForImageCapture];
+    [stillImageSource processImage];
+
+    return [blurFilter imageFromCurrentFramebuffer];
+}
+
+- (UIImage *)gaussianBlurImage
+{
+    GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:self];
+    GPUImageGaussianBlurFilter *blurFilter = [[GPUImageGaussianBlurFilter alloc] init];
+    blurFilter.blurRadiusInPixels = 4.0;
+    [stillImageSource addTarget:blurFilter];
+    [blurFilter useNextFrameForImageCapture];
+    [stillImageSource processImage];
+    return [blurFilter imageFromCurrentFramebuffer];
 }
 
 + (UIImage *)alignImageWithImage:(UIImage *)image text:(NSString *)text alignment:(kImageTextAlignmentType)alignment

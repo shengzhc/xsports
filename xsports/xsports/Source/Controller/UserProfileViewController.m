@@ -51,11 +51,6 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
-
 - (void)dealloc
 {
     [self removeObserver:self forKeyPath:@"isFlowLayout"];
@@ -112,6 +107,7 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
 #pragma mark Setup
 - (void)setupViews
 {
+    [self.navigationController clearBackground];
     self.view.backgroundColor = [UIColor cGrayColor];
     self.toolBar.delegate = self;
     self.overlay.backgroundColor = [UIColor cGrayColor];

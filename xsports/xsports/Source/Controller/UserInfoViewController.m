@@ -71,9 +71,6 @@
     self.feedLabel.textColor = [UIColor cYellowColor];
     self.feedLabel.text = GET_STRING(@"user_post");
     
-    self.overlay.backgroundColor = [UIColor cGrayColor];
-    self.overlay.alpha = 0.0;
-    
     for (UIView *seperator in self.toolSeperators) {
         seperator.backgroundColor = [UIColor cYellowColor];
     }
@@ -88,7 +85,15 @@
 - (void)update
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:self.user.profilePicture] placeholderImage:nil options:SDWebImageContinueInBackground];
+        [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:self.user.profilePicture] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (image) {
+                    self.profileImageView.image = image;
+                    UIImage *blur = [image gaussianBlurImage];
+                    self.backgroundImageView.image = blur;
+                }
+            });
+        }];
         self.nameLabel.text = self.user.fullName;
         self.descriptionLabel.text = self.user.bio;
         self.followingAmountLabel.text = self.user.totalFollows;

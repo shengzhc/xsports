@@ -18,6 +18,7 @@ typedef enum : NSUInteger {
 + (UIImage *)screenshot;
 + (UIImage *)blurScreenShot;
 - (UIImage *)blur;
+- (UIImage *)gaussianBlurImage;
 
 + (UIImage *)alignImageWithImage:(UIImage *)image text:(NSString *)text alignment:(kImageTextAlignmentType)alignment;
 + (UIImage *)alignImageWithImage:(UIImage *)image text:(NSString *)text font:(UIFont *)font alignment:(kImageTextAlignmentType)alignment;
