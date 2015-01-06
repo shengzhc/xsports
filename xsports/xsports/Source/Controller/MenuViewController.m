@@ -52,7 +52,7 @@
 
 - (void)setupTableView
 {
-    self.tableView.rowHeight = 44;
+    self.tableView.rowHeight = [UIScreen width] > 320 ? 60 : 48;
 }
 
 - (void)setupButton
