@@ -13,6 +13,14 @@
 "grid" = "网格";
 "list" = "列表";
 
+//Menu
+"menu_explore" = "探索";
+"menu_chat" = "聊天";
+"menu_video" = "视频";
+"menu_contact" = "通讯录";
+"menu_setting" = "设置";
+"signout" = "登出";
+
 //Sign In/Up
 "signin" = "登陆";
 "signup" = "注册";

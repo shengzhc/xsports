@@ -23,39 +23,47 @@
     [self setupImageView];
     [self setupLabel];
     [self setupButton];
+    [self setupViews];
+    [self setupTableView];
 }
 
 #pragma mark Setup
+- (void)setupViews
+{
+    self.view.backgroundColor = [UIColor cGrayColor];
+}
+
 - (void)setupLabel
 {
-    self.nameLabel.font = [UIFont regularFontWithSize:18];
-    self.nameLabel.textColor = [UIColor whiteColor];
+    self.nameLabel.font = [UIFont chnRegularFont];
+    self.nameLabel.textColor = [UIColor cYellowColor];
     self.nameLabel.text = @"Frank Rapacciuolo";
-    self.locationLabel.font = [UIFont regularFont];
-    self.locationLabel.textColor = [UIColor darkJadeColor];
+    self.locationLabel.font = [UIFont chnRegularFontWithSize:10];
+    self.locationLabel.textColor = [UIColor cYellowColor];
     self.locationLabel.text = @"San Francisco";
 }
 
 - (void)setupImageView
 {
     self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.size.width/2.0;
-    self.profileImageView.layer.borderWidth = 2;
-    self.profileImageView.layer.borderColor = [UIColor semiFujiColor].CGColor;
+    self.profileImageView.layer.borderWidth = 1.0;
+    self.profileImageView.layer.borderColor = [UIColor cYellowColor].CGColor;
 }
 
 - (void)setupTableView
 {
-    self.tableView.rowHeight = 70;
+    self.tableView.rowHeight = 44;
 }
 
 - (void)setupButton
 {
     self.logoutButton.layer.cornerRadius = 4.0;
-    self.logoutButton.titleLabel.font = [UIFont regularFontWithSize:18];
-    [self.logoutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.logoutButton.titleLabel.font = [UIFont chnRegularFont];
+    [self.logoutButton setTitle:GET_STRING(@"signout") forState:UIControlStateNormal];
+    [self.logoutButton setTitleColor:[UIColor cYellowColor] forState:UIControlStateNormal];
     [self.logoutButton setBackgroundColor:[UIColor clearColor]];
-    self.logoutButton.layer.borderWidth = 1.5;
-    self.logoutButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.logoutButton.layer.borderWidth = 1.0;
+    self.logoutButton.layer.borderColor = [UIColor cYellowColor].CGColor;
 }
 
 - (void)setupMenuItem
@@ -92,14 +100,14 @@
             case kMenuItemLogin:
                 self.slidingViewController.topViewController = self.loginViewController;
                 break;
-            case kMenuItemNew:
+            case kMenuItemExplore:
                 self.slidingViewController.topViewController = self.navFeedViewController;
                 break;
             case kMenuItemChat:
                 break;
             case kMenuItemContact:
                 break;
-            case kMenuItemFavorite:
+            case kMenuItemVideo:
                 break;
             case kMenuItemSetting:
                 self.slidingViewController.topViewController = self.navSettingViewController;
@@ -107,6 +115,10 @@
             default:
                 break;
         }
+    }
+    
+    if ([self.tableView numberOfRowsInSection:0] > self.selectedRow) {
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.selectedRow inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
     }
 
     [self.slidingViewController resetTopViewAnimated:YES];
@@ -125,7 +137,7 @@
 #pragma mark LoginViewControllerDelegate
 - (void)loginViewController:(LoginViewController *)viewController didSignIn:(id)sender
 {
-    [self select:kMenuItemNew animated:YES];
+    [self select:kMenuItemExplore animated:YES];
 }
 
 #pragma mark UITableViewDelegate & UITableViewDataSource
@@ -138,34 +150,44 @@
 {
     MenuViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MenuViewCellIdentifier forIndexPath:indexPath];
     switch (indexPath.row) {
-        case kMenuItemNew:
+        case kMenuItemExplore:
         {
-            cell.iconImageView.image = [UIImage imageNamed:@"ico_new"];
-            cell.iconTextLabel.text = @"New Feeds";
+            cell.iconImageView.image = [UIImage imageNamed:@"ico_explore_gray"];
+            [cell.iconImageView setHighlightedImage:[UIImage imageNamed:@"ico_explore_yellow"]];
+            cell.iconTextLabel.text = GET_STRING(@"menu_explore");
+            cell.topSeperator.hidden = NO;
         }
             break;
         case kMenuItemChat:
         {
-            cell.iconImageView.image = [UIImage imageNamed:@"ico_chat"];
-            cell.iconTextLabel.text = @"Chats";
+            cell.iconImageView.image = [UIImage imageNamed:@"ico_chat_gray"];
+            [cell.iconImageView setHighlightedImage:[UIImage imageNamed:@"ico_chat_yellow"]];
+            cell.iconTextLabel.text = GET_STRING(@"menu_chat");
+            cell.topSeperator.hidden = YES;
         }
             break;
         case kMenuItemContact:
         {
-            cell.iconImageView.image = [UIImage imageNamed:@"ico_contact"];
-            cell.iconTextLabel.text = @"Contacts";
+            cell.iconImageView.image = [UIImage imageNamed:@"ico_contact_gray"];
+            [cell.iconImageView setHighlightedImage:[UIImage imageNamed:@"ico_contact_yellow"]];
+            cell.iconTextLabel.text = GET_STRING(@"menu_contact");
+            cell.topSeperator.hidden = YES;
         }
             break;
-        case kMenuItemFavorite:
+        case kMenuItemVideo:
         {
-            cell.iconImageView.image = [UIImage imageNamed:@"ico_fav"];
-            cell.iconTextLabel.text = @"Favorites";
+            cell.iconImageView.image = [UIImage imageNamed:@"ico_video_gray"];
+            [cell.iconImageView setHighlightedImage:[UIImage imageNamed:@"ico_video_yellow"]];
+            cell.iconTextLabel.text = GET_STRING(@"menu_video");
+            cell.topSeperator.hidden = YES;
         }
             break;
         case kMenuItemSetting:
         {
-            cell.iconImageView.image = [UIImage imageNamed:@"ico_setting"];
-            cell.iconTextLabel.text = @"Settings";
+            cell.iconImageView.image = [UIImage imageNamed:@"ico_setting_gray"];
+            [cell.iconImageView setHighlightedImage:[UIImage imageNamed:@"ico_setting_yellow"]];
+            cell.iconTextLabel.text = GET_STRING(@"menu_setting");
+            cell.topSeperator.hidden = YES;
         }
             break;
         default:

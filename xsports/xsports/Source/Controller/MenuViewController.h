@@ -12,9 +12,9 @@
 #import "SettingViewController.h"
 
 typedef enum : NSInteger {
-    kMenuItemNew,
+    kMenuItemExplore,
     kMenuItemChat,
-    kMenuItemFavorite,
+    kMenuItemVideo,
     kMenuItemContact,
     kMenuItemSetting,
     kMenuItemLogin

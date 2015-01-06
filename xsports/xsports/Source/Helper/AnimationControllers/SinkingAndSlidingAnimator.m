@@ -65,7 +65,7 @@ static NSUInteger const SASDimmingViewTag = 999;
     topView.frame = containerView.bounds;
 
     UIView *dimmingView = [[UIView alloc] initWithFrame:containerView.bounds];
-    dimmingView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
+    dimmingView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
     dimmingView.tag = SASDimmingViewTag;
     dimmingView.userInteractionEnabled = NO;
     

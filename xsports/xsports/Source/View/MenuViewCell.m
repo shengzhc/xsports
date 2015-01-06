@@ -28,12 +28,21 @@
 
 - (void)setupLabel
 {
-    self.iconTextLabel.font = [UIFont regularFontWithSize:18.0];
-    self.iconTextLabel.textColor = [UIColor whiteColor];
+    self.iconTextLabel.font = [UIFont chnRegularFontWithSize:12];
+    [self.iconTextLabel setTextColor:[UIColor cLightGrayColor]];
+    [self.iconTextLabel setHighlightedTextColor:[UIColor cYellowColor]];
 }
 
 - (void)setupImageView
 {
+    self.topSeperator.backgroundColor = self.seperator.backgroundColor = [[UIColor cLightGrayColor] colorWithAlphaComponent:0.9];
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+    [self.iconImageView setHighlighted:selected];
+    [self.iconTextLabel setHighlighted:selected];
 }
 
 @end

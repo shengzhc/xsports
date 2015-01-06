@@ -26,12 +26,13 @@
 
     self.topViewAnchoredGesture = ECSlidingViewControllerAnchoredGestureTapping;
     self.menuViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:MenuViewControllerIdentifier];
+    [self.menuViewController view];
     self.underLeftViewController = self.menuViewController;
     
     if (/* DISABLES CODE */ (NO)) {
         [self.menuViewController select:kMenuItemLogin animated:NO];
     } else {
-        [self.menuViewController select:kMenuItemNew animated:NO];
+        [self.menuViewController select:kMenuItemExplore animated:NO];
     }
 }
 
