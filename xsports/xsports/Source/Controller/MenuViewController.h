@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "FeedViewController.h"
 #import "SettingViewController.h"
+#import "UserProfileViewController.h"
 
 typedef enum : NSInteger {
     kMenuItemExplore,
@@ -17,7 +18,8 @@ typedef enum : NSInteger {
     kMenuItemVideo,
     kMenuItemContact,
     kMenuItemSetting,
-    kMenuItemLogin
+    kMenuItemLogin,
+    kMenuItemProfile
 } MenuItem;
 
 @interface MenuViewController : UIViewController < UITableViewDataSource, UITableViewDelegate, LoginViewControllerDelegate >
@@ -30,10 +32,15 @@ typedef enum : NSInteger {
 @property (assign, nonatomic) MenuItem selectedRow;
 
 @property (strong, nonatomic) LoginViewController *loginViewController;
+
 @property (strong, nonatomic) UINavigationController *navFeedViewController;
 @property (strong, nonatomic) FeedViewController *feedViewController;
+
 @property (strong, nonatomic) UINavigationController *navSettingViewController;
 @property (strong, nonatomic) SettingViewController *settingViewController;
+
+@property (strong, nonatomic) UINavigationController *navMyselfViewController;
+@property (strong, nonatomic) UserProfileViewController *myselfViewController;
 
 - (void)select:(MenuItem)menuItem animated:(BOOL)animated;
 

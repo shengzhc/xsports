@@ -48,7 +48,9 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    if (self.isRootLevel) {
+        [self.backBarButtonItem setImage:[UIImage imageNamed:@"ico_menu"]];
+    }
 }
 
 - (void)dealloc
@@ -212,14 +214,19 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
 #pragma mark Action
 - (IBAction)didBackBarButtonItemClicked:(id)sender
 {
-    if (self.navigationController) {
-        if (self.navigationController.viewControllers[0] == self) {
-            [self dismissViewControllerAnimated:YES completion:nil];
-        } else {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
+    if (self.isRootLevel) {
+        [self.slidingViewController anchorTopViewToRightAnimated:YES];
+        return;
     } else {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        if (self.navigationController) {
+            if (self.navigationController.viewControllers[0] == self) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            } else {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        } else {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
     }
 }
 

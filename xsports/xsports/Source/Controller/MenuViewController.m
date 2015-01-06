@@ -89,6 +89,15 @@
         [self.navSettingViewController clearBackground];
     }
     
+    {
+        self.navMyselfViewController = [[UIStoryboard storyboardWithName:@"User" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavUserProfileViewControllerIdentifier];
+        self.navMyselfViewController.view.layer.cornerRadius = 5.0;
+        self.navMyselfViewController.view.layer.masksToBounds = YES;
+        [self.navMyselfViewController clearBackground];
+        self.myselfViewController = (UserProfileViewController *)self.navMyselfViewController.topViewController;
+        self.myselfViewController.userId = @"1400549828";
+        self.myselfViewController.isRootLevel = YES;
+    }
 }
 
 #pragma mark Action
@@ -112,6 +121,9 @@
             case kMenuItemSetting:
                 self.slidingViewController.topViewController = self.navSettingViewController;
                 break;
+            case kMenuItemProfile:
+                self.slidingViewController.topViewController = self.navMyselfViewController;
+                break;
             default:
                 break;
         }
@@ -132,6 +144,11 @@
     [[self slidingViewController] resetTopViewAnimated:YES onComplete:^{
         [self select:kMenuItemLogin animated:YES];
     }];
+}
+
+- (IBAction)didProfileButtonClicked:(id)sender
+{
+    [self select:kMenuItemProfile animated:YES];
 }
 
 #pragma mark LoginViewControllerDelegate

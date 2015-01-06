@@ -92,6 +92,15 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wrK-dg-vDm" userLabel="profile">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="joG-x7-5Dd" userLabel="self button">
+                                        <rect key="frame" x="125" y="105" width="70" height="70"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didProfileButtonClicked:" destination="ZYe-TR-d8w" eventType="touchUpInside" id="R4e-8z-TgH"/>
+                                        </connections>
+                                    </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_myself" translatesAutoresizingMaskIntoConstraints="NO" id="g35-mg-zPe" userLabel="profileImageView">
                                         <rect key="frame" x="125" y="105" width="70" height="70"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -114,12 +123,16 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wrK-dg-vDm" secondAttribute="height" multiplier="1:1" id="Ked-dW-ZCu"/>
+                                    <constraint firstItem="g35-mg-zPe" firstAttribute="bottom" secondItem="joG-x7-5Dd" secondAttribute="bottom" id="KnY-gp-Vs2"/>
                                     <constraint firstAttribute="centerX" secondItem="8kK-Y2-33m" secondAttribute="centerX" id="Mow-bx-uGd"/>
                                     <constraint firstItem="8kK-Y2-33m" firstAttribute="top" secondItem="5p4-nc-jTV" secondAttribute="bottom" constant="4" id="MuA-ZU-Q6z"/>
                                     <constraint firstAttribute="centerX" secondItem="g35-mg-zPe" secondAttribute="centerX" id="ggB-c0-5fs"/>
+                                    <constraint firstItem="g35-mg-zPe" firstAttribute="trailing" secondItem="joG-x7-5Dd" secondAttribute="trailing" id="hSX-Gp-hAU"/>
                                     <constraint firstAttribute="centerX" secondItem="5p4-nc-jTV" secondAttribute="centerX" id="jr3-mT-7aI"/>
                                     <constraint firstItem="g35-mg-zPe" firstAttribute="centerY" secondItem="wrK-dg-vDm" secondAttribute="centerY" constant="-20" id="k3g-Wz-t5Q"/>
+                                    <constraint firstItem="g35-mg-zPe" firstAttribute="top" secondItem="joG-x7-5Dd" secondAttribute="top" id="qS8-qM-tig"/>
                                     <constraint firstItem="5p4-nc-jTV" firstAttribute="top" secondItem="g35-mg-zPe" secondAttribute="bottom" constant="8" id="sxG-If-AKU"/>
+                                    <constraint firstItem="g35-mg-zPe" firstAttribute="leading" secondItem="joG-x7-5Dd" secondAttribute="leading" id="w5Y-hJ-G91"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="frf-YG-iTi">
