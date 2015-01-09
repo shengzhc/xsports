@@ -52,11 +52,20 @@
 
 - (IBAction)didFollowButtonClicked:(id)sender
 {
-    CGRect frame = self.followButton.frame;
-    frame.size.width *= 1.2;
-    [UIView animateWithDuration:0.5 animations:^{
-        self.followButton.transform = CGAffineTransformScale(self.followButton.transform, 1.2, 1.0);
-        self.followButton.center = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame));
-    }];
+//    CGRect frame = self.followButton.frame;
+    //    frame.size.width *= 1.2;
+    NSString *title = self.followButton.titleLabel.text;
+    
+    [UIView transitionWithView:self.followButton duration:2.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+//        self.followButton.title
+        [self.followButton setTitle:[NSString stringWithFormat:@"%@%@", title, title] forState:UIControlStateNormal];
+    } completion:nil];
+//    [UIView animateWithDuration:20 animations:^{
+//        self.followButton.titleLabel.alpha = 0;
+//        [self.followButton setTitle:[NSString stringWithFormat:@"%@%@", title, title] forState:UIControlStateNormal];
+//        self.followButton.titleLabel.alpha = 1.0;
+////        self.followButton.transform = CGAffineTransformScale(self.followButton.transform, 1.2, 1.0);
+////        self.followButton.center = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame));
+//    }];
 }
 @end

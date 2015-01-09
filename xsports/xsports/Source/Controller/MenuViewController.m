@@ -80,20 +80,20 @@
         self.feedViewController = (FeedViewController *)self.navFeedViewController.topViewController;
         self.navFeedViewController.view.layer.cornerRadius = 5.0;
         self.navFeedViewController.view.layer.masksToBounds = YES;
-        [self.navFeedViewController clearBackground];
+//        [self.navFeedViewController clearBackground];
     }
     
     {
         self.navSettingViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavSettingViewControllerIdentifier];
         self.settingViewController = (SettingViewController *)self.navSettingViewController.topViewController;
-        [self.navSettingViewController clearBackground];
+//        [self.navSettingViewController clearBackground];
     }
     
     {
         self.navMyselfViewController = [[UIStoryboard storyboardWithName:@"User" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavUserProfileViewControllerIdentifier];
         self.navMyselfViewController.view.layer.cornerRadius = 5.0;
         self.navMyselfViewController.view.layer.masksToBounds = YES;
-        [self.navMyselfViewController clearBackground];
+//        [self.navMyselfViewController clearBackground];
         self.myselfViewController = (UserProfileViewController *)self.navMyselfViewController.topViewController;
         self.myselfViewController.userId = @"1400549828";
         self.myselfViewController.isRootLevel = YES;

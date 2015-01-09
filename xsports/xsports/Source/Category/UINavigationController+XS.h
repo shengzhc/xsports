@@ -11,5 +11,6 @@
 @interface UINavigationController (XS)
 
 - (void)clearBackground;
+- (void)restoreBackground;
 
 @end

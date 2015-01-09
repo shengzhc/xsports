@@ -48,9 +48,16 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController clearBackground];
     if (self.isRootLevel) {
         [self.backBarButtonItem setImage:[UIImage imageNamed:@"ico_menu"]];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController restoreBackground];
 }
 
 - (void)dealloc
