@@ -20,18 +20,15 @@
 
 - (void)setupImageView
 {
-    self.profileImageView.layer.cornerRadius = 5.0;
+    self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.size.width/2.0;
     self.profileImageView.layer.masksToBounds = YES;
-    int rand = random()%4+1;
-    NSString *name = [NSString stringWithFormat:@"img_profile_0%@", @(rand)];
-    self.profileImageView.image = [UIImage imageNamed:name];
 }
 
 - (void)setupLabels
 {
     self.accountLabel.font = [UIFont regularFont];
     self.accountLabel.textColor = [UIColor darkFujiColor];
-    self.nameLabel.font = [UIFont regularFontWithSize:12];
+    self.nameLabel.font = [UIFont chnRegularFontWithSize:12];
     self.nameLabel.textColor = [UIColor semiWaveColor];
 }
 
@@ -50,9 +47,16 @@
     _liker = liker;
     self.accountLabel.text = liker.userName;
     self.nameLabel.text = liker.fullName;
+    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:liker.profilePicture] placeholderImage:[UIImage imageNamed:@"ico_myself"]];
 }
 
 - (IBAction)didFollowButtonClicked:(id)sender
 {
+    CGRect frame = self.followButton.frame;
+    frame.size.width *= 1.2;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.followButton.transform = CGAffineTransformScale(self.followButton.transform, 1.2, 1.0);
+        self.followButton.center = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame));
+    }];
 }
 @end

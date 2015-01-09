@@ -26,6 +26,7 @@
 
 - (void)setupTableView
 {
+    self.view.backgroundColor = [UIColor cGrayColor];
     self.tableView.rowHeight = 50.0;
     if (self.navigationController) {
         self.tableViewTopConstraint.constant = 64.0;
@@ -35,21 +36,19 @@
 - (void)setupNavigationBar
 {
     UILabel *titleView = [[UILabel alloc] init];
-    titleView.text = @"LIKERS";
-    titleView.font = [UIFont boldFontWithSize:20];
-    titleView.textColor = [UIColor semiFujiColor];
+    titleView.text = GET_STRING(@"user_follow");
+    titleView.font = [UIFont chnRegularFont];
+    titleView.textColor = [UIColor cLightGrayColor];
     [titleView sizeToFit];
     self.navigationItem.titleView = titleView;
     
     UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ico_back"] style:UIBarButtonItemStyleBordered target:self action:@selector(didBackBarButtonItemClicked:)];
-    [backBarButtonItem setImageInsets:UIEdgeInsetsMake(0, -16, 0, 0)];
-    backBarButtonItem.tintColor = [[UIColor fujiColor] colorWithAlphaComponent:0.75];
+    [backBarButtonItem setImageInsets:UIEdgeInsetsMake(0, -10, 0, 0)];
     self.navigationItem.leftBarButtonItems = @[backBarButtonItem];
 }
 
 - (void)load
 {
-    NSAssert(self.mediaId != nil, @"Media id is missing");
     [[InstagramServices sharedInstance] getLikesWithMediaId:self.mediaId successBlock:^(NSError *error, NSArray *likers) {
         self.likers = likers;
         [self.tableView reloadData];
