@@ -36,12 +36,20 @@
 
 - (void)setupButtons
 {
-    [self.followButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.followButton.titleLabel.font = [UIFont regularFont];
     self.followButton.layer.cornerRadius = 5.0;
     self.followButton.layer.masksToBounds = YES;
-    self.followButton.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.followButton.layer.borderWidth = 1.5;
+    self.followButton.layer.borderColor = [UIColor cYellowColor].CGColor;
+    self.followButton.layer.borderWidth = 1;
+
+    [self.followButton setImage:[UIImage imageNamed:@"ico_add_yellow"] forState:UIControlStateNormal];
+    [self.followButton setTitle:GET_STRING(@"follow") forState:UIControlStateNormal];
+
+    [self.followButton setImage:[UIImage imageNamed:@"ico_add_red"] forState:UIControlStateSelected];
+    [self.followButton setTitle:GET_STRING(@"cancel_follow") forState:UIControlStateSelected];
+
+    [self.followButton setTitleColor:[UIColor cYellowColor] forState:UIControlStateNormal];
+    [self.followButton setTitleColor:[UIColor lightCoralColor] forState:UIControlStateSelected];
+    self.followButton.titleLabel.font = [UIFont chnRegularFontWithSize:10];
 }
 
 - (void)setLiker:(User *)liker
@@ -54,20 +62,8 @@
 
 - (IBAction)didFollowButtonClicked:(id)sender
 {
-//    CGRect frame = self.followButton.frame;
-    //    frame.size.width *= 1.2;
-    NSString *title = self.followButton.titleLabel.text;
-    
-    [UIView transitionWithView:self.followButton duration:2.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-//        self.followButton.title
-        [self.followButton setTitle:[NSString stringWithFormat:@"%@%@", title, title] forState:UIControlStateNormal];
-    } completion:nil];
-//    [UIView animateWithDuration:20 animations:^{
-//        self.followButton.titleLabel.alpha = 0;
-//        [self.followButton setTitle:[NSString stringWithFormat:@"%@%@", title, title] forState:UIControlStateNormal];
-//        self.followButton.titleLabel.alpha = 1.0;
-////        self.followButton.transform = CGAffineTransformScale(self.followButton.transform, 1.2, 1.0);
-////        self.followButton.center = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame));
-//    }];
+    [self.followButton setSelected:!self.followButton.selected];
+    self.followButton.layer.borderColor = self.followButton.selected ? [UIColor lightCoralColor].CGColor : [UIColor cYellowColor].CGColor;
 }
+
 @end
