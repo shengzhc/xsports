@@ -27,6 +27,7 @@
 		9C3428561A455D9D0021AB2B /* PageNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3428551A455D9D0021AB2B /* PageNavigationController.m */; };
 		9C3428591A455F940021AB2B /* LikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3428581A455F940021AB2B /* LikesViewController.m */; };
 		9C34285C1A4560800021AB2B /* LikesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C34285B1A4560800021AB2B /* LikesCell.m */; };
+		9C35ABE21A61D7FA0090F7F9 /* FeedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C35ABE11A61D7FA0090F7F9 /* FeedDetailViewController.m */; };
 		9C3C48201A50715600BABAED /* AVPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3C481F1A50715600BABAED /* AVPlayerManager.m */; };
 		9C44C62A1A3C2041002CB86B /* MenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C44C6291A3C2041002CB86B /* MenuViewCell.m */; };
 		9C4B94F01A41697900DFCC7F /* FeedViewGridPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4B94EE1A41697900DFCC7F /* FeedViewGridPhotoCell.m */; };
@@ -157,6 +158,8 @@
 		9C3428581A455F940021AB2B /* LikesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesViewController.m; sourceTree = "<group>"; };
 		9C34285A1A4560800021AB2B /* LikesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesCell.h; sourceTree = "<group>"; };
 		9C34285B1A4560800021AB2B /* LikesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesCell.m; sourceTree = "<group>"; };
+		9C35ABE01A61D7FA0090F7F9 /* FeedDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedDetailViewController.h; sourceTree = "<group>"; };
+		9C35ABE11A61D7FA0090F7F9 /* FeedDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedDetailViewController.m; sourceTree = "<group>"; };
 		9C3C481E1A50715600BABAED /* AVPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPlayerManager.h; sourceTree = "<group>"; };
 		9C3C481F1A50715600BABAED /* AVPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPlayerManager.m; sourceTree = "<group>"; };
 		9C44C6281A3C2041002CB86B /* MenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewCell.h; sourceTree = "<group>"; };
@@ -505,6 +508,8 @@
 				9C4B94FB1A4292DD00DFCC7F /* FeedFlowCollectionViewController.m */,
 				9C4B94FD1A4292EE00DFCC7F /* FeedGridCollectionViewController.h */,
 				9C4B94FE1A4292EE00DFCC7F /* FeedGridCollectionViewController.m */,
+				9C35ABE01A61D7FA0090F7F9 /* FeedDetailViewController.h */,
+				9C35ABE11A61D7FA0090F7F9 /* FeedDetailViewController.m */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -1020,6 +1025,7 @@
 				9C4B94F81A425FFC00DFCC7F /* FeedViewGridVideoCell.m in Sources */,
 				9CBC8ABC1A477793006F00A3 /* CamViewController.m in Sources */,
 				9CDC97A41A55C8D00021F9A6 /* ELCAsset.m in Sources */,
+				9C35ABE21A61D7FA0090F7F9 /* FeedDetailViewController.m in Sources */,
 				9CBC8AB91A47777E006F00A3 /* AVCamPreviewView.m in Sources */,
 				9CF19E681A53A2D300908553 /* CamCaptureViewController.m in Sources */,
 				9C8A449E1A591B7F002C8CA2 /* UserProfileViewController.m in Sources */,

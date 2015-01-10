@@ -13,6 +13,8 @@
 "comment" = "评论";
 "follow" = "关注";
 "cancel_follow" = "取消关注";
+"video" = "视屏";
+"photo" = "图片";
 
 "grid" = "网格";
 "list" = "列表";

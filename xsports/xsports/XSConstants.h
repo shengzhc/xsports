@@ -26,6 +26,7 @@
 #define FeedFlowCollectionViewControllerIdentifier @"FeedFlowCollectionViewController"
 #define FeedGridCollectionViewControllerIdentifier @"FeedGridCollectionViewController"
 #define FeedPopoverContentViewControllerIdentifier @"FeedPopoverContentViewController"
+#define FeedDetailViewControllerIdentifier @"FeedDetailViewController"
 
 #define FeedViewPhotoCellIdentifier @"FeedViewPhotoCell"
 #define FeedViewVideoCellIdentifier @"FeedViewVideoCell"
