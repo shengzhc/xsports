@@ -573,12 +573,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_blur_06" translatesAutoresizingMaskIntoConstraints="NO" id="ZGv-iw-KYd" userLabel="bg">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
                             <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ymi-38-Bas" userLabel="bgaddon">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2j-UC-Mji" userLabel="comments container">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -591,17 +588,13 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ymi-38-Bas" secondAttribute="bottom" id="2Af-Pf-ZEG"/>
-                            <constraint firstItem="ZGv-iw-KYd" firstAttribute="leading" secondItem="vN6-3y-Ial" secondAttribute="leading" id="4Pj-qL-v7d"/>
                             <constraint firstItem="U2j-UC-Mji" firstAttribute="top" secondItem="vN6-3y-Ial" secondAttribute="top" id="6qX-9Q-RkD"/>
                             <constraint firstItem="U2j-UC-Mji" firstAttribute="leading" secondItem="vN6-3y-Ial" secondAttribute="leading" id="Gfh-h6-QIm"/>
-                            <constraint firstItem="ZGv-iw-KYd" firstAttribute="top" secondItem="vN6-3y-Ial" secondAttribute="top" id="KHG-Nh-mbW"/>
                             <constraint firstItem="ymi-38-Bas" firstAttribute="leading" secondItem="vN6-3y-Ial" secondAttribute="leading" id="KP7-jS-ZSw"/>
                             <constraint firstAttribute="trailing" secondItem="ymi-38-Bas" secondAttribute="trailing" id="Qu4-IL-N5Y"/>
                             <constraint firstAttribute="trailing" secondItem="U2j-UC-Mji" secondAttribute="trailing" id="Xuf-FV-taI"/>
-                            <constraint firstAttribute="trailing" secondItem="ZGv-iw-KYd" secondAttribute="trailing" id="Z87-Ox-AXM"/>
                             <constraint firstAttribute="bottom" secondItem="U2j-UC-Mji" secondAttribute="bottom" id="dQQ-z8-bZi"/>
                             <constraint firstItem="ymi-38-Bas" firstAttribute="top" secondItem="vN6-3y-Ial" secondAttribute="top" id="dSO-tD-qrw"/>
-                            <constraint firstAttribute="bottom" secondItem="ZGv-iw-KYd" secondAttribute="bottom" id="jg5-op-YJf"/>
                         </constraints>
                     </view>
                     <connections>
@@ -634,7 +627,6 @@
     </scenes>
     <resources>
         <image name="bg_blur_03" width="621" height="1104"/>
-        <image name="bg_blur_06" width="540" height="960"/>
         <image name="ico_add_follower" width="22" height="22"/>
         <image name="ico_camera" width="24" height="24"/>
         <image name="ico_menu" width="24" height="24"/>

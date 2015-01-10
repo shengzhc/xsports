@@ -18,23 +18,25 @@
 {
     [super viewDidLoad];
     [self setupNavigationBar];
+    
+    self.view.backgroundColor = [UIColor cGrayColor];
+    
     [self load];
 }
 
 - (void)setupNavigationBar
 {
     UILabel *titleView = [[UILabel alloc] init];
-    titleView.text = @"COMMENTS";
-    titleView.font = [UIFont boldFontWithSize:20];
-    titleView.textColor = [UIColor semiFujiColor];
+    titleView.text = GET_STRING(@"comment");
+    titleView.font = [UIFont chnRegularFontWithSize:20];
+    titleView.textColor = [UIColor cLightGrayColor];
     [titleView sizeToFit];
     self.navigationItem.titleView = titleView;
     
     UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ico_back"] style:UIBarButtonItemStyleBordered target:self action:@selector(didBackBarButtonItemClicked:)];
-    [backBarButtonItem setImageInsets:UIEdgeInsetsMake(0, -16, 0, 0)];
-    backBarButtonItem.tintColor = [[UIColor fujiColor] colorWithAlphaComponent:0.75];
+    [backBarButtonItem setImageInsets:UIEdgeInsetsMake(0, -10, 0, 0)];
     self.navigationItem.leftBarButtonItems = @[backBarButtonItem];
-    
+
     if (self.navigationController) {
         self.topConstraint.constant = 64.0;
     }

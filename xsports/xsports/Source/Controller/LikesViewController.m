@@ -36,8 +36,8 @@
 - (void)setupNavigationBar
 {
     UILabel *titleView = [[UILabel alloc] init];
-    titleView.text = GET_STRING(@"user_follow");
-    titleView.font = [UIFont chnRegularFontWithSize:18];
+    titleView.text = GET_STRING(@"zan");
+    titleView.font = [UIFont chnRegularFontWithSize:20];
     titleView.textColor = [UIColor cLightGrayColor];
     [titleView sizeToFit];
     self.navigationItem.titleView = titleView;
