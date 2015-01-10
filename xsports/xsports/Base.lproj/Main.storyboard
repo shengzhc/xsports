@@ -454,26 +454,26 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XSq-6Q-UeV" userLabel="profileImageView">
-                                                    <rect key="frame" x="8" y="8" width="28" height="28"/>
+                                                    <rect key="frame" x="8" y="4" width="36" height="36"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="28" id="T1j-bL-nbG"/>
-                                                        <constraint firstAttribute="width" constant="28" id="iVu-Hp-ksk"/>
+                                                        <constraint firstAttribute="height" constant="36" id="T1j-bL-nbG"/>
+                                                        <constraint firstAttribute="width" constant="36" id="iVu-Hp-ksk"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVx-3P-Tre">
-                                                    <rect key="frame" x="44" y="9" width="81" height="15"/>
+                                                    <rect key="frame" x="52" y="9" width="80.5" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FullName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOS-GY-pDY">
-                                                    <rect key="frame" x="44" y="23" width="53" height="15"/>
+                                                    <rect key="frame" x="52" y="23.5" width="52.5" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="of6-gV-dPy" userLabel="seperator">
-                                                    <rect key="frame" x="44" y="43" width="276" height="1"/>
+                                                    <rect key="frame" x="52" y="43" width="268" height="1"/>
                                                     <color key="backgroundColor" red="0.36576700775091503" green="0.38727491979287537" blue="0.51124526515151514" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="0.5" id="rrH-MG-c64"/>
@@ -511,6 +511,7 @@
                                             <outlet property="followButton" destination="kmZ-ia-nnT" id="xGg-tg-IOR"/>
                                             <outlet property="nameLabel" destination="cOS-GY-pDY" id="w5r-eN-ykr"/>
                                             <outlet property="profileImageView" destination="XSq-6Q-UeV" id="6UX-dR-lUf"/>
+                                            <outlet property="seperator" destination="of6-gV-dPy" id="dL1-do-ZJl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

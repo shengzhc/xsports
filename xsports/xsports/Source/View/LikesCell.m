@@ -22,14 +22,16 @@
 {
     self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.size.width/2.0;
     self.profileImageView.layer.masksToBounds = YES;
+    
+    self.seperator.backgroundColor = [UIColor cLightGrayColor];
 }
 
 - (void)setupLabels
 {
-    self.accountLabel.font = [UIFont regularFont];
-    self.accountLabel.textColor = [UIColor darkFujiColor];
+    self.accountLabel.font = [UIFont chnRegularFont];
+    self.accountLabel.textColor = [UIColor cYellowColor];
     self.nameLabel.font = [UIFont chnRegularFontWithSize:12];
-    self.nameLabel.textColor = [UIColor semiWaveColor];
+    self.nameLabel.textColor = [UIColor cLightGrayColor];
 }
 
 - (void)setupButtons

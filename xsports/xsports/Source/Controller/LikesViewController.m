@@ -27,7 +27,7 @@
 - (void)setupTableView
 {
     self.view.backgroundColor = [UIColor cGrayColor];
-    self.tableView.rowHeight = 50.0;
+    self.tableView.rowHeight = 64.0;
     if (self.navigationController) {
         self.tableViewTopConstraint.constant = 64.0;
     }
@@ -37,7 +37,7 @@
 {
     UILabel *titleView = [[UILabel alloc] init];
     titleView.text = GET_STRING(@"user_follow");
-    titleView.font = [UIFont chnRegularFont];
+    titleView.font = [UIFont chnRegularFontWithSize:18];
     titleView.textColor = [UIColor cLightGrayColor];
     [titleView sizeToFit];
     self.navigationItem.titleView = titleView;
