@@ -42,8 +42,8 @@
 {
     self.view.backgroundColor = [UIColor cDarkGrayColor];
     self.headerActionButton.titleLabel.font = [UIFont chnRegularFont];
-    [self.headerActionButton setTitle:[NSString stringWithFormat:@"%@\u25BC", GET_STRING(@"feed_title")] forState:UIControlStateNormal];
-    [self.headerActionButton setTitle:[NSString stringWithFormat:@"%@\u25B2", GET_STRING(@"feed_title")] forState:UIControlStateSelected];
+    [self.headerActionButton setTitle:[NSString stringWithFormat:@"%@ \u25BC", GET_STRING(@"feed_title")] forState:UIControlStateNormal];
+    [self.headerActionButton setTitle:[NSString stringWithFormat:@"%@ \u25B2", GET_STRING(@"feed_title")] forState:UIControlStateSelected];
     [self.headerActionButton setTitleColor:[UIColor cLightGrayColor] forState:UIControlStateNormal];
     [self.headerActionButton setTitleColor:[UIColor cYellowColor] forState:UIControlStateSelected];
     self.headerActionButton.layer.cornerRadius = 2.0;
@@ -102,22 +102,26 @@
         self.gridCollectionViewController.feeds = _feeds;
     }
     if (self.flowCollectionViewController) {
-        self.gridCollectionViewController.feeds = _feeds;
+        self.flowCollectionViewController.feeds = _feeds;
     }
 }
 
 #pragma mark Logic
 - (void)load
 {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"instagram" ofType:@"txt"];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-    NSArray *medias = json[@"data"];
-    NSMutableArray *feeds = [NSMutableArray new];
-    for (NSDictionary *media in medias) {
-        [feeds addObject:[[Media alloc] initWithDictionary:media error:nil]];
-    }
-    self.feeds = feeds;
+    [[InstagramServices sharedInstance] getPopularMediaWithSuccessBlock:^(NSError *error, id response) {
+        self.feeds = response;
+    } failBlock:^(NSError *error, id response) {
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"instagram" ofType:@"txt"];
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        NSArray *medias = json[@"data"];
+        NSMutableArray *feeds = [NSMutableArray new];
+        for (NSDictionary *media in medias) {
+            [feeds addObject:[[Media alloc] initWithDictionary:media error:nil]];
+        }
+        self.feeds = feeds;
+    }];
 }
 
 - (void)showFlowCollectionViewController

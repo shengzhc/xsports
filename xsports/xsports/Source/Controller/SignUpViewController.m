@@ -64,7 +64,7 @@
 {
     self.signUpTopConstraint.constant = self.tableView.rowHeight*[self.tableView numberOfRowsInSection:0] + self.tableView.contentInset.top + 100;
     self.signUpButton.backgroundColor = [UIColor cYellowColor];
-    self.signUpButton.titleLabel.font = [UIFont regularFontWithSize:14.0];
+    self.signUpButton.titleLabel.font = [UIFont chnRegularFont];
     [self.signUpButton setTitle:GET_STRING(@"signup") forState:UIControlStateNormal];
     [self.signUpButton setTitleColor:[UIColor cGrayColor] forState:UIControlStateNormal];
 }

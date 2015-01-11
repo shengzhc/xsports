@@ -7,6 +7,7 @@
 //
 
 #import "FeedGridCollectionViewController.h"
+#import "FeedDetailViewController.h"
 #import "FeedViewGridPhotoCell.h"
 #import "FeedViewGridVideoCell.h"
 
@@ -66,6 +67,13 @@
     }
     
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    FeedDetailViewController *detailViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:FeedDetailViewControllerIdentifier];
+    detailViewController.feeds = @[self.feeds[indexPath.item]];
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 @end

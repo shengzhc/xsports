@@ -25,7 +25,7 @@
     self.topBar.backgroundColor = [[UIColor cSuperDarkBlackColor] colorWithAlphaComponent:0.9];
     self.toolBar.backgroundColor = [[UIColor cSuperDarkBlackColor] colorWithAlphaComponent:0.9];
     
-    self.titleLabel.font = [UIFont chnRegularFontWithSize:16];
+    self.titleLabel.font = [UIFont chnRegularFont];
     self.titleLabel.textColor = [UIColor cLightGrayColor];
     [self.nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }

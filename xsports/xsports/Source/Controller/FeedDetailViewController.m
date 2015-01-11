@@ -13,15 +13,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupNavigationBar];
-    
     self.collectionView.bounces = NO;
+    self.view.backgroundColor = [UIColor cGrayColor];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (self.navigationController) {
+        [self setupNavigationBar];
+        self.collectionView.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0);
+    }
 }
 
 - (void)setupNavigationBar
 {
     Media *media = (Media *)self.feeds[0];
-    
     UILabel *titleView = [[UILabel alloc] init];
     titleView.text = media.isVideo ? GET_STRING(@"video") : GET_STRING(@"photo");
     titleView.font = [UIFont chnRegularFontWithSize:20];

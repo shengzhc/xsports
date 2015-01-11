@@ -58,11 +58,11 @@
 {
     self.buttonContainerTopConstraint.constant = self.tableView.rowHeight * 2.0 + self.tableView.contentInset.top + 24.0;
     self.signInButton.backgroundColor = [UIColor cLightGrayColor];
-    self.signInButton.titleLabel.font = [UIFont chnRegularFontWithSize:14.0];
+    self.signInButton.titleLabel.font = [UIFont chnRegularFont];
     [self.signInButton setTitleColor:[UIColor cGrayColor] forState:UIControlStateNormal];
     [self.signInButton setTitle:GET_STRING(@"signin") forState:UIControlStateNormal];
     self.signUpButton.backgroundColor = [UIColor cYellowColor];
-    self.signUpButton.titleLabel.font = [UIFont chnRegularFontWithSize:14.0];
+    self.signUpButton.titleLabel.font = [UIFont chnRegularFont];
     [self.signUpButton setTitleColor:[UIColor cGrayColor] forState:UIControlStateNormal];
     [self.signUpButton setTitle:GET_STRING(@"signup") forState:UIControlStateNormal];
 }
