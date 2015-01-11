@@ -50,6 +50,9 @@
     [self.followButton setTitleColor:[UIColor cYellowColor] forState:UIControlStateNormal];
     [self.followButton setTitleColor:[UIColor lightCoralColor] forState:UIControlStateSelected];
     self.followButton.titleLabel.font = [UIFont chnRegularFontWithSize:10];
+    
+    self.followButton.layer.cornerRadius = self.followButton.bounds.size.height/2.0;
+    self.followButton.layer.masksToBounds = YES;
 }
 
 - (void)setLiker:(User *)liker

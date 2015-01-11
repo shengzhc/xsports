@@ -9,6 +9,10 @@
 #import "MenuViewController.h"
 #import "MenuViewCell.h"
 
+@interface MenuViewController ()
+@property (strong, nonatomic) User *user;
+@end
+
 @implementation MenuViewController
 
 - (void)awakeFromNib
@@ -20,6 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self load];
     [self setupImageView];
     [self setupLabel];
     [self setupButton];
@@ -28,6 +33,25 @@
 }
 
 #pragma mark Setup
+- (void)load
+{
+    [[InstagramServices sharedInstance] getUserInfoWithUserId:@"1400549828" successBlock:^(NSError *error, id response) {
+        self.user = response;
+    } failBlock:nil];
+}
+
+- (void)setUser:(User *)user
+{
+    _user = user;
+    
+    self.nameLabel.text = _user.userName;
+    self.locationLabel.text = _user.website.length > 0 ? _user.website: @"San Francisco";
+    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:_user.profilePicture] placeholderImage:[UIImage imageNamed:@"ico_myself"]];
+
+    self.myselfViewController.user = _user;
+    self.myselfViewController.userId = _user.uid;
+}
+
 - (void)setupViews
 {
     self.view.backgroundColor = [UIColor cGrayColor];
@@ -37,10 +61,10 @@
 {
     self.nameLabel.font = [UIFont chnRegularFont];
     self.nameLabel.textColor = [UIColor cYellowColor];
-    self.nameLabel.text = @"Frank Rapacciuolo";
+    self.nameLabel.text = self.user.userName ? self.user.userName : @"Frank Rapacciuolo";
     self.locationLabel.font = [UIFont chnRegularFontWithSize:10];
     self.locationLabel.textColor = [UIColor cYellowColor];
-    self.locationLabel.text = @"San Francisco";
+    self.locationLabel.text = self.user.website.length > 0 ? self.user.website : @"San Francisco";
 }
 
 - (void)setupImageView
@@ -80,22 +104,20 @@
         self.feedViewController = (FeedViewController *)self.navFeedViewController.topViewController;
         self.navFeedViewController.view.layer.cornerRadius = 5.0;
         self.navFeedViewController.view.layer.masksToBounds = YES;
-//        [self.navFeedViewController clearBackground];
     }
     
     {
         self.navSettingViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavSettingViewControllerIdentifier];
         self.settingViewController = (SettingViewController *)self.navSettingViewController.topViewController;
-//        [self.navSettingViewController clearBackground];
     }
     
     {
         self.navMyselfViewController = [[UIStoryboard storyboardWithName:@"User" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:NavUserProfileViewControllerIdentifier];
         self.navMyselfViewController.view.layer.cornerRadius = 5.0;
         self.navMyselfViewController.view.layer.masksToBounds = YES;
-//        [self.navMyselfViewController clearBackground];
         self.myselfViewController = (UserProfileViewController *)self.navMyselfViewController.topViewController;
-        self.myselfViewController.userId = @"1400549828";
+        self.myselfViewController.user = _user;
+        self.myselfViewController.userId = _user.uid ? _user.uid : @"1400549828";
         self.myselfViewController.isRootLevel = YES;
     }
 }

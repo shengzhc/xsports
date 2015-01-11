@@ -27,7 +27,6 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
 @property (strong, nonatomic) FeedFlowCollectionViewController *flowCollectionViewController;
 @property (strong, nonatomic) UserGridCollectionViewController *gridCollectionViewController;
 
-@property (strong, nonatomic) User *user;
 @property (strong, nonatomic) NSArray *feeds;
 @property (assign, nonatomic) BOOL isFlowLayout;
 @end
@@ -132,12 +131,17 @@ static void *ScrollViewContentOffsetContext = &ScrollViewContentOffsetContext;
 - (void)loadUser
 {
     NSAssert(self.userId != nil, @"User Id should not be empty");
-    [[InstagramServices sharedInstance] getUserInfoWithUserId:self.userId successBlock:^(NSError *error, id response) {
-        self.user = response;
+    
+    if (self.user) {
         self.isFlowLayout = YES;
-    } failBlock:^(NSError *error, id response) {
-        self.user = nil;
-    }];
+    } else {
+        [[InstagramServices sharedInstance] getUserInfoWithUserId:self.userId successBlock:^(NSError *error, id response) {
+            self.user = response;
+            self.isFlowLayout = YES;
+        } failBlock:^(NSError *error, id response) {
+            self.user = nil;
+        }];
+    }
 }
 
 - (void)loadMedia

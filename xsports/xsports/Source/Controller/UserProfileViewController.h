@@ -10,6 +10,7 @@
 @interface UserProfileViewController : UIViewController
 @property (assign, nonatomic) BOOL isRootLevel;
 @property (copy, nonatomic) NSString *userId;
+@property (strong, nonatomic) User *user;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backBarButtonItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editUserBarButtonItem;
 @property (weak, nonatomic) IBOutlet UIView *topContainer;
