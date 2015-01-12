@@ -61,4 +61,6 @@
 + (UIColor *)cDarkBlackColor;
 + (UIColor *)cSuperDarkBlackColor;
 
++ (UIColor *)cCoralColor;
+
 @end

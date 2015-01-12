@@ -181,4 +181,9 @@
     return [UIColor colorWithRed:32.0/255.0 green:32.0/255.0 blue:32.0/255.0 alpha:1.0];
 }
 
++ (UIColor *)cCoralColor
+{
+    return [UIColor colorWithRed:1.0 green:148.0/255.0 blue:80.0/255.0 alpha:1.0];
+}
+
 @end

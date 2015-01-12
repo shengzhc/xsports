@@ -44,13 +44,14 @@
     [self.followButton setImage:[UIImage imageNamed:@"ico_add_yellow"] forState:UIControlStateNormal];
     [self.followButton setTitle:GET_STRING(@"follow") forState:UIControlStateNormal];
 
-    [self.followButton setImage:[UIImage imageNamed:@"ico_add_red"] forState:UIControlStateSelected];
+    [self.followButton setImage:[UIImage imageNamed:@"ico_add_coral"] forState:UIControlStateSelected];
     [self.followButton setTitle:GET_STRING(@"cancel_follow") forState:UIControlStateSelected];
 
     [self.followButton setTitleColor:[UIColor cYellowColor] forState:UIControlStateNormal];
-    [self.followButton setTitleColor:[UIColor lightCoralColor] forState:UIControlStateSelected];
+    [self.followButton setTitleColor:[UIColor cCoralColor] forState:UIControlStateSelected];
     self.followButton.titleLabel.font = [UIFont chnRegularFontWithSize:10];
     
+    [self.followButton sizeToFit];
     self.followButton.layer.cornerRadius = self.followButton.bounds.size.height/2.0;
     self.followButton.layer.masksToBounds = YES;
 }
