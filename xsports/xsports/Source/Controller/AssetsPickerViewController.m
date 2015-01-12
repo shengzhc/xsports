@@ -9,9 +9,15 @@
 #import "AssetsPickerViewController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 
+#import "ELCAssetsCollector.h"
+
+static void *AssetsCollectionIsReadyContext = &AssetsCollectionIsReadyContext;
+
 @interface AssetsPickerViewController () < AssetsPickerOverlayViewControllerDelegate >
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
+@property (strong, nonatomic) ELCAssetsCollector *assetsCollector;
+@property (copy, nonatomic) void (^completionHandler)(void);
 @end
 
 @implementation AssetsPickerViewController
@@ -34,19 +40,52 @@
     [self.camCurtainViewController closeCurtainWithCompletionHandler:nil];
 }
 
+- (void)dealloc
+{
+    if (self.assetsCollector) {
+        [self removeObserver:self forKeyPath:@"assetsCollector.isReady"];
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == AssetsCollectionIsReadyContext) {
+        if ([change[NSKeyValueChangeNewKey] boolValue]) {
+            if (self.completionHandler) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.completionHandler();
+                    self.completionHandler = nil;
+                });
+            }
+        }
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
+#pragma mark Setup
 - (void)setupViews
 {
     self.topHeightConstraint.constant = [UIScreen width] + 44 + 56;
 }
 
-- (void)prepareWithCompletionHandler:(void (^)(void))completionHandler
+- (void)prepareAssetsWithCompletionHandler:(void (^)(void))completionHandler
 {
-    [self.albumPickerController view];
-    [self.albumPickerController.navigationController pushViewController:self.albumPickerController.assetsCollectionViewController animated:NO];
-    if (completionHandler) {
-        completionHandler();
-    }
+    self.assetsCollector = [[ELCAssetsCollector alloc] init];
+    self.assetsCollector.mediaTypes = self.mode == kAssetsPickerModeVideo ? @[(NSString *)kUTTypeMovie] : @[];
+    [self.assetsCollector addObserver:self forKeyPath:@"isReady" options:NSKeyValueObservingOptionNew context:AssetsCollectionIsReadyContext];
+    [self.assetsCollector loadAssetsGroup];
+    self.completionHandler = completionHandler;
 }
+
+//- (void)prepareWithCompletionHandler:(void (^)(void))completionHandler
+//{
+//    [self.albumPickerController view];
+//    [self.albumPickerController.navigationController pushViewController:self.albumPickerController.assetsCollectionViewController animated:NO];
+//    if (completionHandler) {
+//        completionHandler();
+//    }
+//}
 
 #pragma mark AssetsPickerOverlayViewControllerDelegate
 - (void)assetsPickerOverlayViewControlelr:(AssetsPickerOverlayViewController *)controller didBackButtonClicked:(id)sender

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *flashButton;
 @property (weak, nonatomic) IBOutlet UIView *topBarView;
 @property (weak, nonatomic) IBOutlet UIView *toolBarView;
+@property (weak, nonatomic) IBOutlet UIImageView *gridImageView;
 @property (assign, nonatomic) BOOL wasAnimatingProgress;
 @end
 
@@ -40,6 +41,12 @@
 {
     [self.nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.nextButton.titleLabel.font = [UIFont chnRegularFont];
+}
+
+- (void)setIsGridEnabled:(BOOL)isGridEnabled
+{
+    _isGridEnabled = isGridEnabled;
+    self.gridImageView.hidden = !isGridEnabled;
 }
 
 - (void)transitionWithPercent:(CGFloat)percent toPageIndex:(NSUInteger)pageIndex
@@ -121,17 +128,6 @@
     if ([self.delegate respondsToSelector:@selector(camCaptureOverlayViewController:didFlashButtonClicked:)]) {
         [self.delegate camCaptureOverlayViewController:self didFlashButtonClicked:sender];
     }
-}
-
-- (void)updateProgressView
-{
-//    if (self.movieFileOutput.isRecording) {
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            double recordedDuration = self.movieFileOutput.recordedDuration.value*1.0/self.movieFileOutput.recordedDuration.timescale;
-//            double maxDuration = self.movieFileOutput.maxRecordedDuration.value*1.0/self.movieFileOutput.maxRecordedDuration.timescale;
-//            self.progressView.progress = recordedDuration/maxDuration;
-//        });
-//    }
 }
 
 

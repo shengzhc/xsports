@@ -24,6 +24,7 @@
 		9C11A4641A45F08400A9E4CD /* CommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C11A4631A45F08400A9E4CD /* CommentsCell.xib */; };
 		9C1EE3461A4B2085007372BD /* Microsoft-YaHei.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C1EE3451A4B2085007372BD /* Microsoft-YaHei.ttf */; };
 		9C1EE3491A4B268F007372BD /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1EE3481A4B268F007372BD /* SignUpViewController.m */; };
+		9C27A0DE1A626B3B00B332C6 /* ELCAssetsCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C27A0DD1A626B3B00B332C6 /* ELCAssetsCollector.m */; };
 		9C3428561A455D9D0021AB2B /* PageNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3428551A455D9D0021AB2B /* PageNavigationController.m */; };
 		9C3428591A455F940021AB2B /* LikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3428581A455F940021AB2B /* LikesViewController.m */; };
 		9C34285C1A4560800021AB2B /* LikesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C34285B1A4560800021AB2B /* LikesCell.m */; };
@@ -152,6 +153,8 @@
 		9C1EE3451A4B2085007372BD /* Microsoft-YaHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Microsoft-YaHei.ttf"; sourceTree = "<group>"; };
 		9C1EE3471A4B268F007372BD /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		9C1EE3481A4B268F007372BD /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		9C27A0DC1A626B3B00B332C6 /* ELCAssetsCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetsCollector.h; sourceTree = "<group>"; };
+		9C27A0DD1A626B3B00B332C6 /* ELCAssetsCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetsCollector.m; sourceTree = "<group>"; };
 		9C3428541A455D9D0021AB2B /* PageNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageNavigationController.h; sourceTree = "<group>"; };
 		9C3428551A455D9D0021AB2B /* PageNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageNavigationController.m; sourceTree = "<group>"; };
 		9C3428571A455F940021AB2B /* LikesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesViewController.h; sourceTree = "<group>"; };
@@ -819,6 +822,8 @@
 				9CDC97BC1A562C9F0021F9A6 /* ELCAssetsCollectionCell.m */,
 				9C07744E1A564D0300723971 /* ELCAssetsCollectionHeaderCell.h */,
 				9C07744F1A564D0300723971 /* ELCAssetsCollectionHeaderCell.m */,
+				9C27A0DC1A626B3B00B332C6 /* ELCAssetsCollector.h */,
+				9C27A0DD1A626B3B00B332C6 /* ELCAssetsCollector.m */,
 			);
 			path = ELCImagePicker;
 			sourceTree = "<group>";
@@ -987,6 +992,7 @@
 				9CBCE72F1A3E2EF100C9BD35 /* User.m in Sources */,
 				9C0928641A400C8C001340F2 /* FeedViewVideoCell.m in Sources */,
 				9CBC8ABF1A47C32C006F00A3 /* CamNavigationController.m in Sources */,
+				9C27A0DE1A626B3B00B332C6 /* ELCAssetsCollector.m in Sources */,
 				9CBC8AC21A48077B006F00A3 /* CamScrollView.m in Sources */,
 				9CCF5AA61A4BDF12001B9029 /* SCLocalizable.m in Sources */,
 				9CBCE7281A3D7B9B00C9BD35 /* FeedViewPhotoCell.m in Sources */,

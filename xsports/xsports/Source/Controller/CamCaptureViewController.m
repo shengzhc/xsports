@@ -9,11 +9,13 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "CamCaptureViewController.h"
 #import "AssetsPickerViewController.h"
+#import "ELCAssetsCollector.h"
 
 #define Max_Record_Duration 10.0f
 static void *CapturingStillImageContext = &CapturingStillImageContext;
 static void *RecordingContext = &RecordingContext;
 static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthorizedContext;
+static void *AssetsCollectorIsReadyContext = &AssetsCollectorIsReadyContext;
 
 @interface CamCaptureViewController () < AVCaptureFileOutputRecordingDelegate, CamCaptureModeViewControllerDelegate, CamCaptureOverlayViewControllerDelegate >
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topHeightConstraint;
@@ -42,6 +44,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
 {
     [super viewDidLoad];
     [self setupViews];
+    [self prepareAssets];
     [self setupCaptureSession];
     [self setupRecordThread];
 }
@@ -92,6 +95,13 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     }];
 }
 
+- (void)dealloc
+{
+    [[ELCAssetsCollector picCollector] removeObserver:self forKeyPath:@"isReady"];
+    [[ELCAssetsCollector videoCollector] removeObserver:self forKeyPath:@"isReady"];
+}
+
+#pragma mark Setup
 - (void)setupViews
 {
     self.topHeightConstraint.constant = [UIScreen width] + 44 + 56;
@@ -189,8 +199,16 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
         [self.session addOutput:stillImageOutput];
         [self setStillImageOutput:stillImageOutput];
     }
+    
     [self.session commitConfiguration];
 }
+
+- (void)prepareAssets
+{
+    [[ELCAssetsCollector picCollector] addObserver:self forKeyPath:@"isReady" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:AssetsCollectorIsReadyContext];
+    [[ELCAssetsCollector videoCollector] addObserver:self forKeyPath:@"isReady" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:AssetsCollectorIsReadyContext];
+}
+
 
 - (BOOL)isSessionRunningAndDeviceAuthorized
 {
@@ -233,6 +251,26 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
         } else {
             
         }
+    } else if (context == AssetsCollectorIsReadyContext) {
+        if ([change[NSKeyValueChangeNewKey] boolValue]) {
+            if (object == [ELCAssetsCollector picCollector]) {
+                if ([[ELCAssetsCollector picCollector] isAuthorized] && [ELCAssetsCollector picCollector].assetGroups.count > 0) {
+                    ALAssetsGroup *group = (ALAssetsGroup *)[ELCAssetsCollector picCollector].assetGroups[0];
+                    UIImage *posterImage = [UIImage imageWithCGImage:[group posterImage]];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.modeViewController.scrollView.picGalleryButton setImage:posterImage forState:UIControlStateNormal];
+                    });
+                }
+            } else {
+                if ([[ELCAssetsCollector videoCollector] isAuthorized] && [ELCAssetsCollector videoCollector].assetGroups.count > 0) {
+                    ALAssetsGroup *group = (ALAssetsGroup *)[ELCAssetsCollector videoCollector].assetGroups[0];
+                    UIImage *posterImage = [UIImage imageWithCGImage:[group posterImage]];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.modeViewController.scrollView.videoGalleryButton setImage:posterImage forState:UIControlStateNormal];
+                    });
+                }
+            }
+        }
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
@@ -246,7 +284,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     [assetsPickerViewController view];
     
     [self.curtainViewController closeCurtainWithCompletionHandler:^{
-        [assetsPickerViewController prepareWithCompletionHandler:^{
+        [assetsPickerViewController prepareAssetsWithCompletionHandler:^{
             [self.navigationController pushViewController:assetsPickerViewController animated:YES];
         }];
     }];
@@ -258,7 +296,7 @@ static void *SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevice
     assetsPickerViewController.mode = kAssetsPickerModeVideo;
     [assetsPickerViewController view];
     [self.curtainViewController closeCurtainWithCompletionHandler:^{
-        [assetsPickerViewController prepareWithCompletionHandler:^{
+        [assetsPickerViewController prepareAssetsWithCompletionHandler:^{
             [self.navigationController pushViewController:assetsPickerViewController animated:YES];
         }];
     }];

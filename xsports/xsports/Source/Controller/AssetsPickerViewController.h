@@ -27,6 +27,6 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UIView *contentContainer;
 @property (weak, nonatomic) IBOutlet UIView *curtainContainer;
 
-- (void)prepareWithCompletionHandler:(void (^)(void))completionHandler;
+- (void)prepareAssetsWithCompletionHandler:(void (^)(void))completionHandler;
 
 @end

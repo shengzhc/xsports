@@ -484,21 +484,29 @@
                                     <constraint firstAttribute="trailing" secondItem="2Ct-rq-0Yx" secondAttribute="trailing" id="qgC-VU-whV"/>
                                 </constraints>
                             </view>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_grid" translatesAutoresizingMaskIntoConstraints="NO" id="Raa-F9-8vd" userLabel="grid">
+                                <rect key="frame" x="0.0" y="44" width="320" height="320"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Raa-F9-8vd" secondAttribute="trailing" id="50M-pl-ANT"/>
                             <constraint firstAttribute="trailing" secondItem="Kv4-Uw-2oK" secondAttribute="trailing" id="LsZ-js-IzC"/>
                             <constraint firstAttribute="bottom" secondItem="Kv4-Uw-2oK" secondAttribute="bottom" id="U3A-uE-RH2"/>
                             <constraint firstAttribute="trailing" secondItem="Czv-GV-32c" secondAttribute="trailing" id="VI0-zY-GyN"/>
+                            <constraint firstItem="Kv4-Uw-2oK" firstAttribute="top" secondItem="Raa-F9-8vd" secondAttribute="bottom" id="XHJ-2O-DbT"/>
                             <constraint firstItem="Czv-GV-32c" firstAttribute="leading" secondItem="Qq0-qc-a9Z" secondAttribute="leading" id="hxU-ds-FVx"/>
                             <constraint firstItem="Kv4-Uw-2oK" firstAttribute="leading" secondItem="Qq0-qc-a9Z" secondAttribute="leading" id="iXJ-3E-ejJ"/>
+                            <constraint firstItem="Raa-F9-8vd" firstAttribute="leading" secondItem="Qq0-qc-a9Z" secondAttribute="leading" id="las-Fu-fMW"/>
                             <constraint firstItem="Czv-GV-32c" firstAttribute="top" secondItem="Qq0-qc-a9Z" secondAttribute="top" id="reG-f0-2KQ"/>
+                            <constraint firstItem="Raa-F9-8vd" firstAttribute="top" secondItem="Czv-GV-32c" secondAttribute="bottom" id="rpD-7I-PnR"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="Cy5-RI-tL1" id="z2o-GD-Mkm"/>
                         <outlet property="flashButton" destination="neW-6C-e3o" id="CBj-1J-XcB"/>
                         <outlet property="gridButton" destination="PjT-qB-0lI" id="low-MW-xGq"/>
+                        <outlet property="gridImageView" destination="Raa-F9-8vd" id="NN5-n6-RZB"/>
                         <outlet property="nextButton" destination="jMs-5i-JSh" id="VWA-ln-kMJ"/>
                         <outlet property="progressView" destination="eWZ-Ig-C44" id="Vkz-vr-Dby"/>
                         <outlet property="rotateButton" destination="QPj-ft-nMo" id="FM0-hE-pfj"/>
@@ -903,6 +911,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bg_grid" width="400" height="400"/>
         <image name="ico_back" width="22" height="22"/>
         <image name="ico_cam_grid_green" width="40" height="40"/>
         <image name="ico_cam_grid_white" width="40" height="40"/>
@@ -918,6 +927,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ZxD-r6-0qk"/>
+        <segue reference="n6J-hF-v7X"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -21,24 +21,12 @@
 {
     [super viewDidLoad];
     self.tableView.rowHeight = 60;
-    [self load];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self reloadTableView];
-}
-
-- (ALAssetsFilter *)assetFilter
-{
-    if([self.mediaTypes containsObject:(NSString *)kUTTypeImage] && [self.mediaTypes containsObject:(NSString *)kUTTypeMovie]) {
-        return [ALAssetsFilter allAssets];
-    } else if([self.mediaTypes containsObject:(NSString *)kUTTypeMovie]) {
-        return [ALAssetsFilter allVideos];
-    } else {
-        return [ALAssetsFilter allPhotos];
-    }
 }
 
 - (ELCAssetsCollectionViewController *)assetsCollectionViewController
@@ -48,43 +36,6 @@
         [_assetsCollectionViewController view];
     }
     return _assetsCollectionViewController;
-}
-
-- (void)load
-{
-    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-    self.assetGroups = tempArray;
-    ALAssetsLibrary *assetLibrary = [[ALAssetsLibrary alloc] init];
-    self.library = assetLibrary;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        @autoreleasepool {
-            void (^assetGroupEnumerator)(ALAssetsGroup *, BOOL *) = ^(ALAssetsGroup *group, BOOL *stop) {
-                if (group == nil) {
-                    return;
-                }
-                [group setAssetsFilter:[self assetFilter]];
-                NSString *sGroupPropertyName = (NSString *)[group valueForProperty:ALAssetsGroupPropertyName];
-                NSUInteger nType = [[group valueForProperty:ALAssetsGroupPropertyType] intValue];
-                if ([[sGroupPropertyName lowercaseString] isEqualToString:@"camera roll"] && nType == ALAssetsGroupSavedPhotos) {
-                    [self.assetGroups insertObject:group atIndex:0];
-                } else {
-                    [self.assetGroups addObject:group];
-                }
-                [self reloadTableView];
-                self.assetsCollectionViewController.assetGroup = self.assetGroups.firstObject;
-            };
-            void (^assetGroupEnumberatorFailure)(NSError *) = ^(NSError *error) {
-                if ([ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusDenied) {
-                    NSString *errorMessage = NSLocalizedString(@"This app does not have access to your photos or videos. You can enable access in Privacy Settings.", nil);
-                    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Access Denied", nil) message:errorMessage delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil] show];
-                } else {
-                    NSString *errorMessage = [NSString stringWithFormat:@"Album Error: %@ - %@", [error localizedDescription], [error localizedRecoverySuggestion]];
-                    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:errorMessage delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil] show];
-                }
-            };
-            [self.library enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:assetGroupEnumerator failureBlock:assetGroupEnumberatorFailure];
-        }
-    });
 }
 
 - (void)reloadTableView

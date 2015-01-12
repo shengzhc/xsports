@@ -8,6 +8,8 @@
 
 #import "CamScrollView.h"
 
+#import "ELCAssetsCollector.h"
+
 @interface CamScrollView () < UIScrollViewDelegate, UIGestureRecognizerDelegate >
 @property (strong, nonatomic) UIPanGestureRecognizer *restrictionPanGestureRecognizer;
 @property (strong, nonatomic) NSTimer *recordingTimer;
@@ -51,8 +53,6 @@
     self.picGalleryButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.picGalleryButton.layer.cornerRadius = 5.0;
     self.picGalleryButton.layer.masksToBounds = YES;
-    [self.picGalleryButton setImage:[UIImage imageNamed:@"ico_cam_grid_white"] forState:UIControlStateNormal];
-    [self.picGalleryButton setImage:[UIImage imageNamed:@"ico_cam_grid_green"] forState:UIControlStateSelected|UIControlStateHighlighted];
     [self.picGalleryButton addTarget:nil action:@selector(didPicGalleryButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.picGalleryButton];
     
@@ -73,8 +73,6 @@
     self.videoGalleryButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.videoGalleryButton.layer.cornerRadius = 5.0;
     self.videoGalleryButton.layer.masksToBounds = YES;
-    [self.videoGalleryButton setImage:[UIImage imageNamed:@"ico_cam_grid_white"] forState:UIControlStateNormal];
-    [self.videoGalleryButton setImage:[UIImage imageNamed:@"ico_cam_grid_green"] forState:UIControlStateSelected|UIControlStateHighlighted];
     [self.videoGalleryButton addTarget:nil action:@selector(didVideoGalleryButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.videoGalleryButton];
 }
@@ -89,7 +87,7 @@
     self.minimumZoomScale = self.maximumZoomScale = 1.0;
     self.zoomScale = 1.0;
     
-    CGSize smallButtonSize = CGSizeMake(64, 64);
+    CGSize smallButtonSize = CGSizeMake(40, 40);
     CGSize largeButtonSize = CGSizeMake(80, 80);
     CGFloat padding = (self.bounds.size.width - smallButtonSize.width*2 - largeButtonSize.width)/4.0;
     CGFloat centerY = self.bounds.size.height/2.0;
