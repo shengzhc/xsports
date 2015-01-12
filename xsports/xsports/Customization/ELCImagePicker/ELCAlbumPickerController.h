@@ -10,6 +10,6 @@
 
 @interface ELCAlbumPickerController : UITableViewController
 @property (strong, nonatomic) ELCAssetsCollectionViewController *assetsCollectionViewController;
-@property (assign, nonatomic) NSUInteger mode;
+@property (assign, nonatomic) kAssetsPickerMode mode;
 @end
 

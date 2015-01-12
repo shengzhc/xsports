@@ -280,7 +280,7 @@ static void *AssetsCollectorIsReadyContext = &AssetsCollectorIsReadyContext;
     AssetsPickerViewController *assetsPickerViewController = (AssetsPickerViewController *)[[UIStoryboard storyboardWithName:@"Cam" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:AssetsPickerViewControllerIdentifier];
     assetsPickerViewController.mode = kAssetsPickerModePhoto;
     [assetsPickerViewController view];
-    
+
     [self.curtainViewController closeCurtainWithCompletionHandler:^{
         [self.navigationController pushViewController:assetsPickerViewController animated:YES];
     }];
