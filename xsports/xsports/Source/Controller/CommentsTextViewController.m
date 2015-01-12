@@ -52,18 +52,19 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor clearColor];
     
-    self.textView.placeholder = NSLocalizedString(@"Comment", nil);
+    self.textView.placeholder = GET_STRING(@"message");
     [self.textView setTintColor:[UIColor textFieldCursorColor]];
     [self.textView setPlaceholderColor:[UIColor textFieldPlaceHolderColor]];
-    [self.textView setFont:[UIFont regularFont]];
-    [self.textView setTextColor:[UIColor semiFujiColor]];
+    [self.textView setFont:[UIFont chnRegularFont]];
+    [self.textView setTextColor:[UIColor cGrayColor]];
+    self.textView.keyboardAppearance = UIKeyboardAppearanceDark;
     self.textView.layer.borderColor = [UIColor colorWithRed:217.0/255.0 green:217.0/255.0 blue:217.0/255.0 alpha:1.0].CGColor;
     self.textView.pastableMediaTypes = SLKPastableMediaTypeAll|SLKPastableMediaTypePassbook;
     
-    [self.rightButton setTitle:NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
-    [self.rightButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.rightButton.titleLabel.font = [UIFont regularFontWithSize:16.0];
-    [self.rightButton setBackgroundColor:[UIColor lightBambooColor]];
+    [self.rightButton setTitle:GET_STRING(@"send") forState:UIControlStateNormal];
+    [self.rightButton setTitleColor:[UIColor cGrayColor] forState:UIControlStateNormal];
+    self.rightButton.titleLabel.font = [UIFont chnRegularFontWithSize:12.0];
+    [self.rightButton setBackgroundColor:[UIColor cYellowColor]];
     self.rightButton.layer.cornerRadius = 5.0;
     self.rightButton.layer.masksToBounds = YES;
     
