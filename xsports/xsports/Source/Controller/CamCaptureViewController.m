@@ -100,11 +100,6 @@ static void *AssetsCollectorIsReadyContext = &AssetsCollectorIsReadyContext;
     }];
 }
 
-- (void)dealloc
-{
-//    [[ELCAssetsCollector sharedInstance] removeObserver:self forKeyPath:@"isReady"];
-}
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if (context == SessionRunningAndDeviceAuthorizedContext) {
