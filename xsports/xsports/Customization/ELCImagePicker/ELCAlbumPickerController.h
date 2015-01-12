@@ -9,8 +9,7 @@
 #import "ELCAssetsCollectionViewController.h"
 
 @interface ELCAlbumPickerController : UITableViewController
-@property (nonatomic, strong) NSMutableArray *assetGroups;
-@property (nonatomic, strong) NSArray *mediaTypes;
 @property (strong, nonatomic) ELCAssetsCollectionViewController *assetsCollectionViewController;
+@property (assign, nonatomic) NSUInteger mode;
 @end
 

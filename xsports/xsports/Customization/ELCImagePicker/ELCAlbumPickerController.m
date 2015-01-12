@@ -5,14 +5,15 @@
 //  Copyright 2011 ELC Technologies. All rights reserved.
 //
 
-#import <AssetsLibrary/AssetsLibrary.h>
-#import <MobileCoreServices/UTCoreTypes.h>
-
+#import "AssetsPickerViewController.h"
 #import "ELCAlbumPickerController.h"
 #import "ELCAlbumCell.h"
 
+#import "ELCAssetsCollector.h"
+
 @interface ELCAlbumPickerController ()
 @property (nonatomic, strong) ALAssetsLibrary *library;
+@property (strong, nonatomic) NSArray *assetGroups;
 @end
 
 @implementation ELCAlbumPickerController
@@ -41,6 +42,15 @@
 - (void)reloadTableView
 {
 	[self.tableView reloadData];
+}
+
+- (NSArray *)assetGroups
+{
+    if (self.mode == kAssetsPickerModePhoto) {
+        return [ELCAssetsCollector picCollector].assetGroups;
+    } else {
+        return [ELCAssetsCollector videoCollector].assetGroups;
+    }
 }
 
 #pragma mark UITableViewDataSource & UITableViewDelegate

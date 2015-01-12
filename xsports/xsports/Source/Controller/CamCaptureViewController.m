@@ -284,9 +284,7 @@ static void *AssetsCollectorIsReadyContext = &AssetsCollectorIsReadyContext;
     [assetsPickerViewController view];
     
     [self.curtainViewController closeCurtainWithCompletionHandler:^{
-        [assetsPickerViewController prepareAssetsWithCompletionHandler:^{
-            [self.navigationController pushViewController:assetsPickerViewController animated:YES];
-        }];
+        [self.navigationController pushViewController:assetsPickerViewController animated:YES];
     }];
 }
 
@@ -296,9 +294,7 @@ static void *AssetsCollectorIsReadyContext = &AssetsCollectorIsReadyContext;
     assetsPickerViewController.mode = kAssetsPickerModeVideo;
     [assetsPickerViewController view];
     [self.curtainViewController closeCurtainWithCompletionHandler:^{
-        [assetsPickerViewController prepareAssetsWithCompletionHandler:^{
-            [self.navigationController pushViewController:assetsPickerViewController animated:YES];
-        }];
+        [self.navigationController pushViewController:assetsPickerViewController animated:YES];
     }];
 }
 

@@ -17,16 +17,14 @@ typedef enum : NSUInteger {
 } kAssetsPickerMode;
 
 @interface AssetsPickerViewController : UIViewController
-@property (assign, nonatomic) kAssetsPickerMode mode;
 @property (strong, nonatomic) ELCAlbumPickerController *albumPickerController;
 @property (strong, nonatomic) AssetsPickerOverlayViewController *overlayViewController;
 @property (strong, nonatomic) CamCurtainViewController *camCurtainViewController;
+@property (assign, nonatomic) kAssetsPickerMode mode;
 
 @property (weak, nonatomic) IBOutlet UIView *overlayContainer;
 @property (weak, nonatomic) IBOutlet UIView *bottomContainer;
 @property (weak, nonatomic) IBOutlet UIView *contentContainer;
 @property (weak, nonatomic) IBOutlet UIView *curtainContainer;
-
-- (void)prepareAssetsWithCompletionHandler:(void (^)(void))completionHandler;
 
 @end
