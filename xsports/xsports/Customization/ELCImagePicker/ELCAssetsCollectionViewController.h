@@ -12,5 +12,5 @@
 
 @interface ELCAssetsCollectionViewController : UICollectionViewController < ELCAssetDelegate >
 @property (nonatomic, strong) ALAssetsGroup *assetGroup;
-@property (nonatomic, strong) NSMutableArray *elcAssets;
+@property (nonatomic, strong) NSArray *elcAssets;
 @end

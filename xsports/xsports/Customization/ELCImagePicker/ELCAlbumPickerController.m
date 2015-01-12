@@ -83,6 +83,7 @@
 {
     ALAssetsGroup *group = self.assetGroups[indexPath.row];
     self.assetsCollectionViewController.assetGroup = group;
+    self.assetsCollectionViewController.elcAssets = ([ELCAssetsCollector sharedInstance].assetsGroupAssets)[@(group.hash)];
     [self.navigationController pushViewController:self.assetsCollectionViewController animated:YES];
 }
 

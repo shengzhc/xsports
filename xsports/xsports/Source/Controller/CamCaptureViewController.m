@@ -43,7 +43,6 @@ static void *AssetsCollectorIsReadyContext = &AssetsCollectorIsReadyContext;
 {
     [super viewDidLoad];
     [self setupViews];
-    [self setupAssets];
     [self setupCaptureSession];
     [self setupRecordThread];
 }
@@ -51,6 +50,7 @@ static void *AssetsCollectorIsReadyContext = &AssetsCollectorIsReadyContext;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self setupAssets];
     dispatch_async([self sessionQueue], ^{
         [self addObserver:self forKeyPath:@"sessionRunningAndDeviceAuthorized" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:SessionRunningAndDeviceAuthorizedContext];
         __weak CamCaptureViewController *weakSelf = self;
@@ -66,6 +66,12 @@ static void *AssetsCollectorIsReadyContext = &AssetsCollectorIsReadyContext;
             [self.curtainViewController openCurtainWithCompletionHandler:nil];
         });
     });
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[ELCAssetsCollector sharedInstance] removeObserver:self forKeyPath:@"isReady"];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -96,9 +102,8 @@ static void *AssetsCollectorIsReadyContext = &AssetsCollectorIsReadyContext;
 
 - (void)dealloc
 {
-    [[ELCAssetsCollector sharedInstance] removeObserver:self forKeyPath:@"isReady"];
+//    [[ELCAssetsCollector sharedInstance] removeObserver:self forKeyPath:@"isReady"];
 }
-
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
