@@ -17,30 +17,15 @@
 
 @implementation ELCAssetsCollector
 
-+ (ELCAssetsCollector *)picCollector
++ (ELCAssetsCollector *)sharedInstance
 {
-    static ELCAssetsCollector *picCollector = nil;
+    static ELCAssetsCollector *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        picCollector = [[ELCAssetsCollector alloc] init];
-        picCollector.mediaTypes = @[];
-        [picCollector loadAssetsGroup];
+        sharedInstance = [[ELCAssetsCollector alloc] init];
+        [sharedInstance loadAssetsGroup];
     });
-    
-    return picCollector;
-}
-
-+ (ELCAssetsCollector *)videoCollector
-{
-    static ELCAssetsCollector *videoCollector = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        videoCollector = [[ELCAssetsCollector alloc] init];
-        videoCollector.mediaTypes = @[(NSString *)kUTTypeMovie];
-        [videoCollector loadAssetsGroup];
-    });
-    
-    return videoCollector;
+    return sharedInstance;
 }
 
 - (id)init
@@ -56,12 +41,10 @@
 
 - (ALAssetsFilter *)assetFilter
 {
-    if([self.mediaTypes containsObject:(NSString *)kUTTypeImage] && [self.mediaTypes containsObject:(NSString *)kUTTypeMovie]) {
-        return [ALAssetsFilter allAssets];
-    } else if([self.mediaTypes containsObject:(NSString *)kUTTypeMovie]) {
-        return [ALAssetsFilter allVideos];
-    } else {
+    if (self.mode == kAssetsPickerModePhoto) {
         return [ALAssetsFilter allPhotos];
+    } else {
+        return [ALAssetsFilter allVideos];
     }
 }
 
@@ -69,6 +52,20 @@
 {
     return [ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusAuthorized;
 }
+
+- (void)setMode:(kAssetsPickerMode)mode
+{
+    _mode = mode;
+    self.isReady = NO;
+    if (_assetGroups) {
+        for (ALAssetsGroup *group in _assetGroups) {
+            [group setAssetsFilter:[self assetFilter]];
+        }
+    }
+    self.isReady = YES;
+    [self loadAllAssets];
+}
+
 #pragma mark Load Assets
 - (void)loadAssetsGroup
 {
@@ -87,7 +84,6 @@
                 } else {
                     [_assetGroups addObject:group];
                 }
-                [self loadAssetsForAssetGroup:group];
             };
             void (^assetGroupEnumberatorFailure)(NSError *) = ^(NSError *error) {
                 if ([ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusDenied) {
@@ -103,10 +99,17 @@
     });
 }
 
+- (void)loadAllAssets
+{
+    for (ALAssetsGroup *group in _assetGroups) {
+        [self loadAssetsForAssetGroup:group];
+    }
+}
+
 - (void)loadAssetsForAssetGroup:(ALAssetsGroup *)assetsGroup
 {
     @autoreleasepool {
-        [self.assetsGroupAssets removeObjectForKey:@(assetsGroup.hash)];
+        [_assetsGroupAssets removeObjectForKey:@(assetsGroup.hash)];
         __block NSMutableArray *elcAssets = [NSMutableArray new];
         [assetsGroup enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
             if (result == nil) {
@@ -115,7 +118,7 @@
             ELCAsset *elcAsset = [[ELCAsset alloc] initWithAsset:result];
             [elcAssets addObject:elcAsset];
         }];
-        self.assetsGroupAssets[@(assetsGroup.hash)] = elcAssets;
+        _assetsGroupAssets[@(assetsGroup.hash)] = elcAssets;
     }
 }
 

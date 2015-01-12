@@ -9,8 +9,6 @@
 #import "ELCAlbumPickerController.h"
 #import "ELCAlbumCell.h"
 
-#import "ELCAssetsCollector.h"
-
 @interface ELCAlbumPickerController ()
 @property (nonatomic, strong) ALAssetsLibrary *library;
 @property (strong, nonatomic) NSArray *assetGroups;
@@ -46,11 +44,7 @@
 
 - (NSArray *)assetGroups
 {
-    if (self.mode == kAssetsPickerModePhoto) {
-        return [ELCAssetsCollector picCollector].assetGroups;
-    } else {
-        return [ELCAssetsCollector videoCollector].assetGroups;
-    }
+    return [ELCAssetsCollector sharedInstance].assetGroups;
 }
 
 #pragma mark UITableViewDataSource & UITableViewDelegate

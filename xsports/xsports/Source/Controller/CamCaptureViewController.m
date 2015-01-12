@@ -9,7 +9,6 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "CamCaptureViewController.h"
 #import "AssetsPickerViewController.h"
-#import "ELCAssetsCollector.h"
 
 #define Max_Record_Duration 10.0f
 static void *CapturingStillImageContext = &CapturingStillImageContext;
@@ -44,7 +43,7 @@ static void *AssetsCollectorIsReadyContext = &AssetsCollectorIsReadyContext;
 {
     [super viewDidLoad];
     [self setupViews];
-    [self prepareAssets];
+    [self setupAssets];
     [self setupCaptureSession];
     [self setupRecordThread];
 }
@@ -97,10 +96,53 @@ static void *AssetsCollectorIsReadyContext = &AssetsCollectorIsReadyContext;
 
 - (void)dealloc
 {
-    [[ELCAssetsCollector picCollector] removeObserver:self forKeyPath:@"isReady"];
-    [[ELCAssetsCollector videoCollector] removeObserver:self forKeyPath:@"isReady"];
+    [[ELCAssetsCollector sharedInstance] removeObserver:self forKeyPath:@"isReady"];
 }
 
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == SessionRunningAndDeviceAuthorizedContext) {
+        BOOL isRunning = [change[NSKeyValueChangeNewKey] boolValue];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (isRunning) {
+            } else {
+            }
+        });
+    } else if (context == RecordingContext) {
+        BOOL isRecording = [change[NSKeyValueChangeNewKey] boolValue];
+        if (isRecording) {
+            [self.condition lock];
+            [self.condition signal];
+            [self.condition unlock];
+        } else {
+            
+        }
+    } else if (context == AssetsCollectorIsReadyContext) {
+        if ([change[NSKeyValueChangeNewKey] boolValue]) {
+            if ([ELCAssetsCollector sharedInstance].mode == kAssetsPickerModePhoto) {
+                if ([[ELCAssetsCollector sharedInstance] isAuthorized] && [ELCAssetsCollector sharedInstance].assetGroups.count > 0) {
+                    ALAssetsGroup *group = (ALAssetsGroup *)[ELCAssetsCollector sharedInstance].assetGroups[0];
+                    UIImage *posterImage = [UIImage imageWithCGImage:[group posterImage]];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.modeViewController.scrollView.picGalleryButton setImage:posterImage forState:UIControlStateNormal];
+                    });
+                }
+            } else {
+                if ([[ELCAssetsCollector sharedInstance] isAuthorized] && [ELCAssetsCollector sharedInstance].assetGroups.count > 0) {
+                    ALAssetsGroup *group = (ALAssetsGroup *)[ELCAssetsCollector sharedInstance].assetGroups[0];
+                    UIImage *posterImage = [UIImage imageWithCGImage:[group posterImage]];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.modeViewController.scrollView.videoGalleryButton setImage:posterImage forState:UIControlStateNormal];
+                        [ELCAssetsCollector sharedInstance].mode = kAssetsPickerModePhoto;
+                    });
+                }
+            }
+        }
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
 #pragma mark Setup
 - (void)setupViews
 {
@@ -203,12 +245,11 @@ static void *AssetsCollectorIsReadyContext = &AssetsCollectorIsReadyContext;
     [self.session commitConfiguration];
 }
 
-- (void)prepareAssets
+- (void)setupAssets
 {
-    [[ELCAssetsCollector picCollector] addObserver:self forKeyPath:@"isReady" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:AssetsCollectorIsReadyContext];
-    [[ELCAssetsCollector videoCollector] addObserver:self forKeyPath:@"isReady" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:AssetsCollectorIsReadyContext];
+    [[ELCAssetsCollector sharedInstance] addObserver:self forKeyPath:@"isReady" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:AssetsCollectorIsReadyContext];
+    [ELCAssetsCollector sharedInstance].mode = kAssetsPickerModeVideo;
 }
-
 
 - (BOOL)isSessionRunningAndDeviceAuthorized
 {
@@ -230,49 +271,6 @@ static void *AssetsCollectorIsReadyContext = &AssetsCollectorIsReadyContext;
         }
         [self.condition wait];
         [self.condition unlock];
-    }
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if (context == SessionRunningAndDeviceAuthorizedContext) {
-        BOOL isRunning = [change[NSKeyValueChangeNewKey] boolValue];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (isRunning) {
-            } else {
-            }
-        });
-    } else if (context == RecordingContext) {
-        BOOL isRecording = [change[NSKeyValueChangeNewKey] boolValue];
-        if (isRecording) {
-            [self.condition lock];
-            [self.condition signal];
-            [self.condition unlock];
-        } else {
-            
-        }
-    } else if (context == AssetsCollectorIsReadyContext) {
-        if ([change[NSKeyValueChangeNewKey] boolValue]) {
-            if (object == [ELCAssetsCollector picCollector]) {
-                if ([[ELCAssetsCollector picCollector] isAuthorized] && [ELCAssetsCollector picCollector].assetGroups.count > 0) {
-                    ALAssetsGroup *group = (ALAssetsGroup *)[ELCAssetsCollector picCollector].assetGroups[0];
-                    UIImage *posterImage = [UIImage imageWithCGImage:[group posterImage]];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self.modeViewController.scrollView.picGalleryButton setImage:posterImage forState:UIControlStateNormal];
-                    });
-                }
-            } else {
-                if ([[ELCAssetsCollector videoCollector] isAuthorized] && [ELCAssetsCollector videoCollector].assetGroups.count > 0) {
-                    ALAssetsGroup *group = (ALAssetsGroup *)[ELCAssetsCollector videoCollector].assetGroups[0];
-                    UIImage *posterImage = [UIImage imageWithCGImage:[group posterImage]];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self.modeViewController.scrollView.videoGalleryButton setImage:posterImage forState:UIControlStateNormal];
-                    });
-                }
-            }
-        }
-    } else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
 

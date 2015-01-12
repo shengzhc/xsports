@@ -8,8 +8,6 @@
 
 #import "CamScrollView.h"
 
-#import "ELCAssetsCollector.h"
-
 @interface CamScrollView () < UIScrollViewDelegate, UIGestureRecognizerDelegate >
 @property (strong, nonatomic) UIPanGestureRecognizer *restrictionPanGestureRecognizer;
 @property (strong, nonatomic) NSTimer *recordingTimer;

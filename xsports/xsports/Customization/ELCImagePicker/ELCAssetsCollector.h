@@ -9,13 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "ELCAsset.h"
 
+typedef enum : NSUInteger {
+    kAssetsPickerModePhoto,
+    kAssetsPickerModeVideo
+} kAssetsPickerMode;
+
 @interface ELCAssetsCollector : NSObject
-@property (strong, nonatomic) NSArray *mediaTypes;
+@property (assign, nonatomic) kAssetsPickerMode mode;
 @property (strong, nonatomic, readonly) NSMutableArray *assetGroups;
 @property (strong, nonatomic, readonly) NSMutableDictionary *assetsGroupAssets;
 @property (assign, nonatomic) BOOL isReady;
-+ (ELCAssetsCollector *)picCollector;
-+ (ELCAssetsCollector *)videoCollector;
++ (ELCAssetsCollector *)sharedInstance;
 - (void)loadAssetsGroup;
 - (BOOL)isAuthorized;
 @end

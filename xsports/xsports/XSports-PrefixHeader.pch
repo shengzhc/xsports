@@ -53,6 +53,7 @@
 
 #import "InstagramServices.h"
 #import "AVPlayerManager.h"
+#import "ELCAssetsCollector.h"
 
 #define GET_STRING(key) [SCLocalizable localizedStringForKey:key table:nil]
 

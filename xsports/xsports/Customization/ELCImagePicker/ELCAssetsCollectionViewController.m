@@ -16,63 +16,6 @@
 
 @implementation ELCAssetsCollectionViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.elcAssets = [NSMutableArray new];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preparePhotos) name:ALAssetsLibraryChangedNotification object:nil];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:ALAssetsLibraryChangedNotification object:nil];
-}
-
-- (void)setAssetGroup:(ALAssetsGroup *)assetGroup
-{
-    if (_assetGroup == assetGroup) {
-        return;
-    }
-    
-    _assetGroup = assetGroup;
-    [self preparePhotos];
-}
-
-- (void)load
-{
-    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-    self.elcAssets = tempArray;
-    [self performSelectorInBackground:@selector(preparePhotos) withObject:nil];
-}
-
-- (void)preparePhotos
-{
-    @autoreleasepool {
-        [self.elcAssets removeAllObjects];
-        [self.assetGroup enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
-            if (result == nil) {
-                return;
-            }
-            ELCAsset *elcAsset = [[ELCAsset alloc] initWithAsset:result];
-            [self.elcAssets addObject:elcAsset];
-        }];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.collectionView reloadData];
-            NSInteger section = [self.collectionView numberOfSections] - 1;
-            NSInteger item = [self.collectionView numberOfItemsInSection:0] - 1;
-            if (section >= 0 && item >= 0) {
-                [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
-            }
-        });
-    }
-}
-
 #pragma mark UICollectionViewDataSource & UICollectionViewDelegate
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -91,7 +34,6 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        
         ELCAssetsCollectionHeaderCell *cell = (ELCAssetsCollectionHeaderCell *)[collectionView dequeueReusableCellWithReuseIdentifier:ELCAssetsCollectionHeaderCellIdentifier forIndexPath:indexPath];
         cell.titleLabel.text = [[self.assetGroup valueForProperty:ALAssetsGroupPropertyName] uppercaseString];
         cell.backBlock = ^{
