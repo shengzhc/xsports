@@ -66,6 +66,12 @@
 #define COCOAPODS_VERSION_MINOR_CocoaLumberjack_Extensions 9
 #define COCOAPODS_VERSION_PATCH_CocoaLumberjack_Extensions 2
 
+// CrittercismSDK
+#define COCOAPODS_POD_AVAILABLE_CrittercismSDK
+#define COCOAPODS_VERSION_MAJOR_CrittercismSDK 5
+#define COCOAPODS_VERSION_MINOR_CrittercismSDK 0
+#define COCOAPODS_VERSION_PATCH_CrittercismSDK 7
+
 // ECSlidingViewController
 #define COCOAPODS_POD_AVAILABLE_ECSlidingViewController
 #define COCOAPODS_VERSION_MAJOR_ECSlidingViewController 2

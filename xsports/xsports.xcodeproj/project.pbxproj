@@ -24,6 +24,9 @@
 		9C11A4641A45F08400A9E4CD /* CommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C11A4631A45F08400A9E4CD /* CommentsCell.xib */; };
 		9C1EE3461A4B2085007372BD /* Microsoft-YaHei.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C1EE3451A4B2085007372BD /* Microsoft-YaHei.ttf */; };
 		9C1EE3491A4B268F007372BD /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1EE3481A4B268F007372BD /* SignUpViewController.m */; };
+		9C24C4D81A6B07F5007B053C /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 9C24C4D61A6B07F5007B053C /* dsym_upload.sh */; };
+		9C24C4D91A6B07F5007B053C /* libCrittercism_v5_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C24C4D71A6B07F5007B053C /* libCrittercism_v5_0_7.a */; };
+		9C24C4DB1A6B082B007B053C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C24C4DA1A6B082B007B053C /* SystemConfiguration.framework */; };
 		9C27A0DE1A626B3B00B332C6 /* ELCAssetsCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C27A0DD1A626B3B00B332C6 /* ELCAssetsCollector.m */; };
 		9C3428561A455D9D0021AB2B /* PageNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3428551A455D9D0021AB2B /* PageNavigationController.m */; };
 		9C3428591A455F940021AB2B /* LikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3428581A455F940021AB2B /* LikesViewController.m */; };
@@ -153,6 +156,12 @@
 		9C1EE3451A4B2085007372BD /* Microsoft-YaHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Microsoft-YaHei.ttf"; sourceTree = "<group>"; };
 		9C1EE3471A4B268F007372BD /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		9C1EE3481A4B268F007372BD /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		9C24C4D31A6B07F5007B053C /* CRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFilter.h; sourceTree = "<group>"; };
+		9C24C4D41A6B07F5007B053C /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
+		9C24C4D51A6B07F5007B053C /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
+		9C24C4D61A6B07F5007B053C /* dsym_upload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dsym_upload.sh; sourceTree = "<group>"; };
+		9C24C4D71A6B07F5007B053C /* libCrittercism_v5_0_7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v5_0_7.a; sourceTree = "<group>"; };
+		9C24C4DA1A6B082B007B053C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9C27A0DC1A626B3B00B332C6 /* ELCAssetsCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetsCollector.h; sourceTree = "<group>"; };
 		9C27A0DD1A626B3B00B332C6 /* ELCAssetsCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetsCollector.m; sourceTree = "<group>"; };
 		9C3428541A455D9D0021AB2B /* PageNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageNavigationController.h; sourceTree = "<group>"; };
@@ -326,7 +335,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C24C4DB1A6B082B007B053C /* SystemConfiguration.framework in Frameworks */,
 				9C06BEEB1A4D2B32008430B9 /* MediaPlayer.framework in Frameworks */,
+				9C24C4D91A6B07F5007B053C /* libCrittercism_v5_0_7.a in Frameworks */,
 				9C09286B1A401D5E001340F2 /* AssetsLibrary.framework in Frameworks */,
 				9C0928691A401D50001340F2 /* AVFoundation.framework in Frameworks */,
 				9C835CDB1A3AC47100A75B91 /* QuartzCore.framework in Frameworks */,
@@ -356,6 +367,7 @@
 		9A695D9815CBD1C135E8EF80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9C24C4DA1A6B082B007B053C /* SystemConfiguration.framework */,
 				9C06BEEA1A4D2B32008430B9 /* MediaPlayer.framework */,
 				9C09286A1A401D5E001340F2 /* AssetsLibrary.framework */,
 				9C0928681A401D50001340F2 /* AVFoundation.framework */,
@@ -376,6 +388,26 @@
 				9CCF5AA51A4BDF12001B9029 /* SCLocalizable.m */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		9C24C4D11A6B07F5007B053C /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				9C24C4D21A6B07F5007B053C /* CrittercismSDK */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		9C24C4D21A6B07F5007B053C /* CrittercismSDK */ = {
+			isa = PBXGroup;
+			children = (
+				9C24C4D31A6B07F5007B053C /* CRFilter.h */,
+				9C24C4D41A6B07F5007B053C /* Crittercism.h */,
+				9C24C4D51A6B07F5007B053C /* CrittercismDelegate.h */,
+				9C24C4D61A6B07F5007B053C /* dsym_upload.sh */,
+				9C24C4D71A6B07F5007B053C /* libCrittercism_v5_0_7.a */,
+			);
+			path = CrittercismSDK;
 			sourceTree = "<group>";
 		};
 		9C3C481D1A50714B00BABAED /* Manager */ = {
@@ -404,6 +436,7 @@
 		9C7DEBA31A396E6B00A0436E = {
 			isa = PBXGroup;
 			children = (
+				9C24C4D11A6B07F5007B053C /* ThirdParty */,
 				9C7DEBAE1A396E6B00A0436E /* xsports */,
 				9C7DEBC81A396E6B00A0436E /* xsportsTests */,
 				9C7DEBAD1A396E6B00A0436E /* Products */,
@@ -840,6 +873,7 @@
 				9C7DEBA91A396E6B00A0436E /* Frameworks */,
 				9C7DEBAA1A396E6B00A0436E /* Resources */,
 				75267A5FC515491E1D5770C5 /* Copy Pods Resources */,
+				9C24C4DC1A6B099F007B053C /* Crittercism upload */,
 			);
 			buildRules = (
 			);
@@ -918,6 +952,7 @@
 				9CF88D461A3FE5ED00D4E72E /* Tasks in Resources */,
 				9CBCE7521A3ECD9000C9BD35 /* SourceSansPro-ExtraLight.otf in Resources */,
 				9C1EE3461A4B2085007372BD /* Microsoft-YaHei.ttf in Resources */,
+				9C24C4D81A6B07F5007B053C /* dsym_upload.sh in Resources */,
 				9C4B94F91A425FFC00DFCC7F /* FeedViewGridVideoCell.xib in Resources */,
 				9CBCE7581A3ECD9000C9BD35 /* SourceSansPro-Semibold.otf in Resources */,
 				9CBCE7501A3ECD9000C9BD35 /* SourceSansPro-Bold.otf in Resources */,
@@ -962,6 +997,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-xsports/Pods-xsports-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		9C24C4DC1A6B099F007B053C /* Crittercism upload */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Crittercism upload";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SHOW_CONSOLE=1\nSIM_DSYM_UPLOAD=0\nAPP_ID=\"54bacfba3cf56b9e0457d42f\"\nAPI_KEY=\"2ro8RoJC5tfoJ7M3bX5kt8CTFblAYHV7\"\nsource \"${SRCROOT}\"/ThirdParty/CrittercismSDK/dsym_upload.sh";
 		};
 		B41A7C423164E6839B11C044 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1202,12 +1251,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xsports/XSports-PrefixHeader.pch";
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INFOPLIST_FILE = xsports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ThirdParty/CrittercismSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1221,12 +1275,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xsports/XSports-PrefixHeader.pch";
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INFOPLIST_FILE = xsports/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ThirdParty/CrittercismSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

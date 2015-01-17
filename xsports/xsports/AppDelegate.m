@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "Crittercism.h"
+
 #import "SDWebImageManager.h"
 
 @interface AppDelegate ()
@@ -18,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self setupCrittercism];
     [self setupImageCache];
     [self setupGlobalAppearence];
     return YES;
@@ -26,6 +29,11 @@
 - (void)setupGlobalAppearence
 {
     [[UITextField appearance] setKeyboardAppearance:UIKeyboardAppearanceDark];
+}
+
+- (void)setupCrittercism
+{
+    [Crittercism enableWithAppID:@"54bacfba3cf56b9e0457d42f"];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

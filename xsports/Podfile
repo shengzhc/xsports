@@ -21,6 +21,7 @@ pod 'SVPullToRefresh'
 pod 'VCTransitionsLibrary'
 pod 'SlackTextViewController'
 pod 'WEPopover'
+pod  'CrittercismSDK'
 
 end
 
