@@ -61,7 +61,7 @@
     _liker = liker;
     self.accountLabel.text = liker.userName;
     self.nameLabel.text = liker.fullName;
-    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:liker.profilePicture] placeholderImage:[UIImage imageNamed:@"ico_myself"]];
+    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:liker.profilePicture] placeholderImage:[UIImage imageNamed:@"user_placeholder"]];
 }
 
 - (IBAction)didFollowButtonClicked:(id)sender

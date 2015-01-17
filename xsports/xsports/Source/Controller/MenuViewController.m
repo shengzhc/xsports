@@ -46,7 +46,7 @@
     
     self.nameLabel.text = _user.userName;
     self.locationLabel.text = _user.website.length > 0 ? _user.website: @"San Francisco";
-    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:_user.profilePicture] placeholderImage:[UIImage imageNamed:@"ico_myself"]];
+    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:_user.profilePicture] placeholderImage:[UIImage imageNamed:@"user_placeholder"]];
 
     self.myselfViewController.user = _user;
     self.myselfViewController.userId = _user.uid;

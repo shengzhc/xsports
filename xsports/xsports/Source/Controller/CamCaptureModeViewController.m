@@ -97,9 +97,9 @@
 {
     self.lastPageIndex = pageIndex;
     if (pageIndex == 0) {
-        [self.scrollView.mediaSwitchButton setImage:[UIImage imageNamed:@"ico_media_video"] forState:UIControlStateNormal];
+        [self.scrollView.mediaSwitchButton setImage:[UIImage imageNamed:@"ico_video"] forState:UIControlStateNormal];
     } else {
-        [self.scrollView.mediaSwitchButton setImage:[UIImage imageNamed:@"ico_media_photo"] forState:UIControlStateNormal];
+        [self.scrollView.mediaSwitchButton setImage:[UIImage imageNamed:@"ico_camera_gray"] forState:UIControlStateNormal];
     }
     
     if ([self.delegate respondsToSelector:@selector(camCaptureModeViewController:didEndDisplayingPageAtIndex:)]) {

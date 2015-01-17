@@ -55,17 +55,17 @@
     [self addSubview:self.picGalleryButton];
     
     self.stillCaptureButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.stillCaptureButton setImage:[UIImage imageNamed:@"ico_snap"] forState:UIControlStateNormal];
+    [self.stillCaptureButton setImage:[UIImage imageNamed:@"ico_snap_yellow"] forState:UIControlStateNormal];
     [self.stillCaptureButton addTarget:nil action:@selector(didStillCaptureButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.stillCaptureButton];
 
     self.mediaSwitchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.mediaSwitchButton setImage:[UIImage imageNamed:@"ico_media_video"] forState:UIControlStateNormal];
+    [self.mediaSwitchButton setImage:[UIImage imageNamed:@"ico_video"] forState:UIControlStateNormal];
     [self.mediaSwitchButton addTarget:self action:@selector(didMediaSwitchButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.mediaSwitchButton];
 
     self.recordCaptureButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.recordCaptureButton setImage:[UIImage imageNamed:@"ico_record"] forState:UIControlStateNormal];
+    [self.recordCaptureButton setImage:[UIImage imageNamed:@"ico_video_record"] forState:UIControlStateNormal];
     [self addSubview:self.recordCaptureButton];
     
     self.videoGalleryButton = [UIButton buttonWithType:UIButtonTypeCustom];

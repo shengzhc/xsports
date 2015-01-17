@@ -404,10 +404,13 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjT-qB-0lI" userLabel="grid">
                                                         <rect key="frame" x="50" y="2" width="40" height="40"/>
-                                                        <state key="normal" backgroundImage="ico_cam_grid_white">
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="40" id="93G-mb-9bu"/>
+                                                            <constraint firstAttribute="height" constant="40" id="A4G-lf-a7X"/>
+                                                        </constraints>
+                                                        <state key="normal" image="ico_grid">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
-                                                        <state key="highlighted" backgroundImage="ico_cam_grid_green"/>
                                                         <connections>
                                                             <action selector="didGridButtonClicked:" destination="CiI-yr-tP2" eventType="touchUpInside" id="SCV-e3-vqM"/>
                                                         </connections>
@@ -422,12 +425,15 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dzp-E7-I4U" userLabel="right">
                                                 <rect key="frame" x="180" y="0.0" width="140" height="44"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neW-6C-e3o" userLabel="flip">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neW-6C-e3o" userLabel="flip">
                                                         <rect key="frame" x="50" y="2" width="40" height="40"/>
-                                                        <state key="normal" backgroundImage="ico_flash_white">
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="0OI-hg-Q8D"/>
+                                                            <constraint firstAttribute="width" constant="40" id="d2N-Dy-6vE"/>
+                                                        </constraints>
+                                                        <state key="normal" image="ico_flash">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
-                                                        <state key="selected" backgroundImage="ico_flash_green"/>
                                                         <connections>
                                                             <action selector="didFlashButtonClicked:" destination="CiI-yr-tP2" eventType="touchUpInside" id="pPx-TV-Isb"/>
                                                         </connections>
@@ -439,12 +445,15 @@
                                                     <constraint firstAttribute="centerX" secondItem="neW-6C-e3o" secondAttribute="centerX" id="qEn-Ek-ZO0"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPj-ft-nMo" userLabel="rotate">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPj-ft-nMo" userLabel="rotate">
                                                 <rect key="frame" x="140" y="2" width="40" height="40"/>
-                                                <state key="normal" backgroundImage="ico_cam_rotate_white">
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="8LX-6C-dxV"/>
+                                                    <constraint firstAttribute="width" constant="40" id="W55-3Q-7GP"/>
+                                                </constraints>
+                                                <state key="normal" image="ico_cam_turn">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="highlighted" backgroundImage="ico_cam_rotate_green"/>
                                                 <connections>
                                                     <action selector="didRotateButtonClicked:" destination="CiI-yr-tP2" eventType="touchUpInside" id="r1y-xT-qtT"/>
                                                 </connections>
@@ -650,9 +659,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cHY-Zh-wAZ" userLabel="tool bar">
                                 <rect key="frame" x="0.0" y="364" width="320" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5G7-WC-sib">
-                                        <rect key="frame" x="149" y="14" width="22" height="22"/>
-                                        <state key="normal" backgroundImage="ico_back">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5G7-WC-sib">
+                                        <rect key="frame" x="140" y="5" width="40" height="40"/>
+                                        <state key="normal" image="ico_slide">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -917,9 +926,13 @@
         <image name="ico_cam_grid_white" width="40" height="40"/>
         <image name="ico_cam_rotate_green" width="40" height="40"/>
         <image name="ico_cam_rotate_white" width="40" height="40"/>
+        <image name="ico_cam_turn" width="24" height="24"/>
         <image name="ico_close" width="44" height="44"/>
+        <image name="ico_flash" width="24" height="24"/>
         <image name="ico_flash_green" width="40" height="40"/>
         <image name="ico_flash_white" width="40" height="40"/>
+        <image name="ico_grid" width="24" height="24"/>
+        <image name="ico_slide" width="40" height="40"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

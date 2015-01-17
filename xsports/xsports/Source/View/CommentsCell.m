@@ -41,7 +41,7 @@
     self.nameLabel.text = comment.creator.userName;
     self.commentLabel.text = comment.text;
     self.timeLabel.text = [comment.createdTime dateOffset];
-    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:comment.creator.profilePicture] placeholderImage:[UIImage imageNamed:@"ico_myself"]];
+    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:comment.creator.profilePicture] placeholderImage:[UIImage imageNamed:@"user_placeholder"]];
 }
 
 @end

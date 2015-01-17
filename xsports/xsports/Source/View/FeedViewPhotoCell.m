@@ -50,8 +50,8 @@
     _media = media;
     self.nameLabel.text = media.creator.fullName;
     self.captionLabel.text = media.caption.text;
-    [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:media.images.standard.url] placeholderImage:[UIImage imageNamed:@"bg_sign"] options:SDWebImageContinueInBackground];
-    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:media.creator.profilePicture] placeholderImage:[UIImage imageNamed:@"ico_myself"] options:SDWebImageContinueInBackground];
+    [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:media.images.standard.url] placeholderImage:[UIImage imageNamed:@"img_placeholder"] options:SDWebImageContinueInBackground];
+    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:media.creator.profilePicture] placeholderImage:[UIImage imageNamed:@"user_placeholder"] options:SDWebImageContinueInBackground];
     self.timeLabel.text = [media.createdTime dateOffset];
     [self updateLikeButton:media.isLike];
 }

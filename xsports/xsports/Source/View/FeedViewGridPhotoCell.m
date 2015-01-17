@@ -19,7 +19,7 @@
 - (void)setMedia:(Media *)media
 {
     _media = media;
-    [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:media.images.standard.url] placeholderImage:nil options:SDWebImageContinueInBackground];
+    [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:media.images.standard.url] placeholderImage:[UIImage imageNamed:@"img_placeholder"] options:SDWebImageContinueInBackground];
 }
 
 @end
